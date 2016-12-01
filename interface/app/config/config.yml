@@ -73,3 +73,18 @@ fos_user:
         form:
             type: AppBundle\Form\RegistrationType
             # type: app_user_registration
+        confirmation:
+            enabled: true
+            from_email:
+                address:        registration@example.com
+                sender_name:    Demo Registration
+                
+    from_email:
+        address:        noreply@example.com
+        sender_name:    Demo App
+        
+    resetting:
+        email:
+            from_email:
+                address:        resetting@example.com
+                sender_name:    Demo Resetting
