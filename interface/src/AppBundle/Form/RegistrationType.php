@@ -12,6 +12,7 @@ class RegistrationType extends AbstractType
     {
         $builder->add('name');
         $builder->add('surname');
+        $builder->add('roles');
     }
 
     public function getParent()
@@ -35,6 +36,10 @@ class RegistrationType extends AbstractType
     
     public function getSurname()
     {
+        return $this->getBlockPrefix();
+    }
+    
+    public function getRoles() {
         return $this->getBlockPrefix();
     }
 }
