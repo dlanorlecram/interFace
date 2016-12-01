@@ -37,8 +37,14 @@ class User extends BaseUser
     /**
      * {@inheritdoc}
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->name;
+    }
+    
+    public function setName($name)
+    {
+        $this->name = $name;
     }
     
     /**
@@ -60,5 +66,10 @@ class User extends BaseUser
      */
     public function getSurname() {
         return $this->surname;
+    }
+    
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
     }
 }
