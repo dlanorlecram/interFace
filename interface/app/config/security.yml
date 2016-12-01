@@ -12,11 +12,7 @@ security:
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         in_memory:
-            memory:
-              users:
-                admin:
-                  password: admin
-                  roles: 'ROLE_ADMIN'
+            memory: ~
         fos_userbundle:
             id: fos_user.user_provider.username
 
@@ -47,6 +43,7 @@ security:
    
     access_control:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: ROLE_ADMIN }
+        - { path: ^/register, role: ROLE_USER }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: /, role: ROLE_USER }
