@@ -33,13 +33,5 @@ class RegistrationType extends AbstractType
     {
         return $this->getBlockPrefix();
     }
-    
-    public function getSurname()
-    {
-        return $this->getBlockPrefix();
-    }
-    
-    public function getRoles() {
-        return $this->getBlockPrefix();
-    }
+
 }
