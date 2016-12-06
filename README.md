@@ -7,13 +7,9 @@ Lancer les commandes suivantes:
 
 `cd interFace/interface`
 
-`composer install`
-
-Vous devriez voir des messages en verts apparaitre dans votre console
-
 Paramétrez le fichier parameters.yml (attention à ne mettre aucune tabulation)
 
-Démarrer le serveur de Symfony en lancant la commande :
+Lancez la commande (elle mettra à jour les dépendances, votre base de données et lancera le serveur):
 
 `./run.sh`
 
@@ -26,5 +22,7 @@ Vous pouvez aller voir à l'adresse : http://localhost:8000/app_dev.php/login , 
 
 ##Documentation
 Information concernant les templates qui s'occupent de la vue :
+
 http://symfony.com/doc/master/bundles/FOSUserBundle/overriding_templates.html
+
 https://symfony.com/doc/2.8/controller/error_pages.html#controller-error-pages-by-status-code
