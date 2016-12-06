@@ -32,19 +32,19 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $name;
+    protected $prenom;
     
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getprenom()
     {
-        return $this->name;
+        return $this->prenom;
     }
     
-    public function setName($name)
+    public function setprenom($prenom)
     {
-        $this->name = $name;
+        $this->prenom = $prenom;
     }
     
     /**
@@ -59,17 +59,17 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $surname;
+    protected $nom;
     
     /**
      * {@inheritdoc}
      */
-    public function getSurname() {
-        return $this->surname;
+    public function getnom() {
+        return $this->nom;
     }
     
-    public function setSurname($surname)
+    public function setnom($nom)
     {
-        $this->surname = $surname;
+        $this->nom = $nom;
     }
 }
