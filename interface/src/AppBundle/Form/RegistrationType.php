@@ -15,7 +15,8 @@ class RegistrationType extends AbstractType
         $builder->add('roles', 'collection', array(
                    'type' => 'choice',
                    'options' => array(
-                       'choices' => array(
+                        'label' => false,
+                        'choices' => array(
                             'ROLE_USER' => 'Utilisateur',
                             'ROLE_ADMIN' => 'Administrateur'
                        )
