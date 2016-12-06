@@ -32,3 +32,4 @@ php app/console doctrine:schema:update --force
 ##Documentation
 Information concernant les templates qui s'occupent de la vue :
 http://symfony.com/doc/master/bundles/FOSUserBundle/overriding_templates.html
+https://symfony.com/doc/2.8/controller/error_pages.html#controller-error-pages-by-status-code
