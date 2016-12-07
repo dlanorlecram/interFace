@@ -5,6 +5,13 @@
     </head>
     <body>
         <div>
+            <a href="{{ path('homepage') }}">Accueil</a>
+            <a href="{{ path('fos_user_profile_show') }}">Votre Profil</a>
+            {% if is_granted("ROLE_ADMIN") %}
+                <a href="{{ path('fos_user_registration_register') }}">Créer un utilisateur</a>
+            {% endif %}
+        </div>
+        <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
