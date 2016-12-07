@@ -10,10 +10,25 @@ class ProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name');
-        $builder->add('surname');
-        $builder->add('roles');
+        $builder->add('nom');
+        $builder->add('prenom');
         $builder->add('enabled');
+        $builder->add('roles', 'collection', array(
+                   'type' => 'choice',
+                   'options' => array(
+                        'label' => false,
+                        'choices' => array(
+                            'ROLE_USER' => 'Utilisateur',
+                            'ROLE_ADMIN' => 'Administrateur'
+                       )
+                   )
+               )
+        );
+        $builder->add('imageFile', 'vich_file', array(
+            'required'      => false,
+            'allow_delete'  => true, // not mandatory, default is true
+            'download_link' => true, // not mandatory, default is true
+        ));
     }
 
     public function getParent()
