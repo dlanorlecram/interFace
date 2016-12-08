@@ -1,0 +1,9 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block users_list %}
+<ul>
+    {% for entity in entities %}
+        <li>{{ entity }}</li>
+    {% endfor %}
+</ul>
+{% endblock users_list %}
