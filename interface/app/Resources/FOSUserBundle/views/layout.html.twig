@@ -9,6 +9,7 @@
             <a href="{{ path('fos_user_profile_show') }}">Votre Profil</a>
             {% if is_granted("ROLE_ADMIN") %}
                 <a href="{{ path('fos_user_registration_register') }}">Créer un utilisateur</a>
+                <a href="{{ path('users_list') }}">Listes des utilisateurs</a>
             {% endif %}
         </div>
         <div>
@@ -35,6 +36,10 @@
         <div>
             {% block fos_user_content %}
             {% endblock fos_user_content %}
+        </div>
+        <div>
+            {% block users_list %}
+            {% endblock users_list %}
         </div>
     </body>
 </html>
