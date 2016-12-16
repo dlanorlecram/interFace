@@ -18,7 +18,7 @@ html,body{
   background-color: #FFF;
 }
 .link_ad, .one{
-  display: none;
+  display: block;
 }
 
 .welcome_login{
