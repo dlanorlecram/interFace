@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="{{asset('css/master.css')}}" media="screen" title="no title">
     </head>
     <body>
-      <div class="container_login">
+
         <div class="link_ad">
             <a href="{{ path('homepage') }}">Accueil</a> --!>
             <a href="{{ path('fos_user_profile_show') }}">Votre Profil</a>
@@ -34,19 +34,10 @@
                 {% endfor %}
             {% endfor %}
         {% endif %}
-        <div class="welcome_login">
-          <div class="message">
-            <span> Bienvenue sur:</span>
-            <div class="brand_app">
-              <p class="brand">interFace</p>
-            </div>
-            <div class="logo_face"></div>
-          </div>
-        </div>
-        <div class="form_login">
+        <!--Appel du formulaire login-->
             {% block fos_user_content %}
             {% endblock fos_user_content %}
-        </div>
+
         <div class="three">
             {% block users_list %}
             {% endblock users_list %}
