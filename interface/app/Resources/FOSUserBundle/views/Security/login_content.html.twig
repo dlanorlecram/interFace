@@ -15,10 +15,11 @@
     <label for="password">{{ 'security.login.password'|trans }}</label>
     <input type="password" id="password" name="_password" required="required" />
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-    
-    <a href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a>
+
+    <!-- <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label> -->
+    <div class="forget_link">
+      <a class="forget" href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a>
+    </div>
 </form>
