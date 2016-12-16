@@ -17,7 +17,7 @@ html,body{
   margin-top: 35px;
   background-color: #FFF;
 }
-.link_ad,.one,.three{
+.link_ad, .one{
   display: none;
 }
 
