@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 html,body{
   padding: 0;
@@ -9,6 +9,12 @@ html,body{
 }
 *{
   box-sizing: border-box;
+}
+ul, li, a{
+  text-decoration: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .container_login{
   width: 350px;
@@ -77,4 +83,96 @@ html,body{
 }
 .forget_link{
   text-align: center;
+}
+
+/*SideBar Dashboard*/
+#wrapper{
+  height: 100vh;
+}
+.container{
+  height: 100%;
+}
+.sidebar{
+  font-family: 'Roboto', sans-serif;
+  color: #FFF;
+  height: 100%;
+  width: 200px;
+  background-color: #24888F;
+  padding: 5px 0;
+}
+.app_title{
+  text-align: center;
+}
+.app_title h1{
+  font-family: 'Roboto Slab';
+  font-size: 30px;
+  font-weight: bold;
+  margin: 58px 0 115px 0;
+}
+.menu_account{
+  text-align: center;
+}
+.username span{
+  font-size:18px;
+}
+.username{
+  position: relative;
+}
+.username:after{
+  content: '\f107';
+  text-rendering: auto;
+  font: normal normal normal 14px/1 FontAwesome;
+  position: absolute;
+  right: 18px;
+  top: 3px;
+}
+.status{
+  margin-top: 10px;
+}
+.status span{
+  color: #ED9767;
+  font-size: 14px;
+  font-family: inherit;
+}
+.profil_submenu{
+  display: flex;
+  justify-content: start;
+  height: 80px;
+  margin-top: 13px;
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #15696F;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25) inset;
+  overflow: hidden;
+  transition:0.25s; 
+
+}
+.profil_submenu ul{
+  padding-left: 0px;
+  width: 100%;
+}
+.sidebar a:hover{
+  color: #ED9767;
+}
+.profil_submenu li{
+  margin-top: 15px;
+  text-align: center;
+}
+.menu_option{
+  margin-top: 75px;
+  font-weight: 300;
+  font-size: 14px;
+}
+.menu_option ul{
+  width: 100%;
+}
+.sidebar a{
+  color: #FFF;
+  transition: 0.25s;
+}
+.menu_option ul li{
+  font-weight: 400;
+  padding-left: 54px;
+  margin-bottom: 20px;
+  font-weight: 400;
 }
