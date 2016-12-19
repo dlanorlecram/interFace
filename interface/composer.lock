@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "77581eb4d92afc5312af7af64574f604",
-    "content-hash": "ec8f7380363be3e647d61a0b6ad8a76d",
+    "hash": "d14a9f840324da91968dc8f768088321",
+    "content-hash": "32b5d60c6c15c725d7bf9528891fba55",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -719,6 +719,85 @@
             "time": "2015-08-31 13:19:01"
         },
         {
+            "name": "fresh/doctrine-enum-bundle",
+            "version": "v4.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fre5h/DoctrineEnumBundle.git",
+                "reference": "52e88289662a6585d7686fdeb79b584111b78550"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fre5h/DoctrineEnumBundle/zipball/52e88289662a6585d7686fdeb79b584111b78550",
+                "reference": "52e88289662a6585d7686fdeb79b584111b78550",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.2",
+                "doctrine/dbal": "~2.2",
+                "php": ">=5.4.0",
+                "symfony/config": "~2.6|~3.0",
+                "symfony/dependency-injection": "~2.6|~3.0",
+                "symfony/doctrine-bridge": "~2.6|~3.0",
+                "symfony/form": "~2.6|~3.0",
+                "symfony/framework-bundle": "~2.6|~3.0",
+                "symfony/http-kernel": "~2.6|~3.0",
+                "symfony/validator": "~2.6|~3.0",
+                "twig/twig": "~1.26"
+            },
+            "require-dev": {
+                "escapestudios/symfony2-coding-standard": "~2.9",
+                "phpunit/phpunit": "~4.8",
+                "squizlabs/php_codesniffer": "~2.7"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fresh\\DoctrineEnumBundle\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Genvald",
+                    "email": "genvaldartem@gmail.com",
+                    "role": "Creator"
+                },
+                {
+                    "name": "Community",
+                    "homepage": "https://github.com/fre5h/DoctrineEnumBundle/graphs/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Provides support of ENUM type for Doctrine2 in Symfony applications.",
+            "homepage": "https://github.com/fre5h/DoctrineEnumBundle",
+            "keywords": [
+                "bundle",
+                "dbal",
+                "doctrine",
+                "entity",
+                "enum",
+                "mssql",
+                "mysql",
+                "postgresql",
+                "sqlite",
+                "symfony",
+                "type"
+            ],
+            "time": "2016-11-28 17:24:57"
+        },
+        {
             "name": "friendsofsymfony/user-bundle",
             "version": "dev-master",
             "source": {
@@ -728,7 +807,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7261f7aa143b4bfdb0b7ddc5df208067fa7be698",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/c0ba63245f4155b3bc7060298089c2bf806cc002",
                 "reference": "28151dcb25de663c05ce26917fd6a0b5cb2787cf",
                 "shasum": ""
             },
