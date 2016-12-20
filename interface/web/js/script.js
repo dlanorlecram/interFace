@@ -1,6 +1,12 @@
 $(document).ready(function(){
-  console.log('charged!');
   $('.toggle').click(function(){
-    $('.profil_submenu').toggleClass("open");
+    $(this).toggleClass("rotate");
+    $('.profil_submenu').toggleClass("show");
   });
 });
+
+/*$(document).ready(function(){
+    $("button").click(function(){
+        $("h1, h2, p").toggleClass("blue");
+    });
+});*/

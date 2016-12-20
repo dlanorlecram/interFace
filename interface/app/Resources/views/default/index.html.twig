@@ -44,11 +44,13 @@
             </div>
           </aside>
             <div class="content_dashboard">
-              <!--<h1>Hello World!</h1>-->
+              <h1>Hello World!</h1>
             </div>
         </div>
     </div>
 {% endblock %}
 
-{% block stylesheets %}
+{% block jquery %}
+  <script src="{{asset("js/jquery-3.1.1.min.js")}}" charset="utf-8"></script>
+  <script src="{{asset("js/script.js")}}" charset="utf-8"></script>
 {% endblock %}
