@@ -231,6 +231,262 @@ class Demandeur
      */
 	protected $metier;
 	
+	/**
+     * {@inheritdoc}
+     */
+	public function getId()
+	{
+		return $this->id;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getNom()
+	{
+		return $this->nom;
+	}
+     
+	/**
+     * {@inheritdoc}
+     */
+	public function getPrenom()
+	{
+		return $this->prenom;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getStatus()
+	{
+		return $this->status;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getDateNaissance()
+	{
+		return $this->dateNaissance;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getVilleNaissance()
+	{
+		return $this->villeNaissance;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getDeptNaissance()
+	{
+		return $this->deptNaissance;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getPaysNaissance()
+	{
+		return $this->paysNaissance;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getNationalite()
+	{
+		return $this->nationalite;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getTitreSejour()
+	{
+		return $this->titreSejour;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getAutorisationTravail()
+	{
+		return $this->autorisationTravail;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getAdresse()
+	{
+		return $this->adresse;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getCodePostal()
+	{
+		return $this->codePostal;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getVille()
+	{
+		return $this->ville;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getTelFixe()
+	{
+		return $this->telFixe;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getTelPortable()
+	{
+		return $this->telPortable;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getEmail()
+	{
+		return $this->email;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getEnfant()
+	{
+		return $this->enfant;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getPermisConduire()
+	{
+		return $this->permisConduire;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getTypePermisConduire()
+	{
+		return $this->typePermisConduire;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getMoyenLocomotion()
+	{
+		return $this->moyenLocomotion;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getMoyenLocomotionAutre()
+	{
+		return $this->moyenLocomotionAutre;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getIdPoleEmploi()
+	{
+		return $this->idPoleEmploi;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getReferent()
+	{
+		return $this->referent;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getStructure()
+	{
+		return $this->structure;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getAllocation()
+	{
+		return $this->allocation;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getAllocationAutre()
+	{
+		return $this->allocationAutre;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getRqth()
+	{
+		return $this->rqth;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getNiveauEtude()
+	{
+		return $this->niveauEtude;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getDiplomePro()
+	{
+		return $this->diplomePro;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getCategorieSocioPro()
+	{
+		return $this->categorieSocioPro;
+	}
+	
+	/**
+     * {@inheritdoc}
+     */
+	public function getMetier()
+	{
+		return $this->metier;
+	}
+	
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * 
