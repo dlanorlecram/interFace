@@ -13,17 +13,6 @@ class ProfileType extends AbstractType
         $builder->add('nom');
         $builder->add('prenom');
         $builder->add('enabled');
-        $builder->add('roles', 'collection', array(
-                   'type' => 'choice',
-                   'options' => array(
-                        'label' => false,
-                        'choices' => array(
-                            'ROLE_USER' => 'Utilisateur',
-                            'ROLE_ADMIN' => 'Administrateur'
-                       )
-                   )
-               )
-        );
         $builder->add('imageFile', 'vich_file', array(
             'required'      => false,
             'allow_delete'  => true, // not mandatory, default is true
