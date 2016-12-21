@@ -5,6 +5,6 @@ $(document).ready(function(){
   });
   $('.menu_item').click(function(){
     $('.menu_option li').find('.show_submenu').removeClass('show_submenu',1000);
-    $(this).find("div").addClass('show_submenu',1000, "easeOutBounce");
+    $(this).find("div").addClass('show_submenu',1000);
   })
 });

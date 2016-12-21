@@ -36,8 +36,8 @@
         Demandeur d'emploi
         <div class="sub_menu">
           <ul class="">
-            <li><a href="#">Créer un profile</a></li>
-            <li><a href="#">Recherche</a></li>
+            <li><a href="{{ path ('demandeur_new')}}">Créer un profile</a></li>
+            <li><a href="">Recherche</a></li>
           </ul>
         </div>
       </li>
@@ -55,8 +55,8 @@
           Gestion des compte
           <div class="sub_menu">
             <ul>
-              <li><a href="#">Liste des comptes</a></li>
-              <li><a href="#">Créer un comptes</a></li>
+              <li><a href="{{ path ('users_list')}}">Liste des comptes</a></li>
+              <li><a href="{{ path ('fos_user_registration_register')}}">Créer un comptes</a></li>
             </ul>
           </div>
         </li>
