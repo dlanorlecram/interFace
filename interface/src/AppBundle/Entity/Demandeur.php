@@ -231,534 +231,345 @@ class Demandeur
      */
 	protected $metier;
 	
-	/**
-     * {@inheritdoc}
-     */
 	public function getId()
 	{
 		return $this->id;
 	}
 	
-	/**
-     * {@inheritdoc}
-     */
 	public function getNom()
 	{
 		return $this->nom;
 	}
-     
-	/**
-     * {@inheritdoc}
-     */
+ 
 	public function getPrenom()
 	{
 		return $this->prenom;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getStatus()
 	{
 		return $this->status;
 	}
 	
-	/**
-     * {@inheritdoc}
-     */
 	public function getDateNaissance()
 	{
 		return $this->dateNaissance;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getVilleNaissance()
 	{
 		return $this->villeNaissance;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getDeptNaissance()
 	{
 		return $this->deptNaissance;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getPaysNaissance()
 	{
 		return $this->paysNaissance;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getNationalite()
 	{
 		return $this->nationalite;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getTitreSejour()
 	{
 		return $this->titreSejour;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getAutorisationTravail()
 	{
 		return $this->autorisationTravail;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getAdresse()
 	{
 		return $this->adresse;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getCodePostal()
 	{
 		return $this->codePostal;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getVille()
 	{
 		return $this->ville;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getTelFixe()
 	{
 		return $this->telFixe;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getTelPortable()
 	{
 		return $this->telPortable;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getEmail()
 	{
 		return $this->email;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getEnfant()
 	{
 		return $this->enfant;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getPermisConduire()
 	{
 		return $this->permisConduire;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getTypePermisConduire()
 	{
 		return $this->typePermisConduire;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getMoyenLocomotion()
 	{
 		return $this->moyenLocomotion;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getMoyenLocomotionAutre()
 	{
 		return $this->moyenLocomotionAutre;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getIdPoleEmploi()
 	{
 		return $this->idPoleEmploi;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getReferent()
 	{
 		return $this->referent;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getStructure()
 	{
 		return $this->structure;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getAllocation()
 	{
 		return $this->allocation;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getAllocationAutre()
 	{
 		return $this->allocationAutre;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getRqth()
 	{
 		return $this->rqth;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getNiveauEtude()
 	{
 		return $this->niveauEtude;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getDiplomePro()
 	{
 		return $this->diplomePro;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getCategorieSocioPro()
 	{
 		return $this->categorieSocioPro;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function getMetier()
 	{
 		return $this->metier;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setNom($nom)
 	{
 		$this->nom = $nom;
 		return $this;
 	}
-     
-	/**
-     * {@inheritdoc}
-     */
+ 
 	public function setPrenom($prenom)
 	{
 		$this->prenom = $prenom;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setStatus($status)
 	{
 		$this->status = $status;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setDateNaissance($dateNaissance)
 	{
 		$this->dateNaissance = $dateNaissance;
 		return $this;
 	}
 	
-	/**
-     * {@inheritdoc}
-     */
 	public function setVilleNaissance($villeNaissance)
 	{
 		$this->villeNaissance = $villeNaissance;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setDeptNaissance($deptNaissance)
 	{
 		$this->deptNaissance = $deptNaissance;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setPaysNaissance($paysNaissance)
 	{
 		$this->paysNaissance = $paysNaissance;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setNationalite($nationalite)
 	{
 		$this->nationalite = $nationalite;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setTitreSejour($titreSejour)
 	{
 		$this->titreSejour = $titreSejour;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setAutorisationTravail($autorisationTravail)
 	{
 		$this->autorisationTravail = $autorisationTravail;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setAdresse($adresse)
 	{
 		$this->adresse = $adresse;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setCodePostal($codePostal)
 	{
 		$this->codePostal = $codePostal;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setVille($ville)
 	{
 		$this->ville = $ville;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setTelFixe($telFixe)
 	{
 		$this->telFixe = $telFixe;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setTelPortable($telPortable)
 	{
 		$this->telPortable = $telPortable;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setEmail($email)
 	{
 		$this->email = $email;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setEnfant($enfant)
 	{
 		$this->enfant = $enfant;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setPermisConduire($permisConduire)
 	{
 		$this->permisConduire = $permisConduire;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setTypePermisConduire($typePermisConduire)
 	{
 		$this->typePermisConduire = $typePermisConduire;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setMoyenLocomotion($moyenLocomotion)
 	{
 		$this->moyenLocomotion = $moyenLocomotion;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setMoyenLocomotionAutre($moyenLocomotionAutre)
 	{
 		$this->moyenLocomotionAutre = $moyenLocomotionAutre;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setIdPoleEmploi($idPoleEmploi)
 	{
 		$this->idPoleEmploi = $idPoleEmploi;
 		return $this;}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setReferent($referent)
 	{
 		$this->referent = $referent;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setStructure($structure)
 	{
 		$this->structure = $structure;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setAllocation($allocation)
 	{
 		$this->allocation = $allocation;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setAllocationAutre($allocationAutre)
 	{
 		$this->allocationAutre = $allocationAutre;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setRqth($rqth)
 	{
 		$this->rqth = $rqth;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setNiveauEtude($niveauEtude)
 	{
 		$this->niveauEtude = $niveauEtude;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setDiplomePro($diplomePro)
 	{
 		$this->diplomePro = $diplomePro;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setCategorieSocioPro($categorieSocioPro)
 	{
 		$this->categorieSocioPro = $categorieSocioPro;
 		return $this;
 	}
-	
-	/**
-     * {@inheritdoc}
-     */
+
 	public function setMetier($metier)
 	{
 		$this->metier =$metier;
