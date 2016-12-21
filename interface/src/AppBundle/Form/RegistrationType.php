@@ -24,11 +24,6 @@ class RegistrationType extends AbstractType
                    )
                )
         );
-        $builder->add('imageFile', 'vich_image', array(
-            'required'      => false,
-            'allow_delete'  => true, // not mandatory, default is true
-            'download_link' => true, // not mandatory, default is true
-        ));
     }
 
     public function getParent()
