@@ -6,10 +6,6 @@
     <table>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ demandeur.id }}</td>
-            </tr>
-            <tr>
                 <th>Prenom</th>
                 <td>{{ demandeur.prenom }}</td>
             </tr>
@@ -23,7 +19,7 @@
             </tr>
             <tr>
                 <th>Datenaissance</th>
-                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Villenaissance</th>
@@ -43,11 +39,11 @@
             </tr>
             <tr>
                 <th>Titresejour</th>
-                <td>{% if demandeur.titreSejour %}Yes{% else %}No{% endif %}</td>
+                <td>{% if demandeur.titreSejour %}Oui{% else %}Non{% endif %}</td>
             </tr>
             <tr>
                 <th>Autorisationtravail</th>
-                <td>{% if demandeur.autorisationTravail %}Yes{% else %}No{% endif %}</td>
+                <td>{% if demandeur.autorisationTravail %}Oui{% else %}Non{% endif %}</td>
             </tr>
             <tr>
                 <th>Adresse</th>
@@ -79,7 +75,7 @@
             </tr>
             <tr>
                 <th>Permisconduire</th>
-                <td>{% if demandeur.permisConduire %}Yes{% else %}No{% endif %}</td>
+                <td>{% if demandeur.permisConduire %}Oui{% else %}Non{% endif %}</td>
             </tr>
             <tr>
                 <th>Typepermisconduire</th>
@@ -115,7 +111,7 @@
             </tr>
             <tr>
                 <th>Rqth</th>
-                <td>{% if demandeur.rqth %}Yes{% else %}No{% endif %}</td>
+                <td>{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</td>
             </tr>
             <tr>
                 <th>Niveauetude</th>
@@ -133,23 +129,15 @@
                 <th>Metier</th>
                 <td>{{ demandeur.metier }}</td>
             </tr>
-            <tr>
-                <th>Imagename</th>
-                <td>{{ demandeur.imageName }}</td>
-            </tr>
-            <tr>
-                <th>Updatedat</th>
-                <td>{% if demandeur.updatedAt %}{{ demandeur.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
         </tbody>
     </table>
 
     <ul>
         <li>
-            <a href="{{ path('demandeur_index') }}">Back to the list</a>
+            <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
         </li>
         <li>
-            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Edit</a>
+            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Editer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
