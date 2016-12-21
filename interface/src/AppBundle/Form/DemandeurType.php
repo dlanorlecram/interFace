@@ -16,6 +16,7 @@ class DemandeurType extends AbstractType
         $builder->add('prenom')
 				->add('nom')
 				->add('status')
+				->add('genre')
 				->add('dateNaissance')
 				->add('villeNaissance')
 				->add('deptNaissance')
