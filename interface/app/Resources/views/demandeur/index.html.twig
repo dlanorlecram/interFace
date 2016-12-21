@@ -6,7 +6,6 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Prenom</th>
                 <th>Nom</th>
                 <th>Status</th>
@@ -38,19 +37,16 @@
                 <th>Diplomepro</th>
                 <th>Categoriesociopro</th>
                 <th>Metier</th>
-                <th>Imagename</th>
-                <th>Updatedat</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for demandeur in demandeurs %}
             <tr>
-                <td><a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">{{ demandeur.id }}</a></td>
                 <td>{{ demandeur.prenom }}</td>
                 <td>{{ demandeur.nom }}</td>
                 <td>{{ demandeur.status }}</td>
-                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% endif %}</td>
                 <td>{{ demandeur.villeNaissance }}</td>
                 <td>{{ demandeur.deptNaissance }}</td>
                 <td>{{ demandeur.paysNaissance }}</td>
@@ -78,15 +74,13 @@
                 <td>{{ demandeur.diplomePro }}</td>
                 <td>{{ demandeur.categorieSocioPro }}</td>
                 <td>{{ demandeur.metier }}</td>
-                <td>{{ demandeur.imageName }}</td>
-                <td>{% if demandeur.updatedAt %}{{ demandeur.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">show</a>
+                            <a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">Voir</a>
                         </li>
                         <li>
-                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">edit</a>
+                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Éditer</a>
                         </li>
                     </ul>
                 </td>
@@ -97,7 +91,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('demandeur_new') }}">Create a new demandeur</a>
+            <a href="{{ path('demandeur_new') }}">Créer un nouveau demandeur</a>
         </li>
     </ul>
 {% endblock %}
