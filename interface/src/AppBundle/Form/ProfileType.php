@@ -13,11 +13,6 @@ class ProfileType extends AbstractType
         $builder->add('nom');
         $builder->add('prenom');
         $builder->add('enabled');
-        $builder->add('imageFile', 'vich_file', array(
-            'required'      => false,
-            'allow_delete'  => true, // not mandatory, default is true
-            'download_link' => true, // not mandatory, default is true
-        ));
     }
 
     public function getParent()
