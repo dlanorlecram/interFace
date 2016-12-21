@@ -1,11 +1,5 @@
-{% extends 'base.html.twig' %}
-
-
-{% block body %}
-  {{ include('FOSUserBundle::layout.html.twig')}}
-{% endblock %}
-
 {% block jquery %}
   <script src="{{asset("js/jquery-3.1.1.min.js")}}" charset="utf-8"></script>
+  <script src="{{asset("js/jquery-ui.min.js")}}" charset="utf-8"></script>
   <script src="{{asset("js/script.js")}}" charset="utf-8"></script>
 {% endblock %}

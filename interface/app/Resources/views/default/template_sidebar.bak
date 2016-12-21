@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div class="container">
+          <aside class="sidebar">
+            <div class="app_title">
+              <h1>interFace</h1>
+            </div>
+            <div class="menu_account">
+              <div class="username">
+                <span>Stacy ORRICO</span>
+                <i class="fa fa-angle-up toggle"></i>
+              </div>
+              <div class="status">
+                <span>Administrateur</span>
+              </div>
+            </div>
+            <div class="profil_submenu">
+              <ul>
+                <li>
+                  <a href="#">Éditer son profil</a>
+                </li>
+                <li>
+                  <a href="#">Se déconnexion</a>
+                </li>
+              </ul>
+            </div>
+            <div class="menu_option">
+              <ul class="option">
+                <li>
+                  <a href="#">Dashboard</a>
+                </li>
+                <li>
+                  <a href="#">Demandeur d'emploi</a>
+                </li>
+                <li>
+                  <a href="#">Offre d'emploi</a>
+                </li>
+                <li>
+                  <a href="#">Gestion des compte</a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+            <div class="content_dashboard">
+              <h1>Hello World!</h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
