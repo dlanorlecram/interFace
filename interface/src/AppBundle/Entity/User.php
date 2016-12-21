@@ -46,6 +46,7 @@ class User extends BaseUser
     public function setprenom($prenom)
     {
         $this->prenom = $prenom;
+        return $this;
     }
     
     /**
@@ -72,5 +73,12 @@ class User extends BaseUser
     public function setnom($nom)
     {
         $this->nom = $nom;
+        return $this;
     }
+    
+    public function setEmail($email)
+    {
+		parent::setEmail($email);
+		$this->setUsername($email);
+	}
 }
