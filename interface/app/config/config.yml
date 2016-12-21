@@ -60,6 +60,7 @@ doctrine:
             DemandeurAllocation: AppBundle\DBAL\Types\DemandeurAllocation
             DemandeurNiveauEtude: AppBundle\DBAL\Types\DemandeurNiveauEtude
             DemandeurCategorieSocioPro: AppBundle\DBAL\Types\DemandeurCategorieSocioPro
+            DemandeurGenre: AppBundle\DBAL\Types\DemandeurGenre
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         naming_strategy: doctrine.orm.naming_strategy.underscore
