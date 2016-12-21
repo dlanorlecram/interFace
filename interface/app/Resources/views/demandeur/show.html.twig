@@ -1,0 +1,160 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Demandeur</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ demandeur.id }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ demandeur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ demandeur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ demandeur.status }}</td>
+            </tr>
+            <tr>
+                <th>Datenaissance</th>
+                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Villenaissance</th>
+                <td>{{ demandeur.villeNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Deptnaissance</th>
+                <td>{{ demandeur.deptNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Paysnaissance</th>
+                <td>{{ demandeur.paysNaissance }}</td>
+            </tr>
+            <tr>
+                <th>Nationalite</th>
+                <td>{{ demandeur.nationalite }}</td>
+            </tr>
+            <tr>
+                <th>Titresejour</th>
+                <td>{% if demandeur.titreSejour %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Autorisationtravail</th>
+                <td>{% if demandeur.autorisationTravail %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ demandeur.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Codepostal</th>
+                <td>{{ demandeur.codePostal }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ demandeur.ville }}</td>
+            </tr>
+            <tr>
+                <th>Telfixe</th>
+                <td>{{ demandeur.telFixe }}</td>
+            </tr>
+            <tr>
+                <th>Telportable</th>
+                <td>{{ demandeur.telPortable }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ demandeur.email }}</td>
+            </tr>
+            <tr>
+                <th>Enfant</th>
+                <td>{{ demandeur.enfant }}</td>
+            </tr>
+            <tr>
+                <th>Permisconduire</th>
+                <td>{% if demandeur.permisConduire %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Typepermisconduire</th>
+                <td>{{ demandeur.typePermisConduire }}</td>
+            </tr>
+            <tr>
+                <th>Moyenlocomotion</th>
+                <td>{{ demandeur.moyenLocomotion }}</td>
+            </tr>
+            <tr>
+                <th>Moyenlocomotionautre</th>
+                <td>{{ demandeur.moyenLocomotionAutre }}</td>
+            </tr>
+            <tr>
+                <th>Idpoleemploi</th>
+                <td>{{ demandeur.idPoleEmploi }}</td>
+            </tr>
+            <tr>
+                <th>Referent</th>
+                <td>{{ demandeur.referent }}</td>
+            </tr>
+            <tr>
+                <th>Structure</th>
+                <td>{{ demandeur.structure }}</td>
+            </tr>
+            <tr>
+                <th>Allocation</th>
+                <td>{{ demandeur.allocation }}</td>
+            </tr>
+            <tr>
+                <th>Allocationautre</th>
+                <td>{{ demandeur.allocationAutre }}</td>
+            </tr>
+            <tr>
+                <th>Rqth</th>
+                <td>{% if demandeur.rqth %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Niveauetude</th>
+                <td>{{ demandeur.niveauEtude }}</td>
+            </tr>
+            <tr>
+                <th>Diplomepro</th>
+                <td>{{ demandeur.diplomePro }}</td>
+            </tr>
+            <tr>
+                <th>Categoriesociopro</th>
+                <td>{{ demandeur.categorieSocioPro }}</td>
+            </tr>
+            <tr>
+                <th>Metier</th>
+                <td>{{ demandeur.metier }}</td>
+            </tr>
+            <tr>
+                <th>Imagename</th>
+                <td>{{ demandeur.imageName }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if demandeur.updatedAt %}{{ demandeur.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('demandeur_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

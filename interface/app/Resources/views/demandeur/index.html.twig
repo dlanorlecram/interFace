@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Demandeurs list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Status</th>
+                <th>Datenaissance</th>
+                <th>Villenaissance</th>
+                <th>Deptnaissance</th>
+                <th>Paysnaissance</th>
+                <th>Nationalite</th>
+                <th>Titresejour</th>
+                <th>Autorisationtravail</th>
+                <th>Adresse</th>
+                <th>Codepostal</th>
+                <th>Ville</th>
+                <th>Telfixe</th>
+                <th>Telportable</th>
+                <th>Email</th>
+                <th>Enfant</th>
+                <th>Permisconduire</th>
+                <th>Typepermisconduire</th>
+                <th>Moyenlocomotion</th>
+                <th>Moyenlocomotionautre</th>
+                <th>Idpoleemploi</th>
+                <th>Referent</th>
+                <th>Structure</th>
+                <th>Allocation</th>
+                <th>Allocationautre</th>
+                <th>Rqth</th>
+                <th>Niveauetude</th>
+                <th>Diplomepro</th>
+                <th>Categoriesociopro</th>
+                <th>Metier</th>
+                <th>Imagename</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demandeur in demandeurs %}
+            <tr>
+                <td><a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">{{ demandeur.id }}</a></td>
+                <td>{{ demandeur.prenom }}</td>
+                <td>{{ demandeur.nom }}</td>
+                <td>{{ demandeur.status }}</td>
+                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ demandeur.villeNaissance }}</td>
+                <td>{{ demandeur.deptNaissance }}</td>
+                <td>{{ demandeur.paysNaissance }}</td>
+                <td>{{ demandeur.nationalite }}</td>
+                <td>{% if demandeur.titreSejour %}Yes{% else %}No{% endif %}</td>
+                <td>{% if demandeur.autorisationTravail %}Yes{% else %}No{% endif %}</td>
+                <td>{{ demandeur.adresse }}</td>
+                <td>{{ demandeur.codePostal }}</td>
+                <td>{{ demandeur.ville }}</td>
+                <td>{{ demandeur.telFixe }}</td>
+                <td>{{ demandeur.telPortable }}</td>
+                <td>{{ demandeur.email }}</td>
+                <td>{{ demandeur.enfant }}</td>
+                <td>{% if demandeur.permisConduire %}Yes{% else %}No{% endif %}</td>
+                <td>{{ demandeur.typePermisConduire }}</td>
+                <td>{{ demandeur.moyenLocomotion }}</td>
+                <td>{{ demandeur.moyenLocomotionAutre }}</td>
+                <td>{{ demandeur.idPoleEmploi }}</td>
+                <td>{{ demandeur.referent }}</td>
+                <td>{{ demandeur.structure }}</td>
+                <td>{{ demandeur.allocation }}</td>
+                <td>{{ demandeur.allocationAutre }}</td>
+                <td>{% if demandeur.rqth %}Yes{% else %}No{% endif %}</td>
+                <td>{{ demandeur.niveauEtude }}</td>
+                <td>{{ demandeur.diplomePro }}</td>
+                <td>{{ demandeur.categorieSocioPro }}</td>
+                <td>{{ demandeur.metier }}</td>
+                <td>{{ demandeur.imageName }}</td>
+                <td>{% if demandeur.updatedAt %}{{ demandeur.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('demandeur_new') }}">Create a new demandeur</a>
+        </li>
+    </ul>
+{% endblock %}
