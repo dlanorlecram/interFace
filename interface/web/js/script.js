@@ -3,10 +3,8 @@ $(document).ready(function(){
     $(this).toggleClass("rotate");
     $('.profil_submenu').toggleClass("show");
   });
+  $('.menu_item').click(function(){
+    $('.menu_option li').find('.show_submenu').removeClass('show_submenu',1000);
+    $(this).find("div").addClass('show_submenu',1000);
+  })
 });
-
-/*$(document).ready(function(){
-    $("button").click(function(){
-        $("h1, h2, p").toggleClass("blue");
-    });
-});*/

@@ -3,45 +3,42 @@
     <head>
         <meta charset="UTF-8" />
         <link rel="stylesheet" href="{{asset('css/master.css')}}" media="screen" title="no title">
+        <link rel="stylesheet" href="{{asset("css/font-awesome/css/font-awesome.min.css")}}" media="screen" title="no title">
     </head>
     <body>
+      <div id="wrapper">
+        {% if ( is_granted("ROLE_ADMIN") or is_granted("ROLE_USER") ) %}
+          <div class="container">
+            {{ include('FOSUserBundle:Dashboard:sidebar-content.html.twig') }}
+            <div class="content_dashboard">
+              <!-- Affichage du profil -->
+                  {% block fos_user_content %}
+                  {% endblock fos_user_content %}
 
-        <div class="link_ad">
-            <a href="{{ path('homepage') }}">Accueil</a> --!>
-            <a href="{{ path('fos_user_profile_show') }}">Votre Profil</a>
-            {% if is_granted("ROLE_ADMIN") %}
-                <a href="{{ path('fos_user_registration_register') }}">Créer un utilisateur</a>
-                <a href="{{ path('users_list') }}">Listes des utilisateurs</a>
-            {% endif %}
-        </div>
-        <div class="one">
-            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
-                <a href="{{ path('fos_user_security_logout') }}">
-                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                </a>
-            {% else %}
-                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-              </div>
-            {% endif %}
+                  {% block users_list %}
+                  {% endblock users_list %}
 
-        {% if app.request.hasPreviousSession %}
-            {% for type, messages in app.session.flashbag.all() %}
-                {% for message in messages %}
-                    <div class="flash-{{ type }}">
-                        {{ message }}
-                    </div>
+                  {% block test %}{% endblock %}
+            </div>
+          </div>
+          {% endif %}
+          <section id="login_session">
+            <!-- Appel du formulaire login -->
+            {% block fos_user_login_content %}
+            {% endblock fos_user_login_content %}
+          </section>
+          <section class="message_system">
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-        {% endif %}
-        <!--Appel du formulaire login-->
-            {% block fos_user_content %}
-            {% endblock fos_user_content %}
-
-        <div class="three">
-            {% block users_list %}
-            {% endblock users_list %}
+            {% endif %}
+          </section>
         </div>
-      </div>
+        {{ include('FOSUserBundle:Script:script_content.html.twig') }}
     </body>
 </html>

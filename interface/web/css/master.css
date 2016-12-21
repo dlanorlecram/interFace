@@ -154,6 +154,7 @@ ul, li, a{
 }
 .sidebar a:hover{
   color: #ED9767;
+    transition: 0.25s;
 }
 .profil_submenu li{
   margin-top: 15px;
@@ -169,13 +170,22 @@ ul, li, a{
 }
 .sidebar a{
   color: #FFF;
-  transition: 0.25s;
 }
-.menu_option ul li{
+.menu_item{
   font-weight: 400;
   padding-left: 54px;
   margin-bottom: 20px;
   font-weight: 400;
+}
+.sub_menu{
+  height: 0px;
+  font-size: 10px;
+  overflow: hidden;
+}
+.sub_menu li{
+  padding: 0;
+  height: 30px;
+  line-height: 30px;
 }
 .toggle{
   position:absolute;
@@ -186,6 +196,9 @@ ul, li, a{
 }
 .show{
   height: 80px;
+}
+.show_submenu{
+  height: 60px;
 }
 .rotate{
   transform: rotateX(180deg);

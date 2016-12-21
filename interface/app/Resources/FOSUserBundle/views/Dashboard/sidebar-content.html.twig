@@ -1,0 +1,66 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<aside class="sidebar">
+  <div class="app_title">
+    <h1>interFace</h1>
+  </div>
+  <div class="menu_account">
+    <div class="username">
+      <span>{{ app.user.prenom }}&nbsp;{{ app.user.nom }}</span>
+      <i class="fa fa-angle-up toggle"></i>
+    </div>
+    <div class="status">
+      {% if is_granted("ROLE_ADMIN") %}
+      <span>Administrateur</span>
+      {% elseif is_granted("ROLE_USER") %}
+      <span>Référent</span>
+      {% endif %}
+    </div>
+  </div>
+  <div class="profil_submenu">
+    <ul>
+      <li>
+        <a href="{{ path('fos_user_profile_show') }}">Votre profile</a>
+      </li>
+      <li>
+        <a href="{{ path('fos_user_security_logout') }}">Se déconnexion</a>
+      </li>
+    </ul>
+  </div>
+  <div class="menu_option">
+    <ul class="option">
+      <li class="menu_item">
+        <a href="{{ path('homepage') }}">Dashboard</a>
+      </li>
+      <li class="menu_item">
+        Demandeur d'emploi
+        <div class="sub_menu">
+          <ul class="">
+            <li><a href="{{ path ('demandeur_new')}}">Créer un profile</a></li>
+            <li><a href="">Recherche</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="menu_item">
+        Offre d'emploi
+        <div class="sub_menu">
+          <ul>
+            <li class=""><a href="#">Créer une offre</a></li>
+            <li><a href="#">Recherche</a></li>
+          </ul>
+        </div>
+      </li class="menu_item">
+      {% if is_granted("ROLE_ADMIN") %}
+        <li class="menu_item">
+          Gestion des compte
+          <div class="sub_menu">
+            <ul>
+              <li><a href="{{ path ('users_list')}}">Liste des comptes</a></li>
+              <li><a href="{{ path ('fos_user_registration_register')}}">Créer un comptes</a></li>
+            </ul>
+          </div>
+        </li>
+      {% endif %}
+    </ul>
+  </div>
+</aside>
