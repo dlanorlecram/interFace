@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block users_list %}
+{{ form_start(form, { 'action': '/{{ user.id }}/edit/', 'attr': { 'class': 'app_users_edit' } }) }}
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="Enregistrer" />
+    </div>
+{{ form_end(form) }}
+{% endblock users_list %}
