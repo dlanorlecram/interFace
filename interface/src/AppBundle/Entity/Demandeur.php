@@ -63,6 +63,12 @@ class Demandeur
     protected $status;
     
     /**
+     * @ORM\Column(name="genre", type="DemandeurGenre", nullable=false)
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurGenre")     
+     */
+    protected $genre;
+    
+    /**
      * @ORM\Column(type="date", nullable=true)
      *
      * @var \Date
@@ -251,6 +257,11 @@ class Demandeur
 		return $this->status;
 	}
 	
+	public function getGenre()
+	{
+		return $this->genre;
+	}
+	
 	public function getDateNaissance()
 	{
 		return $this->dateNaissance;
@@ -406,6 +417,12 @@ class Demandeur
 	public function setStatus($status)
 	{
 		$this->status = $status;
+		return $this;
+	}
+	
+	public function setGenre($genre)
+	{
+		$this->genre = $genre;
 		return $this;
 	}
 
