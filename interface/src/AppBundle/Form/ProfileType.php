@@ -11,9 +11,12 @@ class ProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 		$builder->remove('username');
-        $builder->add('nom');
-        $builder->add('prenom');
-        $builder->add('enabled');
+        $builder->add('nom', null, array(
+					'translation_domain' => false,
+					'label' => 'Nom',));
+        $builder->add('prenom', null, array(
+					'translation_domain' => false,
+					'label' => 'Prénom',));
     }
 
     public function getParent()

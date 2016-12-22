@@ -1,0 +1,13 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block users_list %}
+<div class="fos_user_user_show">
+	{% if is_granted("ROLE_ADMIN") %}
+	<p>Rôle : Admin</p>
+	{% endif %}
+    <p>Email: {{ user.email }}</p>
+    <p>Nom: {{ user.nom }}</p>
+    <p>Prénom: {{ user.prenom }}</p>
+    <a href="{{ user.id }}/edit">Modifier</a>
+</div>
+{% endblock users_list %}

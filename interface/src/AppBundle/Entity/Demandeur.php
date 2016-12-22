@@ -130,6 +130,18 @@ class Demandeur
 	protected $ville;
 	
 	/**
+     * @ORM\Column(type="boolean")
+     *
+     */
+	protected $QPV;
+	
+	/**
+     * @ORM\Column(name="QPVNom", type="DemandeurQPVNom", nullable=true)
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurQPVNom")     
+     */
+    protected $QPVNom;
+	
+	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
@@ -237,6 +249,12 @@ class Demandeur
      */
 	protected $metier;
 	
+	/**
+     * @ORM\Column(type="text", nullable=true)
+     *
+     */
+	protected $description;
+	
 	public function getId()
 	{
 		return $this->id;
@@ -310,6 +328,16 @@ class Demandeur
 	public function getVille()
 	{
 		return $this->ville;
+	}
+	
+	public function getQPV()
+	{
+		return $this->QPV;
+	}
+	
+	public function getQPVNom()
+	{
+		return $this->QPVNom;
 	}
 
 	public function getTelFixe()
@@ -401,6 +429,11 @@ class Demandeur
 	{
 		return $this->metier;
 	}
+	
+	public function getDescription()
+	{
+		return $this->description;
+	}
 
 	public function setNom($nom)
 	{
@@ -483,6 +516,18 @@ class Demandeur
 	public function setVille($ville)
 	{
 		$this->ville = $ville;
+		return $this;
+	}
+	
+	public function setQPV($QPV)
+	{
+		$this->QPV = $QPV;
+		return $this;
+	}
+	
+	public function setQPVNom($QPVNom)
+	{
+		$this->QPVNom = $QPVNom;
 		return $this;
 	}
 
@@ -590,6 +635,12 @@ class Demandeur
 	public function setMetier($metier)
 	{
 		$this->metier =$metier;
+		return $this;
+	}
+	
+	public function setDescription($description)
+	{
+		$this->description =$description;
 		return $this;
 	}
 	

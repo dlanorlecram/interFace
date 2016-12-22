@@ -55,6 +55,12 @@ class DemandeurType extends AbstractType
 				->add('ville', null, array(
 					'translation_domain' => false,
 					'label' => 'Ville',))
+				->add('QPV', null, array(
+					'translation_domain' => false,
+					'label' => 'QPV',))
+				->add('QPVNom', null, array(
+					'translation_domain' => false,
+					'label' => 'Quartier',))
 				->add('telFixe', null, array(
 					'translation_domain' => false,
 					'label' => 'Téléphone fixe',))
@@ -109,6 +115,9 @@ class DemandeurType extends AbstractType
 				->add('metier', null, array(
 					'translation_domain' => false,
 					'label' => 'Métier',))
+				->add('description', null, array(
+					'translation_domain' => false,
+					'label' => 'Description',))
 				->add('imageFile', 'vich_file', array(
 					'required'      => false,
 					'allow_delete'  => true, // not mandatory, default is true
