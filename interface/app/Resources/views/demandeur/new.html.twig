@@ -1,12 +1,39 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    <h1>Demandeur creation</h1>
+    <h1 style='display: '>Demandeur creation</h1>
+    <div class="column_1 ">
+      <div class="block action">
 
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+      </div>
+      <div class="block etat_civil">
+        {{ form_label(form.nom.value ? 'test':'' }}
+        {{ form_widget(form.nom) }}
+        {{ form_label(form.prenom) }}
+        {{ form_widget(form.prenom) }}
+        {{ form_label(form.dateNaissance) }}
+        {{ form_widget(form.dateNaissance) }}
+        {{ form_label(form.villeNaissance) }}
+        {{ form_widget(form.villeNaissance) }}
+      </div>
+      <div class="block">
+        <div class="mobilité">
+
+        </div>
+        <div class="ressource">
+
+        </div>
+      </div>
+      <div class="block formation">
+
+      </div>
+      <input type="submit" value="Create" />
+    </div>
+    <div class ="column_2">
+      <div class="block document">
+
+      </div>
+    </div>
 
     <ul>
         <li>
