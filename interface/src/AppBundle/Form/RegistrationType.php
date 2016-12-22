@@ -12,11 +12,17 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 		$builder->remove('username');
-        $builder->add('nom');
-        $builder->add('prenom');
+        $builder->add('nom', null, array(
+					'translation_domain' => false,
+					'label' => 'Nom',));
+        $builder->add('prenom', null, array(
+					'translation_domain' => false,
+					'label' => 'Prénom',));
         $builder->add('roles', 'collection', array(
-                   'type' => 'choice',
-                   'options' => array(
+					'translation_domain' => false,
+					'label' => 'Rôle',
+                    'type' => 'choice',
+                    'options' => array(
                         'label' => false,
                         'choices' => array(
                             'ROLE_USER' => 'Utilisateur',
