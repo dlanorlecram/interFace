@@ -51,7 +51,7 @@ class DemandeurType extends AbstractType
 					'download_link' => true, // not mandatory, default is true
 				));
     }
-    
+
     /**
      * {@inheritdoc}
      */
