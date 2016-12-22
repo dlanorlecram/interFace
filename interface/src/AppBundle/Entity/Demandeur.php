@@ -57,7 +57,7 @@ class Demandeur
     protected $nom;
     
     /**
-     * @ORM\Column(name="position", type="DemandeurStatus", nullable=false)
+     * @ORM\Column(name="status", type="DemandeurStatus", nullable=false)
      * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurStatus")     
      */
     protected $status;
