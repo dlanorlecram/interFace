@@ -3,7 +3,12 @@
 {% block users_list %}
 <ul>
     {% for entity in entities %}
-        <li>{{ entity }}</li>
+        <li>
+			{{ entity.nom }} 
+			{{ entity.prenom }} 
+			<a href="{{ path('users_edit', { 'id': entity.id }) }}">Modifier</a> 
+			<a href="{{ path('users_show', { 'id': entity.id }) }}">Voir</a>
+		</li>
     {% endfor %}
 </ul>
 {% endblock users_list %}
