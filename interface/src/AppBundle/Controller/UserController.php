@@ -22,7 +22,7 @@ class UserController extends Controller
      public function profilesAction(Request $request)
      {
 		$em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('AppBundle:User')->findAll();
+        $entities = $em->getRepository('AppBundle:User')->findBy(array(),array('nom' => 'ASC'));
         
 		return $this->render('userslist.html.twig', array(
                 'entities' => $entities,
