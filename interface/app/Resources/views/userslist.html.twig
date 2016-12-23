@@ -5,7 +5,12 @@
     {% for entity in entities %}
         <li>
 			{{ entity.nom }} 
-			{{ entity.prenom }} 
+			{{ entity.prenom }}
+			{% if entity.enabled %}
+				activé
+			{% else %}
+				désactivé
+			{% endif %}
 			<a href="{{ path('users_edit', { 'id': entity.id }) }}">Modifier</a> 
 			<a href="{{ path('users_show', { 'id': entity.id }) }}">Voir</a>
 		</li>
