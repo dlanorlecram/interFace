@@ -211,3 +211,58 @@ ul, li, a{
   height: 100vh;
   padding: 45px 70px;
 }
+/*BLOCK*/
+.column_1{
+  width: 56.3%;
+}
+.column_2{
+  width:;
+}
+.block_sub{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #FFF;
+  color: #BDBDBD;
+  width: 100%;
+  box-shadow: 0px 1px 2px #c4c4c4;
+  font: 14px 'Roboto', sans-serif;
+  margin-bottom: 4px;
+  background: #FFF;
+}
+.bloc_form{
+  height: 46px;
+}
+.nom{
+  width: 40%;
+}
+.prenom{
+  width: 60%;
+}
+.naissance{
+  width: ;
+}
+.deptNaissance{
+  width: ;
+}
+.villeN{
+
+}
+.paysN{
+
+}
+.nationalite{
+
+}
+.content_dashboard label{
+  display: block;
+  color: #24888F;
+  font-size: 10px;
+  padding-left: 15px;
+  height: calc(100% - 58.70%);
+  line-height: 20px;
+}
+.content_dashboard [type='text']{
+  height: 58.70%;
+  padding-left: 13px;
+  color: #828282;
+}
