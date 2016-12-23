@@ -8,6 +8,6 @@
     <p>Email: {{ user.email }}</p>
     <p>Nom: {{ user.nom }}</p>
     <p>Prénom: {{ user.prenom }}</p>
-    <a href="{{ user.id }}/edit">Modifier</a>
+    <a href="{{ path('users_edit', { 'id': user.id }) }}">Modifier</a>
 </div>
 {% endblock users_list %}

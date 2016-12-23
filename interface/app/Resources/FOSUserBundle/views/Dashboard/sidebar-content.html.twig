@@ -2,7 +2,7 @@
 
 <aside class="sidebar">
   <div class="app_title">
-    <h1>interFace</h1>
+    <h1>InterFace</h1>
   </div>
   <div class="menu_account">
     <div class="username">
@@ -20,10 +20,10 @@
   <div class="profil_submenu">
     <ul>
       <li>
-        <a href="{{ path('fos_user_profile_show') }}">Votre profile</a>
+        <a href="{{ path('fos_user_profile_show') }}">Votre profil</a>
       </li>
       <li>
-        <a href="{{ path('fos_user_security_logout') }}">Se déconnexion</a>
+        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
       </li>
     </ul>
   </div>
@@ -33,30 +33,30 @@
         <a href="{{ path('homepage') }}">Dashboard</a>
       </li>
       <li class="menu_item">
-        Demandeur d'emploi
+        Demandeurs d'emploi
         <div class="sub_menu">
           <ul class="">
-            <li><a href="{{ path ('demandeur_new')}}">Créer un profile</a></li>
-            <li><a href="">Recherche</a></li>
+            <li><a href="{{ path ('demandeur_new') }}">Nouveau demandeur</a></li>
+            <li><a href="{{ path ('demandeur_index') }}">Liste</a></li>
           </ul>
         </div>
       </li>
       <li class="menu_item">
-        Offre d'emploi
+        Offres d'emploi
         <div class="sub_menu">
           <ul>
-            <li class=""><a href="#">Créer une offre</a></li>
-            <li><a href="#">Recherche</a></li>
+            <li class=""><a href="#">Nouvelle offre</a></li>
+            <li><a href="#">Liste</a></li>
           </ul>
         </div>
-      </li class="menu_item">
+      </li>
       {% if is_granted("ROLE_ADMIN") %}
         <li class="menu_item">
-          Gestion des compte
+          Gestion des comptes
           <div class="sub_menu">
             <ul>
-              <li><a href="{{ path ('users_list')}}">Liste des comptes</a></li>
-              <li><a href="{{ path ('fos_user_registration_register')}}">Créer un comptes</a></li>
+			  <li><a href="{{ path ('fos_user_registration_register')}}">Créer un compte</a></li>
+              <li><a href="{{ path ('users_list')}}">Liste</a></li>
             </ul>
           </div>
         </li>

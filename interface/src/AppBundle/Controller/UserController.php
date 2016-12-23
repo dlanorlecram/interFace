@@ -10,6 +10,9 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
 use AppBundle\Form\UserType;
+use FOS\UserBundle\Event\FormEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 class UserController extends Controller
 {	
@@ -19,7 +22,7 @@ class UserController extends Controller
      public function profilesAction(Request $request)
      {
 		$em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('AppBundle:User')->findAll();
+        $entities = $em->getRepository('AppBundle:User')->findBy(array(),array('nom' => 'ASC'));
         
 		return $this->render('userslist.html.twig', array(
                 'entities' => $entities,

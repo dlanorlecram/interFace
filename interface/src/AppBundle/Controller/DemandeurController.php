@@ -24,7 +24,7 @@ class DemandeurController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $demandeurs = $em->getRepository('AppBundle:Demandeur')->findAll();
+        $demandeurs = $em->getRepository('AppBundle:Demandeur')->findBy(array(),array('nom' => 'ASC'));
 
         return $this->render('demandeur/index.html.twig', array(
             'demandeurs' => $demandeurs,
