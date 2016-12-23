@@ -1,19 +1,53 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block users_list %}
+<table>
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Rôle</th>
+                <th>Compte</th>
+                <th>Action</th>
+			</tr>
+	</thead>
+	<tbody>
+		{% for entity in entities %}
+			<tr>
+				<td>{{ entity.prenom }}</td>
+				
+				<td>{{ entity.nom }}</td>
+				
+				<td>
+					{% for role in entity.roles %}
+						{% if role == "ROLE_ADMIN" %}
+							Admin
+						{% endif %}	
+					{% endfor %}
+				</td>
+				
+				{% if entity.enabled %}
+					<td>activé</td>
+				{% else %}
+					<td>désactivé</td>
+				{% endif %}
+				
+				<td>
+					<ul>
+						<li>
+							<a href="{{ path('users_edit', { 'id': entity.id }) }}">Modifier</a>
+						</li>
+						<li>
+							<a href="{{ path('users_show', { 'id': entity.id }) }}">Voir</a>
+						</li>
+					</ul>
+				</td>
+		{% endfor %}
+    </tbody>
+</table>
 <ul>
-    {% for entity in entities %}
-        <li>
-			{{ entity.nom }} 
-			{{ entity.prenom }}
-			{% if entity.enabled %}
-				activé
-			{% else %}
-				désactivé
-			{% endif %}
-			<a href="{{ path('users_edit', { 'id': entity.id }) }}">Modifier</a> 
-			<a href="{{ path('users_show', { 'id': entity.id }) }}">Voir</a>
-		</li>
-    {% endfor %}
+	<li>
+		<a href="{{ path('fos_user_registration_register') }}">Créer un nouvel utilisateur</a>
+	</li>
 </ul>
 {% endblock users_list %}

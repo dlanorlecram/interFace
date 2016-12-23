@@ -2,12 +2,14 @@
 
 {% block users_list %}
 <div class="fos_user_user_show">
-	{% if is_granted("ROLE_ADMIN") %}
-	<p>Rôle : Admin</p>
-	{% endif %}
+	{% for role in user.roles %}
+		{% if role == "ROLE_ADMIN" %}
+			<p>Admin</p>
+		{% endif %}	
+	{% endfor %}
     <p>Email: {{ user.email }}</p>
     <p>Nom: {{ user.nom }}</p>
     <p>Prénom: {{ user.prenom }}</p>
-    <a href="{{ path('users_edit', { 'id': user.id }) }}">Modifier</a>
+    <p><a href="{{ path('users_edit', { 'id': user.id }) }}">Modifier</a></p>
 </div>
 {% endblock users_list %}
