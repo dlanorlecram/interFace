@@ -10,6 +10,9 @@ use FOS\UserBundle\Event\GetResponseUserEvent;
 use FOS\UserBundle\Form\Factory\FactoryInterface;
 use FOS\UserBundle\FOSUserEvents;
 use AppBundle\Form\UserType;
+use FOS\UserBundle\Event\FormEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
 
 class UserController extends Controller
 {	
