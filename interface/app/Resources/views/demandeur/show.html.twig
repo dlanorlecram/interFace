@@ -5,6 +5,10 @@
 
     <table>
         <tbody>
+			<tr>
+				<th>Photo</th>
+				<td><img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}" /></td>
+			</tr>
             <tr>
                 <th>Prénom</th>
                 <td>{{ demandeur.prenom }}</td>
