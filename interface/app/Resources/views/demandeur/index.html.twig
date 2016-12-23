@@ -26,7 +26,6 @@
                 <th>Email</th>
                 <th>Nombre d'enfant</th>
                 <th>Permis de conduire</th>
-                <th>Type de permis</th>
                 <th>Moyen de locomotion</th>
                 <th>Identifiant Pôle Emploi</th>
                 <th>Référent</th>
@@ -115,9 +114,11 @@
                 
                 <td>{% if demandeur.enfant %}{{ demandeur.enfant }}{% else %}-{% endif %}</td>
                 
-                <td>{% if demandeur.permisConduire %}Oui{% else %}Non{% endif %}</td>
-                
-                <td>{% if demandeur.typePermisConduire %}{{ demandeur.typePermisConduire }}{% else %}-{% endif %}</td>
+                {% if demandeur.permisConduire %}
+					<td>{{ demandeur.typePermisConduire }}</td>
+				{% else %}
+					<td>Non</td>
+				{% endif %}
                 
                 {% if demandeur.moyenLocomotion == "Au" %}
 					<td>{{ demandeur.moyenLocomotionAutre }}</td>
