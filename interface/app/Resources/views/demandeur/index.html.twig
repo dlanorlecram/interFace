@@ -6,74 +6,207 @@
     <table>
         <thead>
             <tr>
-                <th>Prenom</th>
+                <th>Prénom</th>
                 <th>Nom</th>
                 <th>Status</th>
-                <th>Datenaissance</th>
-                <th>Villenaissance</th>
-                <th>Deptnaissance</th>
-                <th>Paysnaissance</th>
-                <th>Nationalite</th>
-                <th>Titresejour</th>
-                <th>Autorisationtravail</th>
+                <th>Genre</th>
+                <th>Date de naissance</th>
+                <th>Ville de naissance</th>
+                <th>Département de naissance</th>
+                <th>Pays de naissance</th>
+                <th>Nationalité</th>
+                <th>Titre de séjour</th>
+                <th>Autorisation de travail</th>
                 <th>Adresse</th>
-                <th>Codepostal</th>
+                <th>Code postal</th>
                 <th>Ville</th>
-                <th>Telfixe</th>
-                <th>Telportable</th>
+                <th>QPV</th>
+                <th>Téléphone fixe</th>
+                <th>Téléphone portable</th>
                 <th>Email</th>
-                <th>Enfant</th>
-                <th>Permisconduire</th>
-                <th>Typepermisconduire</th>
-                <th>Moyenlocomotion</th>
-                <th>Moyenlocomotionautre</th>
-                <th>Idpoleemploi</th>
-                <th>Referent</th>
+                <th>Nombre d'enfant</th>
+                <th>Permis de conduire</th>
+                <th>Type de permis</th>
+                <th>Moyen de locomotion</th>
+                <th>Identifiant Pôle Emploi</th>
+                <th>Référent</th>
                 <th>Structure</th>
                 <th>Allocation</th>
-                <th>Allocationautre</th>
-                <th>Rqth</th>
-                <th>Niveauetude</th>
-                <th>Diplomepro</th>
-                <th>Categoriesociopro</th>
-                <th>Metier</th>
+                <th>Reconnaissance RQTH</th>
+                <th>Niveau étude</th>
+                <th>Diplome professionel</th>
+                <th>Categorie socio-professionel</th>
+                <th>Métier</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for demandeur in demandeurs %}
             <tr>
+            
                 <td>{{ demandeur.prenom }}</td>
+                
                 <td>{{ demandeur.nom }}</td>
-                <td>{{ demandeur.status }}</td>
-                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% endif %}</td>
-                <td>{{ demandeur.villeNaissance }}</td>
-                <td>{{ demandeur.deptNaissance }}</td>
-                <td>{{ demandeur.paysNaissance }}</td>
-                <td>{{ demandeur.nationalite }}</td>
-                <td>{% if demandeur.titreSejour %}Yes{% else %}No{% endif %}</td>
-                <td>{% if demandeur.autorisationTravail %}Yes{% else %}No{% endif %}</td>
-                <td>{{ demandeur.adresse }}</td>
-                <td>{{ demandeur.codePostal }}</td>
-                <td>{{ demandeur.ville }}</td>
-                <td>{{ demandeur.telFixe }}</td>
+                
+                {% if demandeur.status == "AS" %}
+					<td>Annonceur sentinelle</td>
+				{% elseif demandeur.status == "F" %}
+					<td>Flux</td>
+				{% elseif demandeur.status == "I" %}
+					<td>IRVIN</td>
+				{% elseif demandeur.status == "N" %}
+					<td>Numérique</td>
+				{% elseif demandeur.status == "S" %}
+					<td>Sécurité</td>
+				{% endif %}
+                
+                {% if demandeur.genre == "H" %}
+					<td>Homme</td>
+				{% elseif demandeur.genre == "F" %}
+					<td>Femme</td>
+				{% else %}
+					<td>Autre</td>
+				{% endif %}
+				
+                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.villeNaissance %}{{ demandeur.villeNaissance }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.deptNaissance %}{{ demandeur.deptNaissance }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.paysNaissance %}{{ demandeur.paysNaissance }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.nationalite %}{{ demandeur.nationalite }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.titreSejour %}Oui{% else %}Non{% endif %}</td>
+                
+                <td>{% if demandeur.autorisationTravail %}Oui{% else %}Non{% endif %}</td>
+                
+                <td>{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.codePostal %}{{ demandeur.codePostal }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.ville %}{{ demandeur.ville }}{% else %}-{% endif %}</td>
+                
+                {% if demandeur.QPV %}
+					{% if demandeur.QPVNom == "C" %}
+						<td>Cleunay</td>
+					{% elseif demandeur.QPVNom == "LB" %}
+						<td>Le Blosne</td>
+					{% elseif demandeur.QPVNom == "CM" %}
+						<td>Les Cloteaux/Champs Manceaux</td>
+					{% elseif demandeur.QPVNom == "M" %}
+						<td>Maurepas</td>
+					{% elseif demandeur.QPVNom == "V" %}
+						<td>Villejean</td>
+					{% else %}
+						<td>Oui</td>
+					{% endif %}
+				{% else %}
+					<td>Non</td>
+				{% endif %}
+				
+				<td>{% if demandeur.telFixe %}{{ demandeur.telFixe }}{% else %}-{% endif %}</td>
+                
                 <td>{{ demandeur.telPortable }}</td>
-                <td>{{ demandeur.email }}</td>
-                <td>{{ demandeur.enfant }}</td>
-                <td>{% if demandeur.permisConduire %}Yes{% else %}No{% endif %}</td>
-                <td>{{ demandeur.typePermisConduire }}</td>
-                <td>{{ demandeur.moyenLocomotion }}</td>
-                <td>{{ demandeur.moyenLocomotionAutre }}</td>
-                <td>{{ demandeur.idPoleEmploi }}</td>
-                <td>{{ demandeur.referent }}</td>
-                <td>{{ demandeur.structure }}</td>
-                <td>{{ demandeur.allocation }}</td>
-                <td>{{ demandeur.allocationAutre }}</td>
-                <td>{% if demandeur.rqth %}Yes{% else %}No{% endif %}</td>
-                <td>{{ demandeur.niveauEtude }}</td>
-                <td>{{ demandeur.diplomePro }}</td>
-                <td>{{ demandeur.categorieSocioPro }}</td>
-                <td>{{ demandeur.metier }}</td>
+                
+                <td>{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.enfant %}{{ demandeur.enfant }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.permisConduire %}Oui{% else %}Non{% endif %}</td>
+                
+                <td>{% if demandeur.typePermisConduire %}{{ demandeur.typePermisConduire }}{% else %}-{% endif %}</td>
+                
+                {% if demandeur.moyenLocomotion == "Au" %}
+					<td>{{ demandeur.moyenLocomotionAutre }}</td>
+				{% elseif demandeur.moyenLocomotion == "V" %}
+					<td>Voiture</td>
+				{% elseif demandeur.moyenLocomotion == "M" %}
+					<td>Motocyclette</td>
+				{% elseif demandeur.moyenLocomotion == "S" %}
+					<td>Scooter</td>
+				{% elseif demandeur.moyenLocomotion == "V" %}
+					<td>Vélo</td>
+				{% elseif demandeur.moyenLocomotion == "B" %}
+					<td>Bus</td>
+				{% elseif demandeur.moyenLocomotion == "Ac" %}
+					<td>Aucun</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+				
+				<td>{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.referent %}{{ demandeur.referent }}{% else %}-{% endif %}</td>
+                
+                <td>{% if demandeur.structure %}{{ demandeur.structure }}{% else %}-{% endif %}</td>
+                
+                {% if demandeur.allocation == "Au" %}
+					<td>{{ demandeur.allocationAutre }}</td>
+				{% elseif demandeur.allocation == "ARE" %}
+					<td>ARE</td>
+				{% elseif demandeur.allocation == "ASS" %}
+					<td>ASS</td>
+				{% elseif demandeur.allocation == "RSAa" %}
+					<td>RSA Active</td>
+				{% elseif demandeur.allocation == "RSAs" %}
+					<td>RSA Socle</td>
+				{% elseif demandeur.allocation == "Ac" %}
+					<td>Aucun</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+				
+                <td>{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</td>
+                
+                {% if demandeur.niveauEtude == "SD" %}
+					<td>Sans diplôme</td>
+				{% elseif demandeur.niveauEtude == "CAP" %}
+					<td>CAP</td>
+				{% elseif demandeur.niveauEtude == "BEP" %}
+					<td>BEP</td>
+				{% elseif demandeur.niveauEtude == "Bac" %}
+					<td>Bac</td>
+				{% elseif demandeur.niveauEtude == "BP" %}
+					<td>Bac Pro</td>
+				{% elseif demandeur.niveauEtude == "Bac2" %}
+					<td>Bac +2</td>
+				{% elseif demandeur.niveauEtude == "Bac3" %}
+					<td>Bac +3</td>
+				{% elseif demandeur.niveauEtude == "Bac4" %}
+					<td>Bac +4</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+				
+				<td>{% if demandeur.diplomePro %}{{ demandeur.diplomePro }}{% else %}-{% endif %}</td>
+                
+                {% if demandeur.categorieSocioPro == "O" %}
+					<td>Ouvrier</td>
+				{% elseif demandeur.categorieSocioPro == "Oq" %}
+					<td>Ouvrier qualifié</td>
+				{% elseif demandeur.categorieSocioPro == "E" %}
+					<td>Employé</td>
+				{% elseif demandeur.categorieSocioPro == "Eq" %}
+					<td>Employé qualifié</td>
+				{% elseif demandeur.categorieSocioPro == "AM" %}
+					<td>Agent de maîtrise</td>
+				{% elseif demandeur.categorieSocioPro == "C" %}
+					<td>Cadre</td>
+				{% elseif demandeur.categorieSocioPro == "Cs" %}
+					<td>Cadre supérieur</td>
+				{% elseif demandeur.categorieSocioPro == "A" %}
+					<td>Artisant</td>
+				{% elseif demandeur.categorieSocioPro == "Co" %}
+					<td>Commerçant</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+                
+                <td>{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</td>
+                
                 <td>
                     <ul>
                         <li>
