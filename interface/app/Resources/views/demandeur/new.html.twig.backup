@@ -1,10 +1,13 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    <h1>Demandeur creation</h1>
+    <h1>Demandeur creaton</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
+        <div class="t">
+        {{ form_label(form.nom) }}
+        {{ form_widget(form.nom) }}
+        </div>
         <input type="submit" value="Create" />
     {{ form_end(form) }}
 
