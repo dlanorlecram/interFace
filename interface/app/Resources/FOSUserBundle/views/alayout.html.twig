@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="{{asset('css/master.css')}}" media="screen" title="no title">
+        <link rel="stylesheet" href="{{asset("css/font-awesome/css/font-awesome.min.css")}}" media="screen" title="no title">
+    </head>
+    <body>
+      <div id="wrapper">
+        {% if ( is_granted("ROLE_ADMIN") or is_granted("ROLE_USER") or is_granted("IS_AUTHENTICATED_ANONYMOUSLY")) %}
+          <div class="container">
+            {{ include('FOSUserBundle:Dashboard:sidebar-content.html.twig') }}
+            <div class="content_dashboard">
+              <!-- Affichage du profil -->
+                  {% block fos_user_content %}
+                  {% endblock fos_user_content %}
+
+                  {% block users_list %}
+                  {% endblock users_list %}
+
+                  {% block job_hunter %}
+                  {% endblock %}
+            </div>
+          </div>
+          {% endif %}
+          <section id="login_session">
+            <!-- Appel du formulaire login -->
+            {% block fos_user_login_content %}
+            {% endblock fos_user_login_content %}
+          </section>
+          <section class="message_system">
+            {% if app.request.hasPreviousSession %}
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+          </section>
+        </div>
+        {{ include('FOSUserBundle:Script:script_content.html.twig') }}
+    </body>
+</html>
