@@ -1,7 +1,7 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {"class": "register_flux"}}) }}
         <h1 style='display: none'>Demandeur creation</h1>
         <div class="column_1 ">
           <div class="block action">
@@ -68,25 +68,78 @@
                 {{ form_widget(form.telPortable,{'attr':{'placeholder': "Numéro du portable"}}) }}
               </div>
             </div>
-            <div class="ressource">
-
+          </div>
+          <div class="duo">
+            <div class="" style="display: flex; flex-direction: row;">
+              <div class="block_sub_ mobilite">
+                <div class="permis bloc_form">
+                  {{ form_label(form.permisConduire) }}
+                  {{ form_widget(form.permisConduire) }}
+                </div>
+                <div class="type bloc_form">
+                  {{ form_label(form.typePermisConduire) }}
+                  {{ form_widget(form.typePermisConduire) }}
+                </div>
+              </div>
+              <div class="block_sub ressource">
+                <div class="id">
+                  {{ form_label(form.idPoleEmploi) }}
+                  {{ form_widget(form.idPoleEmploi) }}
+                </div>
+                <div class="alloc">
+                  {{ form_label(form.allocation) }}
+                  {{ form_widget(form.allocation) }}
+                </div>
+                <div class="rqth">
+                  {{ form_label(form.rqth) }}
+                  {{ form_widget(form.rqth) }}
+                </div>
+              </div>
             </div>
           </div>
           <div class="block formation">
-
+            <div class="block_sub">
+              <div class="niveau">
+                <span class="custom_label">Niveau d’étude :</span>
+                {{ form_widget(form.niveauEtude)}}
+              </div>
+              <div class="diplome">
+                {{ form_label(form.diplomePro)}}
+                {{ form_widget(form.diplomePro)}}
+              </div>
+              <div class="cat_socio">
+                <span class="custom_label">Catégorie socioprofessionnelle :</span>
+                {{ form_widget(form.categorieSocioPro)}}
+              </div>
+            </div>
           </div>
-          <input type="submit" value="Create" />
         </div>
         <div class ="column_2">
-          <div class="block document">
-
+          <div class="block_doc block_sub">
+              {{ form_widget(form.imageFile)}}
           </div>
-        </div>
-    {{ form_end(form) }}
+          <div class="block_compte_rendu block_sub">
+              <div class="referent">
+                <div class="">
+                  <span class="full">Référent</span>
+                  {{ form_widget(form.referent) }}
+                </div>
+                <div class="">
+                  <span class="full">Compte Rendu</span>
+                  {{ form_widget(form.description) }}
+                </div>
+              </div>
+          </div>
+          <div class="">
+          </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
-        </li>
-    </ul>
+          <ul>
+              <li>
+                  <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
+              </li>
+          </ul>
+          <input type="submit" value="Create" />
+        </div>
+
+    {{ form_end(form) }}
 {% endblock %}
