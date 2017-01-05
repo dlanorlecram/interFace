@@ -25,7 +25,7 @@ class RegistrationType extends AbstractType
                     'options' => array(
                         'label' => false,
                         'choices' => array(
-                            'ROLE_USER' => 'Utilisateur',
+                            'ROLE_USER' => 'Référent',
                             'ROLE_ADMIN' => 'Administrateur'
                        )
                    )
