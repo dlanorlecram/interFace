@@ -48,7 +48,7 @@ var color_mail_init = "rgb(255, 255, 255)";
       }
     /* End of event*/
 
-    $(this).find('.group_detail').toggleClass('gp_dl'),
+    $(this).find('.group_detail').toggleClass('gp_dl');
     $(this).find('.option_items').toggleClass('show_opt_item');
     console.log(spyClass);
     /* Checked presence class */
@@ -59,4 +59,10 @@ var color_mail_init = "rgb(255, 255, 255)";
     /* End of event*/
   });
 
+  /* Effect close and open filter */
+
+  $('.toggle_filter span').on('click', function(){
+    $('.form_filter').toggleClass('show_filter');
+  });
+  /* End of event */
 });

@@ -252,10 +252,10 @@ ul, li, a{
   width: 60%;
 }
 .naissance{
-  width: ;
+
 }
 .deptNaissance{
-  width: ;
+
 }
 .villeN{
   margin-left: 13px;
@@ -312,7 +312,6 @@ ul, li, a{
 .full{
   width: 100%;
   display: block;
-  bac
 }
 .column_2 textarea{
   background-color: #F2F2F2;
@@ -332,7 +331,7 @@ body ::-webkit-scrollbar-thumb{
   width: 100%;
 }
 .register_flux label{
-  visibility: visibility;
+  visibility: visible;
 }
 .qpvnom{
   visibility: hidden;
@@ -367,7 +366,7 @@ body ::-webkit-scrollbar-thumb{
   height: 35px;
   width: 100%;
   font-family: 'Roboto', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .search input:focus{
@@ -384,17 +383,34 @@ body ::-webkit-scrollbar-thumb{
   background: #FFF;
   font-family: 'Roboto', sans-serif;
   color: #828282;
+  position: relative;
   /*padding-left: 15px;*/
 }
+
+.filter_by:after{
+    content: '\f0dd';
+    position: absolute;
+    font-size: 10px;
+    font-family: "FontAwesome";
+    bottom: 17px;
+    right: 12px;
+    z-index: 1;
+    color: #C4C4C4;
+}
+
 .filter_by select{
   width: 95px;
   height: 100%;
   border: none;
-  background: #FFF;
+  background-color: transparent;
   font-family: 'Roboto', sans-serif;
   color: #828282;
   font-size: 12px;
   padding-left: 9px;
+  z-index: 2;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 /* filter_ */
@@ -404,13 +420,17 @@ body ::-webkit-scrollbar-thumb{
   justify-content: space-around;
   height: 44.5px;
   width: 100%;
-  margin-top: 80px;
 }
 
 .blfilter{
-  width: 160px;
-  height: 100%;
-  background-color: #FFFFFF;
+    width: 160px;
+    height: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    align-content: center;
+    padding: 0 10px;
+    padding-top: 20px;
+    position: relative;
 }
 
 /* ROW SEARCH */
@@ -435,7 +455,8 @@ body ::-webkit-scrollbar-thumb{
 }
 
 .filter_block{
-  margin-bottom: 70px;
+    padding-top: 60px;
+    margin-bottom: 70px;
 }
 
 .box{
@@ -460,6 +481,7 @@ body ::-webkit-scrollbar-thumb{
   overflow: hidden;
 }
 
+
 .group_detail{
   display: flex;
   justify-content: space-around;
@@ -470,6 +492,10 @@ body ::-webkit-scrollbar-thumb{
   font-size: 14px;
   border-bottom: 1px solid #c0c0c0;
   transition: 0.25s;
+}
+
+div.group_detail:last-of-type{
+    border-bottom: none;
 }
 
 .gp_dl{
@@ -539,6 +565,8 @@ body ::-webkit-scrollbar-thumb{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 135px;
+  text-align: center;
 }
 
 .show_opt_item{
@@ -550,6 +578,7 @@ body ::-webkit-scrollbar-thumb{
   display: flex;
   flex-direction: column;
   text-align: center;
+  padding-top: 10px;
 }
 
 .toggle_filter span{
@@ -558,8 +587,71 @@ body ::-webkit-scrollbar-thumb{
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
+  padding: 2px 0;
+  position: relative;
 }
 
 .arrow_status{
   margin: 0 auto;
+}
+
+.blfilter > label{
+    display: inline-block;
+    width: 50px;
+    font-size: 12px;
+    color: #828282;
+}
+.blfilter > select{
+    display: inline-block;
+    width: 64%;
+    border: 0;
+    border-bottom: 1px solid;
+    text-align: center;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 18px;
+    z-index: 2;
+    background: transparent;
+    color: #828282;
+}
+.blfilter option{
+    background-color: #ffffff;
+    border:0px;
+    outline:0px;
+}
+
+.blfilter:after{
+    content: '\f0dd';
+    position: absolute;
+    font-size: 10px;
+    font-family: "FontAwesome";
+    bottom: 13px;
+    right: 12px;
+    z-index: 1;
+    color: #C4C4C4;
+}
+
+.form_filter{
+    overflow: hidden;
+    height: 0px;
+    transition: 0.25s;
+}
+.show_filter{
+    height: 60px;
+}
+
+.spacer_filter{
+    width: 100px;
+    height: 2px;
+    background-color: #c0c0c0;
+    margin: 0 auto;
+}
+
+.toggle_filter span::after {
+    content: '\f0dd';
+    position: absolute;
+    top: 15px;
+    font-family: fontawesome;
+    right: 50%;
 }
