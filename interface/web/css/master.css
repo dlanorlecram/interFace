@@ -413,7 +413,7 @@ body ::-webkit-scrollbar-thumb{
   background-color: #FFFFFF;
 }
 
-/* */
+/* ROW SEARCH */
 
 .row_search{
   display: flex;
@@ -425,13 +425,141 @@ body ::-webkit-scrollbar-thumb{
 }
 
 .row_search .box span{
+  display: block;
   line-height: 41px;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
   font-size: 11px;
   color: #BDBDBD;
+  text-align: center;
 }
 
 .filter_block{
   margin-bottom: 70px;
+}
+
+.box{
+  width: 135px;
+}
+
+.rows{
+  background-color: #FFFFFF;
+  width: 100%;
+  min-height: 41px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.row_item{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 63px;
+  overflow: hidden;
+}
+
+.group_detail{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  color: #BDBDBD;
+  min-height: 36px;
+  height: 100%;
+  font-size: 14px;
+  border-bottom: 1px solid #c0c0c0;
+  transition: 0.25s;
+}
+
+.gp_dl{
+  background-color: #F1B18D;
+  color: #FFFFFF!important;
+  border-bottom: 2px solid #BB896D;
+}
+
+.group_detail:hover{
+  background-color: #F1B18D;
+  color: #FFFFFF!important;
+}
+.option_items{
+  background-color: #DCA281;
+  height: 0;
+  max-height: 27px;
+}
+
+.item_detail_infoperso{
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.item_detail_infoperso span{
+  text-align: center;
+}
+
+.item_detail_span{
+  line-height: 41px;
+}
+
+.option_items a{
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+.option_profil_show, .option_profil_edit{
+  min-width: 50px;
+  text-align: center;
+}
+
+.genre{
+  margin-top: 1px;
+  font-weight: bolder;
+}
+
+.mail{
+  color: #ED9767;
+}
+
+.group_detail > span{
+  line-height: 41px;
+}
+
+.option_items{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transition: 0.25s;
+}
+
+[class*="item_detail"]{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.show_opt_item{
+  height: 27px;
+}
+
+.toggle_filter{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.toggle_filter span{
+  margin: 0 auto;
+  color: #828282;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.arrow_status{
+  margin: 0 auto;
 }

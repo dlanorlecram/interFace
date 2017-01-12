@@ -26,4 +26,37 @@ var value = $('.red').val();
       $('.qpvnom').css({visibility:'visible'});
     }
   });
+
+/* Effect select block search item */
+
+var color_mail_init = "rgb(255, 255, 255)";
+
+
+  $('.row_item').on('click', function(){
+    var spyClass = $(".row_item").find(".show_opt_item");
+    var spyClassb = $(".row_item").find(".gp_dl");
+    var status_mail = $(this).find('.mail').css('color');
+    console.log(spyClass);
+    console.log("valeur initiale: "+status_mail);
+
+    /* Change color ".mail" when event click on */
+      if(color_mail_init !== status_mail ){
+        $(this).find('.mail').css('color', '#FFFFFF');
+      }
+      else{
+        $(this).find('.mail').css('color', '#ED9767');
+      }
+    /* End of event*/
+
+    $(this).find('.group_detail').toggleClass('gp_dl'),
+    $(this).find('.option_items').toggleClass('show_opt_item');
+    console.log(spyClass);
+    /* Checked presence class */
+    if(spyClass.length === 1){
+      spyClass.removeClass('show_opt_item');
+      spyClassb.removeClass('gp_dl');
+    }
+    /* End of event*/
+  });
+
 });
