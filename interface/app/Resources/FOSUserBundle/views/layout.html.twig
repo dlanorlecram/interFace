@@ -5,7 +5,7 @@
         <link rel="stylesheet" href="{{asset('css/master.css')}}" media="screen" title="no title">
         <link rel="stylesheet" href="{{asset("css/font-awesome/css/font-awesome.min.css")}}" media="screen" title="no title">
     </head>
-    <body>
+    <body ng-app='appInter'>
       <div id="wrapper">
         {% if ( is_granted("ROLE_ADMIN") or is_granted("ROLE_USER") ) %}
           <div class="container">

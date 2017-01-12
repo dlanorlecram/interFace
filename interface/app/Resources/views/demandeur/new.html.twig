@@ -1,17 +1,24 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    {{ form_start(form, {'attr': {"class": "register_flux"}}) }}
+    {{ form_start(form, {'attr': {"class": "register_flux", 'ng-controller':'effect' }}) }}
         <h1 style='display: none'>Demandeur creation</h1>
         <div class="column_1 ">
           <div class="block action">
-
+            <div class="">
+              {{ form_label(form.status)}}
+              {{ form_widget(form.status)}}
+            </div>
           </div>
           <div class="block etat_civil">
             <div class="block_sub">
+              <div class="bloc_form genre">
+                {{ form_label(form.genre) }}
+                {{ form_widget(form.genre,{ 'attr': {'placeholder': "Nom", "class": ""}}) }}
+              </div>
               <div class="bloc_form nom">
                 {{ form_label(form.nom) }}
-                {{ form_widget(form.nom,{ 'attr': {'placeholder': "Nom"}}) }}
+                {{ form_widget(form.nom,{ 'attr': {'placeholder': "Nom", "class": "testez"}}) }}
               </div>
               <div class="bloc_form prenom">
                 {{ form_label(form.prenom) }}
@@ -48,22 +55,36 @@
           <div class="block coordonne">
             <div class="block_sub">
               <div class="bloc_form adresse">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email,{'attr':{'placeholder': "Email"}}) }}
+              </div>
+              <div class="adresse">
+                <div class="bloc_form qpv">
+                  {{ form_label(form.QPV) }}
+                  {{ form_widget(form.QPV,{'attr':{'class': 'red'}}) }}
+                </div>
+                <div class="bloc_form qpvnom" >
+                  {{ form_label(form.QPVNom) }}
+                  {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+                </div>
+              </div>
+              <div class="bloc_form adresse">
                 {{ form_label(form.adresse) }}
                 {{ form_widget(form.adresse,{'attr':{'placeholder': "Adresse"}}) }}
               </div>
               <div class="bloc_form codePostal">
                 {{ form_label(form.codePostal) }}
-                {{ form_widget(form.codePostal,{'attr':{'placeholder': "Adresse"}}) }}
+                {{ form_widget(form.codePostal,{'attr':{}}) }}
               </div>
-              <div class="bloc_form codePostal">
+              <div class="bloc_form ville">
                 {{ form_label(form.ville) }}
                 {{ form_widget(form.ville,{'attr':{'placeholder': "Adresse"}}) }}
               </div>
-              <div class="bloc_form codePostal">
+              <div class="bloc_form telFixe">
                 {{ form_label(form.telFixe) }}
                 {{ form_widget(form.telFixe,{'attr':{'placeholder': "Numéro du fixe"}}) }}
               </div>
-              <div class="bloc_form codePostal">
+              <div class="bloc_form telPortable">
                 {{ form_label(form.telPortable) }}
                 {{ form_widget(form.telPortable,{'attr':{'placeholder': "Numéro du portable"}}) }}
               </div>
@@ -80,11 +101,19 @@
                   {{ form_label(form.typePermisConduire) }}
                   {{ form_widget(form.typePermisConduire) }}
                 </div>
+                <div class="type bloc_form">
+                  {{ form_label(form.moyenLocomotion) }}
+                  {{ form_widget(form.moyenLocomotion) }}
+                </div>
               </div>
               <div class="block_sub ressource">
                 <div class="id">
                   {{ form_label(form.idPoleEmploi) }}
-                  {{ form_widget(form.idPoleEmploi) }}
+                  {{ form_widget(form.idPoleEmploi, {'attr': {'placeholder': 'Identifiant Pôle Emploi'}}) }}
+                </div>
+                <div class="referent">
+                  <span class="full">Référent</span>
+                  {{ form_widget(form.referent) }}
                 </div>
                 <div class="alloc">
                   {{ form_label(form.allocation) }}
@@ -119,11 +148,7 @@
               {{ form_widget(form.imageFile)}}
           </div>
           <div class="block_compte_rendu block_sub">
-              <div class="referent">
-                <div class="">
-                  <span class="full">Référent</span>
-                  {{ form_widget(form.referent) }}
-                </div>
+              <div class="bloc_description">
                 <div class="">
                   <span class="full">Compte Rendu</span>
                   {{ form_widget(form.description) }}

@@ -328,6 +328,16 @@ ul, li, a{
 body ::-webkit-scrollbar-thumb{
   background: #C4C4C4;
 }
-.referent{
+.bloc_description{
   width: 100%;
+}
+.register_flux label{
+  visibility: visibility;
+}
+.qpvnom{
+  visibility: hidden;
+  transition: 0.25s;
+}
+.ShowBox{
+  visibility: visible;
 }

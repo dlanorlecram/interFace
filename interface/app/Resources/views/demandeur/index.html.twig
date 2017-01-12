@@ -41,13 +41,14 @@
             </tr>
         </thead>
         <tbody>
+          {{dump(demandeurs)}}
         {% for demandeur in demandeurs %}
             <tr>
-            
+
                 <td>{{ demandeur.prenom }}</td>
-                
+
                 <td>{{ demandeur.nom }}</td>
-                
+
                 {% if demandeur.status == "AS" %}
 					<td>Annonceur sentinelle</td>
 				{% elseif demandeur.status == "F" %}
@@ -59,7 +60,7 @@
 				{% elseif demandeur.status == "S" %}
 					<td>Sécurité</td>
 				{% endif %}
-                
+
                 {% if demandeur.genre == "H" %}
 					<td>Homme</td>
 				{% elseif demandeur.genre == "F" %}
@@ -67,27 +68,27 @@
 				{% else %}
 					<td>Autre</td>
 				{% endif %}
-				
+
                 <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.villeNaissance %}{{ demandeur.villeNaissance }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.deptNaissance %}{{ demandeur.deptNaissance }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.paysNaissance %}{{ demandeur.paysNaissance }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.nationalite %}{{ demandeur.nationalite }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.titreSejour %}Oui{% else %}Non{% endif %}</td>
-                
+
                 <td>{% if demandeur.autorisationTravail %}Oui{% else %}Non{% endif %}</td>
-                
+
                 <td>{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.codePostal %}{{ demandeur.codePostal }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.ville %}{{ demandeur.ville }}{% else %}-{% endif %}</td>
-                
+
                 {% if demandeur.QPV %}
 					{% if demandeur.QPVNom == "C" %}
 						<td>Cleunay</td>
@@ -105,21 +106,21 @@
 				{% else %}
 					<td>Non</td>
 				{% endif %}
-				
+
 				<td>{% if demandeur.telFixe %}{{ demandeur.telFixe }}{% else %}-{% endif %}</td>
-                
+
                 <td>{{ demandeur.telPortable }}</td>
-                
+
                 <td>{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.enfant %}{{ demandeur.enfant }}{% else %}-{% endif %}</td>
-                
+
                 {% if demandeur.permisConduire %}
 					<td>{{ demandeur.typePermisConduire }}</td>
 				{% else %}
 					<td>Non</td>
 				{% endif %}
-                
+
                 {% if demandeur.moyenLocomotion == "Au" %}
 					<td>{{ demandeur.moyenLocomotionAutre }}</td>
 				{% elseif demandeur.moyenLocomotion == "V" %}
@@ -137,13 +138,13 @@
 				{% else %}
 					<td>-</td>
 				{% endif %}
-				
+
 				<td>{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.referent %}{{ demandeur.referent }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.structure %}{{ demandeur.structure }}{% else %}-{% endif %}</td>
-                
+
                 {% if demandeur.allocation == "Au" %}
 					<td>{{ demandeur.allocationAutre }}</td>
 				{% elseif demandeur.allocation == "ARE" %}
@@ -159,9 +160,9 @@
 				{% else %}
 					<td>-</td>
 				{% endif %}
-				
+
                 <td>{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</td>
-                
+
                 {% if demandeur.niveauEtude == "SD" %}
 					<td>Sans diplôme</td>
 				{% elseif demandeur.niveauEtude == "CAP" %}
@@ -181,9 +182,9 @@
 				{% else %}
 					<td>-</td>
 				{% endif %}
-				
+
 				<td>{% if demandeur.diplomePro %}{{ demandeur.diplomePro }}{% else %}-{% endif %}</td>
-                
+
                 {% if demandeur.categorieSocioPro == "O" %}
 					<td>Ouvrier</td>
 				{% elseif demandeur.categorieSocioPro == "Oq" %}
@@ -205,11 +206,11 @@
 				{% else %}
 					<td>-</td>
 				{% endif %}
-                
+
                 <td>{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</td>
-                
+
                 <td>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</td>
-                
+
                 <td>
                     <ul>
                         <li>
