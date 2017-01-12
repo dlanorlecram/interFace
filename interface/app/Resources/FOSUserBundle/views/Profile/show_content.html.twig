@@ -4,7 +4,6 @@
 	{% if is_granted("ROLE_ADMIN") %}
 	<p>Rôle : Admin</p>
 	{% endif %}
-    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     <p>Nom: {{ user.nom }}</p>
     <p>Prénom: {{ user.prenom }}</p>
