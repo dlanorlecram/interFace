@@ -1,7 +1,7 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    <div class="block_search">
+    <div class="block_search" ng-app='appInter'>
       <div class="inner_block_search">
         <div class="search">
           <form class="">
@@ -92,51 +92,46 @@
               <span>métier</span>
             </div>
           </div>
-
           <div class="rows">
-            {% for demandeur in demandeurs %}
-            <div class="row_item">
-              <div class="group_detail">
-                <div class="item_detail_name">
-                  <span class="item_detail_span">Gwenn Jolie</span>
+              <div class="row_item">
+                <div class="group_detail">
+                  <div class="item_detail_name">
+                    <span class="item_detail_span"></span>
+                  </div>
+                  <div class="item_detail_infoperso">
+                    <span class="genre">Femme</span>
+                    <span class="mail">username@server.fr</span>
+                    <span class="numb">Tel: 0123456789</span>
+                  </div>
+                  <div class="item_detail_name">
+                    <span class="item_detail_span">CLEUNAY</span>
+                  </div>
+                  <div class="item_detail_qpv">
+                    <span class="item_detail_span">Oui</span>
+                  </div>
+                  <div class="item_detail_pemploi">
+                    <span class="item_detail_span">AB0123456789</span>
+                  </div>
+                  <div class="item_detail_permis">
+                    <span class="item_detail_span">Permis A</span>
+                  </div>
+                  <div class="item_detail_metier">
+                    <span class="item_detail_span">Plombière</span>
+                  </div>
                 </div>
-                <div class="item_detail_infoperso">
-                  <span class="genre">Femme</span>
-                  <span class="mail">username@server.fr</span>
-                  <span class="numb">Tel: 0123456789</span>
-                </div>
-                <div class="item_detail_name">
-                  <span class="item_detail_span">CLEUNAY</span>
-                </div>
-                <div class="item_detail_qpv">
-                  <span class="item_detail_span">Oui</span>
-                </div>
-                <div class="item_detail_pemploi">
-                  <span class="item_detail_span">AB0123456789</span>
-                </div>
-                <div class="item_detail_permis">
-                  <span class="item_detail_span">Permis A</span>
-                </div>
-                <div class="item_detail_metier">
-                  <span class="item_detail_span">Plombière</span>
-                </div>
-              </div>
-              <div class="option_items">
-                <div class="option_profil_show">
-                  <a href="{{ path('demandeur_show', { 'id': demandeur.id }) }}">Voir</a>
-                </div>
-                <div class="option_profil_edit">
-                  <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Éditer</a>
+                <div class="option_items">
+                  <div class="option_profil_show">
+                    <a href="#">Voir</a>
+                  </div>
+                  <div class="option_profil_edit">
+                    <a href="#">Éditer</a>
+                  </div>
                 </div>
               </div>
             </div>
-            {% endfor %}
           </div>
         </div>
       </div>
     </div>
-    <!--{{dump(demandeurs)}}
-    {% for item in demandeurs %}
-        <h1>{{item.nom}}</h1>
-    {% endfor %}-->
+
 {% endblock %}

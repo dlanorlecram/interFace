@@ -4,4 +4,20 @@
   <script src="{{asset("js/jquery-ui.min.js")}}" charset="utf-8"></script>
   <script src="{{asset("js/script.js")}}" charset="utf-8"></script>
   <script src="{{asset("js/appInter.js")}}" charset="utf-8"></script>
+
+  <script>
+  var app = angular.module("appInter", []);
+
+  app.controller("searchCtrl", function($scope){
+
+
+  });
+    var json = [];
+    {% for demandeur in demandeurs %}
+    var data =  {{demandeur|raw}};
+    console.log(data);
+    json.push(data);
+    {% endfor %}
+    console.log(json[0].nom);
+  </script>
 {% endblock %}
