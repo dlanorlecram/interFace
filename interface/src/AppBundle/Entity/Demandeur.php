@@ -12,6 +12,8 @@ use AppBundle\DBAL\Types\DemandeurMoyenLocomotion;
 use AppBundle\DBAL\Types\DemandeurAllocation;
 use AppBundle\DBAL\Types\DemandeurNiveauEtude;
 use AppBundle\DBAL\Types\DemandeurCategorieSocioPro;
+use AppBundle\Entity\Document;
+use Doctrine\Common\Collections\ArrayCollection;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
 /**
@@ -19,8 +21,13 @@ use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
  * @Vich\Uploadable
  * @ORM\Table(name="demandeur")
  */
-class Demandeur
+class Demandeur extends myEntity
 {
+
+	public function __construct() {
+        $this->document = new ArrayCollection();
+    }
+    
 	/**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -254,6 +261,13 @@ class Demandeur
      *
      */
 	protected $description;
+	
+	/**
+	 * One Demandeur has Many Document
+	 * @ORM\OneToMany(targetEntity="Document", mappedBy="demandeur", cascade={"remove", "persist"})
+	 *
+	 */
+	protected $document;
 	
 	public function getId()
 	{
