@@ -677,3 +677,14 @@ div.group_detail:last-of-type{
     font-weight: normal;
     font-size: 23px;
 }
+
+/* REGISTER USER */
+
+.block_form_user{
+  background-color: #FFFFFF;
+}
+
+.group_form_user{
+  display: flex;
+  
+}

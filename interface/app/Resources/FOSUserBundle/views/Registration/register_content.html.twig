@@ -1,8 +1,47 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+<div class="container_registerUser">
+  <div class="inner_container">
+    <div class="block_form_user">
+      {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        <div class="box_user_form">
+          <div class="group_form_user">
+            {{ form_label(form.prenom) }}
+            {{ form_widget(form.prenom) }}
+          </div>
+          <div class="group_form_user">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom) }}
+          </div>
+        </div>
+
+        <div class="box_user_form">
+          <div class="group_form_user">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+          </div>
+        </div>
+
+        <div class="box_user_form">
+          <div class="group_form_user">
+            {{ form_label(form.email) }}
+            {{ form_widget(form.email) }}
+          </div>
+        </div>
+
+        <div class="box_user_form">
+
+        </div>
+
+      {{ form_end(form) }}
+    </div>
+  </div>
+</div>
+
+
+<!--{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     {{ form_widget(form) }}
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>
-{{ form_end(form) }}
+{{ form_end(form) }}-->
