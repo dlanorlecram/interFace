@@ -88,7 +88,7 @@ class DemandeurController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('demandeur_edit', array('id' => $demandeur->getId()));
+            return $this->redirectToRoute('demandeur_show', array('id' => $demandeur->getId()));
         }
 
         return $this->render('demandeur/edit.html.twig', array(
