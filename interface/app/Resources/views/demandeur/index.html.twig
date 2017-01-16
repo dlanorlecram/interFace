@@ -274,7 +274,8 @@
               var obj =  {};
 
               if(tabMetier === "Tous"){
-                obj["metier"] = "";
+                /*obj["metier"] = "";*/
+                return $;
               }
               else {
                 obj["metier"] = tabMetier;
@@ -284,11 +285,11 @@
 
             $scope.selectQpv = function( objQpv ){
               var obj = {};
-              var string = $;
+
               console.log(objQpv.name);
               if( objQpv.name === "Tous"){
                 console.log('ok');
-                return string;
+                return $;
               }
               else {
                 obj["QPVNom"] = objQpv.value;
