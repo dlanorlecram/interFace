@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class DemandeurType extends AbstractType
 {
@@ -25,7 +26,10 @@ class DemandeurType extends AbstractType
 				->add('genre', null, array(
 					'translation_domain' => false,
 					'label' => 'Genre',))
-				->add('dateNaissance', null, array(
+				->add('dateNaissance', 'birthday', array(
+					'format' => 'dd - MMMM - yyyy',
+					'widget' => 'choice',
+					'years' => range(date('Y'), date('Y')-100),
 					'translation_domain' => false,
 					'label' => 'Date de naissance',))
 				->add('villeNaissance', null, array(
