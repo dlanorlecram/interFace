@@ -1,16 +1,16 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    <div class="block_search" ng-app='appInter'>
+    <div class="block_search" ng-controller="searchCtrl">
       <div class="inner_block_search">
         <div class="search">
           <form class="">
             <button type="submit" name="button"></button>
-            <input type="search" name="" value="" placeholder="Recherche...">
+            <input ng-model="query" type="search" name="" value="" placeholder="Recherche...">
             <div class="filter_by">
-              <select class="" name="">
-                <option value="">Par nom</option>
-                <option value="">Par prénom</option>
+
+              <select class="" name="" ng-init = "selected = sltOptsSort[0]" ng-options = " select_opt.name for select_opt in sltOptsSort" ng-model = "selected">
+
               </select>
             </div>
           </form>
@@ -21,43 +21,28 @@
                     <div class="filter_group">
                         <div class="blfilter">
                             <label for="">Permis</label>
-                            <select class="" name="">
-                                <option value="">A</option>
-                                <option value="">B</option>
-                                <option value="">Poids Lourd</option>
-                                <option value="">Moto</option>
-                                <option value=""></option>
+                            <select ng-init = "permisSelect = trueFalse[0]" ng-model="permisSelect" ng-options = "answer.name for answer in trueFalse">
                             </select>
                         </div>
                         <div class="blfilter">
                             <label for="">QPV</label>
-                            <select class="" name="">
-                                <option value="">A</option>
-                                <option value="">B</option>
-                                <option value="">Poids Lourd</option>
-                                <option value="">Moto</option>
-                                <option value=""></option>
+                            <select ng-init = "qpvSelect = qpvSort[0]" ng-model = "qpvSelect" ng-options = "quatier.name for quatier in qpvSort">
                             </select>
                         </div>
                         <div class="blfilter">
                             <label for="">RQTH</label>
-                            <select class="" name="">
-                                <option value="">Oui</option>
-                                <option value="">Non</option>
+                            <select ng-init = "rqthSelect = trueFalse[0]" ng-model = "rqthSelect" ng-options = " rqth.name for rqth in trueFalse">
                             </select>
                         </div>
                         <div class="blfilter">
                             <label for="">Genre</label>
-                            <select class="" name="">
-                                <option value="">Oui</option>
-                                <option value="">Non</option>
+                            <select class="" name="" ng-init = "genreSelect = genreSort[0]" ng-model = "genreSelect" ng-options = "genre.name for genre in genreSort">
+
                             </select>
                         </div>
                         <div class="blfilter">
                             <label for="">Métier</label>
-                            <select class="" name="">
-                                <option value="">Maçon</option>
-                                <option value="">Plombier</option>
+                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
                             </select>
                         </div>
                     </div>
@@ -93,39 +78,35 @@
             </div>
           </div>
           <div class="rows">
-              <div class="row_item">
-                <div class="group_detail">
-                  <div class="item_detail_name">
-                    <span class="item_detail_span"></span>
-                  </div>
-                  <div class="item_detail_infoperso">
-                    <span class="genre">Femme</span>
-                    <span class="mail">username@server.fr</span>
-                    <span class="numb">Tel: 0123456789</span>
-                  </div>
-                  <div class="item_detail_name">
-                    <span class="item_detail_span">CLEUNAY</span>
-                  </div>
-                  <div class="item_detail_qpv">
-                    <span class="item_detail_span">Oui</span>
-                  </div>
-                  <div class="item_detail_pemploi">
-                    <span class="item_detail_span">AB0123456789</span>
-                  </div>
-                  <div class="item_detail_permis">
-                    <span class="item_detail_span">Permis A</span>
-                  </div>
-                  <div class="item_detail_metier">
-                    <span class="item_detail_span">Plombière</span>
-                  </div>
+            <div class="row_item" ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect)">
+              <div class="group_detail">
+                <div class="item_detail_name">
+                  <span class="item_detail_span">{[{data.prenom+" "+data.nom}]}</span>
                 </div>
-                <div class="option_items">
-                  <div class="option_profil_show">
-                    <a href="#">Voir</a>
-                  </div>
-                  <div class="option_profil_edit">
-                    <a href="#">Éditer</a>
-                  </div>
+                <div class="item_detail_infoperso">
+                  <span class="genre">{[{data.genre|genreFilter}]}</span>
+                  <span class="mail">{[{data.email}]}</span>
+                  <span class="numb">Tel: {[{data.telPortable}]}</span>
+                </div>
+                <div class="item_detail_qpv">
+                  <span class="item_detail_span">{[{data.QPVNom|qpvFilter}]}</span>
+                </div>
+                <div class="item_detail_rqth">
+                  <span class="item_detail_span">{[{data.idPoleEmploi}]}</span>
+                </div>
+                <div class="item_detail_pemploi">
+                  <span class="item_detail_span">{[{data.rqth|booleanFilter}]}</span>
+                </div>
+                <div class="item_detail_permis">
+                  <span class="item_detail_span">{[{data.permisConduire|booleanFilter}]}</span>
+                </div>
+                <div class="item_detail_metier">
+                  <span class="item_detail_span">{[{data.metier}]}</span>
+                </div>
+              </div>
+              <div class="option_items">
+                <div class="option_profil_show">
+                  <a href="{[{data.id}]}">Voir</a>
                 </div>
               </div>
             </div>
@@ -133,5 +114,204 @@
         </div>
       </div>
     </div>
+    <script src="{{asset("js/angular.min.js")}}" charset="utf-8"></script>
+    <script>
+        var app = angular.module("appInter", []);
+        app.config(function($interpolateProvider){
+          $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+        });
 
+        /* Filtre pour remplacer  "F" => "Femme" & "H" => "Homme" */
+
+        app.filter('genreFilter', function(){
+            return function(input){
+                var genre = {
+                    F: "Femme",
+                    H: "Homme",
+                    A: "Autre"
+                }
+                var newGenre = genre[input];
+                console.log(newGenre);
+                return newGenre;
+            }
+        });
+
+        app.filter('qpvFilter', function(){
+            return function(input){
+                var quartier = {
+                    C: "Cleunay",
+                    LB: "Le Blosne",
+                    CM: "Les Cloteaux Champs Manceau",
+                    M: "Maurepars",
+                    V: "Villejean"
+                }
+                var newQpv = quartier[input];
+                return newQpv;
+            }
+        });
+
+        app.filter('booleanFilter', function(){
+            return function(input){
+                var boolean = {
+                    true: "Oui",
+                    false: "Non"
+                }
+                var newBoolean = boolean[input];
+                return newBoolean;
+            }
+        });
+
+        app.controller("searchCtrl", function($scope){
+
+            //LISTE des données
+
+            $scope.genreSort = [{
+                value: "",
+                name: "Tous"
+            },{
+                value: "F",
+                name: "Femme"
+            },{
+                value: "H",
+                name: "Homme"
+            },{
+                value: "A",
+                name: "Autre"
+            }];
+            $scope.trueFalse = [{
+              value: "",
+              name: "Tous"
+            },{
+              value: "True",
+              name: "Oui"
+            },{
+              value: "False",
+              name: "Non"
+            }];
+
+            $scope.qpvSort = [{
+              value: "",
+              name: "Tous"
+            },{
+              value: "C",
+              name: "Cleunay"
+            },{
+              value: "LB",
+              name: "Le Blosne"
+            },{
+              value: "CM",
+              name: "Les Cloteaux Champs Manceau",
+            },{
+              value: "M",
+              name: "Maurepars"
+            },{
+              value: "V",
+              name: "Villejean"
+            }];
+
+            $scope.sltOptsSort = [{
+                    type: "select",
+                    value: "nom",
+                    name: "Par nom"
+                },{
+                    value: "prenom",
+                     name: "Par prénom"
+                 }];
+
+            $scope.metierDb = ["Tous"];
+
+            var json = [];
+
+            {% for demandeur in demandeurs %}
+                var data =  {{demandeur|raw}};
+                json.push(data);
+            {% endfor %}
+
+            /* Fonction tri */
+            function trieByID(a,b){
+                return a.id - b.id;
+            }
+
+            $scope.jsonData = json.sort(trieByID);
+            console.log($scope.jsonData);
+            /* Trier pour lister les métiers */
+
+            for( i in $scope.jsonData){
+                var item = $scope.jsonData[i].metier;
+
+                if($scope.metierDb.length === 0 && item !== null){
+                    $scope.metierDb.push(item);
+                }
+
+                else{
+                    /*found=false;
+                    for(var j = 0; j < $scope.metierDb.length; j++){
+                        if(item !== null && $scope.metierDb[j] == item ){
+                            found = true;
+                        }
+                    }
+                    if(!found) $scope.metierDb.push(item);*/
+                    if($scope.metierDb.indexOf(item)<0)
+                      $scope.metierDb.push(item);
+                }
+            }
+            console.log($scope.metierDb);
+
+            // FILTRE
+            /* Filtre Pour chercher par nom ou par prénom */
+            $scope.selecTrie = function( key, value ){
+                var obj = {};
+                obj[ "" + key.value + "" ] = value;
+                return obj;
+            };
+
+            $scope.selectGenre = function( objGenre ){
+                var obj = {};
+                obj[ "genre" ] = objGenre.value;
+                return obj;
+            };
+            $scope.selectMetier = function ( tabMetier){
+              var obj =  {};
+
+              if(tabMetier === "Tous"){
+                obj["metier"] = "";
+              }
+              else {
+                obj["metier"] = tabMetier;
+              }
+              return obj;
+            };
+
+            $scope.selectQpv = function( objQpv ){
+              var obj = {};
+              var string = $;
+              console.log(objQpv.name);
+              if( objQpv.name === "Tous"){
+                console.log('ok');
+                return string;
+              }
+              else {
+                obj["QPVNom"] = objQpv.value;
+                console.log(obj);
+                return obj;
+              }
+            };
+            $scope.selectPermis = function( objpermis ){
+              var obj = {};
+                console.log(objpermis.name);
+                obj["permisConduire"] = objpermis.value;
+                console.log(obj);
+                return obj;
+            };
+
+            $scope.selectRqth = function( objrqth ){
+              var obj = {};
+                console.log(objrqth.name);
+                obj["rqth"] = objrqth.value;
+                console.log(obj);
+                return obj;
+            };
+
+        });
+    </script>
 {% endblock %}

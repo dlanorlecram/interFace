@@ -1,0 +1,21 @@
+var app = angular.module("appInter",[]);
+
+app.config(function($interpolateProvider){
+  $interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+});
+
+
+app.controller("searchCtrl", function( $scope){
+
+
+
+    // var obj = {};
+    // $scope.dataUsers = [];
+    //
+    // $scope.$watch('obj', function(NewVal, OldVal){
+    //     console.log(OldVal);
+    //     $scope.dataUsers.push(NewVal);
+    //     console.log($scope.dataUsers);
+    // });
+
+});

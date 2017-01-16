@@ -526,7 +526,7 @@ div.group_detail:last-of-type{
 }
 
 .item_detail_span{
-  line-height: 41px;
+/*   line-height: 41px; */
 }
 
 .option_items a{
@@ -614,6 +614,7 @@ div.group_detail:last-of-type{
     z-index: 2;
     background: transparent;
     color: #828282;
+    font-style: oblique;
 }
 .blfilter option{
     background-color: #ffffff;
