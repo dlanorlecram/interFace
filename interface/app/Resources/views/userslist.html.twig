@@ -1,7 +1,65 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block users_list %}
-<table>
+
+  <div class="container_list_user">
+    <h1>Liste des comptes employés</h1>
+    <div class="row_search">
+      <div class="box">
+        <span>prenom nom</span>
+      </div>
+      <div class="box">
+        <span>adresse mail</span>
+      </div>
+      <div class="box">
+        <span>État</span>
+      </div>
+      <div class="box">
+        <span>poste</span>
+      </div>
+    </div>
+    {% for entity in entities %}
+    <a href="{{ path('users_show', { 'id': entity.id }) }}">
+      <div class="rows">
+        <div class="row_item">
+          <div class="group_detail">
+            <div class="item_detailuser_name">
+              <span class="item_detailuser_span">{{ entity.prenom }} {{entity.nom }}</span>
+            </div>
+            <div class="item_detailuser_email">
+              <span class="item_detailuser_span">{{entity.email}}</span>
+            </div>
+            <div class="item_detailuser_etat">
+              {% if entity.enabled %}
+                <span class="item_detailuser_span">activé</span>
+      				{% else %}
+                <span class="item_detailuser_span">désactivé</span>
+      				{% endif %}
+            </div>
+            <div class="item_detailuser_role">
+
+              {% for role in entity.roles %}
+                {% if role == "ROLE_ADMIN" %}
+                  <span class="item_detailuser_span">Administrateur</span>
+                {% elseif role != "ROLE_ADMIN" %}
+                  <span class="item_detailuser_span">Référent</span>
+                {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+          <!--<div class="option_items">
+            <div class="option_profil_show">
+              <a href="{{ path('users_edit', { 'id': entity.id }) }}">Voir</a>
+            </div>
+          </div>-->
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+
+<!--<table>
         <thead>
             <tr>
                 <th>Prénom</th>
@@ -15,23 +73,23 @@
 		{% for entity in entities %}
 			<tr>
 				<td>{{ entity.prenom }}</td>
-				
+
 				<td>{{ entity.nom }}</td>
-				
+
 				<td>
 					{% for role in entity.roles %}
 						{% if role == "ROLE_ADMIN" %}
 							Admin
-						{% endif %}	
+						{% endif %}
 					{% endfor %}
 				</td>
-				
+
 				{% if entity.enabled %}
 					<td>activé</td>
 				{% else %}
 					<td>désactivé</td>
 				{% endif %}
-				
+
 				<td>
 					<ul>
 						<li>
@@ -49,5 +107,5 @@
 	<li>
 		<a href="{{ path('fos_user_registration_register') }}">Créer un nouvel utilisateur</a>
 	</li>
-</ul>
+</ul>-->
 {% endblock users_list %}

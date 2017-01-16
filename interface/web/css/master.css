@@ -568,6 +568,14 @@ div.group_detail:last-of-type{
   width: 135px;
   text-align: center;
 }
+[class*="item_detailuser"]{
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 220px;
+  text-align: center;
+}
 
 .show_opt_item{
   height: 27px;
@@ -655,4 +663,17 @@ div.group_detail:last-of-type{
     top: 15px;
     font-family: fontawesome;
     right: 50%;
+}
+
+.container_list_user{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+.container_list_user h1{
+  margin-bottom: 24px;
+    color: #F1B18D;
+    font-weight: normal;
+    font-size: 23px;
 }
