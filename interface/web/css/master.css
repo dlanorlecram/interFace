@@ -821,3 +821,61 @@ div.group_detail:last-of-type{
     margin-top: 0;
   }
 }
+
+
+/* USER PROFILE SHOW */
+
+.container_user_user_show{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.fos_user_user_show{
+    width: 55%;
+    margin: 0 auto;
+    padding: 25px 60px;
+    display: table;
+    background-color: #FFFFFF;
+}
+
+.user_status{
+    text-align: center;
+}
+
+.user_status h1{
+    font-size: 36px;
+    font-weight: 200;
+    color: #828282;
+    margin-bottom: 5px;
+}
+
+.untitle_status p{
+    display: inline-block;
+}
+
+.box_profil_user{
+    margin-top: 20px;
+}
+
+.box_email{
+    text-align: center;
+}
+
+.box_btn{
+    display: table;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.btn_edit{
+    height: 35px;
+    width: 120px;
+    background-color: #ED9767;
+    text-align: center;
+    line-height: 35px;
+    color: white;
+    font-weight: 300;
+    float: right;
+}
