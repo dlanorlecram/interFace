@@ -1,15 +1,66 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block users_list %}
-<div class="fos_user_user_show">
-	{% for role in user.roles %}
-		{% if role == "ROLE_ADMIN" %}
-			<p>Admin</p>
-		{% endif %}	
-	{% endfor %}
+<div class="container_user_user_show">
+    <div class="fos_user_user_show">
+    	<div class="user_status">
+    		<h1>{{ user.prenom }} {{ user.nom}}</h1>
+    		<div class="untitle_status">
+    			{% for role in user.roles %}
+    				{% if role == "ROLE_ADMIN" %}
+    					<p>Administrateur</p>
+    				{% else %}
+    					<p>Référent</p>
+    				{% endif %}
+    			{% endfor %}
+    		</div>
+    	</div>
+        <div class="box_profil_user">
+            <div class="box_email">
+                <span>Email: {{ user.email }}</span>
+            </div>
+            <div class="box_btn">
+                <a href="{{ path('users_edit', { 'id': user.id }) }}">
+                    <div class="btn_edit">
+                        <span>Éditer</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 	{% for role in user.roles %}
+	{% if role == "ROLE_ADMIN" %}
+		<p>Admin</p>
+	{% endif %}
+{% endfor %}
     <p>Email: {{ user.email }}</p>
     <p>Nom: {{ user.nom }}</p>
     <p>Prénom: {{ user.prenom }}</p>
-    <p><a href="{{ path('users_edit', { 'id': user.id }) }}">Modifier</a></p>
-</div>
+    <p><a href="{{ path('users_edit', { 'id': user.id }) }}">Mdifier</a></p> -->
+
+
+
+
+    <!-- <div class="user_status">
+        <h1>{{ user.prenom }} {{ user.nom}}</h1>
+        <div class="untitle_status">
+            {% for role in user.roles %}
+                {% if role == "ROLE_ADMIN" %}
+                    <p>Administrateur</p>
+                {% else %}
+                    <p>Référent</p>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="box_profil_user">
+        <div class="box_email">
+            <span>Email: {{ user.email }}</span>
+        </div>
+    </div> -->
+
+
+
+
 {% endblock users_list %}
