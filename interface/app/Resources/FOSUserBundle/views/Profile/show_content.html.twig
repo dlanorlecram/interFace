@@ -1,11 +1,42 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="fos_user_user_show">
-	{% if is_granted("ROLE_ADMIN") %}
-	<p>Rôle : Admin</p>
-	{% endif %}
+<!-- <div class="fos_user_user_show">
+    {% if is_granted("ROLE_ADMIN") %}
+    <p>Rôle : Admin</p>
+    {% endif %}
     <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
     <p>Nom: {{ user.nom }}</p>
     <p>Prénom: {{ user.prenom }}</p>
     <a href="{{ path('fos_user_profile_edit') }}">Modifier</a>
+</div> -->
+
+<div class="container_user_user_show">
+    <div class="fos_user_user_show">
+    	<div class="user_status">
+    		<h1>{{ user.prenom }} {{ user.nom}}</h1>
+    		<div class="untitle_status">
+                <p>
+    			{% for role in user.roles %}
+    				{% if role == "ROLE_ADMIN" %}
+    					<span>Administrateur</span>
+    				{% else %}
+    					<span>Référent</span>
+    				{% endif %}
+    			{% endfor %}
+                </p>
+    		</div>
+    	</div>
+        <div class="box_profil_user">
+            <div class="box_email">
+                <span>{{ 'profile.show.email'|trans }}: {{ user.email }}</span>
+            </div>
+            <div class="box_btn">
+                <a href="{{ path('fos_user_profile_edit') }}">
+                    <div class="btn_edit">
+                        <span>Éditer</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
