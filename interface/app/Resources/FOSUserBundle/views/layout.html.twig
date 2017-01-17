@@ -23,11 +23,11 @@
             </div>
           </div>
           {% endif %}
-          <section id="login_session">
-            <!-- Appel du formulaire login -->
-            {% block fos_user_login_content %}
-            {% endblock fos_user_login_content %}
-          </section>
+          
+          <!-- Appel du formulaire login -->
+          {% block fos_user_login_content %}
+          {% endblock fos_user_login_content %}
+
           <section class="message_system">
             {% if app.request.hasPreviousSession %}
                 {% for type, messages in app.session.flashbag.all() %}

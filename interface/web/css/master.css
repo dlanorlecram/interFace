@@ -680,18 +680,105 @@ div.group_detail:last-of-type{
 
 /* REGISTER USER */
 
-.block_form_user{
-  background-color: #FFFFFF;
-}
 
-.group_form_user{
+.container_registerUser{
   display: flex;
-
+  flex-direction: column;
+  justify-content: space-around;
 }
 
+.container_registerUser .inner_container{
+  width: 55%;
+  margin: 0 auto;
+  padding: 25px 60px;
+  background: white;
+}
+
+.box_user_form:first-child{
+  display: flex;
+  justify-content: center;
+}
+
+.box_user_form:first-child .group_form_user{
+  font-size: 0;
+  display: block;
+}
+
+.box_user_form:first-child .group_form_user div{
+  display: inline-block;
+}
+
+.box_user_form:first-child .group_form_user label{
+  display: inline-block;
+}
+
+.box_user_form:first-child select{
+  border:none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-bottom: 1px solid #c0c0c0;
+  background-color: transparent;
+}
+
+.box_user_form:nth-child(2){
+  display: block;
+  font-size: 0;
+  margin: 20px 0;
+}
+
+.box_user_form:nth-child(2) > div{
+  display: inline-block;
+  width: 50%;
+}
+
+.box_user_form:nth-child(2) [type="text"]{
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.box_user_form:nth-child(2) div:first-child{
+  padding-right: 10px;
+}
+
+.box_user_form:nth-child(2) div:nth-child(2){
+  padding-left: 10px;
+}
+
+.box_user_form:nth-child(3){
+  margin: 25px 0;
+}
+
+.box_user_form:nth-child(3) div{
+  display: table;
+  /*margin: 0 auto;*/
+}
+
+.box_user_form .group_form_user_email input{
+  border: 0;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.box_user_form:nth-child(4){
+  display: block;
+  font-size: 0;
+}
+
+.box_user_form:nth-child(4) div{
+  display: inline-block;
+  width: 50%;
+}
+
+.box_user_form:nth-child(5) input{
+  float: right;
+  height: 35px;
+  width: 150px;
+  border: 0;
+  background-color: #ED9767;
+  color: white;
+}
 /* Section responsive */
 
-@media ( max-width: 1280px ) {
+@media ( max-width: 1301px ) {
 
   #login_session{
     height: 100%;

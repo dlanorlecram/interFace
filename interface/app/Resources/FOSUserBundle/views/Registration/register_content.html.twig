@@ -4,8 +4,14 @@
   <div class="inner_container">
     <div class="block_form_user">
       {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+      <div class="box_user_form">
+        <div class="group_form_user">
+          {{ form_label(form.roles) }}
+          {{ form_widget(form.roles) }}
+        </div>
+      </div>
         <div class="box_user_form">
-          <div class="group_form_user">
+          <div class="group_form_user_name">
             {{ form_label(form.prenom) }}
             {{ form_widget(form.prenom) }}
           </div>
@@ -16,7 +22,7 @@
         </div>
 
         <div class="box_user_form">
-          <div class="group_form_user">
+          <div class="group_form_user_email">
             {{ form_label(form.email) }}
             {{ form_widget(form.email) }}
           </div>
@@ -24,13 +30,17 @@
 
         <div class="box_user_form">
           <div class="group_form_user">
-            {{ form_label(form.email) }}
-            {{ form_widget(form.email) }}
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_widget(form.plainPassword.first) }}
+          </div>
+          <div class="group_form_user">
+            {{ form_label(form.plainPassword.second) }}
+            {{ form_widget(form.plainPassword.second) }}
           </div>
         </div>
 
         <div class="box_user_form">
-
+            <input type="submit" value="{{ 'registration.submit'|trans }}" />
         </div>
 
       {{ form_end(form) }}
