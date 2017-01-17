@@ -686,5 +686,44 @@ div.group_detail:last-of-type{
 
 .group_form_user{
   display: flex;
-  
+
+}
+
+/* Section responsive */
+
+@media ( max-width: 1280px ) {
+
+  #login_session{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .container_login{
+    width: 295px;
+    height: 560px;
+    margin-top: 0;
+  }
+
+  .welcome_login{
+    height: 55%;
+  }
+
+  .form_login{
+    height: 45%;
+  }
+
+  [type="text"], [type="password"]{
+    height: 35px;
+  }
+
+  #login_session [type="submit"]{
+    height: 35px;
+  }
+
+  #login_session [for="username"], #login_session [for="password"]{
+    font-size: 10px;
+    font-weight: 500;
+  }
 }
