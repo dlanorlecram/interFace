@@ -52,7 +52,10 @@
                         </div>
                         <div class="blfilter">
                             <label for="">Niveau d'étude</label>
-                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
+                            <select  ng-model = "diplome">
+                              <option value = "">Tous</option>
+                              <option value = "! + SD">Avec</option>
+                              <option value = "SD">Sans</option>
                             </select>
                         </div>
                         <div class="blfilter">
@@ -94,7 +97,7 @@
           </div>
           <div class="rows">
             <a href="{[{data.id}]}"
-              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : selectReferent(referentSelect)| limitTo:2:limitShow
+              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : diplome | filter : selectReferent(referentSelect)| limitTo:2:limitShow
             ">
               <div class="row_item">
                 <div class="group_detail">
@@ -210,7 +213,7 @@
               value: "False",
               name: "Non"
             }];
-
+            $scope.test = "SD";
             $scope.qpvSort = [{
               value: "",
               name: "Tous"
@@ -314,6 +317,7 @@
               }
             }
             console.log($scope.referentDb);
+
 
             // FILTRE
             /* Filtre Pour chercher par nom ou par prénom */
