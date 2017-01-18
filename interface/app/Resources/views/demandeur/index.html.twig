@@ -113,8 +113,8 @@
           </div>
         </div>
       </div>
-      <button type="button" name="button" ng-click = "limitShow = limitShow + 3 ">Suivant</button>
-      <button type="button" name="button" ng-click = "limitShow = limitShow - 3 ">Précédent</button>
+      <button type="button" name="button" ng-click = "limitShow = limitShow + 2 ">Suivant</button>
+      <button type="button" name="button" ng-click = "limitShow = limitShow - 2 ">Précédent</button>
       {[{ limitShow }]}
     </div>
     <script src="{{asset("js/angular.min.js")}}" charset="utf-8"></script>
@@ -236,7 +236,7 @@
             }
 
             $scope.jsonData = json.sort(trieByID);
-            console.log($scope.jsonData);
+            $scope.sizeData = $scope.jsonData.length;
             /* Trier pour lister les métiers */
 
             for( i in $scope.jsonData){
@@ -317,6 +317,18 @@
             };
 
             $scope.limitShow = 0;
+            $scope.$watch('limitShow', function(){
+              if($scope.limitShow < 0){
+                console.log("c'est inférieur");
+                $scope.limitShow = 0;
+              }
+
+              if($scope.limitShow >= $scope.sizeData){
+                if($scope.sizeData%2 === 0){
+                  $scope.limitShow = $scope.sizeData - 2;
+                }
+              }
+            });
 
             $scope.$watch('limitShow', function(newf, old){
                 console.log(newf);
