@@ -57,7 +57,7 @@
                         </div>
                         <div class="blfilter">
                             <label for="">Référent</label>
-                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
+                            <select  ng-init = "referentSelect = referentDb[0]" ng-model = "referentSelect" ng-options = "referent for referent in referentDb">
                             </select>
                         </div>
                     </div>
@@ -94,7 +94,7 @@
           </div>
           <div class="rows">
             <a href="{[{data.id}]}"
-              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | limitTo:2:limitShow
+              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : selectReferent(referentSelect)| limitTo:2:limitShow
             ">
               <div class="row_item">
                 <div class="group_detail">
@@ -298,6 +298,22 @@
               }
             }
             console.log($scope.typePermisDb);
+            /* Trier pour lister les permis */
+
+            for(l in $scope.jsonData){
+              var itemFacien = $scope.jsonData[l].facien;
+
+                if($scope.referentDb.length === 0){
+                  $scope.referentDb.push(itemFacien);
+                }
+
+                else{
+                  if($scope.referentDb.indexOf(itemFacien)<0){
+                    $scope.referentDb.push(itemFacien);
+                }
+              }
+            }
+            console.log($scope.referentDb);
 
             // FILTRE
             /* Filtre Pour chercher par nom ou par prénom */
@@ -338,6 +354,19 @@
               return obj;
             };
 
+            $scope.selectReferent = function ( tabReferent){
+              var obj =  {};
+
+              if(tabReferent === "Tous"){
+                /*obj["metier"] = "";*/
+                return $;
+              }
+              else {
+                obj["facien"] = tabReferent;
+              }
+              return obj;
+            };
+
             $scope.selectQpv = function( objQpv ){
               var obj = {};
 
@@ -352,6 +381,7 @@
                 return obj;
               }
             };
+
             $scope.selectPermis = function( objpermis ){
               var obj = {};
                 console.log(objpermis.name);
