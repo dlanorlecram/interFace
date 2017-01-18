@@ -11,9 +11,12 @@
 
                 <!-- Colonne Gauche du Formulaire -->
 
-                <div class="clmnLeft">
-
-
+                <div class="formLeft">
+                
+                    <!--photo-->
+                    <div class="photos">
+                        <img src="">
+                    </div>
                     <!-- Titre Etat Civil-->
                     <h3 class="titreForm">Etat Civil</h3>
 
@@ -28,7 +31,7 @@
                     </div>
 
                     <!--genre-->
-                    <div class="form-group ">
+                    <div class="form-group">
                         <select class="form-control selectpicker" title="Genre">
                             <option>Autre</option>
                             <option>Femme</option>
@@ -37,7 +40,7 @@
                     </div> 
 
                     <!--Tranche d'age-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <select class="form-control selectpicker" title="Tranche d'âge">
                             <option>Moins de 25 ans</option>
                             <option>Entre 25 et 49 ans</option>
@@ -46,34 +49,25 @@
                     </div>
 
                     <!--Date de naissance-->
-                    <div class="form-group col-lg-6 col-md-6">
-                        {#{{ form_label(form.dateNaissance) }}
-                        {{ form_errors(form.dateNaissance) }}
-                        {{ form_widget(form.dateNaissance, {'attr' : {'placeholder' : 'Date de naissance   .. / .. / ....'}}) }}#}
+                    <div class="form-group">
                         <label for="BirthDay"></label>
                         <input type="text" class="form-control" id="BirthDay" placeholder="Date de naissance   .. / .. / ....">
                     </div>
 
                     <!--Ville de naissance-->
-                    <div class="form-group col-lg-6 col-md-6">
-                        {#{{ form_label(form.villeNaissance) }}
-                        {{ form_errors(form.villeNaissance) }}
-                        {{ form_widget(form.villeNaissance, {'attr' : {'placeholder' : 'Ville de naissance ..'}}) }}#}
+                    {#<div class="form-group">
                         <label for="BirthCity"></label>
                         <input type="text" class="form-control" id="BirthCity" placeholder="Ville de naissance ..">
-                    </div>
+                    </div>#}
 
                     <!--Dépt. de naissance-->
-                    <div class="form-group col-lg-6 col-md-6">
-                        {#{{ form_label(form.deptNaissance) }}
-                        {{ form_errors(form.deptNaissance) }}
-                        {{ form_widget(form.deptNaissance, {'attr' : {'placeholder' : 'Département ..'}}) }}#}
+                    {#<div class="form-group">
                         <label for="BirthDept"></label>
                         <input type="date" class="form-control" id="BirthDept" placeholder="Département ..">
-                    </div>
+                    </div>#}
 
                     <!--Pays de naissance-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    {#<div class="form-group">
                         <select class="form-control selectpicker" title="Pays de naissance">
                             <option value="">Afghan</option>
                             <option value="">Albanaie</option>    
@@ -211,167 +205,34 @@
                             <option value="">Yougoslave</option>  
                             <option value="">Zimbabwéen</option>
                         </select>
-                    </div>
+                    </div>#}
 
                     <!--Nationalité-->
-                    <div class="form-group col-lg-6 col-md-6">
-                        <select class="form-control selectpicker" title="Nationalité">
-                            <option value="">Afghan</option>
-                            <option value="">Albanaie</option>    
-                            <option value="">Algérie</option>   
-                            <option value="">Allemagne</option>    
-                            <option value="">Amérique Etats Unies</option>
-                            <option value="">Angolas</option>    
-                            <option value="">Argentine</option>    
-                            <option value="">Arménie</option>
-                            <option value="">Aruba</option>    
-                            <option value="">Australie</option>
-                            <option value="">Autriche</option>  
-                            <option value="">Bahamas</option>   
-                            <option value="">Bangladesh</option>  
-                            <option value="">Belgique</option>  
-                            <option value="">Benin</option>
-                            <option value="">Biélarussie</option>     
-                            <option value="">Bosnie</option>  
-                            <option value="">Botswanais</option>  
-                            <option value="">Bouthan</option>     
-                            <option value="">Brésilien</option>
-                            <option value="">Britannique</option>     
-                            <option value="">Bulgare</option>    
-                            <option value="">Burkinabè</option> 
-                            <option value="">Cambodgien</option>  
-                            <option value="">Camerounais</option>
-                            <option value="">Canadien</option>
-                            <option value="">Chilien</option>     
-                            <option value="">Chinois</option>     
-                            <option value="">Chypriote</option>   
-                            <option value="">Colombien</option>
-                            <option value="">Congolais</option>   
-                            <option value="">Croate</option>  
-                            <option value="">Cubain</option>  
-                            <option value="">Danois</option>  
-                            <option value="">Dominicain</option>
-                            <option value="">Ecossais</option>   
-                            <option value="">Egyptien</option>    
-                            <option value="">Equatorien</option>  
-                            <option value="">Espagnol</option>    
-                            <option value="">Estonien</option>
-                            <option value="">Ethiopien</option>   
-                            <option value="">Européen</option>  
-                            <option value="">Finlandais</option>  
-                            <option value="">Français</option>   
-                            <option value="">Gabonais</option>
-                            <option value="">Georgien</option>    
-                            <option value="">Ghanéen</option>    
-                            <option value="">Grec</option>    
-                            <option value="">Guatemala</option>   
-                            <option value="">Guinéen</option>
-                            <option value="">Haïtien</option>
-                            <option value="">Hollandais</option>
-                            <option value="">Hong-Kong</option>
-                            <option value="">Hongrois</option>
-                            <option value="">Indien</option>
-                            <option value="">Indonésien</option>
-                            <option value="">Irakien</option>
-                            <option value="">Iranien</option>
-                            <option value="">Irlandais</option>
-                            <option value="">Islandais</option>
-                            <option value="">Israélien</option>
-                            <option value="">Italien</option>
-                            <option value="">Ivoirien</option>
-                            <option value="">Jamaïcain</option>
-                            <option value="">Japonais</option>
-                            <option value="">Jordanien</option>
-                            <option value="">Kazakh</option>
-                            <option value="">Kenyan</option>
-                            <option value="">Kirghiz</option>
-                            <option value="">Kosovar</option>
-                            <option value="">Koweïtien</option>
-                            <option value="">Kurde</option>
-                            <option value="">Letton</option>
-                            <option value="">Libanais</option>
-                            <option value="">Libyen</option>
-                            <option value="">Liechtenstein</option>   
-                            <option value="">Lituanien</option>
-                            <option value="">Luxembourgeois</option>
-                            <option value="">Macédonien</option>
-                            <option value="">Madagascar</option>
-                            <option value="">Malaisien</option>
-                            <option value="">Malien</option>
-                            <option value="">Maltais</option>
-                            <option value="">Marocain</option>
-                            <option value="">Mauritanien</option>
-                            <option value="">Mauritien</option>
-                            <option value="">Mexicain</option>
-                            <option value="">Monégasque</option>
-                            <option value="">Mongol</option>
-                            <option value="">Mozambique</option>
-                            <option value="">Néo-Zélandais</option> 
-                            <option value="">Népalais</option>
-                            <option value="">Nigérien</option>
-                            <option value="">Nord Coréen</option>
-                            <option value="">Norvégien</option>
-                            <option value="">Pakistanais</option>
-                            <option value="">Palestinien</option>
-                            <option value="">Panaméen</option>
-                            <option value="">Paraguayen</option>
-                            <option value="">Péruvien</option>
-                            <option value="">Philippiens</option>
-                            <option value="">Polonais</option>
-                            <option value="">Portoricain</option> 
-                            <option value="">Portugais</option>
-                            <option value="">Qatar</option>
-                            <option value="">Roumain</option>
-                            <option value="">Russe</option>
-                            <option value="">Rwandais</option>
-                            <option value="">Saoudien</option>
-                            <option value="">Sénégalais</option>
-                            <option value="">Serbe</option>
-                            <option value="">Serbo-Croate</option>
-                            <option value="">Singapour</option>
-                            <option value="">Slovaque</option>
-                            <option value="">Soviétique</option>
-                            <option value="">Sri-Lankais</option>
-                            <option value="">Sud-Africain</option> 
-                            <option value="">Sud-Coréen</option> 
-                            <option value="">Suédois</option>
-                            <option value="">Suisse</option>
-                            <option value="">Syrien</option>
-                            <option value="">Tadjik</option>
-                            <option value="">Taïwanais</option>
-                            <option value="">Tanzanien</option>
-                            <option value="">Tchadien</option>
-                            <option value="">Tchèque</option>
-                            <option value="">Thaïlandais</option> 
-                            <option value="">Tunisien</option>    
-                            <option value="">Turc</option>
-                            <option value="">Ukranien</option>
-                            <option value="">Uruguayen</option>   
-                            <option value="">Vénézuélien</option> 
-                            <option value="">Vietnamien</option>  
-                            <option value="">Yougoslave</option>  
-                            <option value="">Zimbabwéen</option>
+                    <div class="form-group">
+                        <select class="form-control selectpicker" title="Nationalité">  
+                            <option value="">france</option>  
+                            <option value=""></option>
                         </select>
                     </div>
 
                     <!--Titre de séjour-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    {#<div class="form-group">
                         <select class="form-control selectpicker" title="Titre de séjour">
                             <option>Non</option>
                             <option>Oui</option>
                         </select>
-                    </div>
+                    </div>#}
 
                     <!--Autorisation de travailler-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    {#<div class="form-group">
                         <select class="form-control selectpicker" title="Autorisation de travailler">
                             <option>Non</option>
                             <option>Oui</option>
                         </select>
-                    </div>
+                    </div>#}
 
                     <!--Nombre d'enfants-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <select class="form-control selectpicker" title="Enfant(s) en charge">
                             <option>0</option>
                             <option>1</option>
@@ -386,11 +247,18 @@
                         </select>
                     </div>
 
+                </div> <!-- End Colonne Gauche du Formulaire -->
+
+
+
+                <!-- Colonne de milieu du Formulaire -->
+                <div class="formLeft">
+
                     <!-- Titre Coordonnées-->
                     <h3 class="titreForm col-lg-12 col-md-12">Coordonnées</h3>
 
                     <!--Adresse-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         {#{{ form_label(form.adresseadresse) }}
                         {{ form_errors(form.adresseadresse) }}
                         {{ form_widget(form.adresseadresse, {'attr' : {'placeholder' : 'Adresse ..'}}) }}#}
@@ -400,21 +268,21 @@
 
 
                     <!--Code postale-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="cPostal"></label>
                         <input type="text" class="form-control" id="cPostal" placeholder="Code postal ..">
                     </div>
 
 
                     <!--Ville-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="ville"></label>
                         <input type="text" class="form-control" id="ville" placeholder="Ville ..">
                     </div>
 
 
                     <!--Tél mobile-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         {#{{ form_label(form.tel1De) }}
                         {{ form_errors(form.tel1De) }}
                         {{ form_widget(form.tel1De, {'attr' : {'placeholder' : 'telephone1 ..', 'color' : '#4d4a4a'}}) }}#}
@@ -427,23 +295,18 @@
 
 
                     <!--Tél fixe-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="tFixe"></label>
                         <input type="tel" class="form-control" id="tFixe" placeholder="Téléphone fixe ..">
                     </div>
 
 
                     <!--Email-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="mail"></label>
                         <input type="email" class="form-control" id="mail" placeholder="Email ..">
                     </div>
 
-
-                    <!--photo-->
-                    <div class="photos">
-                        <img src="">
-                    </div>
 
                     <!-- Telecharger un document-->
                    <!-- <div class="form-group">
@@ -452,33 +315,26 @@
                     </div>-->
 
 
-                </div> <!-- End Colonne Gauche du Formulaire -->
-
-
-
-                <!-- Colonne Droite du Formulaire -->
-                <div class="clmnRight col-lg-6 col-md-6">
-
                     <!-- Titre Ressources-->
                     <h3 class="titreForm">Ressources</h3>
 
 
                     <!--ID poleEmploi-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="mail"></label>
                         <input type="text" class="form-control" id="mail" placeholder="Email ..">
                     </div>
 
 
                     <!--Référent-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="refrent"></label>
                         <input type="text" class="form-control" id="referent" placeholder="Référent et structure ..">
                     </div>
 
 
                     <!--Allocations-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <select class="form-control selectpicker" title="Allocations">
                             <option>Aucune</option>
                             <option>Alloc 2</option>
@@ -491,14 +347,14 @@
 
 
                     <!--si autre allocation-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="autreAllc"></label>
                         <input type="text" class="form-control" id="autreAllc" placeholder="Précisez si autre ..">
                     </div>
 
 
                     <!--RQTH-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         {#{{ form_label(form.rqthrqth) }}
                         {{ form_errors(form.rqthrqth) }}
                         {{ form_widget(form.rqthrqth, {'attr' : {'placeholder' : 'RQTH ..'}}) }}#}
@@ -510,7 +366,7 @@
 
 
                     <!--QPV-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <select class="form-control selectpicker" title="QPV">
                             <option>QPV 1</option>
                             <option>QPV 2</option>
@@ -521,13 +377,15 @@
                         </select>
                     </div>
 
-
+                </div>
+                
+                <div class="formLeft">
                     <!-- Titre Formation et Métier-->
                     <h3 class="titreForm">Formation et Métier</h3>
 
 
                     <!--Niveau d'études-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <select class="form-control selectpicker" title="Niveau d'étude">
                             <option>Bac</option>
                             <option>Bac + 2</option>
@@ -538,7 +396,7 @@
 
 
                     <!--Catégorie sociopro-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         {#{{ form_label(form.categorieSocio) }}
                         {{ form_errors(form.categorieSocio) }}
                         {{ form_widget(form.categorieSocio, {'attr' : {'class' : 'form-control selectpicker', 'title' : 'Catégorie sociopro'}}) }}#}
@@ -551,14 +409,14 @@
 
 
                     <!--Diplôme professionnel-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="diplome"></label>
                         <input type="text" class="form-control" id="diplome" placeholder="Diplôme professionnel ..">
                     </div>
 
 
                     <!--Métier-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         {#{{ form_label(form.metiermetier) }}
                         {{ form_errors(form.metiermetier) }}
                         {{ form_widget(form.metiermetier, {'attr' : {'class': 'form-control selectpicker', 'title' : 'Métier', 'color' : '#4d4a4a'}}) }}#}
@@ -570,12 +428,11 @@
                     </div>
 
 
-
                     <!-- Expérience-->
                     <h3 class="titreForm">Expérience</h3>
 
                     <!--Durée-->
-                    <select class="selectpicker col-lg-6 col-md-6" multiple title="Expérience..">
+                    <select class="selectpicker" multiple title="Expérience..">
                         <option>0</option>
                         <option>Moins de 1 ans</option>
                         <option>1 à 3 ans</option>
@@ -585,19 +442,19 @@
 
 
                     <!--Dernier poste : entreprise-->
-                    <div class="form-group col-lg-6 col-md-6">
+                    <div class="form-group">
                         <label for="dPoste"></label>
                         <input type="text" class="form-control" id="dPoste" placeholder="Dernier poste occupé ..">
                     </div>
 
 
                     <!--Permis-->
-                    {#<div class="form-group col-lg-6 col-md-6">
+                    {#<div class="form-group">
                         {{ form_label(form.permispermis) }}
                         {{ form_errors(form.permispermis) }}
                         {{ form_widget(form.permispermis, {'attr' : {'class': 'form-control selectpicker', 'title' : 'Permis', 'color' : '#4d4a4a'}}) }}
                     </div>#}
-                    <select class="selectpicker col-lg-6 col-md-6" multiple title="Permis.." data-width="49.7%">
+                    <select class="selectpicker" multiple title="Permis.." data-width="49.7%">
                         <option>A</option>
                         <option>B</option>
                         <option>C</option>
@@ -608,7 +465,7 @@
 
 
                     <!--Moyen de locomation-->
-                    <select class="selectpicker col-lg-6 col-md-6" multiple title="Moyen de locomotion.." data-width="49.5%">
+                    <select class="selectpicker" multiple title="Moyen de locomotion.." data-width="49.5%">
                         <option>Aucun</option>
                         <option>Motocyclette</option>
                         <option>Scooter</option>
@@ -622,16 +479,16 @@
                 </div><!-- End Colonne Droite du Formulaire -->
 
                   <!-- VALIDER / ANNULER le formulaire -->
-                  <div class="col-lg-12 col-md-12 col-sm-12 formulaire">
-                    <!--Annuler-->
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <a href=""><button type="button" class="col-lg-12 col-md-12 col-sm-12 btn-annuler">ANNULER</button></a>
-                    </div>
+                  <div class="formLeft">
+                        <!--Annuler-->
+                        <div class="">
+                            <a href=""><button type="button" class="btn-annuler">ANNULER</button></a>
+                        </div>
 
-                    <!--Valider-->
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <button type="submit" value="VALIDER" name="VALIDER" class="col-lg-12 col-md-12 col-sm-12 btn-valider">Valider</button>
-                    </div>
+                        <!--Valider-->
+                        <div class="">
+                            <button type="submit" value="VALIDER" name="VALIDER" class="btn-valider">Valider</button>
+                        </div>
                   </div>
                   {#{{ form_end(form) }}#}
                 
