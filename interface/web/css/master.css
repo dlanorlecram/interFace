@@ -897,8 +897,10 @@ div.group_detail:last-of-type{
 }
 .NewFlux {
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+.formLeft {
+    flex-direction: column;
 }
 .photos {
     width: 150px;
