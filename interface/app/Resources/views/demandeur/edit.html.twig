@@ -4,7 +4,11 @@
     <h1>Demandeur edit</h1>
 
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
+    {# <div class="bloc_form facien">
+		{{ form_label(form.facien) }}
+		{{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+	</div> #}
+	{{ form_widget(edit_form) }}
         <input type="submit" value="Éditer" />
     {{ form_end(edit_form) }}
 
