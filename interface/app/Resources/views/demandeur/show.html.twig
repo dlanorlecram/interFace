@@ -9,16 +9,27 @@
             <div class="formLeft">
                 <div class="profil_DE">
                     <div class="nmPrenm">
-                        <a name="nomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">Nom</a>
-                        <a name="prenomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">Prénom</a>
+                        <a name="nomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.nom }}</a>
+                        <a name="prenomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.prenom }}</a>
                     </div>
-                    <p class="action_DE">action : <a class="edit" id="action" data-type="select" data-pk="1" data-url="" data-title="action" class="selectpicker">Choisir une action</a></p>
+                    <p class="action_DE">action : <a class="edit" id="action" data-type="select" data-pk="1" data-url="" data-title="action" class="selectpicker">
+                        {% if demandeur.status == "AS" %}
+                            <td>Annonceur sentinelle</td>
+                        {% elseif demandeur.status == "F" %}
+                            <td>Flux</td>
+                        {% elseif demandeur.status == "I" %}
+                            <td>IRVIN</td>
+                        {% elseif demandeur.status == "N" %}
+                            <td>Numérique</td>
+                        {% elseif demandeur.status == "S" %}
+                            <td>Sécurité</td>
+                        {% endif %}</a></p>
                     <p>Crée le <span>...</span></p>
                     <p>Modifié le <span>...</span></p>
                 </div>
 
                 <div class="photos">
-                    <img src="">
+                    <img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}">
                 </div>
 
                 <div class="3">
@@ -48,7 +59,15 @@
                 <div class="3">
                     <h3 class="titlefile">état civil</h3>
                     <p>Genre : <span>
-                        <a class="edit" id="genre" data-type="select" data-pk="1" data-url="" data-title="Genre" class="selectpicker">Choisir une genre</a></span></p>
+                        <a class="edit" id="genre" data-type="select" data-pk="1" data-url="" data-title="Genre" class="selectpicker">
+                            {% if demandeur.genre == "H" %}
+                                <td>Homme</td>
+                            {% elseif demandeur.genre == "F" %}
+                                <td>Femme</td>
+                            {% else %}
+                                <td>Autre</td>
+                            {% endif %}</a>
+                    </span></p>
                     <p>Tranche d'âge : <span>
                         <a class="edit" id="tAge" data-type="select" data-pk="1" data-url="" data-title="TranchedAge" class="selectpicker">...</a></span></p>
                     <p>Né(e) le : <span>
