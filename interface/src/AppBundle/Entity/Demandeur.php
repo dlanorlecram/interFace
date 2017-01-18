@@ -12,7 +12,6 @@ use AppBundle\DBAL\Types\DemandeurMoyenLocomotion;
 use AppBundle\DBAL\Types\DemandeurAllocation;
 use AppBundle\DBAL\Types\DemandeurNiveauEtude;
 use AppBundle\DBAL\Types\DemandeurCategorieSocioPro;
-use AppBundle\Entity\Document;
 use Doctrine\Common\Collections\ArrayCollection;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
@@ -26,6 +25,7 @@ class Demandeur extends myEntity
 
 	public function __construct() {
         $this->document = new ArrayCollection();
+        $this->dateCreation = new \DateTime();
     }
     
 	/**
@@ -269,6 +269,26 @@ class Demandeur extends myEntity
 	 */
 	protected $document;
 	
+	/**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     */
+	protected $facien;
+	
+	/**
+     * @ORM\Column(type="datetime")
+     *
+     * @var \Datetime
+     */
+	protected $dateCreation;
+	
+	/**
+     * @ORM\Column(type="datetime", nullable=true)
+     *
+     * @var \Datetime
+     */
+	protected $dateMiseAJour;
+	
 	public function getId()
 	{
 		return $this->id;
@@ -448,7 +468,22 @@ class Demandeur extends myEntity
 	{
 		return $this->description;
 	}
-
+	
+	public function getDateCreation()
+	{
+		return $this->dateCreation;
+	}
+	
+	public function getDateMiseAJour()
+	{
+		return $this->dateMiseAJour;
+	}
+	
+	public function getFacien()
+	{
+		return $this->facien;
+	}
+	
 	public function setNom($nom)
 	{
 		$this->nom = $nom;
@@ -655,6 +690,18 @@ class Demandeur extends myEntity
 	public function setDescription($description)
 	{
 		$this->description =$description;
+		return $this;
+	}
+	
+	public function setDateMiseAJour($dateMiseAJour)
+	{
+		$this->dateMiseAJour =$dateMiseAJour;
+		return $this;
+	}
+	
+	public function setFacien($facien)
+	{
+		$this->facien =$facien;
 		return $this;
 	}
 	
