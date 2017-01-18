@@ -418,6 +418,7 @@ body ::-webkit-scrollbar-thumb{
 .filter_group{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;/* À enléver*/
   height: 44.5px;
   width: 100%;
 }
@@ -647,7 +648,8 @@ div.group_detail:last-of-type{
     transition: 0.25s;
 }
 .show_filter{
-    height: 60px;
+    /*height: 60px;*/
+    height: 100px;
 }
 
 .spacer_filter{
@@ -853,6 +855,8 @@ div.group_detail:last-of-type{
 
 .untitle_status p{
     display: inline-block;
+    font-size: 13px;
+    color: #c0c0c0;
 }
 
 .box_profil_user{
@@ -861,6 +865,15 @@ div.group_detail:last-of-type{
 
 .box_email{
     text-align: center;
+    font-size: 13px
+}
+
+.box_email p{
+
+}
+
+.box_email p span{
+  margin-left: 10px;
 }
 
 .box_btn{
@@ -878,4 +891,25 @@ div.group_detail:last-of-type{
     color: white;
     font-weight: 300;
     float: right;
+}
+
+.PNEdit{
+  display: block;
+  font-size: 0px;
+}
+
+.PNEdit input{
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+  width: 50%;
+  font-size: 36px;
+  font-weight: 200;
+}
+
+.PNEdit input:first-child{
+    text-align: right;
+}
+.PNEdit input:nth-child(2){
+    text-align: left;
 }
