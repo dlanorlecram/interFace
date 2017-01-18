@@ -886,3 +886,29 @@ div.group_detail:last-of-type{
     font-weight: 300;
     float: right;
 }
+
+/*floryan*/
+.form_newflux{
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 60px;
+    display: table;
+    background-color: #FFFFFF;
+}
+.NewFlux {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.photos {
+    width: 150px;
+    min-height: 150px;
+    margin-top: 20px;
+    background-color: #4d4a4a;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.photos img {
+  	width: 100%;
+}
