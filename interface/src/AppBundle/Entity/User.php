@@ -49,6 +49,11 @@ class User extends BaseUser
         return $this;
     }
     
+    
+    public function __toString()
+    {
+		return $this->getNom()." ".$this->getPrenom();
+    }
     /**
      * @ORM\Column(type="string", length=255)
      *
