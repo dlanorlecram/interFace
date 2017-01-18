@@ -17,6 +17,7 @@ use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
 /**
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks
  * @Vich\Uploadable
  * @ORM\Table(name="demandeur")
  */
@@ -25,7 +26,7 @@ class Demandeur extends myEntity
 
 	public function __construct() {
         $this->document = new ArrayCollection();
-        $this->dateCreation = new \DateTime();
+        $this->timeStamp();
     }
     
 	/**
@@ -276,7 +277,7 @@ class Demandeur extends myEntity
 	protected $facien;
 	
 	/**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \Datetime
      */
@@ -683,25 +684,31 @@ class Demandeur extends myEntity
 
 	public function setMetier($metier)
 	{
-		$this->metier =$metier;
+		$this->metier = $metier;
 		return $this;
 	}
 	
 	public function setDescription($description)
 	{
-		$this->description =$description;
+		$this->description = $description;
+		return $this;
+	}
+	
+	public function setDateCreation($dateCreation)
+	{
+		$this->dateCreation = $dateCreation;
 		return $this;
 	}
 	
 	public function setDateMiseAJour($dateMiseAJour)
 	{
-		$this->dateMiseAJour =$dateMiseAJour;
+		$this->dateMiseAJour = $dateMiseAJour;
 		return $this;
 	}
 	
 	public function setFacien($facien)
 	{
-		$this->facien =$facien;
+		$this->facien = $facien;
 		return $this;
 	}
 	
@@ -779,4 +786,17 @@ class Demandeur extends myEntity
     {
         return $this->imageName;
     }
+    
+    /**
+	 * @ORM\PrePersist
+	 * @ORM\PreUpdate
+	 */
+	public function timeStamp()
+	{
+		$this->setDateMiseAJour(new \DateTime('now'));
+
+		if ($this->getDateCreation() == null) {
+			$this->setDateCreation(new \DateTime('now'));
+		}
+	}
 }
