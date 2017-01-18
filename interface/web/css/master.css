@@ -177,6 +177,13 @@ ul, li, a{
   margin-bottom: 20px;
   font-weight: 400;
 }
+/*.menu_item::after {
+  content: "\f0dd";
+	position: absolute;
+  top: 15px;
+  font-family: fontawesome;
+  right: 50%;
+}*/
 .sub_menu{
   height: 0px;
   font-size: 10px;
