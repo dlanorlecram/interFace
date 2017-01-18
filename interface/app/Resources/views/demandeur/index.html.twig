@@ -25,6 +25,11 @@
                             </select>
                         </div>
                         <div class="blfilter">
+                            <label for="">Type de permis</label>
+                            <select  ng-init = "tpermisSelect = typePermisDb[0]" ng-model = "tpermisSelect" ng-options = "itemPermis for itemPermis in typePermisDb">
+                            </select>
+                        </div>
+                        <div class="blfilter">
                             <label for="">QPV</label>
                             <select ng-init = "qpvSelect = qpvSort[0]" ng-model = "qpvSelect" ng-options = "quatier.name for quatier in qpvSort">
                             </select>
@@ -43,6 +48,16 @@
                         <div class="blfilter">
                             <label for="">Métier</label>
                             <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
+                            </select>
+                        </div>
+                        <div class="blfilter">
+                            <label for="">Niveau d'étude</label>
+                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
+                            </select>
+                        </div>
+                        <div class="blfilter">
+                            <label for="">Référent</label>
+                            <select  ng-init = "referentSelect = referentDb[0]" ng-model = "referentSelect" ng-options = "referent for referent in referentDb">
                             </select>
                         </div>
                     </div>
@@ -78,43 +93,47 @@
             </div>
           </div>
           <div class="rows">
-            <div class="row_item" ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect)|limitTo:2:limitShow">
-              <div class="group_detail">
-                <div class="item_detail_name">
-                  <span class="item_detail_span">{[{data.prenom+" "+data.nom}]}</span>
+            <a href="{[{data.id}]}"
+              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : selectReferent(referentSelect)| limitTo:2:limitShow
+            ">
+              <div class="row_item">
+                <div class="group_detail">
+                  <div class="item_detail_name">
+                    <span class="item_detail_span">{[{data.prenom+" "+data.nom}]}</span>
+                  </div>
+                  <div class="item_detail_infoperso">
+                    <span class="genre">{[{data.genre|genreFilter}]}</span>
+                    <span class="mail">{[{data.email}]}</span>
+                    <span class="numb">Tel: {[{data.telPortable}]}</span>
+                  </div>
+                  <div class="item_detail_qpv">
+                    <span class="item_detail_span">{[{data.QPVNom|qpvFilter}]}</span>
+                  </div>
+                  <div class="item_detail_rqth">
+                    <span class="item_detail_span">{[{data.idPoleEmploi}]}</span>
+                  </div>
+                  <div class="item_detail_pemploi">
+                    <span class="item_detail_span">{[{data.rqth|booleanFilter}]}</span>
+                  </div>
+                  <div class="item_detail_permis">
+                    <span class="item_detail_span">{[{data.permisConduire|booleanFilter}]}</span>
+                  </div>
+                  <div class="item_detail_metier">
+                    <span class="item_detail_span">{[{data.metier}]}</span>
+                  </div>
                 </div>
-                <div class="item_detail_infoperso">
-                  <span class="genre">{[{data.genre|genreFilter}]}</span>
-                  <span class="mail">{[{data.email}]}</span>
-                  <span class="numb">Tel: {[{data.telPortable}]}</span>
-                </div>
-                <div class="item_detail_qpv">
-                  <span class="item_detail_span">{[{data.QPVNom|qpvFilter}]}</span>
-                </div>
-                <div class="item_detail_rqth">
-                  <span class="item_detail_span">{[{data.idPoleEmploi}]}</span>
-                </div>
-                <div class="item_detail_pemploi">
-                  <span class="item_detail_span">{[{data.rqth|booleanFilter}]}</span>
-                </div>
-                <div class="item_detail_permis">
-                  <span class="item_detail_span">{[{data.permisConduire|booleanFilter}]}</span>
-                </div>
-                <div class="item_detail_metier">
-                  <span class="item_detail_span">{[{data.metier}]}</span>
-                </div>
+                <!--<div class="option_items">
+                  <div class="option_profil_show">
+                    <a href="{[{data.id}]}">Voir</a>
+                  </div>
+                </div>-->
               </div>
-              <div class="option_items">
-                <div class="option_profil_show">
-                  <a href="{[{data.id}]}">Voir</a>
-                </div>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
-      <button type="button" name="button" ng-click = "limitShow = limitShow + 3 ">Suivant</button>
-      <button type="button" name="button" ng-click = "limitShow = limitShow - 3 ">Précédent</button>
+      <button type="button" name="button" ng-click = "limitShow = limitShow - 2 ">Précédent</button>
+      <button type="button" name="button" ng-click = "limitShow = limitShow + 2 ">Suivant</button>
       {[{ limitShow }]}
     </div>
     <script src="{{asset("js/angular.min.js")}}" charset="utf-8"></script>
@@ -222,9 +241,11 @@
                  }];
 
             $scope.metierDb = ["Tous"];
+            $scope.typePermisDb = ["Tous"];
+            $scope.referentDb = ["Tous"];
 
             var json = [];
-
+            /******/
             {% for demandeur in demandeurs %}
                 var data =  {{demandeur|raw}};
                 json.push(data);
@@ -236,7 +257,7 @@
             }
 
             $scope.jsonData = json.sort(trieByID);
-            console.log($scope.jsonData);
+            $scope.sizeData = $scope.jsonData.length;
             /* Trier pour lister les métiers */
 
             for( i in $scope.jsonData){
@@ -254,11 +275,45 @@
                         }
                     }
                     if(!found) $scope.metierDb.push(item);*/
-                    if($scope.metierDb.indexOf(item)<0)
+                    if($scope.metierDb.indexOf(item)<0){
                       $scope.metierDb.push(item);
+                    }
                 }
             }
-            console.log($scope.metierDb);
+            console.log($scope.jsonData);
+
+            /* Trier pour lister les permis */
+
+            for(k in $scope.jsonData){
+              var itemPermis = $scope.jsonData[k].typePermisConduire;
+
+                if($scope.typePermisDb.length === 0){
+                  $scope.typePermisDb.push(itemPermis);
+                }
+
+                else{
+                  if($scope.typePermisDb.indexOf(itemPermis)<0){
+                    $scope.typePermisDb.push(itemPermis);
+                }
+              }
+            }
+            console.log($scope.typePermisDb);
+            /* Trier pour lister les permis */
+
+            for(l in $scope.jsonData){
+              var itemFacien = $scope.jsonData[l].facien;
+
+                if($scope.referentDb.length === 0){
+                  $scope.referentDb.push(itemFacien);
+                }
+
+                else{
+                  if($scope.referentDb.indexOf(itemFacien)<0){
+                    $scope.referentDb.push(itemFacien);
+                }
+              }
+            }
+            console.log($scope.referentDb);
 
             // FILTRE
             /* Filtre Pour chercher par nom ou par prénom */
@@ -286,6 +341,32 @@
               return obj;
             };
 
+            $scope.selectTpermis = function ( tabTPermis){
+              var obj =  {};
+
+              if(tabTPermis === "Tous"){
+                /*obj["metier"] = "";*/
+                return $;
+              }
+              else {
+                obj["typePermisConduire"] = tabTPermis;
+              }
+              return obj;
+            };
+
+            $scope.selectReferent = function ( tabReferent){
+              var obj =  {};
+
+              if(tabReferent === "Tous"){
+                /*obj["metier"] = "";*/
+                return $;
+              }
+              else {
+                obj["facien"] = tabReferent;
+              }
+              return obj;
+            };
+
             $scope.selectQpv = function( objQpv ){
               var obj = {};
 
@@ -300,6 +381,7 @@
                 return obj;
               }
             };
+
             $scope.selectPermis = function( objpermis ){
               var obj = {};
                 console.log(objpermis.name);
@@ -317,6 +399,18 @@
             };
 
             $scope.limitShow = 0;
+            $scope.$watch('limitShow', function(){
+              if($scope.limitShow < 0){
+                console.log("c'est inférieur");
+                $scope.limitShow = 0;
+              }
+
+              if($scope.limitShow >= $scope.sizeData){
+                if($scope.sizeData%2 === 0){
+                  $scope.limitShow = $scope.sizeData - 2;
+                }
+              }
+            });
 
             $scope.$watch('limitShow', function(newf, old){
                 console.log(newf);
