@@ -12,7 +12,6 @@ use AppBundle\DBAL\Types\DemandeurMoyenLocomotion;
 use AppBundle\DBAL\Types\DemandeurAllocation;
 use AppBundle\DBAL\Types\DemandeurNiveauEtude;
 use AppBundle\DBAL\Types\DemandeurCategorieSocioPro;
-use AppBundle\Entity\Demandeur;
 use Doctrine\Common\Collections\ArrayCollection;
 use Fresh\DoctrineEnumBundle\Validator\Constraints as DoctrineAssert;
 
