@@ -468,7 +468,22 @@ class Demandeur extends myEntity
 	{
 		return $this->description;
 	}
-
+	
+	public function getDateCreation()
+	{
+		return $this->dateCreation;
+	}
+	
+	public function getDateMiseAJour()
+	{
+		return $this->dateMiseAJour;
+	}
+	
+	public function getFacien()
+	{
+		return $this->facien;
+	}
+	
 	public function setNom($nom)
 	{
 		$this->nom = $nom;
@@ -675,6 +690,18 @@ class Demandeur extends myEntity
 	public function setDescription($description)
 	{
 		$this->description =$description;
+		return $this;
+	}
+	
+	public function setDateMiseAJour($dateMiseAJour)
+	{
+		$this->dateMiseAJour =$dateMiseAJour;
+		return $this;
+	}
+	
+	public function setFacien($facien)
+	{
+		$this->facien =$facien;
 		return $this;
 	}
 	
