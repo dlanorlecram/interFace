@@ -1,6 +1,7 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
+
     {{ form_start(form, {'attr': {"class": "register_flux", 'ng-controller':'effect' }}) }}
         <h1 style='display: none'>Demandeur creation</h1>
         <div class="column_1 ">
@@ -23,6 +24,10 @@
               <div class="bloc_form prenom">
                 {{ form_label(form.prenom) }}
                 {{ form_widget(form.prenom,{ 'attr': {'placeholder': "Prenom", class:''}}) }}
+              </div>
+              <div class="bloc_form facien">
+                {{ form_label(form.facien) }}
+                {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
               </div>
             </div>
             <div class="block_sub">

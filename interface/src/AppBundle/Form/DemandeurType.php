@@ -122,6 +122,9 @@ class DemandeurType extends AbstractType
 				->add('description', null, array(
 					'translation_domain' => false,
 					'label' => 'Description',))
+				->add('facien', null, array(
+					'translation_domain' => false,
+					'label' => 'Référent FACE',))
 				->add('imageFile', 'vich_file', array(
 					'required'      => false,
 					'allow_delete'  => true, // not mandatory, default is true

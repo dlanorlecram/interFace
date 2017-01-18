@@ -50,10 +50,15 @@ class DemandeurController extends Controller
 
             return $this->redirectToRoute('demandeur_show', array('id' => $demandeur->getId()));
         }
-
+		
+        
+       $user = $this->getUser();
+       
+        
         return $this->render('demandeur/new.html.twig', array(
             'demandeur' => $demandeur,
             'form' => $form->createView(),
+            'user' => $user
         ));
     }
 
@@ -90,11 +95,14 @@ class DemandeurController extends Controller
 
             return $this->redirectToRoute('demandeur_show', array('id' => $demandeur->getId()));
         }
+        
+		$user = $this->getUser();
 
         return $this->render('demandeur/edit.html.twig', array(
             'demandeur' => $demandeur,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+            'user' => $user
         ));
     }
 
