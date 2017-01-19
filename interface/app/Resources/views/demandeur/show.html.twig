@@ -8,6 +8,9 @@
 
             <div class="formLeft">
                 <div class="profil_DE">
+                    <div class="photos">
+                        <img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}">
+                    </div>
                     <div class="nmPrenm">
                         <a name="nomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.nom }}</a>
                         <a name="prenomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.prenom }}</a>
@@ -32,11 +35,7 @@
                     </span></p>
                 </div>
 
-                <div class="photos">
-                    <img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}">
-                </div>
-
-                <div class="3">
+                <div class="section disable">
                      <h3 class="titlefile">Documents</h3>
                      <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir le CV</a></p>
                      <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir la Lettre de Motivation</a></p>
@@ -60,7 +59,7 @@
             <div class="formLeft">
 
                 <!-- ==== Etat civil ==== -->
-                <div class="3">
+                <div class="section">
                     <h3 class="titlefile">état civil</h3>
                     <p>Genre : <span>
                         <a class="edit" id="genre" data-type="select" data-pk="1" data-url="" data-title="Genre" class="selectpicker">
@@ -91,7 +90,7 @@
                 </div>
 
                 <!-- ==== Ressources ==== -->
-                <div class="blockfile">
+                <div class="section">
                     <h3 class="titlefile">Ressources</h3>
                     <p>ID Pôle Emploi : <span>
                         <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</a>
@@ -147,7 +146,7 @@
             <div class="formLeft">
 
                 <!-- ==== Formation et métier ==== -->
-                <div class="3">
+                <div class="section">
                     <h3 class="titlefile">Formation et métier</h3>
                     <p>Métier : <span>
                         <a id="metier" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</a>
@@ -212,7 +211,7 @@
                 </div>
 
                 <!-- ==== Mobilité ==== -->
-                <div class="blockfile">
+                <div class="section">
                     <h3 class="titlefile">Mobilité</h3>
                     <p>Permis de conduire : <span>
                         <a id="permis" data-pk="1" data-url="" >
@@ -249,7 +248,7 @@
 
             <div class="formLeft">
                 <!-- ==== Contact ==== -->
-                <div class="blockfile">
+                <div class="section">
                     <h3 class="titlefile">Contact</h3>
                     <p>Adresse : <span>
                         <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="adresse..">{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</a>
@@ -263,25 +262,27 @@
                         <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telPortable %}{{ demandeur.telPortable }}{% else %}-{% endif %}</a></span></p>
                     <p>Mail : <span>
                         <a class="edit" id="email" data-type="email" data-pk="1">{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</a></span></p>
-                </div>
+                
                 <!-- ==== Commentaire ==== -->
-                <h3 class="titlefile">Commentaire</h3>
-                <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
-            </div>
+                    <h3 class="titlefile">Commentaire</h3>
+                    <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
+                </div>
             
-            <ul>
-                <li>
-                    <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
-                </li>
-                <li>
-                    <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Editer</a>
-                </li>
-                <li>
-                    {{ form_start(delete_form) }}
-                        <input type="submit" value="Delete">
-                    {{ form_end(delete_form) }}
-                </li>
-            </ul>
+            
+                <ul>
+                    <li>
+                        <a href="{{ path('demandeur_index') }}" class="btn-edit">Retour à la liste</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}" class="btn-edit">Editer</a>
+                    </li>
+                    <li>
+                        {{ form_start(delete_form) }}
+                            <input type="submit" value="Delete" class="btn-edit">
+                        {{ form_end(delete_form) }}
+                    </li>
+                </ul>
+            </div>
 
         </div>
 
