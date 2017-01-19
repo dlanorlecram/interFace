@@ -37,7 +37,7 @@
                 {{ form_label(form.dateNaissance) }}
                 {{ form_widget(form.dateNaissance,{ 'attr': {'placeholder': "dze"}}) }}
               </div>
-              <div class="bloc_form villeN">
+              <div class="bloc_form villeN disable">
                 {{ form_label(form.villeNaissance) }}
                 {{ form_widget(form.villeNaissance,{ 'attr': {'placeholder': "Ville de naissance"}}) }}
               </div>
@@ -45,7 +45,7 @@
                 {{ form_label(form.paysNaissance) }}
                 {{ form_widget(form.paysNaissance,{ 'attr': {'placeholder': "Pays de Naissance"}}) }}
               </div>
-              <div class="bloc_form deptNaissance">
+              <div class="bloc_form deptNaissance disable">
                 {{ form_label(form.deptNaissance) }}
                 {{ form_widget(form.deptNaissance,{ 'attr': {'placeholder': "Département"}}) }}
               </div>
@@ -53,9 +53,13 @@
                 {{ form_label(form.nationalite) }}
                 {{ form_widget(form.nationalite,{ 'attr': {'placeholder': "Nationalité"}}) }}
               </div>
-              <div class="bloc_form titreSejour">
+              <div class="bloc_form titreSejour disable">
                 {{ form_label(form.titreSejour) }}
                 {{ form_widget(form.titreSejour,{ 'attr': {'placeholder': "Nationalité"}}) }}
+              </div>
+              <div class="bloc_form titreSejour">
+                {{ form_label(form.enfant) }}
+                {{ form_widget(form.enfant,{ 'attr': {'placeholder': "Nationalité"}}) }}
               </div>
             </div>
           </div>
@@ -112,19 +116,40 @@
                   {{ form_label(form.moyenLocomotion) }}
                   {{ form_widget(form.moyenLocomotion) }}
                 </div>
+                <div class="type bloc_form">
+                  {{ form_label(form.moyenLocomotionAutre) }}
+                  {{ form_widget(form.moyenLocomotionAutre) }}
+                </div>
               </div>
               <div class="block_sub ressource">
                 <div class="id">
                   {{ form_label(form.idPoleEmploi) }}
                   {{ form_widget(form.idPoleEmploi, {'attr': {'placeholder': 'Identifiant Pôle Emploi'}}) }}
                 </div>
+                <div class="id">
+                  {{ form_label(form.metier) }}
+                  {{ form_widget(form.metier, {'attr': {'placeholder': 'Identifiant Pôle Emploi'}}) }}
+                </div>
+                <div class="autorisationTravail">
+                  <!--{{ form_label(form.autorisationTravail) }}-->
+                  {{ form_widget(form.autorisationTravail) }}
+                </div>
                 <div class="referent">
                   <span class="full">Référent</span>
+                  <!--{{ form_label(form.referent) }}-->
                   {{ form_widget(form.referent) }}
                 </div>
                 <div class="alloc">
                   {{ form_label(form.allocation) }}
                   {{ form_widget(form.allocation) }}
+                </div>
+                <div class="alloc">
+                  {{ form_label(form.allocationAutre) }}
+                  {{ form_widget(form.allocationAutre) }}
+                </div>
+                <div class="alloc">
+                  {{ form_label(form.structure) }}
+                  {{ form_widget(form.structure) }}
                 </div>
                 <div class="rqth">
                   {{ form_label(form.rqth) }}

@@ -54,7 +54,10 @@
                         </div>
                         <div class="blfilter">
                             <label for="">Niveau d'étude</label>
-                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
+                            <select  ng-model = "diplome">
+                              <option value = "">Tous</option>
+                              <option value = "! + SD">Avec</option>
+                              <option value = "SD">Sans</option>
                             </select>
                         </div>
                         <div class="blfilter">
@@ -79,6 +82,9 @@
               <span>info personnelle</span>
             </div>
             <div class="box">
+              <span>référent</span>
+            </div>
+            <div class="box">
               <span>qpv</span>
             </div>
             <div class="box">
@@ -91,12 +97,18 @@
               <span>permis</span>
             </div>
             <div class="box">
+              <span>Type de permis</span>
+            </div>
+            <div class="box">
+              <span>niveau d'étude</span>
+            </div>
+            <div class="box">
               <span>métier</span>
             </div>
           </div>
           <div class="rows">
             <a href="{[{data.id}]}"
-              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : selectReferent(referentSelect)| limitTo:2:limitShow
+              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : diplome | filter : selectReferent(referentSelect)| limitTo:2:limitShow
             ">
               <div class="row_item">
                 <div class="group_detail">
@@ -107,6 +119,9 @@
                     <span class="genre">{[{data.genre|genreFilter}]}</span>
                     <span class="mail">{[{data.email}]}</span>
                     <span class="numb">Tel: {[{data.telPortable}]}</span>
+                  </div>
+                  <div class="item_detail_facien">
+                    <span class="item_detail_span">{[{data.facien}]}</span>
                   </div>
                   <div class="item_detail_qpv">
                     <span class="item_detail_span">{[{data.QPVNom|qpvFilter}]}</span>
@@ -119,6 +134,12 @@
                   </div>
                   <div class="item_detail_permis">
                     <span class="item_detail_span">{[{data.permisConduire|booleanFilter}]}</span>
+                  </div>
+                  <div class="item_detail_permis">
+                    <span class="item_detail_span">{[{data.typePermisConduire}]}</span>
+                  </div>
+                  <div class="item_detail_metier">
+                    <span class="item_detail_span">{[{data.niveauEtude}]}</span>
                   </div>
                   <div class="item_detail_metier">
                     <span class="item_detail_span">{[{data.metier}]}</span>
@@ -212,7 +233,7 @@
               value: "False",
               name: "Non"
             }];
-
+            $scope.test = "SD";
             $scope.qpvSort = [{
               value: "",
               name: "Tous"
@@ -316,6 +337,7 @@
               }
             }
             console.log($scope.referentDb);
+
 
             // FILTRE
             /* Filtre Pour chercher par nom ou par prénom */
