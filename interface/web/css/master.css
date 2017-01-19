@@ -1031,6 +1031,9 @@ div.group_detail:last-of-type{
     background-color: #ED9767;
     color: white;
 }
+/*.btn_show {
+    display: inline-block;
+}*/
 .formLeft h3 {
     font-size: 15px;
 }

@@ -268,20 +268,21 @@
                     <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
                 </div>
             
-            
-                <ul>
-                    <li>
-                        <a href="{{ path('demandeur_index') }}" class="btn-edit">Retour à la liste</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}" class="btn-edit">Editer</a>
-                    </li>
-                    <li>
-                        {{ form_start(delete_form) }}
-                            <input type="submit" value="Delete" class="btn-edit">
-                        {{ form_end(delete_form) }}
-                    </li>
-                </ul>
+                <div class="btn_show">    
+                    <ul>
+                        <li>
+                            <a href="{{ path('demandeur_index') }}" class="btn-edit">Retour à la liste</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}" class="btn-edit">Editer</a>
+                        </li>
+                        <li>
+                            {{ form_start(delete_form) }}
+                                <input type="submit" value="Delete" class="btn-edit">
+                            {{ form_end(delete_form) }}
+                        </li>
+                    </ul>
+                </div>
             </div>
 
         </div>
