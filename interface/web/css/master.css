@@ -1092,8 +1092,10 @@ div.group_detail:last-of-type{
     text-align: left;
 }
 
-/*floryan*/
 /*for page edit*/
+.titrePage {
+    font-size: 17px;
+}
 .form_newflux{
     width: 100%;
     margin: 0 auto;
@@ -1107,11 +1109,12 @@ div.group_detail:last-of-type{
 }
 .formLeft {
     flex-direction: column;
+    width: 25%;
 }
 .photos {
     width: 150px;
     min-height: 150px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     background-color: #4d4a4a;
     background-image: url();
     background-repeat: no-repeat;
@@ -1120,12 +1123,49 @@ div.group_detail:last-of-type{
 .photos img {
   	width: 100%;
 }
+/*.photo_edit label {
+   
+}*/
+.fallback input {
+    width: 50%;
+}
 .shadow{
     box-shadow: 0 1px 2px 0 #c0c0c0;
 }
-
+.section h3 {
+    font-weight: 300;
+    text-transform: capitalize;
+}
+.section p {
+    font-size: 14px;
+}
 .disable{
     display: none;
+}
+.btn-edit{
+    float: right;
+    text-align: center;
+    margin: 1% 0;
+    line-height: 200%;
+    height: 35px;
+    width: 150px;
+    border: 0;
+    background-color: #ED9767;
+    color: white;
+}
+/*.btn_show {
+    display: inline-block;
+}*/
+.formLeft h3 {
+    font-size: 15px;
+}
+.form-group select {
+    border: none;
+    border-bottom: 1px solid #868686;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: transparent;
 }
 
 /*
