@@ -258,8 +258,72 @@ ul, li, a{
 .prenom{
   width: 60%;
 }
-.naissance{
 
+.adress_email{
+  width: 69.30%;
+  min-width: 350px;
+}
+
+.genre{
+  width: 29%;
+  font-size: 0;
+  padding-top: 20px;
+}
+
+.detail_genre{
+  width: 60%;
+  text-align: center;
+}
+
+.genre select{
+  -moz-appearance: none;
+  border: none;
+  border-bottom: 1px solid #868686;
+  background-color: transparent;
+  width: 80%;
+  text-align: center;
+  font-style: oblique;
+}
+
+.indice_genre,.detail_genre{
+  display: inline-block;
+}
+
+.indice_genre label{
+  font-size: 13px!important;
+  font-weight: 400;
+  color: #828282!important;
+}
+
+.naissance{
+  font-size: 0;
+  padding-top: 22px;
+}
+
+.indice_date{
+  display: inline-block;
+}
+
+.indice_date label{
+  font-size: 13px !important;
+  color: #828282!important;
+}
+
+.indice_date label:after{
+  content: ':';
+}
+
+.entry_date{
+  display: inline-block;
+}
+
+.naissance select{
+  border: none;
+  background-color: transparent;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-align: center;
 }
 .deptNaissance{
 
@@ -270,8 +334,66 @@ ul, li, a{
 .paysN{
 
 }
-.nationalite{
+.enfant{
+  font-size: 0;
+  padding-top: 22px;
+  margin-left: 20px;
+}
 
+.enfant div{
+  display: inline-block;
+}
+
+.enfant input{
+  max-width: 50px;
+  border: none;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.enfant label{
+  font-size: 14px !important;
+  font-weight: 400;
+  color: #828282!important;
+}
+
+.enfant label:after{
+  content:':';
+}
+
+.custom_label{
+  font-size: 14px !important;
+}
+
+.custom_select{
+  -webkit-appearance:none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.header_adresse{
+  width: 100%;
+}
+
+.inner_header_adresse{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.indice_qpv, .detail_qpv{
+  display: inline-block;
+}
+
+.inline{
+  font-size: 0;
+}
+
+.left,.right{
+  display: inline-block;
+}
+
+.nationalite{
+  padding-left: 14px;
 }
 .content_dashboard label{
   display: block;
@@ -1004,4 +1126,66 @@ div.group_detail:last-of-type{
 
 .disable{
     display: none;
+}
+
+/*
+*  Ronald - Rebase form register "demandeur"
+*/
+
+.header_form{
+  width: 100%;
+}
+
+.inner_header_form{
+  background-color: #FFF;
+  width: 30%;
+  padding: 15px 15px;
+  margin-bottom: 15px;
+  min-width: 285px;
+}
+
+.block_action,.bloc_form_facien{
+  display: block;
+  font-size: 0px;
+}
+
+.block_action{
+  margin-bottom: 15px;
+}
+
+.indice_status,.indice_facien{
+  display: inline-block;
+  font-size: 13px;
+}
+.indice_status,.indice_facien{
+  width: 35%;
+}
+
+.indice_facien label, .indice_status label{
+  font-size: 13px;
+  color: #828282;
+}
+
+.detail_status,.detail_facien{
+  display: inline-block;
+}
+
+.detail_status,.detail_facien{
+  width: 65%;
+  text-align: center;
+}
+
+.detail_facien input{
+  width: 100%;
+text-align: center;
+}
+
+.detail_status select{
+  border: none;
+  border-bottom: 1px solid #000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  font-style: oblique;
 }

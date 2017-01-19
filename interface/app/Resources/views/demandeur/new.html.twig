@@ -6,19 +6,31 @@
 
     {{ form_start(form, {'attr': {"class": "register_flux", 'ng-controller':'effect' }}) }}
         <h1 style='display: none'>Demandeur creation</h1>
-        <div class="column_1 ">
-          <div class="block action">
-            <div class="">
-              {{ form_label(form.status)}}
-              {{ form_widget(form.status)}}
+        <div class="header_form">
+          <div class="inner_header_form">
+            <div class="block_action">
+              <div class="indice_status">
+                {{ form_label(form.status)}}
+              </div>
+              <div class="detail_status">
+                {{ form_widget(form.status)}}
+              </div>
+            </div>
+            <div class="bloc_form_facien">
+              <div class="indice_facien">
+                {{ form_label(form.facien) }}
+              </div>
+              <div class="detail_facien">
+                {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+              </div>
             </div>
           </div>
+        </div>
+
+        <div class="column_1 ">
           <div class="block etat_civil">
             <div class="block_sub">
-              <div class="bloc_form genre">
-                {{ form_label(form.genre) }}
-                {{ form_widget(form.genre,{ 'attr': {'placeholder': "Nom", "class": ""}}) }}
-              </div>
+
               <div class="bloc_form nom">
                 {{ form_label(form.nom) }}
                 {{ form_widget(form.nom,{ 'attr': {'placeholder': "Nom", "class": "testez"}}) }}
@@ -27,19 +39,39 @@
                 {{ form_label(form.prenom) }}
                 {{ form_widget(form.prenom,{ 'attr': {'placeholder': "Prenom", class:''}}) }}
               </div>
-              <div class="bloc_form facien">
-                {{ form_label(form.facien) }}
-                {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+
+
+              <div class="bloc_form genre">
+                <div class="indice_genre">
+                  {{ form_label(form.genre) }}
+                </div>
+                <div class="detail_genre">
+                  {{ form_widget(form.genre) }}
+                </div>
               </div>
+
+              <div class="bloc_form adress_email">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email,{'attr':{'placeholder': "Email"}}) }}
+              </div>
+
             </div>
             <div class="block_sub">
               <div class="bloc_form naissance">
-                {{ form_label(form.dateNaissance) }}
-                {{ form_widget(form.dateNaissance,{ 'attr': {'placeholder': "dze"}}) }}
+                <div class="indice_date">
+                  {{ form_label(form.dateNaissance) }}
+                </div>
+                <div class="entry_date">
+                  {{ form_widget(form.dateNaissance,{ 'attr': {'placeholder': "dze"}}) }}
+                </div>
               </div>
-              <div class="bloc_form villeN disable">
-                {{ form_label(form.villeNaissance) }}
-                {{ form_widget(form.villeNaissance,{ 'attr': {'placeholder': "Ville de naissance"}}) }}
+              <div class="bloc_form enfant">
+                <div class="indice_enfant">
+                  {{ form_label(form.enfant) }}
+                </div>
+                <div class="entry_enfant">
+                  {{ form_widget(form.enfant) }}
+                </div>
               </div>
               <div class="bloc_form paysN">
                 {{ form_label(form.paysNaissance) }}
@@ -49,34 +81,38 @@
                 {{ form_label(form.deptNaissance) }}
                 {{ form_widget(form.deptNaissance,{ 'attr': {'placeholder': "Département"}}) }}
               </div>
-              <div class="bloc_form nationalite">
-                {{ form_label(form.nationalite) }}
-                {{ form_widget(form.nationalite,{ 'attr': {'placeholder': "Nationalité"}}) }}
+              <div class="bloc_form villeN disable">
+                {{ form_label(form.villeNaissance) }}
+                {{ form_widget(form.villeNaissance,{ 'attr': {'placeholder': "Ville de naissance"}}) }}
               </div>
+
               <div class="bloc_form titreSejour disable">
                 {{ form_label(form.titreSejour) }}
                 {{ form_widget(form.titreSejour,{ 'attr': {'placeholder': "Nationalité"}}) }}
               </div>
-              <div class="bloc_form titreSejour">
-                {{ form_label(form.enfant) }}
-                {{ form_widget(form.enfant,{ 'attr': {'placeholder': "Nationalité"}}) }}
+              <div class="bloc_form nationalite">
+                {{ form_label(form.nationalite) }}
+                {{ form_widget(form.nationalite,{ 'attr': {'placeholder': "Nationalité"}}) }}
               </div>
             </div>
           </div>
+
           <div class="block coordonne">
             <div class="block_sub">
-              <div class="bloc_form adresse">
-                {{ form_label(form.email) }}
-                {{ form_widget(form.email,{'attr':{'placeholder': "Email"}}) }}
-              </div>
-              <div class="adresse">
-                <div class="bloc_form qpv">
-                  {{ form_label(form.QPV) }}
-                  {{ form_widget(form.QPV,{'attr':{'class': 'red'}}) }}
-                </div>
-                <div class="bloc_form qpvnom" >
-                  {{ form_label(form.QPVNom) }}
-                  {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+              <div class="header_adresse">
+                <div class="inner_header_adresse">
+                  <div class="bloc_form qpv">
+                    <div class="indice_qpv">
+                      {{ form_label(form.QPV) }}
+                    </div>
+                    <div class="detail_qpv">
+                      {{ form_widget(form.QPV,{'attr':{'class': 'red'}}) }}
+                    </div>
+                  </div>
+                  <div class="bloc_form qpvnom" >
+                    {{ form_label(form.QPVNom) }}
+                    {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+                  </div>
                 </div>
               </div>
               <div class="bloc_form adresse">
