@@ -80,6 +80,9 @@
               <span>info personnelle</span>
             </div>
             <div class="box">
+              <span>référent</span>
+            </div>
+            <div class="box">
               <span>qpv</span>
             </div>
             <div class="box">
@@ -90,6 +93,12 @@
             </div>
             <div class="box">
               <span>permis</span>
+            </div>
+            <div class="box">
+              <span>Type de permis</span>
+            </div>
+            <div class="box">
+              <span>niveau d'étude</span>
             </div>
             <div class="box">
               <span>métier</span>
@@ -109,6 +118,9 @@
                     <span class="mail">{[{data.email}]}</span>
                     <span class="numb">Tel: {[{data.telPortable}]}</span>
                   </div>
+                  <div class="item_detail_facien">
+                    <span class="item_detail_span">{[{data.facien}]}</span>
+                  </div>
                   <div class="item_detail_qpv">
                     <span class="item_detail_span">{[{data.QPVNom|qpvFilter}]}</span>
                   </div>
@@ -120,6 +132,12 @@
                   </div>
                   <div class="item_detail_permis">
                     <span class="item_detail_span">{[{data.permisConduire|booleanFilter}]}</span>
+                  </div>
+                  <div class="item_detail_permis">
+                    <span class="item_detail_span">{[{data.typePermisConduire}]}</span>
+                  </div>
+                  <div class="item_detail_metier">
+                    <span class="item_detail_span">{[{data.niveauEtude}]}</span>
                   </div>
                   <div class="item_detail_metier">
                     <span class="item_detail_span">{[{data.metier}]}</span>
