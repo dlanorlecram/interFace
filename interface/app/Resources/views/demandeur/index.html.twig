@@ -1,5 +1,7 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
+{% block title %}{{ parent() }} | Liste{% endblock %}
+
 {% block job_hunter %}
     <div class="block_search" ng-controller="searchCtrl">
       <div class="inner_block_search">

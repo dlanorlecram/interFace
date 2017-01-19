@@ -4,7 +4,7 @@
 html,body{
   padding: 0;
   margin: 0;
-  background-color: #F4F4F4;
+  background-color: #e6e6e6;
   font-family: 'Roboto',sans-serif;
 }
 *{
@@ -177,6 +177,13 @@ ul, li, a{
   margin-bottom: 20px;
   font-weight: 400;
 }
+/*.menu_item::after {
+  content: "\f0dd";
+	position: absolute;
+  top: 15px;
+  font-family: fontawesome;
+  right: 50%;
+}*/
 .sub_menu{
   height: 0px;
   font-size: 10px;
@@ -912,4 +919,33 @@ div.group_detail:last-of-type{
 }
 .PNEdit input:nth-child(2){
     text-align: left;
+}
+
+/*floryan*/
+/*for page edit*/
+.form_newflux{
+    width: 100%;
+    margin: 0 auto;
+    padding: 25px 60px;
+    display: table;
+    background-color: #FFFFFF;
+}
+.NewFlux {
+    display: flex;
+    justify-content: space-around;
+}
+.formLeft {
+    flex-direction: column;
+}
+.photos {
+    width: 150px;
+    min-height: 150px;
+    margin-top: 20px;
+    background-color: #4d4a4a;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.photos img {
+  	width: 100%;
 }

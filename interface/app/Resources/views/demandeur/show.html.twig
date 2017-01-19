@@ -1,7 +1,185 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
+{% block title %}{{ parent() }} | Fiche demandeur d'emploi{% endblock %}
+
 {% block job_hunter %}
-    <h1>Demandeur</h1>
+
+    <div class="form_newflux NewFlux">
+
+            <div class="formLeft">
+                <div class="profil_DE">
+                    <div class="nmPrenm">
+                        <a name="nomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.nom }}</a>
+                        <a name="prenomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.prenom }}</a>
+                    </div>
+                    <p class="action_DE">action : <a class="edit" id="action" data-type="select" data-pk="1" data-url="" data-title="action" class="selectpicker">
+                        {% if demandeur.status == "AS" %}
+                            <td>Annonceur sentinelle</td>
+                        {% elseif demandeur.status == "F" %}
+                            <td>Flux</td>
+                        {% elseif demandeur.status == "I" %}
+                            <td>IRVIN</td>
+                        {% elseif demandeur.status == "N" %}
+                            <td>Numérique</td>
+                        {% elseif demandeur.status == "S" %}
+                            <td>Sécurité</td>
+                        {% endif %}</a></p>
+                    <p>Crée le <span>...</span></p>
+                    <p>Modifié le <span>...</span></p>
+                </div>
+
+                <div class="photos">
+                    <img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}">
+                </div>
+
+                <div class="3">
+                     <h3 class="titlefile">Documents</h3>
+                     <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir le CV</a></p>
+                     <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir la Lettre de Motivation</a></p>
+
+                     <!-- Telecharger un document 
+                     <div class="form-group">
+                        <label for="fileinput">Télécharger un document</label>
+                        <input class="col-lg-12" type="file" id="fileinput">
+                    </div>-->
+
+                    <form class="dropzone" action="/target-url" id="my-dropzone">
+                      <div class="fallback">
+                        <input name="file" type="file" multiple />
+                      </div>
+                    </form>
+                                            
+                </div>
+            </div>
+
+            <!-- ==== colone center ==== -->
+            <div class="formLeft">
+
+                <!-- ==== Etat civil ==== -->
+                <div class="3">
+                    <h3 class="titlefile">état civil</h3>
+                    <p>Genre : <span>
+                        <a class="edit" id="genre" data-type="select" data-pk="1" data-url="" data-title="Genre" class="selectpicker">
+                            {% if demandeur.genre == "H" %}
+                                <td>Homme</td>
+                            {% elseif demandeur.genre == "F" %}
+                                <td>Femme</td>
+                            {% else %}
+                                <td>Autre</td>
+                            {% endif %}</a>
+                        </span></p>
+                    <p>Tranche d'âge : <span>
+                        <a class="edit" id="tAge" data-type="select" data-pk="1" data-url="" data-title="TranchedAge" class="selectpicker">...</a></span></p>
+                    <p>Né(e) le : <span>
+                        <a id="ddn" data-type="combodate" data-pk="1" data-url="" data-value="0000-00-00" data-title="Select date">...</a></span></p>
+                    <p>à : <span>
+                        <a id="country" data-type="select" data-pk="1" data-url="" data-title="Select country">...</a></span></p>
+                    <p>Nationalité : <span>
+                        <a id="natio" data-type="select" data-pk="1" data-url="" data-title="Select country">...</a></span></p>
+                    {#<p>Titre de séjour : <span>
+                        <a class="edit" id="tSejour" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">...</a>
+                    </span></p>
+                    <p>Autorisation de travail : <span>
+                        <a class="edit" id="autorTrv" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">...</a></span></p>#}
+                    <p>Enfant(s) en charge : <span>
+                        <a class="edit" id="enfants" data-type="number" data-pk="1" data-url="" data-title="" class="selectpicker">...</a></span></p>
+                </div>
+
+                <!-- ==== Ressources ==== -->
+                <div class="blockfile">
+                    <h3 class="titlefile">Ressources</h3>
+                    <p>Référent FACE : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="Nom du référent.."> demandeur.facien </a>
+                    </span></p>
+                    <p>ID Pôle Emploi : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">...</a>
+                    </span></p>
+                    <p>Référent (PE / ML) : <span><a class="edit"  data-type="text" data-pk="1" data-url="" data-title="référent et structure..">...</a></span></p>
+                    <p>Allocation : <span>
+                        <a class="edit" id="alloc" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">...</a>
+                    </span></p>
+                    <p>RQTH : <span><a class="edit" id="rqth" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">...</a></span></p>
+                    <p>QPV : <span>
+                        <a class="edit" id="qpv" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">...</a>
+                    </span></p>
+                </div>
+            </div>
+
+
+            <!-- ==== colone Right ==== -->
+            <div class="formLeft">
+
+                <!-- ==== Formation et métier ==== -->
+                <div class="3">
+                    <h3 class="titlefile">Formation et métier</h3>
+                    <p>Métier : <span>
+                        <a id="metier" data-type="select" data-pk="1" data-url="" data-title="">...</a>
+                    </span></p>
+                    <p>Niveau d'études : <span>
+                        <a class="edit" id="etudes" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">Choisir ..</a>
+                    </span></p>
+                    <p>Catégorie socio-pro : <span>
+                        <a class="edit" id="socioPro" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">...</a>
+                    </span></p>
+                    <p>Diplôme professionnel : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">...</a>
+                    </span></p>
+                    <p>Durée d'expérience : <span>
+                       <a class="edit" id="dureeExp" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">Choisir ..</a>
+                    </span></p>
+                    <p>Dernier poste occupé : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="lastJob..">poste / entreprise etc..</a>
+                    </span></p>
+                </div>
+
+                <!-- ==== Mobilité ==== -->
+                <div class="blockfile">
+                    <h3 class="titlefile">Mobilité</h3>
+                    <p>Permis de conduire : <span>
+                        <a id="permis" data-pk="1" data-url="" >...</a>
+                    </span></p>
+                    <p>Moyen de locomotion : <span>
+                            <a id="locomotion" data-type="checklist" data-value="" data-pk="1" data-url="" data-title="Select options" >...</a
+                    </span></p>
+                </div>
+            </div>
+
+            <div class="formLeft">
+                <!-- ==== Contact ==== -->
+                <div class="blockfile">
+                    <h3 class="titlefile">Contact</h3>
+                    <p>Adresse : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="adresse..">Adresse ..</a>
+                    </span></p>
+                    <p>Ville : <span>
+                        <a id="ville" data-type="select" data-pk="1" data-url="" data-title="">Choisir une ville ..</a>
+                    </span></p>
+                    <p>Tél. (fixe) : <span>
+                        <a class="edit" id="tel" data-type="tel" data-pk="1">...</a></span></p>
+                    <p>Tél. (portable) : <span>
+                        <a class="edit" id="tel" data-type="tel" data-pk="1">...</a></span></p>
+                    <p>Mail : <span>
+                        <a class="edit" id="email" data-type="email" data-pk="1"></a></span></p>
+                </div>
+            </div>
+            
+            <ul>
+                <li>
+                    <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
+                </li>
+                <li>
+                    <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Editer</a>
+                </li>
+                <li>
+                    {{ form_start(delete_form) }}
+                        <input type="submit" value="Delete">
+                    {{ form_end(delete_form) }}
+                </li>
+            </ul>
+
+        </div>
+
+    {#<h1>Demandeur</h1>
 
     <table>
         <tbody>
@@ -252,5 +430,5 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul>#}
 {% endblock %}

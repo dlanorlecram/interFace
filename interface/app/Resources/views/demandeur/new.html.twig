@@ -1,5 +1,7 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
+{% block title %}{{ parent() }} | Créer{% endblock %}
+
 {% block job_hunter %}
 
     {{ form_start(form, {'attr': {"class": "register_flux", 'ng-controller':'effect' }}) }}
