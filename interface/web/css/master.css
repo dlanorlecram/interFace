@@ -970,8 +970,10 @@ div.group_detail:last-of-type{
     text-align: left;
 }
 
-/*floryan*/
 /*for page edit*/
+.titrePage {
+    font-size: 17px;
+}
 .form_newflux{
     width: 100%;
     margin: 0 auto;
@@ -1004,4 +1006,15 @@ div.group_detail:last-of-type{
 
 .disable{
     display: none;
+}
+.btn-edit{
+    float: right;
+    text-align: center;
+    margin: 1% 0;
+    line-height: 200%;
+    height: 35px;
+    width: 150px;
+    border: 0;
+    background-color: #ED9767;
+    color: white;
 }

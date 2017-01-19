@@ -6,8 +6,8 @@
 
                 <h1 class="titrePage">Ajouter un demandeur d'emploi</h1>
 
-                <div class="NewFlux" name="appbundle_demandeuremploi" method="POST">
-                {#{{ form_start(form) }}#}                
+                {{ form_start(edit_form) }}                
+                <div class="NewFlux">
 
                 <!-- Colonne Gauche du Formulaire -->
 
@@ -15,236 +15,84 @@
                 
                     <!--photo-->
                     <div class="photos">
-                        <img src="">
+                        {{ form_widget(edit_form.imageFile) }}
                     </div>
                     <!-- Titre Etat Civil-->
                     <h3 class="titreForm">Etat Civil</h3>
 
                     <!--nom-->
                     <div class="form-group">
-                        <input class="" type="text" name="Nom" value="Nom">
+                        {{ form_widget(edit_form.nom) }}
                     </div>
 
                     <!--prénom-->
                     <div class="form-group">
-                        <input class="" type="text" name="Prénom" value="Prénom">
+                       {{ form_widget(edit_form.prenom) }}
                     </div>
 
                     <!--genre-->
                     <div class="form-group">
-                        <select class="form-control selectpicker" title="Genre">
-                            <option>Autre</option>
-                            <option>Femme</option>
-                            <option>Homme</option>
-                        </select>
+                        {{ form_widget(edit_form.genre) }}
                     </div> 
 
-                    <!--Tranche d'age-->
+                     <!--status-->
                     <div class="form-group">
+                        {{ form_widget(edit_form.status) }}
+                    </div> 
+
+                    <!--Référent FACE-->
+                    <div class="form-group">
+                        {{ form_label(edit_form.facien) }}
+		                {{ form_widget(edit_form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+                    </div>
+                
+                    <!--Tranche d'age-->
+                    {#<div class="form-group">
                         <select class="form-control selectpicker" title="Tranche d'âge">
                             <option>Moins de 25 ans</option>
                             <option>Entre 25 et 49 ans</option>
                             <option>50 ans et plus</option>
                         </select>
-                    </div>
+                    </div>#}
 
                     <!--Date de naissance-->
                     <div class="form-group">
-                        <label for="BirthDay"></label>
-                        <input type="text" class="form-control" id="BirthDay" placeholder="Date de naissance   .. / .. / ....">
+                        {{ form_widget(edit_form.dateNaissance) }}
                     </div>
 
                     <!--Ville de naissance-->
-                    {#<div class="form-group">
-                        <label for="BirthCity"></label>
-                        <input type="text" class="form-control" id="BirthCity" placeholder="Ville de naissance ..">
-                    </div>#}
+                    <div class="form-group disable">
+                        {{ form_widget(edit_form.villeNaissance) }}
+                    </div>
 
                     <!--Dépt. de naissance-->
-                    {#<div class="form-group">
-                        <label for="BirthDept"></label>
-                        <input type="date" class="form-control" id="BirthDept" placeholder="Département ..">
-                    </div>#}
+                    <div class="form-group disable">
+                        {{ form_widget(edit_form.deptNaissance) }}
+                    </div>
 
                     <!--Pays de naissance-->
-                    {#<div class="form-group">
-                        <select class="form-control selectpicker" title="Pays de naissance">
-                            <option value="">Afghan</option>
-                            <option value="">Albanaie</option>    
-                            <option value="">Algérie</option>   
-                            <option value="">Allemagne</option>    
-                            <option value="">Amérique Etats Unies</option>
-                            <option value="">Angolas</option>    
-                            <option value="">Argentine</option>    
-                            <option value="">Arménie</option>
-                            <option value="">Aruba</option>    
-                            <option value="">Australie</option>
-                            <option value="">Autriche</option>  
-                            <option value="">Bahamas</option>   
-                            <option value="">Bangladesh</option>  
-                            <option value="">Belgique</option>  
-                            <option value="">Benin</option>
-                            <option value="">Biélarussie</option>     
-                            <option value="">Bosnie</option>  
-                            <option value="">Botswanais</option>  
-                            <option value="">Bouthan</option>     
-                            <option value="">Brésilien</option>
-                            <option value="">Britannique</option>     
-                            <option value="">Bulgare</option>    
-                            <option value="">Burkinabè</option> 
-                            <option value="">Cambodgien</option>  
-                            <option value="">Camerounais</option>
-                            <option value="">Canadien</option>
-                            <option value="">Chilien</option>     
-                            <option value="">Chinois</option>     
-                            <option value="">Chypriote</option>   
-                            <option value="">Colombien</option>
-                            <option value="">Congolais</option>   
-                            <option value="">Croate</option>  
-                            <option value="">Cubain</option>  
-                            <option value="">Danois</option>  
-                            <option value="">Dominicain</option>
-                            <option value="">Ecossais</option>   
-                            <option value="">Egyptien</option>    
-                            <option value="">Equatorien</option>  
-                            <option value="">Espagnol</option>    
-                            <option value="">Estonien</option>
-                            <option value="">Ethiopien</option>   
-                            <option value="">Européen</option>  
-                            <option value="">Finlandais</option>  
-                            <option value="">Français</option>   
-                            <option value="">Gabonais</option>
-                            <option value="">Georgien</option>    
-                            <option value="">Ghanéen</option>    
-                            <option value="">Grec</option>    
-                            <option value="">Guatemala</option>   
-                            <option value="">Guinéen</option>
-                            <option value="">Haïtien</option>
-                            <option value="">Hollandais</option>
-                            <option value="">Hong-Kong</option>
-                            <option value="">Hongrois</option>
-                            <option value="">Indien</option>
-                            <option value="">Indonésien</option>
-                            <option value="">Irakien</option>
-                            <option value="">Iranien</option>
-                            <option value="">Irlandais</option>
-                            <option value="">Islandais</option>
-                            <option value="">Israélien</option>
-                            <option value="">Italien</option>
-                            <option value="">Ivoirien</option>
-                            <option value="">Jamaïcain</option>
-                            <option value="">Japonais</option>
-                            <option value="">Jordanien</option>
-                            <option value="">Kazakh</option>
-                            <option value="">Kenyan</option>
-                            <option value="">Kirghiz</option>
-                            <option value="">Kosovar</option>
-                            <option value="">Koweïtien</option>
-                            <option value="">Kurde</option>
-                            <option value="">Letton</option>
-                            <option value="">Libanais</option>
-                            <option value="">Libyen</option>
-                            <option value="">Liechtenstein</option>   
-                            <option value="">Lituanien</option>
-                            <option value="">Luxembourgeois</option>
-                            <option value="">Macédonien</option>
-                            <option value="">Madagascar</option>
-                            <option value="">Malaisien</option>
-                            <option value="">Malien</option>
-                            <option value="">Maltais</option>
-                            <option value="">Marocain</option>
-                            <option value="">Mauritanien</option>
-                            <option value="">Mauritien</option>
-                            <option value="">Mexicain</option>
-                            <option value="">Monégasque</option>
-                            <option value="">Mongol</option>
-                            <option value="">Mozambique</option>
-                            <option value="">Néo-Zélandais</option> 
-                            <option value="">Népalais</option>
-                            <option value="">Nigérien</option>
-                            <option value="">Nord Coréen</option>
-                            <option value="">Norvégien</option>
-                            <option value="">Pakistanais</option>
-                            <option value="">Palestinien</option>
-                            <option value="">Panaméen</option>
-                            <option value="">Paraguayen</option>
-                            <option value="">Péruvien</option>
-                            <option value="">Philippiens</option>
-                            <option value="">Polonais</option>
-                            <option value="">Portoricain</option> 
-                            <option value="">Portugais</option>
-                            <option value="">Qatar</option>
-                            <option value="">Roumain</option>
-                            <option value="">Russe</option>
-                            <option value="">Rwandais</option>
-                            <option value="">Saoudien</option>
-                            <option value="">Sénégalais</option>
-                            <option value="">Serbe</option>
-                            <option value="">Serbo-Croate</option>
-                            <option value="">Singapour</option>
-                            <option value="">Slovaque</option>
-                            <option value="">Soviétique</option>
-                            <option value="">Sri-Lankais</option>
-                            <option value="">Sud-Africain</option> 
-                            <option value="">Sud-Coréen</option> 
-                            <option value="">Suédois</option>
-                            <option value="">Suisse</option>
-                            <option value="">Syrien</option>
-                            <option value="">Tadjik</option>
-                            <option value="">Taïwanais</option>
-                            <option value="">Tanzanien</option>
-                            <option value="">Tchadien</option>
-                            <option value="">Tchèque</option>
-                            <option value="">Thaïlandais</option> 
-                            <option value="">Tunisien</option>    
-                            <option value="">Turc</option>
-                            <option value="">Ukranien</option>
-                            <option value="">Uruguayen</option>   
-                            <option value="">Vénézuélien</option> 
-                            <option value="">Vietnamien</option>  
-                            <option value="">Yougoslave</option>  
-                            <option value="">Zimbabwéen</option>
-                        </select>
-                    </div>#}
+                    <div class="form-group disable">
+                        {{ form_widget(edit_form.paysNaissance) }}
+                    </div>
 
                     <!--Nationalité-->
                     <div class="form-group">
-                        <select class="form-control selectpicker" title="Nationalité">  
-                            <option value="">france</option>  
-                            <option value=""></option>
-                        </select>
+                        {{ form_widget(edit_form.nationalite) }}
                     </div>
 
                     <!--Titre de séjour-->
-                    {#<div class="form-group">
-                        <select class="form-control selectpicker" title="Titre de séjour">
-                            <option>Non</option>
-                            <option>Oui</option>
-                        </select>
-                    </div>#}
+                    <div class="form-group disable">
+                        {{ form_widget(edit_form.titreSejour) }}
+                    </div>
 
                     <!--Autorisation de travailler-->
-                    {#<div class="form-group">
-                        <select class="form-control selectpicker" title="Autorisation de travailler">
-                            <option>Non</option>
-                            <option>Oui</option>
-                        </select>
-                    </div>#}
+                    <div class="form-group disable">
+                        {{ form_widget(edit_form.autorisationTravail) }}
+                    </div>
 
                     <!--Nombre d'enfants-->
                     <div class="form-group">
-                        <select class="form-control selectpicker" title="Enfant(s) en charge">
-                            <option>0</option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>9</option>
-                            <option>10+</option>
-                        </select>
+                        {{ form_widget(edit_form.enfant) }}
                     </div>
 
                 </div> <!-- End Colonne Gauche du Formulaire -->
@@ -259,52 +107,37 @@
 
                     <!--Adresse-->
                     <div class="form-group">
-                        {#{{ form_label(form.adresseadresse) }}
-                        {{ form_errors(form.adresseadresse) }}
-                        {{ form_widget(form.adresseadresse, {'attr' : {'placeholder' : 'Adresse ..'}}) }}#}
-                        <label for="adresse"></label>
-                        <input type="text" class="form-control" id="adresse" placeholder="Adresse ..">
+                        {{ form_widget(edit_form.adresse) }}
                     </div>
 
 
                     <!--Code postale-->
-                    <div class="form-group">
-                        <label for="cPostal"></label>
-                        <input type="text" class="form-control" id="cPostal" placeholder="Code postal ..">
+                    <div class="form-group disable">
+                        {{ form_widget(edit_form.codePostal) }}
                     </div>
 
 
                     <!--Ville-->
                     <div class="form-group">
-                        <label for="ville"></label>
-                        <input type="text" class="form-control" id="ville" placeholder="Ville ..">
+                        {{ form_widget(edit_form.ville) }}
                     </div>
 
 
                     <!--Tél mobile-->
                     <div class="form-group">
-                        {#{{ form_label(form.tel1De) }}
-                        {{ form_errors(form.tel1De) }}
-                        {{ form_widget(form.tel1De, {'attr' : {'placeholder' : 'telephone1 ..', 'color' : '#4d4a4a'}}) }}#}
-                        <select class="form-control selectpicker" title="Tranche d'âge">
-                            <option>Moins de 25 ans</option>
-                            <option>Entre 25 et 49 ans</option>
-                            <option>50 ans et plus</option>
-                        </select>
+                        {{ form_widget(edit_form.telPortable) }}
                     </div>
 
 
                     <!--Tél fixe-->
                     <div class="form-group">
-                        <label for="tFixe"></label>
-                        <input type="tel" class="form-control" id="tFixe" placeholder="Téléphone fixe ..">
+                        {{ form_widget(edit_form.telFixe) }}
                     </div>
 
 
                     <!--Email-->
                     <div class="form-group">
-                        <label for="mail"></label>
-                        <input type="email" class="form-control" id="mail" placeholder="Email ..">
+                        {{ form_widget(edit_form.email) }}
                     </div>
 
 
@@ -321,64 +154,51 @@
 
                     <!--ID poleEmploi-->
                     <div class="form-group">
-                        <label for="mail"></label>
-                        <input type="text" class="form-control" id="mail" placeholder="Email ..">
+                        {{ form_widget(edit_form.idPoleEmploi) }}
                     </div>
 
 
-                    <!--Référent-->
+                    <!--Référent P-E-->
                     <div class="form-group">
-                        <label for="refrent"></label>
-                        <input type="text" class="form-control" id="referent" placeholder="Référent et structure ..">
+                        {{ form_widget(edit_form.referent) }}
                     </div>
+
+                    <!--Structure-->
+                    <div class="form-group">
+                        {{ form_widget(edit_form.structure) }}
+                    </div>
+
 
 
                     <!--Allocations-->
                     <div class="form-group">
-                        <select class="form-control selectpicker" title="Allocations">
-                            <option>Aucune</option>
-                            <option>Alloc 2</option>
-                            <option>Alloc 3</option>
-                            <option>Alloc 4</option>
-                            <option>Alloc 5</option>
-                            <option>Alloc 6</option>
-                        </select>
+                        {{ form_widget(edit_form.allocation) }}
                     </div>
 
 
                     <!--si autre allocation-->
                     <div class="form-group">
-                        <label for="autreAllc"></label>
-                        <input type="text" class="form-control" id="autreAllc" placeholder="Précisez si autre ..">
+                        {{ form_widget(edit_form.allocationAutre) }}
                     </div>
 
 
                     <!--RQTH-->
                     <div class="form-group">
-                        {#{{ form_label(form.rqthrqth) }}
-                        {{ form_errors(form.rqthrqth) }}
-                        {{ form_widget(form.rqthrqth, {'attr' : {'placeholder' : 'RQTH ..'}}) }}#}
-                        <select class="form-control selectpicker" title="RQTH">
-                            <option>Non</option>
-                            <option>Oui</option>
-                        </select>
+                        {{ form_widget(edit_form.rqth) }}
                     </div>
 
 
                     <!--QPV-->
                     <div class="form-group">
-                        <select class="form-control selectpicker" title="QPV">
-                            <option>QPV 1</option>
-                            <option>QPV 2</option>
-                            <option>QPV 3</option>
-                            <option>QPV 4</option>
-                            <option>QPV 5</option>
-                            <option>QPV 6</option>
-                        </select>
+                        {{ form_widget(edit_form.QPV) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(edit_form.QPVNom) }}
                     </div>
 
-                </div>
-                
+                </div><!-- End Colonne milieu du Formulaire -->
+
+                <!-- Colonne de droite du Formulaire -->               
                 <div class="formLeft">
                     <!-- Titre Formation et Métier-->
                     <h3 class="titreForm">Formation et Métier</h3>
@@ -386,45 +206,25 @@
 
                     <!--Niveau d'études-->
                     <div class="form-group">
-                        <select class="form-control selectpicker" title="Niveau d'étude">
-                            <option>Bac</option>
-                            <option>Bac + 2</option>
-                            <option>Bac + 3</option>
-                            <option>Bac + 4 et plus</option>
-                        </select>
+                        {{ form_widget(edit_form.niveauEtude) }}
                     </div>
 
 
                     <!--Catégorie sociopro-->
                     <div class="form-group">
-                        {#{{ form_label(form.categorieSocio) }}
-                        {{ form_errors(form.categorieSocio) }}
-                        {{ form_widget(form.categorieSocio, {'attr' : {'class' : 'form-control selectpicker', 'title' : 'Catégorie sociopro'}}) }}#}
-                        <select class="form-control selectpicker" title="sociopro">
-                            <option>sociopro 1</option>
-                            <option>sociopro 2</option>
-                            <option>sociopro 3</option>
-                        </select>
+                        {{ form_widget(edit_form.categorieSocioPro) }}
                     </div>
 
 
                     <!--Diplôme professionnel-->
                     <div class="form-group">
-                        <label for="diplome"></label>
-                        <input type="text" class="form-control" id="diplome" placeholder="Diplôme professionnel ..">
+                        {{ form_widget(edit_form.diplomePro) }}
                     </div>
 
 
                     <!--Métier-->
                     <div class="form-group">
-                        {#{{ form_label(form.metiermetier) }}
-                        {{ form_errors(form.metiermetier) }}
-                        {{ form_widget(form.metiermetier, {'attr' : {'class': 'form-control selectpicker', 'title' : 'Métier', 'color' : '#4d4a4a'}}) }}#}
-                        <select class="form-control selectpicker" title="Métier">
-                            <option>Métier 1</option>
-                            <option>Métier 2</option>
-                            <option>Métier 3</option>
-                        </select>
+                        {{ form_widget(edit_form.metier) }}
                     </div>
 
 
@@ -432,48 +232,43 @@
                     <h3 class="titreForm">Expérience</h3>
 
                     <!--Durée-->
-                    <select class="selectpicker" multiple title="Expérience..">
+                    {#<select class="selectpicker" multiple title="Expérience..">
                         <option>0</option>
                         <option>Moins de 1 ans</option>
                         <option>1 à 3 ans</option>
                         <option>3 à 5 ans</option>
                         <option>5 ans et plus</option>
-                    </select>
+                    </select>#}
 
 
                     <!--Dernier poste : entreprise-->
-                    <div class="form-group">
+                    {#<div class="form-group">
                         <label for="dPoste"></label>
                         <input type="text" class="form-control" id="dPoste" placeholder="Dernier poste occupé ..">
-                    </div>
+                    </div>#}
 
 
                     <!--Permis-->
-                    {#<div class="form-group">
-                        {{ form_label(form.permispermis) }}
-                        {{ form_errors(form.permispermis) }}
-                        {{ form_widget(form.permispermis, {'attr' : {'class': 'form-control selectpicker', 'title' : 'Permis', 'color' : '#4d4a4a'}}) }}
-                    </div>#}
-                    <select class="selectpicker" multiple title="Permis.." data-width="49.7%">
-                        <option>A</option>
-                        <option>B</option>
-                        <option>C</option>
-                        <option>D</option>
-                        <option>E</option>
-                        <option>BEA</option>
-                    </select>
+                    <div class="form-group">
+                        {{ form_widget(edit_form.permisConduire) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(edit_form.typePermisConduire) }}
+                    </div>
 
 
                     <!--Moyen de locomation-->
-                    <select class="selectpicker" multiple title="Moyen de locomotion.." data-width="49.5%">
-                        <option>Aucun</option>
-                        <option>Motocyclette</option>
-                        <option>Scooter</option>
-                        <option>Transports en commun</option>
-                        <option>Vélo</option>
-                        <option>Voiture</option>
-                    </select>
+                    <div class="form-group">
+                        {{ form_widget(edit_form.moyenLocomotion) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_widget(edit_form.moyenLocomotionAutre) }}
+                    </div>
 
+                    <!--Commentaire-->
+                    <div class="form-group">
+                        {{ form_widget(edit_form.description) }}
+                    </div>
 
                     
                 </div><!-- End Colonne Droite du Formulaire -->
@@ -481,39 +276,40 @@
                   <!-- VALIDER / ANNULER le formulaire -->
                   <div class="formLeft">
                         <!--Annuler-->
-                        <div class="">
-                            <a href=""><button type="button" class="btn-annuler">ANNULER</button></a>
-                        </div>
+                        {#<div class="">
+                            <a href=""><div type="button" class="btn-edit">Annuler</div></a>
+                        </div>#}
 
                         <!--Valider-->
                         <div class="">
-                            <button type="submit" value="VALIDER" name="VALIDER" class="btn-valider">Valider</button>
+                            {{ form_widget(edit_form) }}
+                                <input type="submit" value="Éditer" class="btn-edit"/>
+                            {{ form_end(edit_form) }}
                         </div>
+                        <ul>
+                            <li>
+                                <a href="{{ path('demandeur_index') }}"><div type="submit" value="Retour à la liste" class="btn-edit">Retour à la liste</div></a>
+                            </li>
+                            <li>
+                                {{ form_start(delete_form) }}
+                                    <div type="submit" value="Supprimer" class="btn-edit">Supprimer</div>
+                                {{ form_end(delete_form) }}
+                            </li>
+                        </ul>
                   </div>
-                  {#{{ form_end(form) }}#}
                 
                 </div>
+                {{ form_end(edit_form) }}
                 
             </div>
-    <h1>Demandeur edit</h1>
 
-    {{ form_start(edit_form) }}
-     {#<div class="bloc_form facien">
+    {#{{ form_start(edit_form) }}
+     <div class="bloc_form facien">
 		{{ form_label(form.facien) }}
 		{{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
-	</div>#}
+	</div>
 	{{ form_widget(edit_form) }}
         <input type="submit" value="Éditer" />
-    {{ form_end(edit_form) }}
+    {{ form_end(edit_form) }}#}
 
-    <ul>
-        <li>
-            <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
