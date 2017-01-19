@@ -14,29 +14,45 @@
                 <div class="formLeft">
                 
                     <!--photo-->
-                    <div class="photos">
+                    <div class="photo_edit fallback">
                         {{ form_widget(edit_form.imageFile) }}
                     </div>
                     <!-- Titre Etat Civil-->
                     <h3 class="titreForm">Etat Civil</h3>
 
                     <!--nom-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.nom) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.nom) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.nom) }}
+                        </div>
                     </div>
 
                     <!--prénom-->
-                    <div class="form-group">
-                       {{ form_widget(edit_form.prenom) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.prenom) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.prenom) }}
+                        </div>
                     </div>
 
                     <!--genre-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.genre) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.genre) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.genre) }}
+                        </div>
                     </div> 
 
                      <!--status-->
                     <div class="form-group">
+                        {{ form_label(edit_form.status) }}
                         {{ form_widget(edit_form.status) }}
                     </div> 
 
@@ -57,41 +73,53 @@
 
                     <!--Date de naissance-->
                     <div class="form-group">
+                        {{ form_label(edit_form.dateNaissance) }}
                         {{ form_widget(edit_form.dateNaissance) }}
                     </div>
 
                     <!--Ville de naissance-->
                     <div class="form-group disable">
+                        {{ form_label(edit_form.villeNaissance) }}
                         {{ form_widget(edit_form.villeNaissance) }}
                     </div>
 
                     <!--Dépt. de naissance-->
                     <div class="form-group disable">
+                        {{ form_label(edit_form.deptNaissance) }}
                         {{ form_widget(edit_form.deptNaissance) }}
                     </div>
 
                     <!--Pays de naissance-->
                     <div class="form-group disable">
+                        {{ form_label(edit_form.paysNaissance) }}
                         {{ form_widget(edit_form.paysNaissance) }}
                     </div>
 
                     <!--Nationalité-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.nationalite) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.nationalite) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.nationalite) }}
+                        </div>
                     </div>
 
                     <!--Titre de séjour-->
                     <div class="form-group disable">
+                        {{ form_label(edit_form.titreSejour) }}
                         {{ form_widget(edit_form.titreSejour) }}
                     </div>
 
                     <!--Autorisation de travailler-->
                     <div class="form-group disable">
+                        {{ form_label(edit_form.autorisationTravail) }}
                         {{ form_widget(edit_form.autorisationTravail) }}
                     </div>
 
                     <!--Nombre d'enfants-->
                     <div class="form-group">
+                        {{ form_label(edit_form.enfant) }}
                         {{ form_widget(edit_form.enfant) }}
                     </div>
 
@@ -107,36 +135,42 @@
 
                     <!--Adresse-->
                     <div class="form-group">
+                        {{ form_label(edit_form.adresse) }}
                         {{ form_widget(edit_form.adresse) }}
                     </div>
 
 
                     <!--Code postale-->
                     <div class="form-group disable">
+                        {{ form_label(edit_form.codePostal) }}
                         {{ form_widget(edit_form.codePostal) }}
                     </div>
 
 
                     <!--Ville-->
                     <div class="form-group">
+                        {{ form_label(edit_form.ville) }}
                         {{ form_widget(edit_form.ville) }}
                     </div>
 
 
                     <!--Tél mobile-->
                     <div class="form-group">
+                        {{ form_label(edit_form.telPortable) }}
                         {{ form_widget(edit_form.telPortable) }}
                     </div>
 
 
                     <!--Tél fixe-->
                     <div class="form-group">
+                        {{ form_label(edit_form.telFixe) }}
                         {{ form_widget(edit_form.telFixe) }}
                     </div>
 
 
                     <!--Email-->
                     <div class="form-group">
+                        {{ form_label(edit_form.email) }}
                         {{ form_widget(edit_form.email) }}
                     </div>
 
@@ -151,49 +185,78 @@
                     <!-- Titre Ressources-->
                     <h3 class="titreForm">Ressources</h3>
 
-
                     <!--ID poleEmploi-->
                     <div class="form-group">
+                        {{ form_label(edit_form.idPoleEmploi) }}
                         {{ form_widget(edit_form.idPoleEmploi) }}
                     </div>
 
 
                     <!--Référent P-E-->
                     <div class="form-group">
+                        {{ form_label(edit_form.referent) }}
                         {{ form_widget(edit_form.referent) }}
                     </div>
 
                     <!--Structure-->
                     <div class="form-group">
+                        {{ form_label(edit_form.structure) }}
                         {{ form_widget(edit_form.structure) }}
                     </div>
 
 
 
                     <!--Allocations-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.allocation) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.allocation) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.allocation) }}
+                        </div>
                     </div>
 
 
                     <!--si autre allocation-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.allocationAutre) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.allocationAutre) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.allocationAutre) }}
+                        </div>
                     </div>
 
 
                     <!--RQTH-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.rqth) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.rqth) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.rqth) }}
+                        </div>
                     </div>
 
 
                     <!--QPV-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.QPV) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.QPV) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.QPV) }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        {{ form_widget(edit_form.QPVNom) }}
+
+                    <!--Nom QPV-->
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.QPVNom) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.QPVNom) }}
+                        </div>
                     </div>
 
                 </div><!-- End Colonne milieu du Formulaire -->
@@ -203,28 +266,47 @@
                     <!-- Titre Formation et Métier-->
                     <h3 class="titreForm">Formation et Métier</h3>
 
-
                     <!--Niveau d'études-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.niveauEtude) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.niveauEtude) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.niveauEtude) }}
+                        </div>
                     </div>
 
 
                     <!--Catégorie sociopro-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.categorieSocioPro) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.categorieSocioPro) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.categorieSocioPro) }}
+                        </div>
                     </div>
 
 
                     <!--Diplôme professionnel-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.diplomePro) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.diplomePro) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.diplomePro) }}
+                        </div>
                     </div>
 
 
                     <!--Métier-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.metier) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.metier) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.metier) }}
+                        </div>
                     </div>
 
 
@@ -240,7 +322,6 @@
                         <option>5 ans et plus</option>
                     </select>#}
 
-
                     <!--Dernier poste : entreprise-->
                     {#<div class="form-group">
                         <label for="dPoste"></label>
@@ -249,24 +330,39 @@
 
 
                     <!--Permis-->
-                    <div class="form-group">
-                        {{ form_widget(edit_form.permisConduire) }}
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.permisConduire) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.permisConduire) }}
+                        </div>
                     </div>
-                    <div class="form-group">
-                        {{ form_widget(edit_form.typePermisConduire) }}
+
+                    <div class="form-group inline">
+                        <div class="left">
+                            {{ form_label(edit_form.typePermisConduire) }}
+                        </div>
+                        <div class="right">
+                            {{ form_widget(edit_form.typePermisConduire) }}
+                        </div>
                     </div>
 
 
                     <!--Moyen de locomation-->
                     <div class="form-group">
+                        {{ form_label(edit_form.moyenLocomotion) }}
                         {{ form_widget(edit_form.moyenLocomotion) }}
                     </div>
                     <div class="form-group">
+                        {{ form_label(edit_form.moyenLocomotionAutre) }}
                         {{ form_widget(edit_form.moyenLocomotionAutre) }}
                     </div>
 
+
                     <!--Commentaire-->
                     <div class="form-group">
+                        {{ form_label(edit_form.description) }}
                         {{ form_widget(edit_form.description) }}
                     </div>
 
