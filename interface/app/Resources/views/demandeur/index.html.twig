@@ -5,7 +5,7 @@
 {% block job_hunter %}
     <div class="block_search" ng-controller="searchCtrl">
       <div class="inner_block_search">
-        <div class="search">
+        <div class="search shadow">
           <form class="">
             <button type="submit" name="button"></button>
             <input ng-model="query" type="search" name="" value="" placeholder="Recherche...">
@@ -74,7 +74,7 @@
             </div>
           </div>
         <div class="container_search">
-          <div class="row_search">
+          <div class="row_search shadow">
             <div class="box">
               <span>prenom nom</span>
             </div>
@@ -106,9 +106,9 @@
               <span>métier</span>
             </div>
           </div>
-          <div class="rows">
+          <div class="rows shadow">
             <a href="{[{data.id}]}"
-              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : diplome | filter : selectReferent(referentSelect)| limitTo:2:limitShow
+              ng-repeat= "data in jsonData | filter:selecTrie(selected, query)| filter : selectGenre(genreSelect) | filter : selectTpermis(tpermisSelect) | filter : selectMetier(metierSelect) | filter : selectQpv(qpvSelect) | filter : selectPermis(permisSelect) | filter : selectRqth(rqthSelect) | filter : diplome | filter : selectReferent(referentSelect)| limitTo:20:limitShow
             ">
               <div class="row_item">
                 <div class="group_detail">
@@ -116,7 +116,7 @@
                     <span class="item_detail_span">{[{data.prenom+" "+data.nom}]}</span>
                   </div>
                   <div class="item_detail_infoperso">
-                    <span class="genre">{[{data.genre|genreFilter}]}</span>
+                    <span class="genrelist">{[{data.genre|genreFilter}]}</span>
                     <span class="mail">{[{data.email}]}</span>
                     <span class="numb">Tel: {[{data.telPortable}]}</span>
                   </div>
@@ -155,9 +155,19 @@
           </div>
         </div>
       </div>
-      <button type="button" name="button" ng-click = "limitShow = limitShow - 2 ">Précédent</button>
+      <div class="block_pagination">
+        <div class="inner_block_pagination">
+          <div class="btn_back shadow" ng-click = "limitShow = limitShow - 2 ">
+            <span>Précédent</span>
+          </div>
+          <div class="btn_next shadow" ng-click = "limitShow = limitShow + 2 ">
+            <span>Suivant</span>
+          </div>
+        </div>
+      </div>
+    <!--  <button type="button" name="button" ng-click = "limitShow = limitShow - 2 ">Précédent</button>
       <button type="button" name="button" ng-click = "limitShow = limitShow + 2 ">Suivant</button>
-      {[{ limitShow }]}
+      {[{ limitShow }]}-->
     </div>
     <script src="{{asset("js/angular.min.js")}}" charset="utf-8"></script>
     <script>
@@ -430,8 +440,8 @@
               }
 
               if($scope.limitShow >= $scope.sizeData){
-                if($scope.sizeData%2 === 0){
-                  $scope.limitShow = $scope.sizeData - 2;
+                if($scope.sizeData%20 === 0){
+                  $scope.limitShow = $scope.sizeData - 20;
                 }
               }
             });
