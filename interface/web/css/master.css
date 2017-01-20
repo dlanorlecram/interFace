@@ -1130,7 +1130,7 @@ div.group_detail:last-of-type{
 
 
 /*
-* floryan - for page edit 
+* floryan - for page edit & show
 */
 
 .titrePage {
@@ -1145,17 +1145,23 @@ div.group_detail:last-of-type{
 }
 .NewFlux {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 .formLeft {
     flex-direction: column;
-    /*width: 25%;*/
+}
+.colonneR {
+    width: 108%;
 }
 .formcom1 {
     float: left;
 }
 .formcom2 {
     float: right;
+}
+.button_show {
+    
 }
 .photos {
     width: 150px;
@@ -1202,9 +1208,6 @@ div.group_detail:last-of-type{
     background-color: #ED9767;
     color: white;
 }
-/*.btn_show {
-    display: inline-block;
-}*/
 .formLeft h3 {
     font-size: 15px;
 }
