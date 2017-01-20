@@ -1,11 +1,19 @@
-{% extends 'base.html.twig' %}
-
-
-{% block body %}
-  {{ include('FOSUserBundle::layout.html.twig')}}
-{% endblock %}
-
-{% block jquery %}
-  <script src="{{asset("js/jquery-3.1.1.min.js")}}" charset="utf-8"></script>
-  <script src="{{asset("js/script.js")}}" charset="utf-8"></script>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <!--<title>{% block title %}interFACE{% endblock %}</title>-->
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <!--<link rel="stylesheet" href="{{asset("css/font-awesome/css/font-awesome.min.css")}}" media="screen" title="no title">
+        <link rel="stylesheet" href="{{asset("css/master.css")}}" media="screen" title="no title">-->
+    </head>
+    <body ng-app=''>
+		{{ include('FOSUserBundle::layout.html.twig')}}
+		{% block jquery %}
+		<script src="{{asset("js/jquery-3.1.1.min.js")}}" charset="utf-8"></script>
+		<script src="{{asset("js/script.js")}}" charset="utf-8"></script>
+		{% endblock %}
+		{% block javascripts %}
+		{% endblock %}
+    </body>
+</html>
