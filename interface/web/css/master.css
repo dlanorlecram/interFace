@@ -1128,7 +1128,11 @@ div.group_detail:last-of-type{
     text-align: left;
 }
 
-/*for page edit*/
+
+/*
+* floryan - for page edit 
+*/
+
 .titrePage {
     font-size: 17px;
 }
@@ -1145,7 +1149,7 @@ div.group_detail:last-of-type{
 }
 .formLeft {
     flex-direction: column;
-    width: 25%;
+    /*width: 25%;*/
 }
 .formcom1 {
     float: left;
