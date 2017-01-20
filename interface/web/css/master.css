@@ -1197,8 +1197,8 @@ div.group_detail:last-of-type{
 .disable{
     display: none;
 }
-.btn-edit{
-    float: right;
+.btn_backlist, .btn_delete {
+    display: inline-block;
     text-align: center;
     margin: 1% 0;
     line-height: 200%;
