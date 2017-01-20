@@ -1111,6 +1111,12 @@ div.group_detail:last-of-type{
     flex-direction: column;
     width: 25%;
 }
+.formcom1 {
+    float: left;
+}
+.formcom2 {
+    float: right;
+}
 .photos {
     width: 150px;
     min-height: 150px;
