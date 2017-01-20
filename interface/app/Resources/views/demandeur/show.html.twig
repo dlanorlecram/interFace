@@ -272,17 +272,17 @@
             </div>
         </div>
             
-                <div class="btn_show formLeft">    
+                <div class="button_show formLeft">    
                     <ul>
                         <li>
-                            <a href="{{ path('demandeur_index') }}" class="btn-edit">Retour à la liste</a>
+                            <a href="{{ path('demandeur_index') }}" class="btn_backlist">Retour à la liste</a>
                         </li>
                         <li>
-                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}" class="btn-edit">Editer</a>
+                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}" class="btn_edit">Editer</a>
                         </li>
                         <li>
                             {{ form_start(delete_form) }}
-                                <input type="submit" value="Delete" class="btn-edit">
+                                <input type="submit" value="Delete" class="btn_delete">
                             {{ form_end(delete_form) }}
                         </li>
                     </ul>
