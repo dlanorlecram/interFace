@@ -90,7 +90,7 @@
                 </div>
 
                 <!-- ==== Ressources ==== -->
-                <div class="section">
+                <div class="section section_res">
                     <h3 class="titlefile">Ressources</h3>
                     <p>ID Pôle Emploi : <span>
                         <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</a>
@@ -142,149 +142,155 @@
             </div>
 
 
-            <!-- ==== colone Right ==== -->
-            <div class="formLeft">
+        <!-- ==== colonne Right ==== -->
+        <div class="formLeft">
+            <div class="colonneR">
+                <div class="formcom1">
 
-                <!-- ==== Formation et métier ==== -->
-                <div class="section">
-                    <h3 class="titlefile">Formation et métier</h3>
-                    <p>Métier : <span>
-                        <a id="metier" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</a>
-                    </span></p>
-                    <p>Niveau d'études : <span>
-                        <a class="edit" id="etudes" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
-                            {% if demandeur.niveauEtude == "SD" %}
-                                <td>Sans diplôme</td>
-                            {% elseif demandeur.niveauEtude == "CAP" %}
-                                <td>CAP</td>
-                            {% elseif demandeur.niveauEtude == "BEP" %}
-                                <td>BEP</td>
-                            {% elseif demandeur.niveauEtude == "Bac" %}
-                                <td>Bac</td>
-                            {% elseif demandeur.niveauEtude == "BP" %}
-                                <td>Bac Pro</td>
-                            {% elseif demandeur.niveauEtude == "Bac2" %}
-                                <td>Bac +2</td>
-                            {% elseif demandeur.niveauEtude == "Bac3" %}
-                                <td>Bac +3</td>
-                            {% elseif demandeur.niveauEtude == "Bac4" %}
-                                <td>Bac +4</td>
-                            {% else %}
-                                <td>-</td>
-                            {% endif %} 
-                        </a>
-                    </span></p>
-                    <p>Catégorie socio-pro : <span>
-                        <a class="edit" id="socioPro" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
-                            {% if demandeur.categorieSocioPro == "O" %}
-                                <td>Ouvrier</td>
-                            {% elseif demandeur.categorieSocioPro == "Oq" %}
-                                <td>Ouvrier qualifié</td>
-                            {% elseif demandeur.categorieSocioPro == "E" %}
-                                <td>Employé</td>
-                            {% elseif demandeur.categorieSocioPro == "Eq" %}
-                                <td>Employé qualifié</td>
-                            {% elseif demandeur.categorieSocioPro == "AM" %}
-                                <td>Agent de maîtrise</td>
-                            {% elseif demandeur.categorieSocioPro == "C" %}
-                                <td>Cadre</td>
-                            {% elseif demandeur.categorieSocioPro == "Cs" %}
-                                <td>Cadre supérieur</td>
-                            {% elseif demandeur.categorieSocioPro == "A" %}
-                                <td>Artisant</td>
-                            {% elseif demandeur.categorieSocioPro == "Co" %}
-                                <td>Commerçant</td>
-                            {% else %}
-                                <td>-</td>
-                            {% endif %} 
-                        </a>
-                    </span></p>
-                    <p>Diplôme professionnel : <span>
-                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.diplomePro %}{{ demandeur.diplomePro }}{% else %}-{% endif %}</a>
-                    </span></p>
-                    {#<p>Durée d'expérience : <span>
-                       <a class="edit" id="dureeExp" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">Choisir ..</a>
-                    </span></p>
-                    <p>Dernier poste occupé : <span>
-                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="lastJob..">poste / entreprise etc..</a>
-                    </span></p>#}
+                    <!-- ==== Formation et métier ==== -->
+                    <div class="section">
+                        <h3 class="titlefile">Formation et métier</h3>
+                        <p>Métier : <span>
+                            <a id="metier" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        <p>Niveau d'études : <span>
+                            <a class="edit" id="etudes" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
+                                {% if demandeur.niveauEtude == "SD" %}
+                                    <td>Sans diplôme</td>
+                                {% elseif demandeur.niveauEtude == "CAP" %}
+                                    <td>CAP</td>
+                                {% elseif demandeur.niveauEtude == "BEP" %}
+                                    <td>BEP</td>
+                                {% elseif demandeur.niveauEtude == "Bac" %}
+                                    <td>Bac</td>
+                                {% elseif demandeur.niveauEtude == "BP" %}
+                                    <td>Bac Pro</td>
+                                {% elseif demandeur.niveauEtude == "Bac2" %}
+                                    <td>Bac +2</td>
+                                {% elseif demandeur.niveauEtude == "Bac3" %}
+                                    <td>Bac +3</td>
+                                {% elseif demandeur.niveauEtude == "Bac4" %}
+                                    <td>Bac +4</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %} 
+                            </a>
+                        </span></p>
+                        <p>Catégorie socio-pro : <span>
+                            <a class="edit" id="socioPro" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
+                                {% if demandeur.categorieSocioPro == "O" %}
+                                    <td>Ouvrier</td>
+                                {% elseif demandeur.categorieSocioPro == "Oq" %}
+                                    <td>Ouvrier qualifié</td>
+                                {% elseif demandeur.categorieSocioPro == "E" %}
+                                    <td>Employé</td>
+                                {% elseif demandeur.categorieSocioPro == "Eq" %}
+                                    <td>Employé qualifié</td>
+                                {% elseif demandeur.categorieSocioPro == "AM" %}
+                                    <td>Agent de maîtrise</td>
+                                {% elseif demandeur.categorieSocioPro == "C" %}
+                                    <td>Cadre</td>
+                                {% elseif demandeur.categorieSocioPro == "Cs" %}
+                                    <td>Cadre supérieur</td>
+                                {% elseif demandeur.categorieSocioPro == "A" %}
+                                    <td>Artisant</td>
+                                {% elseif demandeur.categorieSocioPro == "Co" %}
+                                    <td>Commerçant</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %} 
+                            </a>
+                        </span></p>
+                        <p>Diplôme professionnel : <span>
+                            <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.diplomePro %}{{ demandeur.diplomePro }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        {#<p>Durée d'expérience : <span>
+                        <a class="edit" id="dureeExp" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">Choisir ..</a>
+                        </span></p>
+                        <p>Dernier poste occupé : <span>
+                            <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="lastJob..">poste / entreprise etc..</a>
+                        </span></p>#}
+                    </div>
+
+                    <!-- ==== Mobilité ==== -->
+                    <div class="section section_res">
+                        <h3 class="titlefile">Mobilité</h3>
+                        <p>Permis de conduire : <span>
+                            <a id="permis" data-pk="1" data-url="" >
+                                {% if demandeur.permisConduire %}
+                                    <td>{{ demandeur.typePermisConduire }}</td>
+                                {% else %}
+                                    <td>Non</td>
+                                {% endif %} 
+                            </a>
+                        </span></p>
+                        <p>Moyen de locomotion : <span>
+                            <a id="locomotion" data-type="checklist" data-value="" data-pk="1" data-url="" data-title="Select options" >
+                                {% if demandeur.moyenLocomotion == "Au" %}
+                                    <td>{{ demandeur.moyenLocomotionAutre }}</td>
+                                {% elseif demandeur.moyenLocomotion == "V" %}
+                                    <td>Voiture</td>
+                                {% elseif demandeur.moyenLocomotion == "M" %}
+                                    <td>Motocyclette</td>
+                                {% elseif demandeur.moyenLocomotion == "S" %}
+                                    <td>Scooter</td>
+                                {% elseif demandeur.moyenLocomotion == "V" %}
+                                    <td>Vélo</td>
+                                {% elseif demandeur.moyenLocomotion == "B" %}
+                                    <td>Bus</td>
+                                {% elseif demandeur.moyenLocomotion == "Ac" %}
+                                    <td>Aucun</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %} 
+                            </a>
+                        </span></p>
+                    </div>
                 </div>
 
-                <!-- ==== Mobilité ==== -->
-                <div class="section">
-                    <h3 class="titlefile">Mobilité</h3>
-                    <p>Permis de conduire : <span>
-                        <a id="permis" data-pk="1" data-url="" >
-                            {% if demandeur.permisConduire %}
-                                <td>{{ demandeur.typePermisConduire }}</td>
-                            {% else %}
-                                <td>Non</td>
-                            {% endif %} 
-                        </a>
-                    </span></p>
-                    <p>Moyen de locomotion : <span>
-                        <a id="locomotion" data-type="checklist" data-value="" data-pk="1" data-url="" data-title="Select options" >
-                            {% if demandeur.moyenLocomotion == "Au" %}
-                                <td>{{ demandeur.moyenLocomotionAutre }}</td>
-                            {% elseif demandeur.moyenLocomotion == "V" %}
-                                <td>Voiture</td>
-                            {% elseif demandeur.moyenLocomotion == "M" %}
-                                <td>Motocyclette</td>
-                            {% elseif demandeur.moyenLocomotion == "S" %}
-                                <td>Scooter</td>
-                            {% elseif demandeur.moyenLocomotion == "V" %}
-                                <td>Vélo</td>
-                            {% elseif demandeur.moyenLocomotion == "B" %}
-                                <td>Bus</td>
-                            {% elseif demandeur.moyenLocomotion == "Ac" %}
-                                <td>Aucun</td>
-                            {% else %}
-                                <td>-</td>
-                            {% endif %} 
-                        </a>
-                    </span></p>
+                <div class="formcom2">
+                    <!-- ==== Contact ==== -->
+                    <div class="section">
+                        <h3 class="titlefile">Contact</h3>
+                        <p>Adresse : <span>
+                            <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="adresse..">{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        <p>Ville : <span>
+                            <a id="ville" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.ville %}{{ demandeur.ville }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        <p>Tél. (fixe) : <span>
+                            <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telFixe %}{{ demandeur.telFixe }}{% else %}-{% endif %}</a></span></p>
+                        <p>Tél. (portable) : <span>
+                            <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telPortable %}{{ demandeur.telPortable }}{% else %}-{% endif %}</a></span></p>
+                        <p>Mail : <span>
+                            <a class="edit" id="email" data-type="email" data-pk="1">{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</a></span></p>
+                    </div>
+                    <!-- ==== Commentaire ==== -->
+                    <div class="section">
+                        <h3 class="titlefile section_res">Commentaire</h3>
+                        <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="formLeft">
-                <!-- ==== Contact ==== -->
-                <div class="section">
-                    <h3 class="titlefile">Contact</h3>
-                    <p>Adresse : <span>
-                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="adresse..">{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</a>
-                    </span></p>
-                    <p>Ville : <span>
-                        <a id="ville" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.ville %}{{ demandeur.ville }}{% else %}-{% endif %}</a>
-                    </span></p>
-                    <p>Tél. (fixe) : <span>
-                        <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telFixe %}{{ demandeur.telFixe }}{% else %}-{% endif %}</a></span></p>
-                    <p>Tél. (portable) : <span>
-                        <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telPortable %}{{ demandeur.telPortable }}{% else %}-{% endif %}</a></span></p>
-                    <p>Mail : <span>
-                        <a class="edit" id="email" data-type="email" data-pk="1">{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</a></span></p>
-                
-                <!-- ==== Commentaire ==== -->
-                    <h3 class="titlefile">Commentaire</h3>
-                    <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
-                </div>
             
-                <div class="btn_show">    
-                    <ul>
-                        <li>
-                            <a href="{{ path('demandeur_index') }}" class="btn-edit">Retour à la liste</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}" class="btn-edit">Editer</a>
-                        </li>
-                        <li>
-                            {{ form_start(delete_form) }}
-                                <input type="submit" value="Delete" class="btn-edit">
-                            {{ form_end(delete_form) }}
-                        </li>
-                    </ul>
-                </div>
+            <!-- ==== button ==== -->
+            <div class="button_show">    
+                <a href="{{ path('demandeur_index') }}">
+                    <div class="btn_backlist">
+                        <span>Retour à la liste</span>
+                    </div>
+                </a>
+                <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">
+                    <div class="btn_edit">
+                        <span>Editer</span>
+                    </div>
+                </a>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete" class="btn_delete">
+                {{ form_end(delete_form) }}
             </div>
-
+        </div>
+            
         </div>
 
     {#<h1>Demandeur</h1>
