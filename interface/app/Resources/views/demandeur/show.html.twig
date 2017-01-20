@@ -90,7 +90,7 @@
                 </div>
 
                 <!-- ==== Ressources ==== -->
-                <div class="section">
+                <div class="section section_res">
                     <h3 class="titlefile">Ressources</h3>
                     <p>ID Pôle Emploi : <span>
                         <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</a>
@@ -211,7 +211,7 @@
                 </div>
 
                 <!-- ==== Mobilité ==== -->
-                <div class="section">
+                <div class="section section_res">
                     <h3 class="titlefile">Mobilité</h3>
                     <p>Permis de conduire : <span>
                         <a id="permis" data-pk="1" data-url="" >
@@ -247,6 +247,7 @@
             </div>
 
             <div class="formLeft">
+                
                 <!-- ==== Contact ==== -->
                 <div class="section">
                     <h3 class="titlefile">Contact</h3>
@@ -264,7 +265,7 @@
                         <a class="edit" id="email" data-type="email" data-pk="1">{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</a></span></p>
                 
                 <!-- ==== Commentaire ==== -->
-                    <h3 class="titlefile">Commentaire</h3>
+                    <h3 class="titlefile section_res">Commentaire</h3>
                     <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
                 </div>
             

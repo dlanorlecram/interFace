@@ -1132,6 +1132,9 @@ div.group_detail:last-of-type{
 .shadow{
     box-shadow: 0 1px 2px 0 #c0c0c0;
 }
+.section_res {
+    margin-top: 15%;
+}
 .section h3 {
     font-weight: 300;
     text-transform: capitalize;
