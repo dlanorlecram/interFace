@@ -110,8 +110,12 @@
                     </div>
                   </div>
                   <div class="bloc_form qpvnom" >
-                    {{ form_label(form.QPVNom) }}
-                    {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+                    <div class="indice_qpvnom">
+                      {{ form_label(form.QPVNom) }}
+                    </div>
+                    <div class="detail_qpvnom">
+                      {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -120,8 +124,8 @@
                 {{ form_widget(form.adresse,{'attr':{'placeholder': "Adresse"}}) }}
               </div>
               <div class="bloc_form codePostal">
-                {{ form_label(form.codePostal) }}
-                {{ form_widget(form.codePostal,{'attr':{}}) }}
+                  {{ form_label(form.codePostal) }}
+                  {{ form_widget(form.codePostal,{'attr':{}}) }}
               </div>
               <div class="bloc_form ville">
                 {{ form_label(form.ville) }}
@@ -137,60 +141,71 @@
               </div>
             </div>
           </div>
-          <div class="duo">
-            <div class="" style="display: flex; flex-direction: row;">
-              <div class="block_sub_ mobilite">
-                <div class="permis bloc_form">
-                  {{ form_label(form.permisConduire) }}
-                  {{ form_widget(form.permisConduire) }}
-                </div>
-                <div class="type bloc_form">
-                  {{ form_label(form.typePermisConduire) }}
-                  {{ form_widget(form.typePermisConduire) }}
-                </div>
-                <div class="type bloc_form">
-                  {{ form_label(form.moyenLocomotion) }}
-                  {{ form_widget(form.moyenLocomotion) }}
-                </div>
-                <div class="type bloc_form">
-                  {{ form_label(form.moyenLocomotionAutre) }}
-                  {{ form_widget(form.moyenLocomotionAutre) }}
-                </div>
+        </div>
+
+        <div class ="column_2">
+          <div class="block_sub_ mobilite">
+            <div class="box_locomotion">
+              <div class="permis bloc_form">
+                {{ form_label(form.permisConduire) }}
+                {{ form_widget(form.permisConduire) }}
               </div>
-              <div class="block_sub ressource">
-                <div class="id">
-                  {{ form_label(form.idPoleEmploi) }}
-                  {{ form_widget(form.idPoleEmploi, {'attr': {'placeholder': 'Identifiant Pôle Emploi'}}) }}
-                </div>
-                <div class="id">
-                  {{ form_label(form.metier) }}
-                  {{ form_widget(form.metier, {'attr': {'placeholder': 'Identifiant Pôle Emploi'}}) }}
-                </div>
-                <div class="autorisationTravail">
-                  <!--{{ form_label(form.autorisationTravail) }}-->
-                  {{ form_widget(form.autorisationTravail) }}
-                </div>
-                <div class="referent">
-                  <span class="full">Référent</span>
-                  <!--{{ form_label(form.referent) }}-->
-                  {{ form_widget(form.referent) }}
-                </div>
-                <div class="alloc">
-                  {{ form_label(form.allocation) }}
-                  {{ form_widget(form.allocation) }}
-                </div>
-                <div class="alloc">
-                  {{ form_label(form.allocationAutre) }}
-                  {{ form_widget(form.allocationAutre) }}
-                </div>
-                <div class="alloc">
-                  {{ form_label(form.structure) }}
-                  {{ form_widget(form.structure) }}
-                </div>
-                <div class="rqth">
-                  {{ form_label(form.rqth) }}
-                  {{ form_widget(form.rqth) }}
-                </div>
+              <div class="type bloc_form">
+                {{ form_label(form.typePermisConduire) }}
+                {{ form_widget(form.typePermisConduire) }}
+              </div>
+            </div>
+            <div class="box_locomotion">
+              <div class="type bloc_form">
+                {{ form_label(form.moyenLocomotion) }}
+                {{ form_widget(form.moyenLocomotion) }}
+              </div>
+              <div class="type bloc_form">
+                {{ form_label(form.moyenLocomotionAutre) }}
+                {{ form_widget(form.moyenLocomotionAutre) }}
+              </div>
+            </div>
+          </div>
+          <div class="block_sub ressource">
+            <div class="box_ressource">
+              <div class="id">
+                {{ form_label(form.idPoleEmploi) }}
+                {{ form_widget(form.idPoleEmploi) }}
+              </div>
+              <div class="metier">
+                {{ form_label(form.metier) }}
+                {{ form_widget(form.metier) }}
+              </div>
+            </div>
+            <div class="box_ressource">
+              <div class="autorisationTravail">
+                {{ form_label(form.autorisationTravail) }}
+                {{ form_widget(form.autorisationTravail) }}
+              </div>
+            </div>
+            <div class="referent">
+              <span class="full">Référent</span>
+              <!--{{ form_label(form.referent) }}-->
+              {{ form_widget(form.referent) }}
+            </div>
+            <div class="box_ressource">
+              <div class="alloc">
+                {{ form_label(form.allocation) }}
+                {{ form_widget(form.allocation) }}
+              </div>
+              <div class="allocAutre">
+                {{ form_label(form.allocationAutre) }}
+                {{ form_widget(form.allocationAutre) }}
+              </div>
+            </div>
+            <div class="box_ressource">
+              <div class="structure">
+                {{ form_label(form.structure) }}
+                {{ form_widget(form.structure) }}
+              </div>
+              <div class="rqth">
+                {{ form_label(form.rqth) }}
+                {{ form_widget(form.rqth) }}
               </div>
             </div>
           </div>
@@ -210,14 +225,12 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class ="column_2">
           <div class="block_doc block_sub">
               {{ form_widget(form.imageFile)}}
           </div>
           <div class="block_compte_rendu block_sub">
               <div class="bloc_description">
-                <div class="">
+                <div class="box_ressource">
                   <span class="full">Compte Rendu</span>
                   {{ form_widget(form.description) }}
                 </div>

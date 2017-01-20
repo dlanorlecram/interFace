@@ -225,7 +225,7 @@ ul, li, a{
   margin-right: 21.5px;
 }
 .column_2{
-
+  width: 39%;
   margin-left: 21.5px;
 }
 .block_sub{
@@ -328,9 +328,18 @@ ul, li, a{
 .deptNaissance{
 
 }
-.villeN{
-  margin-left: 13px;
+.ville{
+  display: inline-block;
+  width: 165px;
+  margin-left: 8px;
+  width: 165px;
 }
+
+.codePostal{
+  width: 100px;
+  margin-left: 8px;
+}
+
 .paysN{
 
 }
@@ -376,6 +385,8 @@ ul, li, a{
 }
 
 .inner_header_adresse{
+  display: flex;
+  justify-content: space-around;
   width: 70%;
   margin: 0 auto;
 }
@@ -390,6 +401,16 @@ ul, li, a{
 
 .left,.right{
   display: inline-block;
+}
+
+.left:after{
+  content: ':';
+}
+
+.left span, .left label{
+  font-size: 13px !important;
+  font-weight: 400;
+  color: #828282 !important;
 }
 
 .nationalite{
@@ -410,20 +431,22 @@ ul, li, a{
 }
 
 .mobilite{
-  margin-right: 6.5px;
   color: #BDBDBD;
   width: 100%;
   box-shadow: 0px 1px 2px #c4c4c4;
   font: 14px 'Roboto', sans-serif;
   margin-bottom: 4px;
   background: #FFF;
-  height: 100%;
   padding: 5px;
 }
 .ressource{
   display: flex;
-  flex-direction: column;
-  margin-left: 6.5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.box_locomotion, .box_ressource{
+  display: flex;
+  width: 100%;
 }
 .custom_label{
 
@@ -474,10 +497,50 @@ ul, li, a{
 .register_flux label{
   visibility: visible;
 }
+
+.qpv{
+  display: flex;
+  justify-content: space-around;
+}
+
 .qpvnom{
-  visibility: hidden;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  visibility: visible;
   transition: 0.25s;
 }
+
+.detail_qpv, .detail_qpvnom{
+  padding-top: 22px;
+}
+
+.indice_qpv, .indice_qpvnom{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 12px;
+}
+.indice_qpv label, .indice_qpvnom label{
+  margin-top: 20px;
+  font-size: 13px !important;
+  color: #828282 !important;
+}
+
+.indice_qpvnom label:after{
+  content: ':';
+}
+
+.qpvnom select{
+
+  border: none;
+  border-bottom: 1px solid #c4c4c4;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
 .ShowBox{
   visibility: visible;
 }
@@ -1286,3 +1349,5 @@ text-align: center;
 .inner_block_pagination div:first-child{
   margin-right: 20px;
 }
+
+/*  Metier */

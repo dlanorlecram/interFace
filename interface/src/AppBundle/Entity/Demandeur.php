@@ -28,14 +28,14 @@ class Demandeur extends myEntity
         $this->document = new ArrayCollection();
         $this->timeStamp();
     }
-    
+
 	/**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
      *
@@ -49,7 +49,7 @@ class Demandeur extends myEntity
      * )
      */
     protected $prenom;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
      *
@@ -63,243 +63,243 @@ class Demandeur extends myEntity
      * )
      */
     protected $nom;
-    
+
     /**
      * @ORM\Column(name="status", type="DemandeurStatus", nullable=false)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurStatus")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurStatus")
      */
     protected $status;
-    
+
     /**
      * @ORM\Column(name="genre", type="DemandeurGenre", nullable=false)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurGenre")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurGenre")
      */
     protected $genre;
-    
+
     /**
      * @ORM\Column(type="date", nullable=true)
      *
      * @var \Date
      */
 	protected $dateNaissance;
-    
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $villeNaissance;
-    
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $deptNaissance;
-    
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $paysNaissance;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $nationalite;
-	
+
 	/**
      * @ORM\Column(type="boolean")
      *
      */
 	protected $titreSejour;
-	
+
 	/**
      * @ORM\Column(type="boolean")
      *
      */
 	protected $autorisationTravail;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $adresse;
-	
+
 	/**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=5, nullable=true)
      *
      */
 	protected $codePostal;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $ville;
-	
+
 	/**
      * @ORM\Column(type="boolean")
      *
      */
 	protected $QPV;
-	
+
 	/**
      * @ORM\Column(name="QPVNom", type="DemandeurQPVNom", nullable=true)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurQPVNom")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurQPVNom")
      */
     protected $QPVNom;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $telFixe;
-	
+
 	/**
      * @ORM\Column(type="string", length=255)
      *
      */
 	protected $telPortable;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $email;
-	
+
 	/**
      * @ORM\Column(type="integer", nullable=true)
      *
      */
 	protected $enfant;
-	
+
 	/**
      * @ORM\Column(type="boolean")
      *
      */
 	protected $permisConduire;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $typePermisConduire;
-	
+
 	/**
      * @ORM\Column(name="moyenLocomotion", type="DemandeurMoyenLocomotion", nullable=true)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurMoyenLocomotion")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurMoyenLocomotion")
      */
     protected $moyenLocomotion;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $moyenLocomotionAutre;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $idPoleEmploi;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $referent;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $structure;
-	
+
 	/**
      * @ORM\Column(name="allocation", type="DemandeurAllocation", nullable=true)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurAllocation")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurAllocation")
      */
     protected $allocation;
-    
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $allocationAutre;
-	
+
 	/**
      * @ORM\Column(type="boolean")
      *
      */
 	protected $rqth;
-	
+
 	/**
      * @ORM\Column(name="niveauEtude", type="DemandeurNiveauEtude", nullable=true)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurNiveauEtude")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurNiveauEtude")
      */
     protected $niveauEtude;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $diplomePro;
-	
+
 	/**
      * @ORM\Column(name="categorieSocioPro", type="DemandeurCategorieSocioPro", nullable=true)
-     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurCategorieSocioPro")     
+     * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurCategorieSocioPro")
      */
     protected $categorieSocioPro;
-	
+
 	/**
      * @ORM\Column(type="string", length=255, nullable=true)
      *
      */
 	protected $metier;
-	
+
 	/**
      * @ORM\Column(type="text", nullable=true)
      *
      */
 	protected $description;
-	
+
 	/**
 	 * One Demandeur has Many Document
 	 * @ORM\OneToMany(targetEntity="Document", mappedBy="demandeur", cascade={"remove", "persist"})
 	 *
 	 */
 	protected $document;
-	
+
 	/**
      * @ORM\Column(type="string", nullable=true)
      *
      */
 	protected $facien;
-	
+
 	/**
      * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \Datetime
      */
 	protected $dateCreation;
-	
+
 	/**
      * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \Datetime
      */
 	protected $dateMiseAJour;
-	
+
 	public function getId()
 	{
 		return $this->id;
 	}
-	
+
 	public function getNom()
 	{
 		return $this->nom;
 	}
- 
+
 	public function getPrenom()
 	{
 		return $this->prenom;
@@ -309,12 +309,12 @@ class Demandeur extends myEntity
 	{
 		return $this->status;
 	}
-	
+
 	public function getGenre()
 	{
 		return $this->genre;
 	}
-	
+
 	public function getDateNaissance()
 	{
 		return $this->dateNaissance;
@@ -364,12 +364,12 @@ class Demandeur extends myEntity
 	{
 		return $this->ville;
 	}
-	
+
 	public function getQPV()
 	{
 		return $this->QPV;
 	}
-	
+
 	public function getQPVNom()
 	{
 		return $this->QPVNom;
@@ -464,33 +464,33 @@ class Demandeur extends myEntity
 	{
 		return $this->metier;
 	}
-	
+
 	public function getDescription()
 	{
 		return $this->description;
 	}
-	
+
 	public function getDateCreation()
 	{
 		return $this->dateCreation;
 	}
-	
+
 	public function getDateMiseAJour()
 	{
 		return $this->dateMiseAJour;
 	}
-	
+
 	public function getFacien()
 	{
 		return $this->facien;
 	}
-	
+
 	public function setNom($nom)
 	{
 		$this->nom = $nom;
 		return $this;
 	}
- 
+
 	public function setPrenom($prenom)
 	{
 		$this->prenom = $prenom;
@@ -502,7 +502,7 @@ class Demandeur extends myEntity
 		$this->status = $status;
 		return $this;
 	}
-	
+
 	public function setGenre($genre)
 	{
 		$this->genre = $genre;
@@ -514,7 +514,7 @@ class Demandeur extends myEntity
 		$this->dateNaissance = $dateNaissance;
 		return $this;
 	}
-	
+
 	public function setVilleNaissance($villeNaissance)
 	{
 		$this->villeNaissance = $villeNaissance;
@@ -568,13 +568,13 @@ class Demandeur extends myEntity
 		$this->ville = $ville;
 		return $this;
 	}
-	
+
 	public function setQPV($QPV)
 	{
 		$this->QPV = $QPV;
 		return $this;
 	}
-	
+
 	public function setQPVNom($QPVNom)
 	{
 		$this->QPVNom = $QPVNom;
@@ -687,36 +687,36 @@ class Demandeur extends myEntity
 		$this->metier = $metier;
 		return $this;
 	}
-	
+
 	public function setDescription($description)
 	{
 		$this->description = $description;
 		return $this;
 	}
-	
+
 	public function setDateCreation($dateCreation)
 	{
 		$this->dateCreation = $dateCreation;
 		return $this;
 	}
-	
+
 	public function setDateMiseAJour($dateMiseAJour)
 	{
 		$this->dateMiseAJour = $dateMiseAJour;
 		return $this;
 	}
-	
+
 	public function setFacien($facien)
 	{
 		$this->facien = $facien;
 		return $this;
 	}
-	
+
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
+     *
      * @Vich\UploadableField(mapping="product_image", fileNameProperty="imageName")
-     * 
+     *
      * @var File
      */
     private $imageFile;
@@ -786,7 +786,7 @@ class Demandeur extends myEntity
     {
         return $this->imageName;
     }
-    
+
     /**
 	 * @ORM\PrePersist
 	 * @ORM\PreUpdate
