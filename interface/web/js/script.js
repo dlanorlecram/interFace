@@ -8,6 +8,10 @@ $(document).ready(function(){
     $(this).find("div").addClass('show_submenu',1000);
   });
 
+  $('.btnFormBack').click(function(){
+      $('html, body').animate();
+      console.log('click');
+  });
     /*input interactive*/
 /*  $("input").change(function(){
     console.log('essaie !');*/

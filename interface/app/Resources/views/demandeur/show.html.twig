@@ -26,7 +26,7 @@
                             <td>Numérique</td>
                         {% elseif demandeur.status == "S" %}
                             <td>Sécurité</td>
-                        {% endif %} 
+                        {% endif %}
                     </a></p>
                     <p>Crée le <span>{{ demandeur.dateCreation|date('d-m-Y') }}</span></p>
                     <p>Modifié le <span>{{ demandeur.dateMiseAJour|date('d-m-Y') }}</span></p>
@@ -40,7 +40,7 @@
                      <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir le CV</a></p>
                      <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir la Lettre de Motivation</a></p>
 
-                     <!-- Telecharger un document 
+                     <!-- Telecharger un document
                      <div class="form-group">
                         <label for="fileinput">Télécharger un document</label>
                         <input class="col-lg-12" type="file" id="fileinput">
@@ -51,7 +51,7 @@
                         <input name="file" type="file" multiple />
                       </div>
                     </form>
-                                            
+
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
                         <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</a>
                     </span></p>
                     <p>Référent (PE / ML) : <span><a class="edit" data-type="text" data-pk="1" data-url="" data-title="référent">{% if demandeur.referent %}{{ demandeur.referent }}{% else %}-{% endif %}</a></span></p>
-                    <p>Structure : <span><a href="edit" data-type="text" data-pk="1" data-url="" data-title="structure">{% if demandeur.structure %}{{ demandeur.structure }}{% else %}-{% endif %}</a></span></p>
+                    <p>Structure : <span>{{ demandeur.structure }}</span></p>
                     <p>Allocation : <span>
                         <a class="edit" id="alloc" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
                             {% if demandeur.allocation == "Au" %}
@@ -113,7 +113,7 @@
                                 <td>Aucun</td>
                             {% else %}
                                 <td>-</td>
-                            {% endif %} 
+                            {% endif %}
                         </a>
                     </span></p>
                     <p>RQTH : <span><a class="edit" id="rqth" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</a></span></p>
@@ -135,7 +135,7 @@
                                 {% endif %}
                             {% else %}
                                 <td>Non</td>
-                            {% endif %} 
+                            {% endif %}
                         </a>
                     </span></p>
                 </div>
@@ -173,7 +173,7 @@
                                     <td>Bac +4</td>
                                 {% else %}
                                     <td>-</td>
-                                {% endif %} 
+                                {% endif %}
                             </a>
                         </span></p>
                         <p>Catégorie socio-pro : <span>
@@ -198,7 +198,7 @@
                                     <td>Commerçant</td>
                                 {% else %}
                                     <td>-</td>
-                                {% endif %} 
+                                {% endif %}
                             </a>
                         </span></p>
                         <p>Diplôme professionnel : <span>
@@ -221,7 +221,7 @@
                                     <td>{{ demandeur.typePermisConduire }}</td>
                                 {% else %}
                                     <td>Non</td>
-                                {% endif %} 
+                                {% endif %}
                             </a>
                         </span></p>
                         <p>Moyen de locomotion : <span>
@@ -242,7 +242,7 @@
                                     <td>Aucun</td>
                                 {% else %}
                                     <td>-</td>
-                                {% endif %} 
+                                {% endif %}
                             </a>
                         </span></p>
                     </div>
@@ -272,9 +272,9 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- ==== button ==== -->
-            <div class="button_show">    
+            <div class="button_show">
                 <a href="{{ path('demandeur_index') }}">
                     <div class="btn_backlist">
                         <span>Retour à la liste</span>
@@ -290,7 +290,7 @@
                 {{ form_end(delete_form) }}
             </div>
         </div>
-            
+
         </div>
 
     {#<h1>Demandeur</h1>

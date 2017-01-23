@@ -6,29 +6,34 @@
 
     {{ form_start(form, {'attr': { 'class':'form_flux','ng-controller':'effect' }}) }}
         <section id="step_one" class= "register_flux">
-            <h1 style='display: none'>Demandeur creation</h1>
-            <div class="header_form">
-                <div class="inner_header_form">
-                    <div class="block_action">
-                        <div class="indice_status">
-                            {{ form_label(form.status)}}
+
+
+            <div class="column_1 ">
+
+                <h1 style='display: none'>Demandeur creation</h1>
+                <div class="header_form">
+                    <h4>Action:</h4>
+                    <div class="inner_header_form shadow">
+                        <div class="block_action">
+                            <div class="indice_status">
+                                {{ form_label(form.status)}}
+                            </div>
+                            <div class="detail_status">
+                                {{ form_widget(form.status)}}
+                            </div>
                         </div>
-                        <div class="detail_status">
-                            {{ form_widget(form.status)}}
-                        </div>
-                    </div>
-                    <div class="bloc_form_facien">
-                        <div class="indice_facien">
-                            {{ form_label(form.facien) }}
-                        </div>
-                        <div class="detail_facien">
-                            {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+                        <div class="bloc_form_facien">
+                            <div class="indice_facien">
+                                {{ form_label(form.facien) }}
+                            </div>
+                            <div class="detail_facien">
+                                {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="column_1 ">
+                <h4>État civile:</h4>
                 <div class="block etat_civil">
                     <div class="block_sub">
 
@@ -144,6 +149,7 @@
             </div>
 
             <div class ="column_2">
+                <h4>Mobilité</h4>
                 <div class="block_sub_ mobilite">
                     <div class="box_locomotion">
                         <div class="permis bloc_form">
@@ -228,6 +234,7 @@
                         </div>
                     </div>
                 </div>
+                <h4>Formation</h4>
                 <div class="block formation">
                     <div class="block_sub">
                         <div class="niveau bloc_form">
@@ -254,10 +261,12 @@
                 </div>
             </div>
             <a href="#step_two" class="btnFormNext">
+                <span>Étape suivante</span>
             </a>
         </section>
         <section id="step_two">
             <a href="#step_one" class="btnFormBack">
+                <span>Étape précédent</span>
             </a>
             <div class="inner_section">
                 <div class="content">
@@ -265,7 +274,7 @@
                         {{ form_widget(form.imageFile, {'attr':{'class': 'inputfile'}})}}
                         <label for="">Document à télécharger</label>
                     </div>
-                    <div class="block_compte_rendu">
+                    <div class="block_compte_rendu shadow">
                         <div class="bloc1">
                             <span>Compte Rendu:</span>
                         </div>

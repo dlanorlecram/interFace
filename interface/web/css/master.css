@@ -217,7 +217,7 @@ ul, li, a{
 .content_dashboard{
   width: 100%;
   height: 100vh;
-  padding: 45px 60px;
+  padding: 20px 60px 20px 60px;/* 45px 60px 20px 60px; */
 }
 /*BLOCK*/
 .column_1{
@@ -1404,6 +1404,15 @@ text-align: center;
 height: 100%;
 }
 
+#step_one h4{
+    margin-bottom: 10px;
+    color: #828282;
+    font-size: 14px;
+    padding-left: 20px;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
 #step_two{
     padding-top: 2px;
     height: 100%;
@@ -1493,18 +1502,21 @@ height: 100%;
 }
 
 .btnFormBack,.btnFormNext{
-    width: 56px;
-    height: 56px;
+/*     width: 56px;
+height: 56px; */
     /* background-color: #FFF; */
     color: #9e9e9e;
     /* box-shadow: 0 0 5px rgba(0,0,0,0.2); */
-    border-radius: 2em;
-    overflow: hidden;
+    /* border-radius: 2em; */
     transform: translateZ(0);
     transition: all 0.5s ease;
-    display: block;
+    display: table;
     margin: 0 auto;
-    padding-top: 12px;
+    padding-top: 26px;
+}
+.btnFormBack span, .btnFormNext span{
+    font-size: 11px;
+    display: block;
 }
 
 .btnFormBack:hover,.btnFormNext:hover{
@@ -1525,20 +1537,19 @@ height: 100%;
     line-height: 56px;*/
     font-size: 32px;
 }
-.btnFormBack:after{
+.btnFormBack:before{
     content: '\f106';
     position: absolute;
     right: calc(50% - 10.25px);
+    bottom: 13px;
     font-family: FontAwesome;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-    /* margin: 0 auto;
-    display: table;
-    line-height: 56px;*/
+    display: block;
     font-size: 32px;
 }
 
-.btnFormBack:hover:after{
+.btnFormBack:hover:before{
     webkit-animation-name: bounceEffectUp;
     animation-name: bounceEffectUp;
     -webkit-animation-duration: 1.5s;
