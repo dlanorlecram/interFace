@@ -4,247 +4,288 @@
 
 {% block job_hunter %}
 
-    {{ form_start(form, {'attr': {"class": "register_flux", 'ng-controller':'effect' }}) }}
-        <h1 style='display: none'>Demandeur creation</h1>
-        <div class="header_form">
-          <div class="inner_header_form">
-            <div class="block_action">
-              <div class="indice_status">
-                {{ form_label(form.status)}}
-              </div>
-              <div class="detail_status">
-                {{ form_widget(form.status)}}
-              </div>
-            </div>
-            <div class="bloc_form_facien">
-              <div class="indice_facien">
-                {{ form_label(form.facien) }}
-              </div>
-              <div class="detail_facien">
-                {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="column_1 ">
-          <div class="block etat_civil">
-            <div class="block_sub">
-
-              <div class="bloc_form nom">
-                {{ form_label(form.nom) }}
-                {{ form_widget(form.nom,{ 'attr': {'placeholder': "Nom", "class": "testez"}}) }}
-              </div>
-              <div class="bloc_form prenom">
-                {{ form_label(form.prenom) }}
-                {{ form_widget(form.prenom,{ 'attr': {'placeholder': "Prenom", class:''}}) }}
-              </div>
-
-
-              <div class="bloc_form genre">
-                <div class="indice_genre">
-                  {{ form_label(form.genre) }}
-                </div>
-                <div class="detail_genre">
-                  {{ form_widget(form.genre) }}
-                </div>
-              </div>
-
-              <div class="bloc_form adress_email">
-                {{ form_label(form.email) }}
-                {{ form_widget(form.email,{'attr':{'placeholder': "Email"}}) }}
-              </div>
-
-            </div>
-            <div class="block_sub">
-              <div class="bloc_form naissance">
-                <div class="indice_date">
-                  {{ form_label(form.dateNaissance) }}
-                </div>
-                <div class="entry_date">
-                  {{ form_widget(form.dateNaissance,{ 'attr': {'placeholder': "dze"}}) }}
-                </div>
-              </div>
-              <div class="bloc_form enfant">
-                <div class="indice_enfant">
-                  {{ form_label(form.enfant) }}
-                </div>
-                <div class="entry_enfant">
-                  {{ form_widget(form.enfant) }}
-                </div>
-              </div>
-              <div class="bloc_form paysN">
-                {{ form_label(form.paysNaissance) }}
-                {{ form_widget(form.paysNaissance,{ 'attr': {'placeholder': "Pays de Naissance"}}) }}
-              </div>
-              <div class="bloc_form deptNaissance disable">
-                {{ form_label(form.deptNaissance) }}
-                {{ form_widget(form.deptNaissance,{ 'attr': {'placeholder': "Département"}}) }}
-              </div>
-              <div class="bloc_form villeN disable">
-                {{ form_label(form.villeNaissance) }}
-                {{ form_widget(form.villeNaissance,{ 'attr': {'placeholder': "Ville de naissance"}}) }}
-              </div>
-
-              <div class="bloc_form titreSejour disable">
-                {{ form_label(form.titreSejour) }}
-                {{ form_widget(form.titreSejour,{ 'attr': {'placeholder': "Nationalité"}}) }}
-              </div>
-              <div class="bloc_form nationalite">
-                {{ form_label(form.nationalite) }}
-                {{ form_widget(form.nationalite,{ 'attr': {'placeholder': "Nationalité"}}) }}
-              </div>
-            </div>
-          </div>
-
-          <div class="block coordonne">
-            <div class="block_sub">
-              <div class="header_adresse">
-                <div class="inner_header_adresse">
-                  <div class="bloc_form qpv">
-                    <div class="indice_qpv">
-                      {{ form_label(form.QPV) }}
+    {{ form_start(form, {'attr': { 'class':'form_flux','ng-controller':'effect' }}) }}
+        <section id="step_one" class= "register_flux">
+            <h1 style='display: none'>Demandeur creation</h1>
+            <div class="header_form">
+                <div class="inner_header_form">
+                    <div class="block_action">
+                        <div class="indice_status">
+                            {{ form_label(form.status)}}
+                        </div>
+                        <div class="detail_status">
+                            {{ form_widget(form.status)}}
+                        </div>
                     </div>
-                    <div class="detail_qpv">
-                      {{ form_widget(form.QPV,{'attr':{'class': 'red'}}) }}
+                    <div class="bloc_form_facien">
+                        <div class="indice_facien">
+                            {{ form_label(form.facien) }}
+                        </div>
+                        <div class="detail_facien">
+                            {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+                        </div>
                     </div>
-                  </div>
-                  <div class="bloc_form qpvnom" >
-                    <div class="indice_qpvnom">
-                      {{ form_label(form.QPVNom) }}
-                    </div>
-                    <div class="detail_qpvnom">
-                      {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
-                    </div>
-                  </div>
                 </div>
-              </div>
-              <div class="bloc_form adresse">
-                {{ form_label(form.adresse) }}
-                {{ form_widget(form.adresse,{'attr':{'placeholder': "Adresse"}}) }}
-              </div>
-              <div class="bloc_form codePostal">
-                  {{ form_label(form.codePostal) }}
-                  {{ form_widget(form.codePostal,{'attr':{}}) }}
-              </div>
-              <div class="bloc_form ville">
-                {{ form_label(form.ville) }}
-                {{ form_widget(form.ville,{'attr':{'placeholder': "Adresse"}}) }}
-              </div>
-              <div class="bloc_form telFixe">
-                {{ form_label(form.telFixe) }}
-                {{ form_widget(form.telFixe,{'attr':{'placeholder': "Numéro du fixe"}}) }}
-              </div>
-              <div class="bloc_form telPortable">
-                {{ form_label(form.telPortable) }}
-                {{ form_widget(form.telPortable,{'attr':{'placeholder': "Numéro du portable"}}) }}
-              </div>
             </div>
-          </div>
-        </div>
 
-        <div class ="column_2">
-          <div class="block_sub_ mobilite">
-            <div class="box_locomotion">
-              <div class="permis bloc_form">
-                {{ form_label(form.permisConduire) }}
-                {{ form_widget(form.permisConduire) }}
-              </div>
-              <div class="type bloc_form">
-                {{ form_label(form.typePermisConduire) }}
-                {{ form_widget(form.typePermisConduire) }}
-              </div>
-            </div>
-            <div class="box_locomotion">
-              <div class="type bloc_form">
-                {{ form_label(form.moyenLocomotion) }}
-                {{ form_widget(form.moyenLocomotion) }}
-              </div>
-              <div class="type bloc_form">
-                {{ form_label(form.moyenLocomotionAutre) }}
-                {{ form_widget(form.moyenLocomotionAutre) }}
-              </div>
-            </div>
-          </div>
-          <div class="block_sub ressource">
-            <div class="box_ressource">
-              <div class="id">
-                {{ form_label(form.idPoleEmploi) }}
-                {{ form_widget(form.idPoleEmploi) }}
-              </div>
-              <div class="metier">
-                {{ form_label(form.metier) }}
-                {{ form_widget(form.metier) }}
-              </div>
-            </div>
-            <div class="box_ressource">
-              <div class="autorisationTravail">
-                {{ form_label(form.autorisationTravail) }}
-                {{ form_widget(form.autorisationTravail) }}
-              </div>
-            </div>
-            <div class="referent">
-              {{ form_label(form.referent) }}
-              {{ form_widget(form.referent) }}
-            </div>
-            <div class="box_ressource">
-              <div class="alloc">
-                {{ form_label(form.allocation) }}
-                {{ form_widget(form.allocation) }}
-              </div>
-              <div class="allocAutre">
-                {{ form_label(form.allocationAutre) }}
-                {{ form_widget(form.allocationAutre) }}
-              </div>
-            </div>
-            <div class="box_ressource">
-              <div class="structure">
-                {{ form_label(form.structure) }}
-                {{ form_widget(form.structure) }}
-              </div>
-              <div class="rqth">
-                {{ form_label(form.rqth) }}
-                {{ form_widget(form.rqth) }}
-              </div>
-            </div>
-          </div>
-          <div class="block formation">
-            <div class="block_sub">
-              <div class="niveau">
-                <span class="custom_label">Niveau d’étude :</span>
-                {{ form_widget(form.niveauEtude)}}
-              </div>
-              <div class="diplome">
-                {{ form_label(form.diplomePro)}}
-                {{ form_widget(form.diplomePro)}}
-              </div>
-              <div class="cat_socio">
-                <span class="custom_label">Catégorie socioprofessionnelle :</span>
-                {{ form_widget(form.categorieSocioPro)}}
-              </div>
-            </div>
-          </div>
-          <div class="block_doc block_sub">
-              {{ form_widget(form.imageFile)}}
-          </div>
-          <div class="block_compte_rendu block_sub">
-              <div class="bloc_description">
-                <div class="box_ressource">
-                  <span class="full">Compte Rendu</span>
-                  {{ form_widget(form.description) }}
+            <div class="column_1 ">
+                <div class="block etat_civil">
+                    <div class="block_sub">
+
+                        <div class="bloc_form nom">
+                            {{ form_label(form.nom) }}
+                            {{ form_widget(form.nom,{ 'attr': {'placeholder': "Nom", "class": "testez"}}) }}
+                        </div>
+                        <div class="bloc_form prenom">
+                            {{ form_label(form.prenom) }}
+                            {{ form_widget(form.prenom,{ 'attr': {'placeholder': "Prenom", class:''}}) }}
+                        </div>
+
+                        <div class="bloc_form genre">
+                            <div class="indice_genre">
+                                {{ form_label(form.genre) }}
+                            </div>
+                            <div class="detail_genre">
+                                {{ form_widget(form.genre, {'attr':{'class':'custom_select'}}) }}
+                            </div>
+                        </div>
+
+                        <div class="bloc_form adress_email">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email,{'attr':{'placeholder': "Email"}}) }}
+                        </div>
+
+                    </div>
+                    <div class="block_sub">
+                        <div class="bloc_form naissance">
+                            <div class="indice_date">
+                                {{ form_label(form.dateNaissance) }}
+                            </div>
+                            <div class="entry_date">
+                                {{ form_widget(form.dateNaissance,{ 'attr': {'placeholder': "dze"}}) }}
+                            </div>
+                        </div>
+                        <div class="bloc_form enfant">
+                            <div class="indice_enfant">
+                                {{ form_label(form.enfant) }}
+                            </div>
+                            <div class="entry_enfant">
+                                {{ form_widget(form.enfant) }}
+                            </div>
+                        </div>
+                        <div class="bloc_form paysN">
+                            {{ form_label(form.paysNaissance) }}
+                            {{ form_widget(form.paysNaissance,{ 'attr': {'placeholder': "Pays de Naissance"}}) }}
+                        </div>
+                        <div class="bloc_form deptNaissance disable">
+                            {{ form_label(form.deptNaissance) }}
+                            {{ form_widget(form.deptNaissance,{ 'attr': {'placeholder': "Département"}}) }}
+                        </div>
+                        <div class="bloc_form villeN disable">
+                            {{ form_label(form.villeNaissance) }}
+                            {{ form_widget(form.villeNaissance,{ 'attr': {'placeholder': "Ville de naissance"}}) }}
+                        </div>
+
+                        <div class="bloc_form titreSejour disable">
+                            {{ form_label(form.titreSejour) }}
+                            {{ form_widget(form.titreSejour,{ 'attr': {'placeholder': "Nationalité"}}) }}
+                        </div>
+                        <div class="bloc_form nationalite">
+                            {{ form_label(form.nationalite) }}
+                            {{ form_widget(form.nationalite,{ 'attr': {'placeholder': "Nationalité"}}) }}
+                        </div>
+                    </div>
                 </div>
-              </div>
-          </div>
-          <div class="">
-          </div>
 
-          <ul>
-              <li>
-                  <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
-              </li>
-          </ul>
-          <input type="submit" value="Create" />
-        </div>
+                <div class="block coordonne">
+                    <div class="block_sub">
+                        <div class="header_adresse">
+                            <div class="inner_header_adresse">
+                                <div class="bloc_form qpv">
+                                    <div class="indice_qpv">
+                                        {{ form_label(form.QPV) }}
+                                    </div>
+                                    <div class="detail_qpv">
+                                        {{ form_widget(form.QPV,{'attr':{'class': 'red'}}) }}
+                                    </div>
+                                </div>
+                                <div class="bloc_form qpvnom" >
+                                    <div class="indice_qpvnom">
+                                        {{ form_label(form.QPVNom) }}
+                                    </div>
+                                    <div class="detail_qpvnom">
+                                        {{ form_widget(form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bloc_form adresse">
+                            {{ form_label(form.adresse) }}
+                            {{ form_widget(form.adresse,{'attr':{'placeholder': "Adresse"}}) }}
+                        </div>
+                        <div class="bloc_form codePostal">
+                            {{ form_label(form.codePostal) }}
+                            {{ form_widget(form.codePostal,{'attr':{}}) }}
+                        </div>
+                        <div class="bloc_form ville">
+                            {{ form_label(form.ville) }}
+                            {{ form_widget(form.ville,{'attr':{'placeholder': "Adresse"}}) }}
+                        </div>
+                        <div class="bloc_form telFixe">
+                            {{ form_label(form.telFixe) }}
+                            {{ form_widget(form.telFixe,{'attr':{'placeholder': "Numéro du fixe"}}) }}
+                        </div>
+                        <div class="bloc_form telPortable">
+                            {{ form_label(form.telPortable) }}
+                            {{ form_widget(form.telPortable,{'attr':{'placeholder': "Numéro du portable"}}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class ="column_2">
+                <div class="block_sub_ mobilite">
+                    <div class="box_locomotion">
+                        <div class="permis bloc_form">
+                            <div class="indice_permisC">
+                                {{ form_label(form.permisConduire) }}
+                            </div>
+                            <div class="detail_permisC">
+                                {{ form_widget(form.permisConduire) }}
+                            </div>
+                        </div>
+                        <div class="type bloc_form typePermis">
+                            {{ form_label(form.typePermisConduire) }}
+                            {{ form_widget(form.typePermisConduire) }}
+                        </div>
+                    </div>
+                    <div class="box_locomotion">
+                        <div class="type bloc_form moyenL">
+                            <div class="indice_moyenL">
+                                {{ form_label(form.moyenLocomotion) }}
+                            </div>
+                            <div class="detail_moyenL">
+                                {{ form_widget(form.moyenLocomotion,{'attr':{'class':'custom_select'}}) }}
+                            </div>
+                        </div>
+                        <div class="type bloc_form autreM">
+                            {{ form_label(form.moyenLocomotionAutre) }}
+                            {{ form_widget(form.moyenLocomotionAutre) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="block_sub ressource">
+                    <div class="bloc_form box_ressource">
+                        <div class="id">
+                            {{ form_label(form.idPoleEmploi) }}
+                            {{ form_widget(form.idPoleEmploi, {'attr':{'placeholder':'id'}}) }}
+                        </div>
+                        <div class="referent">
+                            {{ form_label(form.referent) }}
+                            {{ form_widget(form.referent, {'attr':{'placeholder':'id'}}) }}
+                        </div>
+                    </div>
+                    <div class="bloc_form box_ressource">
+                        <div class="autorisationTravail inline">
+                            <div class="indice_autorisationTr">
+                                {{ form_label(form.autorisationTravail) }}
+                            </div>
+                            <div class="detail_autorisationTr">
+                                {{ form_widget(form.autorisationTravail) }}
+                            </div>
+                        </div>
+                        <div class="rqth">
+                            <div class="indice_rqth">
+                                {{ form_label(form.rqth) }}
+                            </div>
+                            <div class="detail_rqth">
+                                {{ form_widget(form.rqth) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bloc_form box_ressource">
+                        <div class="alloc">
+                            <div class="incide_allo">
+                                {{ form_label(form.allocation) }}
+                            </div>
+                            <div class="detail_allo">
+                                {{ form_widget(form.allocation,{'attr': {'class':'custom_select'}}) }}
+                            </div>
+                        </div>
+                        <div class="allocAutre">
+                            {{ form_label(form.allocationAutre) }}
+                            {{ form_widget(form.allocationAutre, {'attr':{'placeholder':'id'}}) }}
+                        </div>
+                    </div>
+                    <div class="bloc_form box_ressource">
+                        <div class="structure">
+                            {{ form_label(form.structure) }}
+                            {{ form_widget(form.structure, {'attr':{'placeholder':'id'}}) }}
+                        </div>
+                        <div class="metier">
+                            {{ form_label(form.metier) }}
+                            {{ form_widget(form.metier, {'attr':{'placeholder':'id'}}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="block formation">
+                    <div class="block_sub">
+                        <div class="niveau bloc_form">
+                            <div class="indice_niv">
+                                <span class="custom_label">Niveau d’étude :</span>
+                            </div>
+                            <div class="detail_niv">
+                                {{ form_widget(form.niveauEtude,{'attr': {'class':'custom_select'}})}}
+                            </div>
+                        </div>
+                        <div class="diplome bloc_form">
+                            {{ form_label(form.diplomePro)}}
+                            {{ form_widget(form.diplomePro)}}
+                        </div>
+                        <div class="cat_socio bloc_form">
+                            <div class="indice_cat_socio">
+                                <span class="custom_label">Catégorie socioprofessionnelle :</span>
+                            </div>
+                            <div class="detail_cat_socio">
+                                {{ form_widget(form.categorieSocioPro,{'attr': {'class':'custom_select'}})}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#step_two" class="btnFormNext">
+            </a>
+        </section>
+        <section id="step_two">
+            <a href="#step_one" class="btnFormBack">
+            </a>
+            <div class="inner_section">
+                <div class="content">
+                    <div class="block_doc bloc_form">
+                        {{ form_widget(form.imageFile, {'attr':{'class': 'inputfile'}})}}
+                        <label for="">Document à télécharger</label>
+                    </div>
+                    <div class="block_compte_rendu">
+                        <div class="bloc1">
+                            <span>Compte Rendu:</span>
+                        </div>
+                        <div class="bloc2">
+                            {{ form_widget(form.description) }}
+                        </div>
+                    </div>
+                    <div class="block_btn">
+                        <div class="inner_block_btn">
+                            <a href="{{ path('demandeur_index') }}" class="btn_back">
+                                <span>Retour à la liste</span>
+                            </a>
+                            <div class='btn_create'>
+                                <input type="submit" value="Create"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     {{ form_end(form) }}
 {% endblock %}

@@ -19,12 +19,24 @@ $(document).ready(function(){
     $(this_parent).find('label').animate({visibility:"visible"}, 1000);
   });*/
 
-var value = $('.red').val();
-  console.log(value);
-  $('.red').val(function(){
-    if(!value){
-      $('.qpvnom').css({visibility:'visible'});
+function checkedInput(Input){
+    console.log(Input)
+    var checked = "$('"+ Input +"')";
+
+    var tr = checked.attr('id');
+
+    console.info(tr);
+
+    if ($checked){
+        console.log("actif");
     }
+    else{
+
+        console.log('inactif');
+    }
+}
+  $('input[type=checkbox]').click(function(){
+      checkedInput('input[type=checkbox]');
   });
 
 /* Effect select block search item */
