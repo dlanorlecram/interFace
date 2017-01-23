@@ -1,0 +1,548 @@
+{% extends 'FOSUserBundle::layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Fiche demandeur d'emploi{% endblock %}
+
+{% block job_hunter %}
+
+    <div class="form_newflux NewFlux">
+
+            <div class="formLeft">
+                <div class="profil_DE">
+                    <div class="photos">
+                        <img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}">
+                    </div>
+                    <div class="nmPrenm">
+                        <a name="nomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.nom }}</a>
+                        <a name="prenomDe" class=" edit name_DE" id="username" data-type="text" data-pk="1" data-url="" data-title="Enter username">{{ demandeur.prenom }}</a>
+                    </div>
+                    <p class="action_DE">action : <a class="edit" id="action" data-type="select" data-pk="1" data-url="" data-title="action" class="selectpicker">
+                        {% if demandeur.status == "AS" %}
+                            <td>Annonceur sentinelle</td>
+                        {% elseif demandeur.status == "F" %}
+                            <td>Flux</td>
+                        {% elseif demandeur.status == "I" %}
+                            <td>IRVIN</td>
+                        {% elseif demandeur.status == "N" %}
+                            <td>Numérique</td>
+                        {% elseif demandeur.status == "S" %}
+                            <td>Sécurité</td>
+                        {% endif %}
+                    </a></p>
+                    <p>Crée le <span>{{ demandeur.dateCreation|date('d-m-Y') }}</span></p>
+                    <p>Modifié le <span>{{ demandeur.dateMiseAJour|date('d-m-Y') }}</span></p>
+                    <p>Référent FACE : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="Nom du référent..">{{ demandeur.facien }}</a>
+                    </span></p>
+                </div>
+
+                <div class="section disable">
+                     <h3 class="titlefile">Documents</h3>
+                     <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir le CV</a></p>
+                     <p><a href="/doc/demandeurs d'emploi.pdf" target="pdf">Voir la Lettre de Motivation</a></p>
+
+                     <!-- Telecharger un document
+                     <div class="form-group">
+                        <label for="fileinput">Télécharger un document</label>
+                        <input class="col-lg-12" type="file" id="fileinput">
+                    </div>-->
+
+                    <form class="dropzone" action="/target-url" id="my-dropzone">
+                      <div class="fallback">
+                        <input name="file" type="file" multiple />
+                      </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- ==== colone center ==== -->
+            <div class="formLeft">
+
+                <!-- ==== Etat civil ==== -->
+                <div class="section">
+                    <h3 class="titlefile">état civil</h3>
+                    <p>Genre : <span>
+                        <a class="edit" id="genre" data-type="select" data-pk="1" data-url="" data-title="Genre" class="selectpicker">
+                            {% if demandeur.genre == "H" %}
+                                <td>Homme</td>
+                            {% elseif demandeur.genre == "F" %}
+                                <td>Femme</td>
+                            {% else %}
+                                <td>Autre</td>
+                            {% endif %}
+                        </a>
+                    </span></p>
+                    {#<p>Tranche d'âge : <span>
+                        <a class="edit" id="tAge" data-type="select" data-pk="1" data-url="" data-title="TranchedAge" class="selectpicker">...</a></span></p>#}
+                    <p>Né(e) le : <span>
+                        <a id="ddn" data-type="combodate" data-pk="1" data-url="" data-value="0000-00-00" data-title="Select date">{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% else %}-{% endif %}</a></span></p>
+                    <p>à : <span>
+                        <a id="country" data-type="select" data-pk="1" data-url="" data-title="Select country">{% if demandeur.paysNaissance %}{{ demandeur.paysNaissance }}{% else %}-{% endif %}</a></span></p>
+                    <p>Nationalité : <span>
+                        <a id="natio" data-type="select" data-pk="1" data-url="" data-title="Select country">{% if demandeur.nationalite %}{{ demandeur.nationalite }}{% else %}-{% endif %}</a></span></p>
+                    {#<p>Titre de séjour : <span>
+                        <a class="edit" id="tSejour" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">{% if demandeur.titreSejour %}Oui{% else %}Non{% endif %}</a>
+                    </span></p>
+                    <p>Autorisation de travail : <span>
+                        <a class="edit" id="autorTrv" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">{% if demandeur.autorisationTravail %}Oui{% else %}Non{% endif %}</a></span></p>#}
+                    <p>Enfant(s) en charge : <span>
+                        <a class="edit" id="enfants" data-type="number" data-pk="1" data-url="" data-title="" class="selectpicker">{% if demandeur.enfant %}{{ demandeur.enfant }}{% else %}-{% endif %}</a></span></p>
+                </div>
+
+                <!-- ==== Ressources ==== -->
+                <div class="section section_res">
+                    <h3 class="titlefile">Ressources</h3>
+                    <p>ID Pôle Emploi : <span>
+                        <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</a>
+                    </span></p>
+                    <p>Référent (PE / ML) : <span><a class="edit" data-type="text" data-pk="1" data-url="" data-title="référent">{% if demandeur.referent %}{{ demandeur.referent }}{% else %}-{% endif %}</a></span></p>
+                    <p>Structure : <span>{{ demandeur.structure }}</span></p>
+                    <p>Allocation : <span>
+                        <a class="edit" id="alloc" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
+                            {% if demandeur.allocation == "Au" %}
+                                <td>{{ demandeur.allocationAutre }}</td>
+                            {% elseif demandeur.allocation == "ARE" %}
+                                <td>ARE</td>
+                            {% elseif demandeur.allocation == "ASS" %}
+                                <td>ASS</td>
+                            {% elseif demandeur.allocation == "RSAa" %}
+                                <td>RSA Active</td>
+                            {% elseif demandeur.allocation == "RSAs" %}
+                                <td>RSA Socle</td>
+                            {% elseif demandeur.allocation == "Ac" %}
+                                <td>Aucun</td>
+                            {% else %}
+                                <td>-</td>
+                            {% endif %}
+                        </a>
+                    </span></p>
+                    <p>RQTH : <span><a class="edit" id="rqth" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</a></span></p>
+                    <p>QPV : <span>
+                        <a class="edit" id="qpv" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
+                            {% if demandeur.QPV %}
+                                {% if demandeur.QPVNom == "C" %}
+                                    <td>Cleunay</td>
+                                {% elseif demandeur.QPVNom == "LB" %}
+                                    <td>Le Blosne</td>
+                                {% elseif demandeur.QPVNom == "CM" %}
+                                    <td>Les Cloteaux/Champs Manceaux</td>
+                                {% elseif demandeur.QPVNom == "M" %}
+                                    <td>Maurepas</td>
+                                {% elseif demandeur.QPVNom == "V" %}
+                                    <td>Villejean</td>
+                                {% else %}
+                                    <td>Oui</td>
+                                {% endif %}
+                            {% else %}
+                                <td>Non</td>
+                            {% endif %}
+                        </a>
+                    </span></p>
+                </div>
+            </div>
+
+
+        <!-- ==== colonne Right ==== -->
+        <div class="formLeft">
+            <div class="colonneR">
+                <div class="formcom1">
+
+                    <!-- ==== Formation et métier ==== -->
+                    <div class="section">
+                        <h3 class="titlefile">Formation et métier</h3>
+                        <p>Métier : <span>
+                            <a id="metier" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        <p>Niveau d'études : <span>
+                            <a class="edit" id="etudes" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
+                                {% if demandeur.niveauEtude == "SD" %}
+                                    <td>Sans diplôme</td>
+                                {% elseif demandeur.niveauEtude == "CAP" %}
+                                    <td>CAP</td>
+                                {% elseif demandeur.niveauEtude == "BEP" %}
+                                    <td>BEP</td>
+                                {% elseif demandeur.niveauEtude == "Bac" %}
+                                    <td>Bac</td>
+                                {% elseif demandeur.niveauEtude == "BP" %}
+                                    <td>Bac Pro</td>
+                                {% elseif demandeur.niveauEtude == "Bac2" %}
+                                    <td>Bac +2</td>
+                                {% elseif demandeur.niveauEtude == "Bac3" %}
+                                    <td>Bac +3</td>
+                                {% elseif demandeur.niveauEtude == "Bac4" %}
+                                    <td>Bac +4</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %}
+                            </a>
+                        </span></p>
+                        <p>Catégorie socio-pro : <span>
+                            <a class="edit" id="socioPro" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">
+                                {% if demandeur.categorieSocioPro == "O" %}
+                                    <td>Ouvrier</td>
+                                {% elseif demandeur.categorieSocioPro == "Oq" %}
+                                    <td>Ouvrier qualifié</td>
+                                {% elseif demandeur.categorieSocioPro == "E" %}
+                                    <td>Employé</td>
+                                {% elseif demandeur.categorieSocioPro == "Eq" %}
+                                    <td>Employé qualifié</td>
+                                {% elseif demandeur.categorieSocioPro == "AM" %}
+                                    <td>Agent de maîtrise</td>
+                                {% elseif demandeur.categorieSocioPro == "C" %}
+                                    <td>Cadre</td>
+                                {% elseif demandeur.categorieSocioPro == "Cs" %}
+                                    <td>Cadre supérieur</td>
+                                {% elseif demandeur.categorieSocioPro == "A" %}
+                                    <td>Artisant</td>
+                                {% elseif demandeur.categorieSocioPro == "Co" %}
+                                    <td>Commerçant</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %}
+                            </a>
+                        </span></p>
+                        <p>Diplôme professionnel : <span>
+                            <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="ID Pole Emploi..">{% if demandeur.diplomePro %}{{ demandeur.diplomePro }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        {#<p>Durée d'expérience : <span>
+                        <a class="edit" id="dureeExp" data-type="select" data-pk="1" data-url="" data-title="" class="selectpicker">Choisir ..</a>
+                        </span></p>
+                        <p>Dernier poste occupé : <span>
+                            <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="lastJob..">poste / entreprise etc..</a>
+                        </span></p>#}
+                    </div>
+
+                    <!-- ==== Mobilité ==== -->
+                    <div class="section section_res">
+                        <h3 class="titlefile">Mobilité</h3>
+                        <p>Permis de conduire : <span>
+                            <a id="permis" data-pk="1" data-url="" >
+                                {% if demandeur.permisConduire %}
+                                    <td>{{ demandeur.typePermisConduire }}</td>
+                                {% else %}
+                                    <td>Non</td>
+                                {% endif %}
+                            </a>
+                        </span></p>
+                        <p>Moyen de locomotion : <span>
+                            <a id="locomotion" data-type="checklist" data-value="" data-pk="1" data-url="" data-title="Select options" >
+                                {% if demandeur.moyenLocomotion == "Au" %}
+                                    <td>{{ demandeur.moyenLocomotionAutre }}</td>
+                                {% elseif demandeur.moyenLocomotion == "V" %}
+                                    <td>Voiture</td>
+                                {% elseif demandeur.moyenLocomotion == "M" %}
+                                    <td>Motocyclette</td>
+                                {% elseif demandeur.moyenLocomotion == "S" %}
+                                    <td>Scooter</td>
+                                {% elseif demandeur.moyenLocomotion == "V" %}
+                                    <td>Vélo</td>
+                                {% elseif demandeur.moyenLocomotion == "B" %}
+                                    <td>Bus</td>
+                                {% elseif demandeur.moyenLocomotion == "Ac" %}
+                                    <td>Aucun</td>
+                                {% else %}
+                                    <td>-</td>
+                                {% endif %}
+                            </a>
+                        </span></p>
+                    </div>
+                </div>
+
+                <div class="formcom2">
+                    <!-- ==== Contact ==== -->
+                    <div class="section">
+                        <h3 class="titlefile">Contact</h3>
+                        <p>Adresse : <span>
+                            <a class="edit"  data-type="text" data-pk="1" data-url="" data-title="adresse..">{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        <p>Ville : <span>
+                            <a id="ville" data-type="select" data-pk="1" data-url="" data-title="">{% if demandeur.ville %}{{ demandeur.ville }}{% else %}-{% endif %}</a>
+                        </span></p>
+                        <p>Tél. (fixe) : <span>
+                            <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telFixe %}{{ demandeur.telFixe }}{% else %}-{% endif %}</a></span></p>
+                        <p>Tél. (portable) : <span>
+                            <a class="edit" id="tel" data-type="tel" data-pk="1">{% if demandeur.telPortable %}{{ demandeur.telPortable }}{% else %}-{% endif %}</a></span></p>
+                        <p>Mail : <span>
+                            <a class="edit" id="email" data-type="email" data-pk="1">{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</a></span></p>
+                    </div>
+                    <!-- ==== Commentaire ==== -->
+                    <div class="section">
+                        <h3 class="titlefile section_res">Commentaire</h3>
+                        <p>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ==== button ==== -->
+            <div class="button_show">
+                <a href="{{ path('demandeur_index') }}">
+                    <div class="btn_backlist">
+                        <span>Retour à la liste</span>
+                    </div>
+                </a>
+                <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">
+                    <div class="btn_edit">
+                        <span>Editer</span>
+                    </div>
+                </a>
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Delete" class="btn_delete">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+
+        </div>
+
+    {#<h1>Demandeur</h1>
+
+    <table>
+        <tbody>
+			<tr>
+				<th>Photo</th>
+				<td><img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}" /></td>
+			</tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ demandeur.prenom }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ demandeur.nom }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                {% if demandeur.status == "AS" %}
+					<td>Annonceur sentinelle</td>
+				{% elseif demandeur.status == "F" %}
+					<td>Flux</td>
+				{% elseif demandeur.status == "I" %}
+					<td>IRVIN</td>
+				{% elseif demandeur.status == "N" %}
+					<td>Numérique</td>
+				{% elseif demandeur.status == "S" %}
+					<td>Sécurité</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Genre</th>
+                {% if demandeur.genre == "H" %}
+					<td>Homme</td>
+				{% elseif demandeur.genre == "F" %}
+					<td>Femme</td>
+				{% else %}
+					<td>Autre</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Date de naissance</th>
+                <td>{% if demandeur.dateNaissance %}{{ demandeur.dateNaissance|date('d-m-Y') }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ville de naissance</th>
+                <td>{% if demandeur.villeNaissance %}{{ demandeur.villeNaissance }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Département de naissance</th>
+                <td>{% if demandeur.deptNaissance %}{{ demandeur.deptNaissance }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Pays de naissance</th>
+               <td>{% if demandeur.paysNaissance %}{{ demandeur.paysNaissance }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nationalité</th>
+                <td>{% if demandeur.nationalite %}{{ demandeur.nationalite }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Titre de séjour</th>
+                <td>{% if demandeur.titreSejour %}Oui{% else %}Non{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Autorisation de travail</th>
+                <td>{% if demandeur.autorisationTravail %}Oui{% else %}Non{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{% if demandeur.adresse %}{{ demandeur.adresse }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Code postal</th>
+                <td>{% if demandeur.codePostal %}{{ demandeur.codePostal }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{% if demandeur.ville %}{{ demandeur.ville }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>QPV</th>
+                {% if demandeur.QPV %}
+					{% if demandeur.QPVNom == "C" %}
+						<td>Cleunay</td>
+					{% elseif demandeur.QPVNom == "LB" %}
+						<td>Le Blosne</td>
+					{% elseif demandeur.QPVNom == "CM" %}
+						<td>Les Cloteaux/Champs Manceaux</td>
+					{% elseif demandeur.QPVNom == "M" %}
+						<td>Maurepas</td>
+					{% elseif demandeur.QPVNom == "V" %}
+						<td>Villejean</td>
+					{% else %}
+						<td>Oui</td>
+					{% endif %}
+				{% else %}
+					<td>Non</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Téléphone fixe</th>
+                <td>{% if demandeur.telFixe %}{{ demandeur.telFixe }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Téléphone portable</th>
+                <td>{{ demandeur.telPortable }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{% if demandeur.email %}{{ demandeur.email }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Nombre d'enfant</th>
+                <td>{% if demandeur.enfant %}{{ demandeur.enfant }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Permis de conduire</th>
+                {% if demandeur.permisConduire %}
+					<td>{{ demandeur.typePermisConduire }}</td>
+				{% else %}
+					<td>Non</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Moyen de locomotion</th>
+                {% if demandeur.moyenLocomotion == "Au" %}
+					<td>{{ demandeur.moyenLocomotionAutre }}</td>
+				{% elseif demandeur.moyenLocomotion == "V" %}
+					<td>Voiture</td>
+				{% elseif demandeur.moyenLocomotion == "M" %}
+					<td>Motocyclette</td>
+				{% elseif demandeur.moyenLocomotion == "S" %}
+					<td>Scooter</td>
+				{% elseif demandeur.moyenLocomotion == "V" %}
+					<td>Vélo</td>
+				{% elseif demandeur.moyenLocomotion == "B" %}
+					<td>Bus</td>
+				{% elseif demandeur.moyenLocomotion == "Ac" %}
+					<td>Aucun</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Identifiant Pôle Emploi</th>
+                <td>{% if demandeur.idPoleEmploi %}{{ demandeur.idPoleEmploi }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Référent</th>
+                <td>{% if demandeur.referent %}{{ demandeur.referent }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Structure</th>
+                <td>{% if demandeur.structure %}{{ demandeur.structure }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Allocation</th>
+                {% if demandeur.allocation == "Au" %}
+					<td>{{ demandeur.allocationAutre }}</td>
+				{% elseif demandeur.allocation == "ARE" %}
+					<td>ARE</td>
+				{% elseif demandeur.allocation == "ASS" %}
+					<td>ASS</td>
+				{% elseif demandeur.allocation == "RSAa" %}
+					<td>RSA Active</td>
+				{% elseif demandeur.allocation == "RSAs" %}
+					<td>RSA Socle</td>
+				{% elseif demandeur.allocation == "Ac" %}
+					<td>Aucun</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Reconnaissance RQTH</th>
+                <td>{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Niveau d'étude</th>
+                {% if demandeur.niveauEtude == "SD" %}
+					<td>Sans diplôme</td>
+				{% elseif demandeur.niveauEtude == "CAP" %}
+					<td>CAP</td>
+				{% elseif demandeur.niveauEtude == "BEP" %}
+					<td>BEP</td>
+				{% elseif demandeur.niveauEtude == "Bac" %}
+					<td>Bac</td>
+				{% elseif demandeur.niveauEtude == "BP" %}
+					<td>Bac Pro</td>
+				{% elseif demandeur.niveauEtude == "Bac2" %}
+					<td>Bac +2</td>
+				{% elseif demandeur.niveauEtude == "Bac3" %}
+					<td>Bac +3</td>
+				{% elseif demandeur.niveauEtude == "Bac4" %}
+					<td>Bac +4</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Diplôme professionel</th>
+                <td>{% if demandeur.diplomePro %}{{ demandeur.diplomePro }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Categorie socio-professionelle</th>
+                {% if demandeur.categorieSocioPro == "O" %}
+					<td>Ouvrier</td>
+				{% elseif demandeur.categorieSocioPro == "Oq" %}
+					<td>Ouvrier qualifié</td>
+				{% elseif demandeur.categorieSocioPro == "E" %}
+					<td>Employé</td>
+				{% elseif demandeur.categorieSocioPro == "Eq" %}
+					<td>Employé qualifié</td>
+				{% elseif demandeur.categorieSocioPro == "AM" %}
+					<td>Agent de maîtrise</td>
+				{% elseif demandeur.categorieSocioPro == "C" %}
+					<td>Cadre</td>
+				{% elseif demandeur.categorieSocioPro == "Cs" %}
+					<td>Cadre supérieur</td>
+				{% elseif demandeur.categorieSocioPro == "A" %}
+					<td>Artisant</td>
+				{% elseif demandeur.categorieSocioPro == "Co" %}
+					<td>Commerçant</td>
+				{% else %}
+					<td>-</td>
+				{% endif %}
+            </tr>
+            <tr>
+                <th>Metier</th>
+                <td>{% if demandeur.metier %}{{ demandeur.metier }}{% else %}-{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{% if demandeur.description %}{{ demandeur.description }}{% else %}-{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('demandeur_index') }}">Retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">Editer</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>#}
+{% endblock %}
