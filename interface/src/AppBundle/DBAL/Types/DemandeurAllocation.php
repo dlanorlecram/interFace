@@ -15,7 +15,7 @@ final class DemandeurAllocation extends AbstractEnumType
     protected static $choices = [
         self::ARE        => 'ARE',
         self::ASS        => 'ASS',
-        self::RSA_ACTIVE => 'RSA Activé',
+        self::RSA_ACTIVE => 'RSA Activité',
         self::RSA_SOCLE  => 'RSA Socle',
         self::AUTRE      => 'Autre',
         self::AUCUN      => 'Aucun'
