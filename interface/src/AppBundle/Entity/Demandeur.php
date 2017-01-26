@@ -186,7 +186,7 @@ class Demandeur extends myEntity
 	protected $typePermisConduire;
 
 	/**
-     * @ORM\Column(name="moyenLocomotion", type="DemandeurMoyenLocomotion", nullable=false)
+     * @ORM\Column(name="moyenLocomotion", type="DemandeurMoyenLocomotion", nullable=true)
      * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurMoyenLocomotion")
      */
     protected $moyenLocomotion;
@@ -216,7 +216,7 @@ class Demandeur extends myEntity
 	protected $structure;
 
 	/**
-     * @ORM\Column(name="allocation", type="DemandeurAllocation", nullable=false)
+     * @ORM\Column(name="allocation", type="DemandeurAllocation", nullable=true)
      * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurAllocation")
      */
     protected $allocation;
@@ -234,7 +234,7 @@ class Demandeur extends myEntity
 	protected $rqth;
 
 	/**
-     * @ORM\Column(name="niveauEtude", type="DemandeurNiveauEtude", nullable=false)
+     * @ORM\Column(name="niveauEtude", type="DemandeurNiveauEtude", nullable=true)
      * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurNiveauEtude")
      */
     protected $niveauEtude;
@@ -246,7 +246,7 @@ class Demandeur extends myEntity
 	protected $diplomePro;
 
 	/**
-     * @ORM\Column(name="categorieSocioPro", type="DemandeurCategorieSocioPro", nullable=false)
+     * @ORM\Column(name="categorieSocioPro", type="DemandeurCategorieSocioPro", nullable=true)
      * @DoctrineAssert\Enum(entity="AppBundle\DBAL\Types\DemandeurCategorieSocioPro")
      */
     protected $categorieSocioPro;

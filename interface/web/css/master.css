@@ -16,6 +16,9 @@ ul, li, a{
   margin: 0;
   padding: 0;
 }
+h5{
+    margin: 0;
+}
 .container_login{
   width: 350px;
   height: 670px;
@@ -1153,12 +1156,11 @@ div.group_detail:last-of-type{
     width: 120px;
     text-align: center;
     background-color: #ED9767;
+    border: none;
+    color: #FFFFFF;
 /*     line-height: 35px; */
 }
 
-.btn_edit{
-    float: right;
-}
 
 .btn_Mdepasse{
     float: left;
@@ -1169,12 +1171,12 @@ div.group_detail:last-of-type{
     font-size: 12px;
     height: 100%;
     display: block;
-    color: white;
     padding-right: 15px;
     padding-left: 14px;
     padding-top: 2px;
     padding-bottom: 2px;
 }
+
 
 .btn_edit input, [class*="btn_"] span, [class*="btn_"] a{
     height: 100%;
@@ -1280,7 +1282,7 @@ div.group_detail:last-of-type{
 .disable{
     display: none;
 }
-.btn_backlist, .btn_delete {
+.btn_backlist,{
     display: inline-block;
     text-align: center;
     margin: 1% 0;
@@ -1640,4 +1642,281 @@ height: 56px; */
     display: inline-block;
     overflow: hidden;
 
+}
+
+
+/* */
+
+.container_profil{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.inner_container_profil{
+    /* height: 580px; */
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    padding: 40px 50px;
+    background-color: #FFF;
+    position: relative;
+}
+
+.content_bloc{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.bloc_1{
+    width: 60%;
+    height: 90%;
+}
+
+.bloc_2{
+    width: 40%;
+    height: 90%;
+
+    padding-left: 15px;
+}
+
+.bl1{
+    width: 50%;
+    height: 100%;
+}
+.identity{
+
+}
+
+.identity_demandeur{
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.info_demandeur{
+    text-align: center;
+    font-size: 13px;
+}
+
+.info_demandeur span{
+    display: block;
+    color: #828282;
+}
+
+.bl2{
+    width: 50%;
+    height: 100%;
+    border-left: 1px solid #c6c6c6;
+}
+
+.show_adresse span,.show_formation span, .show_mobilite span{
+    display: block;
+    font-size: 13px;
+}
+
+.show_adresse{
+    padding-left: 22px;
+}
+
+.show_etat_civile, .show_formation, .show_coordonnee{
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #c6c6c6;
+    padding-bottom: 10px;
+}
+
+.show_ressource_detail{
+    font-size: 13px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+
+.show_coordonnee_detail li{
+    font-size: 13px;
+    margin: 5px 10px;
+    color: #333;
+}
+
+h5{
+    font-size: 16px;
+    margin: 0px 0 5px 0;
+    color: #868686;
+    font-weight: 400;
+}
+
+.show_ressource_detail li{
+    /* margin: 5px 0; */
+    /* min-width: 157px; */
+}
+
+.container_data{
+    display: flex;
+    margin: 5px 10px;
+    justify-content: space-between;
+}
+.sized{
+    width: 136px;
+}
+.colored{
+    color: #ED9767;
+    font-weight: 400;
+}
+.text_right{
+    text-align: right;
+    font-weight: 300;
+    color: #868686;
+}
+
+.show_coordonnee_detail li,.show_coordonnee_detail >span{
+    font-weight: 300;
+    color:#868686;
+}
+
+.para{
+    flex-direction: column;
+    font-weight: 300;
+    color: #868686;
+}
+
+/* Show profil demandeur */
+
+.bloc_profil_demandeur{
+/*     background-color: #FFF; */
+    width: 100%;
+    height: 100%;
+}
+
+.demandeur_status{
+    margin: 0 auto;
+    /* height: 45%; */
+    height: 42.5%;
+}
+
+.demandeur_status h1{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 200;
+    color: #828282;
+    margin-bottom: 5px;
+}
+
+.demandeur_detail_status{
+    height: 55%;
+}
+
+.inner_demandeur_detail_status{
+    display: flex;
+    justify-content: space-around;
+}
+
+.column_detail_1 h5,.column_detail_2 h5{
+    text-align: center;
+}
+
+.column_detail_1, .column_detail_2{
+    /* border-left: 1px outset #c6c6c6;
+    border-right: 1px inset #c6c6c6; */
+    width: 26%;
+}
+
+.column_detail_1 ,.column_detail_2 ,.column_detail_3{
+    padding: 15px 0;
+}
+.column_detail_3{
+    width: calc(45% - 2px);
+    padding-left: 20px;
+}
+[class*="column_detail_"] span{
+    font-size: 13px;
+}
+.show_compte_rendu_detail{
+    background-color: #E6E6E6;
+    padding: 15px;
+    height: 200px;
+    overflow-y: scroll;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.show_compte_rendu_detail p{
+    margin: 0;
+    text-indent: 20px;
+}
+
+.show_compte_rendu_detail h5{
+    text-align: left;
+}
+.spacer{
+/*     height: 100%; */
+    width: 1px;
+    padding: 40px 0;
+}
+.inner_spacer{
+    width: 100%;
+    background: #E6E6E6;
+    height: 100%;
+}
+
+.group_action {
+    display: flex;
+    margin-top: 30px;
+}
+
+.group_action input{
+    font-size: 13px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+/* End show profil demandeur */
+
+/*Profil photo*/
+.profil_photo{
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 0 auto;
+}
+
+.profil_photo img{
+    width: 100%;
+}
+/* End Profil photo */
+.back_list{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    color: #868686;
+}
+
+
+/* icon */
+.show_coordonnee_detail li:first-child::before{
+    content: '\f10b';
+    font-family: 'Fontawesome';
+    margin-right: 6px;
+    font-size: 18px;
+    margin-left: 3px;
+}
+.show_coordonnee_detail li:nth-child(2):before{
+    content:'\f003';
+    font-family: 'Fontawesome';
+    margin-right: 10px;
+}
+.show_coordonnee_detail li:nth-child(3){
+    position: relative;
+}
+.show_coordonnee_detail li:nth-child(3):before{
+    content:'\f041';
+    font-family: 'Fontawesome';
+    margin-right: 10px;
+    position: absolute;
+    left: 3px;
+}
+.show_coordonnee_detail li:last-child{
+    padding-left: 21px;
 }

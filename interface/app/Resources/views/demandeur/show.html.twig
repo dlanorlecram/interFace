@@ -1,14 +1,321 @@
 {% extends 'FOSUserBundle::layout.html.twig' %}
 
 {% block job_hunter %}
-    <h1>Demandeur</h1>
+
+    <div class="container_profil">
+        <div class="inner_container_profil shadow">
+            <div class="bloc_profil_demandeur">
+                <div class="demandeur_status">
+                    <div class="profil_photo">
+                        <img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="">
+                    </div>
+                    <h1>{{ demandeur.prenom }} {{ demandeur.nom}}</h1>
+                    <div class="info_demandeur">
+                        <span>Action:
+                            {% if demandeur.status == "AS" %}
+                            Annonceur sentinelle
+                            {% elseif demandeur.status == "F" %}
+                            Flux
+                            {% elseif demandeur.status == "I" %}
+                            IRVIN
+                            {% elseif demandeur.status == "N" %}
+                            Numérique
+                            {% elseif demandeur.status == "S" %}
+                            Sécurité
+                            {% endif %}
+                        </span>
+                        <span>Référent: {{ demandeur.referent }}</span>
+                        <span>Créé le <i class="colored">{{ demandeur.dateCreation|date('d.m.Y')}}</i> et mis à jour le <i class="colored">{{ demandeur.dateMiseAJour|date('d.m.Y')}}</i></span>
+                    </div>
+                </div>
+                <div class="demandeur_detail_status">
+
+                    <div class="inner_demandeur_detail_status">
+                            <div class="column_detail_1">
+
+                                <div class="show_etat_civile">
+                                    <h5>État civile:</h5>
+                                    <ul class="show_mobilite_detail">
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Genre: </span><span class ="colored">{% if demandeur.genre == "F"%} Femme {% elseif demandeur.genre == "H" %} Homme {% else %} Autre {% endif %}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Nombre d'enfants:</span><span class ="colored">{{ demandeur.enfant }}</span>
+                                            </div>
+                                        </li>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Date de naissance:</span><span class ="colored">{{ demandeur.dateNaissance|date('d-M-Y') }}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Nationalité:</span><span class ="colored">{{ demandeur.nationalite }}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Pays de naissance:</span><span class ="colored">{{ demandeur.paysNaissance }}</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="show_formation">
+                                    <h5>Formation:</h5>
+                                    <ul class="show_formation_detail">
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Niveau d’étude :</span><span class ="colored">
+                                                    {% if demandeur.niveauEtude == "SD" %}
+                                                            Sans diplôme
+                                                        {% elseif demandeur.niveauEtude == "CAP" %}
+                                                            CAP
+                                                        {% elseif demandeur.niveauEtude == "BEP" %}
+                                                            BEP
+                                                        {% elseif demandeur.niveauEtude == "Bac" %}
+                                                            Bac
+                                                        {% elseif demandeur.niveauEtude == "BP" %}
+                                                            Bac Pro
+                                                        {% elseif demandeur.niveauEtude == "Bac2" %}
+                                                            Bac +2
+                                                        {% elseif demandeur.niveauEtude == "Bac3" %}
+                                                            Bac +3
+                                                        {% elseif demandeur.niveauEtude == "Bac4" %}
+                                                            Bac +4
+                                                        {% else %}
+                                                            ...
+                                                        {% endif %}
+                                            </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Diplôme professionnel :</span><span class ="colored">
+                                                {% if demandeur.diplomePro == null %}
+                                                    ...
+                                                {% else %}
+                                                    {{demandeur.diplomePro}}
+                                                {% endif %}
+                                                </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Catégorie socioprofessionnelle :</span><span class ="colored">
+                                                    {% if demandeur.categorieSocioPro == "O" %}
+                                                            Ouvrier
+                                                        {% elseif demandeur.categorieSocioPro == "Oq" %}
+                                                            Ouvrier qualifié
+                                                        {% elseif demandeur.categorieSocioPro == "E" %}
+                                                            Employé
+                                                        {% elseif demandeur.categorieSocioPro == "Eq" %}
+                                                            Employé qualifié
+                                                        {% elseif demandeur.categorieSocioPro == "AM" %}
+                                                            Agent de maîtrise
+                                                        {% elseif demandeur.categorieSocioPro == "C" %}
+                                                            Cadre
+                                                        {% elseif demandeur.categorieSocioPro == "Cs" %}
+                                                            Cadre supérieur
+                                                        {% elseif demandeur.categorieSocioPro == "A" %}
+                                                            Artisan
+                                                        {% elseif demandeur.categorieSocioPro == "Co" %}
+                                                            Commerçant
+                                                        {% else %}
+                                                            <td>...</td>
+                                                        {% endif %}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="show_mobilite">
+                                    <h5>Mobilité:</h5>
+                                    <ul class="show_mobilite_detail">
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Permis de conduire: </span><span class ="colored">{% if demandeur.permisConduire %} Oui {% else %} Non {% endif %}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Type de permis:</span><span class ="colored">{{ demandeur.typePermisConduire }}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data">
+                                                <span class="text_right">Moyen de locomotion:</span><span class ="colored">
+                                                    {% if demandeur.moyenLocomotion == "Au" %}
+                                                            {{ demandeur.moyenLocomotionAutre }}
+                                                        {% elseif demandeur.moyenLocomotion == "V" %}
+                                                            Voiture
+                                                        {% elseif demandeur.moyenLocomotion == "M" %}
+                                                            Motocyclette
+                                                        {% elseif demandeur.moyenLocomotion == "S" %}
+                                                            Scooter
+                                                        {% elseif demandeur.moyenLocomotion == "V" %}
+                                                            Vélo
+                                                        {% elseif demandeur.moyenLocomotion == "B" %}
+                                                            Bus
+                                                        {% elseif demandeur.moyenLocomotion == "Ac" %}
+                                                            Aucun
+                                                        {% endif %}
+                                                </span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="spacer">
+                                <div class="inner_spacer"></div>
+                            </div>
+
+                            <div class="column_detail_2">
+
+                                <div class="show_coordonnee">
+                                    <h5>Coordonnée:</h5>
+                                    <ul class="show_coordonnee_detail">
+                                        <li> {{ demandeur.telFixe }} | {{ demandeur.telFixe }}</li>
+                                        <li>{{ demandeur.email }}</li>
+                                        <li>
+                                            <div class="show_adresse">
+                                                <span>{{ demandeur.adresse }}</span>
+                                                <span>{{ demandeur.codePostal }}, {{ demandeur.ville }}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <span>QPV:
+                                                {% if demandeur.QPVNom == "C" %}
+                                                Cleunay
+                                                {% elseif demandeur.QPVNom == "LB" %}
+                                                Le Blosne
+                                                {% elseif demandeur.QPVNom == "CM" %}
+                                                Les Cloteaux/Champs Manceaux
+                                                {% elseif demandeur.QPVNom == "M" %}
+                                                Maurepas
+                                                {% elseif demandeur.QPVNom == "V" %}
+                                                Villejean
+                                                {% else %}
+                                                Oui
+                                                {% endif %}
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="show_ressource">
+                                    <h5>Ressource :</h5>
+                                    <ul class="show_ressource_detail">
+                                        <li>
+                                            <div class="container_data para ">
+                                                <span class="sized">Identifiant Pole emploi:</span><span class="colored"> {{demandeur.idPoleEmploi}}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data para">
+                                                <span class="">Référent:</span><span class="colored">{{demandeur.referent}}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data para">
+                                                <span class="sized">Autorisation de travail:</span> <span class="colored">{% if demandeur.autorisationTravail %}Oui{% else %}Aucune{% endif %}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data para">
+                                                <span class="">Allocation:</span> <span class="colored">
+                                                    {% if demandeur.allocation == "Au" %}
+                                                            {{ demandeur.allocationAutre }}
+                                                        {% elseif demandeur.allocation == "ARE" %}
+                                                            ARE
+                                                        {% elseif demandeur.allocation == "ASS" %}
+                                                            ASS
+                                                        {% elseif demandeur.allocation == "RSAa" %}
+                                                            RSA Active
+                                                        {% elseif demandeur.allocation == "RSAs" %}
+                                                            RSA Socle
+                                                        {% elseif demandeur.allocation == "Ac" %}
+                                                            Aucun
+                                                        {% endif %}
+                                            </span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data para">
+                                                <span class="sized">Reconnaissance RQTH:</span> <span class="colored">{% if demandeur.rqth %}Oui{% else %}Non{% endif %}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data para">
+                                                <span class="">Structure:</span> <span class="colored">{{demandeur.structure}}</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="container_data para">
+                                                <span class="">Métier:</span> <span class="colored">{{demandeur.metier}}</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                            <div class="spacer">
+                                <div class="inner_spacer"></div>
+                            </div>
+
+                            <div class="column_detail_3">
+                                <div class="show_compte_rendu">
+                                    <h5>Compte rendu:</h5>
+                                    <div class="show_compte_rendu_detail">
+                                        <p>{{demandeur.description}}</p>
+                                    </div>
+                                </div>
+
+                                <div class="group_action">
+                                    <a href="{{ path('demandeur_edit', { 'id': demandeur.id }) }}">
+                                        <div class="btn_edit">
+                                            <span>Éditer</span>
+                                        </div>
+                                    </a>
+                                    <div class="delete">
+                                        {{ form_start(delete_form) }}
+                                            <input type="submit" value="Delete" class="btn_delete">
+                                        {{ form_end(delete_form) }}
+                                    </div>
+                                    <a href="{{ path('demandeur_index') }}">
+                                        <div class="btn_back">
+                                            <span>
+                                                Retour à la liste
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- RESET -->
+        </div>
+    </div>
+    <!-- <h1>Demandeur</h1>
 
     <table>
         <tbody>
-			<tr>
-				<th>Photo</th>
-				<td><img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}" /></td>
-			</tr>
+                <tr>
+                    <th>Photo</th>
+                    <td><img src="{{ vich_uploader_asset(demandeur, 'imageFile') }}" alt="{{ demandeur.imageFile }}" /></td>
+                </tr>
             <tr>
                 <th>Prénom</th>
                 <td>{{ demandeur.prenom }}</td>
@@ -20,26 +327,26 @@
             <tr>
                 <th>Status</th>
                 {% if demandeur.status == "AS" %}
-					<td>Annonceur sentinelle</td>
-				{% elseif demandeur.status == "F" %}
-					<td>Flux</td>
-				{% elseif demandeur.status == "I" %}
-					<td>IRVIN</td>
-				{% elseif demandeur.status == "N" %}
-					<td>Numérique</td>
-				{% elseif demandeur.status == "S" %}
-					<td>Sécurité</td>
-				{% endif %}
+                        <td>Annonceur sentinelle</td>
+                    {% elseif demandeur.status == "F" %}
+                        <td>Flux</td>
+                    {% elseif demandeur.status == "I" %}
+                        <td>IRVIN</td>
+                    {% elseif demandeur.status == "N" %}
+                        <td>Numérique</td>
+                    {% elseif demandeur.status == "S" %}
+                        <td>Sécurité</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Genre</th>
                 {% if demandeur.genre == "H" %}
-					<td>Homme</td>
-				{% elseif demandeur.genre == "F" %}
-					<td>Femme</td>
-				{% else %}
-					<td>Autre</td>
-				{% endif %}
+                        <td>Homme</td>
+                    {% elseif demandeur.genre == "F" %}
+                        <td>Femme</td>
+                    {% else %}
+                        <td>Autre</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Date de naissance</th>
@@ -84,22 +391,22 @@
             <tr>
                 <th>QPV</th>
                 {% if demandeur.QPV %}
-					{% if demandeur.QPVNom == "C" %}
-						<td>Cleunay</td>
-					{% elseif demandeur.QPVNom == "LB" %}
-						<td>Le Blosne</td>
-					{% elseif demandeur.QPVNom == "CM" %}
-						<td>Les Cloteaux/Champs Manceaux</td>
-					{% elseif demandeur.QPVNom == "M" %}
-						<td>Maurepas</td>
-					{% elseif demandeur.QPVNom == "V" %}
-						<td>Villejean</td>
-					{% else %}
-						<td>Oui</td>
-					{% endif %}
-				{% else %}
-					<td>Non</td>
-				{% endif %}
+                        {% if demandeur.QPVNom == "C" %}
+                            <td>Cleunay</td>
+                        {% elseif demandeur.QPVNom == "LB" %}
+                            <td>Le Blosne</td>
+                        {% elseif demandeur.QPVNom == "CM" %}
+                            <td>Les Cloteaux/Champs Manceaux</td>
+                        {% elseif demandeur.QPVNom == "M" %}
+                            <td>Maurepas</td>
+                        {% elseif demandeur.QPVNom == "V" %}
+                            <td>Villejean</td>
+                        {% else %}
+                            <td>Oui</td>
+                        {% endif %}
+                    {% else %}
+                        <td>Non</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Téléphone fixe</th>
@@ -120,30 +427,30 @@
             <tr>
                 <th>Permis de conduire</th>
                 {% if demandeur.permisConduire %}
-					<td>{{ demandeur.typePermisConduire }}</td>
-				{% else %}
-					<td>Non</td>
-				{% endif %}
+                        <td>{{ demandeur.typePermisConduire }}</td>
+                    {% else %}
+                        <td>Non</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Moyen de locomotion</th>
                 {% if demandeur.moyenLocomotion == "Au" %}
-					<td>{{ demandeur.moyenLocomotionAutre }}</td>
-				{% elseif demandeur.moyenLocomotion == "V" %}
-					<td>Voiture</td>
-				{% elseif demandeur.moyenLocomotion == "M" %}
-					<td>Motocyclette</td>
-				{% elseif demandeur.moyenLocomotion == "S" %}
-					<td>Scooter</td>
-				{% elseif demandeur.moyenLocomotion == "V" %}
-					<td>Vélo</td>
-				{% elseif demandeur.moyenLocomotion == "B" %}
-					<td>Bus</td>
-				{% elseif demandeur.moyenLocomotion == "Ac" %}
-					<td>Aucun</td>
-				{% else %}
-					<td>-</td>
-				{% endif %}
+                        <td>{{ demandeur.moyenLocomotionAutre }}</td>
+                    {% elseif demandeur.moyenLocomotion == "V" %}
+                        <td>Voiture</td>
+                    {% elseif demandeur.moyenLocomotion == "M" %}
+                        <td>Motocyclette</td>
+                    {% elseif demandeur.moyenLocomotion == "S" %}
+                        <td>Scooter</td>
+                    {% elseif demandeur.moyenLocomotion == "V" %}
+                        <td>Vélo</td>
+                    {% elseif demandeur.moyenLocomotion == "B" %}
+                        <td>Bus</td>
+                    {% elseif demandeur.moyenLocomotion == "Ac" %}
+                        <td>Aucun</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Identifiant Pôle Emploi</th>
@@ -160,20 +467,20 @@
             <tr>
                 <th>Allocation</th>
                 {% if demandeur.allocation == "Au" %}
-					<td>{{ demandeur.allocationAutre }}</td>
-				{% elseif demandeur.allocation == "ARE" %}
-					<td>ARE</td>
-				{% elseif demandeur.allocation == "ASS" %}
-					<td>ASS</td>
-				{% elseif demandeur.allocation == "RSAa" %}
-					<td>RSA Active</td>
-				{% elseif demandeur.allocation == "RSAs" %}
-					<td>RSA Socle</td>
-				{% elseif demandeur.allocation == "Ac" %}
-					<td>Aucun</td>
-				{% else %}
-					<td>-</td>
-				{% endif %}
+                        <td>{{ demandeur.allocationAutre }}</td>
+                    {% elseif demandeur.allocation == "ARE" %}
+                        <td>ARE</td>
+                    {% elseif demandeur.allocation == "ASS" %}
+                        <td>ASS</td>
+                    {% elseif demandeur.allocation == "RSAa" %}
+                        <td>RSA Active</td>
+                    {% elseif demandeur.allocation == "RSAs" %}
+                        <td>RSA Socle</td>
+                    {% elseif demandeur.allocation == "Ac" %}
+                        <td>Aucun</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Reconnaissance RQTH</th>
@@ -182,24 +489,24 @@
             <tr>
                 <th>Niveau d'étude</th>
                 {% if demandeur.niveauEtude == "SD" %}
-					<td>Sans diplôme</td>
-				{% elseif demandeur.niveauEtude == "CAP" %}
-					<td>CAP</td>
-				{% elseif demandeur.niveauEtude == "BEP" %}
-					<td>BEP</td>
-				{% elseif demandeur.niveauEtude == "Bac" %}
-					<td>Bac</td>
-				{% elseif demandeur.niveauEtude == "BP" %}
-					<td>Bac Pro</td>
-				{% elseif demandeur.niveauEtude == "Bac2" %}
-					<td>Bac +2</td>
-				{% elseif demandeur.niveauEtude == "Bac3" %}
-					<td>Bac +3</td>
-				{% elseif demandeur.niveauEtude == "Bac4" %}
-					<td>Bac +4</td>
-				{% else %}
-					<td>-</td>
-				{% endif %}
+                        <td>Sans diplôme</td>
+                    {% elseif demandeur.niveauEtude == "CAP" %}
+                        <td>CAP</td>
+                    {% elseif demandeur.niveauEtude == "BEP" %}
+                        <td>BEP</td>
+                    {% elseif demandeur.niveauEtude == "Bac" %}
+                        <td>Bac</td>
+                    {% elseif demandeur.niveauEtude == "BP" %}
+                        <td>Bac Pro</td>
+                    {% elseif demandeur.niveauEtude == "Bac2" %}
+                        <td>Bac +2</td>
+                    {% elseif demandeur.niveauEtude == "Bac3" %}
+                        <td>Bac +3</td>
+                    {% elseif demandeur.niveauEtude == "Bac4" %}
+                        <td>Bac +4</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Diplôme professionel</th>
@@ -208,26 +515,26 @@
             <tr>
                 <th>Categorie socio-professionelle</th>
                 {% if demandeur.categorieSocioPro == "O" %}
-					<td>Ouvrier</td>
-				{% elseif demandeur.categorieSocioPro == "Oq" %}
-					<td>Ouvrier qualifié</td>
-				{% elseif demandeur.categorieSocioPro == "E" %}
-					<td>Employé</td>
-				{% elseif demandeur.categorieSocioPro == "Eq" %}
-					<td>Employé qualifié</td>
-				{% elseif demandeur.categorieSocioPro == "AM" %}
-					<td>Agent de maîtrise</td>
-				{% elseif demandeur.categorieSocioPro == "C" %}
-					<td>Cadre</td>
-				{% elseif demandeur.categorieSocioPro == "Cs" %}
-					<td>Cadre supérieur</td>
-				{% elseif demandeur.categorieSocioPro == "A" %}
-					<td>Artisant</td>
-				{% elseif demandeur.categorieSocioPro == "Co" %}
-					<td>Commerçant</td>
-				{% else %}
-					<td>-</td>
-				{% endif %}
+                        <td>Ouvrier</td>
+                    {% elseif demandeur.categorieSocioPro == "Oq" %}
+                        <td>Ouvrier qualifié</td>
+                    {% elseif demandeur.categorieSocioPro == "E" %}
+                        <td>Employé</td>
+                    {% elseif demandeur.categorieSocioPro == "Eq" %}
+                        <td>Employé qualifié</td>
+                    {% elseif demandeur.categorieSocioPro == "AM" %}
+                        <td>Agent de maîtrise</td>
+                    {% elseif demandeur.categorieSocioPro == "C" %}
+                        <td>Cadre</td>
+                    {% elseif demandeur.categorieSocioPro == "Cs" %}
+                        <td>Cadre supérieur</td>
+                    {% elseif demandeur.categorieSocioPro == "A" %}
+                        <td>Artisant</td>
+                    {% elseif demandeur.categorieSocioPro == "Co" %}
+                        <td>Commerçant</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
             </tr>
             <tr>
                 <th>Metier</th>
@@ -252,5 +559,5 @@
                 <input type="submit" value="Delete">
             {{ form_end(delete_form) }}
         </li>
-    </ul>
+    </ul> -->
 {% endblock %}
