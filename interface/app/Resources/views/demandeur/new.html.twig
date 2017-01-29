@@ -16,15 +16,21 @@
                     <div class="inner_header_form shadow">
                         <div class="block_action">
                             <div class="indice_status">
-                                {{ form_label(form.status)}}
+                                <label for="{{ form.status.vars.id }}"
+                                class="{{ form.status.vars.required ? 'required' : '' }} spanMarginRight">
+                                Profil:
+                                </label>
                             </div>
-                            <div class="detail_status">
-                                {{ form_widget(form.status)}}
+                            <div class="detail_status container_select">
+                                {{ form_widget(form.status, {'attr':{'class':'custom_select'}})}}
                             </div>
                         </div>
                         <div class="bloc_form_facien">
                             <div class="indice_facien">
-                                {{ form_label(form.facien) }}
+                                <label for="{{ form.facien.vars.id }}"
+                                class="{{ form.facien.vars.required ? 'required' : '' }} spanMarginRight">
+                                Facien(ne):
+                                </label>
                             </div>
                             <div class="detail_facien">
                                 {{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
@@ -37,27 +43,42 @@
                 <div class="block etat_civil">
                     <div class="block_sub">
 
-                        <div class="bloc_form nom">
-                            {{ form_label(form.nom) }}
-                            {{ form_widget(form.nom,{ 'attr': {'placeholder': "Nom", "class": "testez"}}) }}
+                        <div class="bloc_form prenom margbloc">
+                            {{ form_widget(form.prenom,{ 'attr': {'class': ""}}) }}
+                            <label for="{{ form.prenom.vars.id }}"
+                            class="{{ form.prenom.vars.required ? 'required' : '' }} custom_label ">
+                            Prénom
+                            </label>
+                            <span class="border"></span>
                         </div>
-                        <div class="bloc_form prenom">
-                            {{ form_label(form.prenom) }}
-                            {{ form_widget(form.prenom,{ 'attr': {'placeholder': "Prenom", class:''}}) }}
+                        <div class="bloc_form nom margbloc">
+                            {{ form_widget(form.nom,{ 'attr': {'class': ""}}) }}
+                            <label for="{{ form.nom.vars.id }}"
+                            class="{{ form.nom.vars.required ? 'required' : '' }} custom_label ">
+                            Nom
+                            </label>
+                            <span class="border"></span>
                         </div>
 
-                        <div class="bloc_form genre">
+                        <div class="bloc_form genre margbloc">
                             <div class="indice_genre">
-                                {{ form_label(form.genre) }}
+                                <label for="{{ form.nom.vars.id }}"
+                                class="{{ form.nom.vars.required ? 'required' : '' }}">
+                                Genre:
+                                </label>
                             </div>
                             <div class="detail_genre">
                                 {{ form_widget(form.genre, {'attr':{'class':'custom_select'}}) }}
                             </div>
                         </div>
 
-                        <div class="bloc_form adress_email">
-                            {{ form_label(form.email) }}
-                            {{ form_widget(form.email,{'attr':{'placeholder': "Email"}}) }}
+                        <div class="bloc_form adress_email margbloc">
+                            {{ form_widget(form.email,{ 'attr': {'class': ""}}) }}
+                            <label for="{{ form.email.vars.id }}"
+                            class="{{ form.email.vars.required ? 'required' : '' }} custom_label ">
+                            Adresse email
+                            </label>
+                            <span class="border"></span>
                         </div>
 
                     </div>
@@ -67,7 +88,7 @@
                                 {{ form_label(form.dateNaissance) }}
                             </div>
                             <div class="entry_date">
-                                {{ form_widget(form.dateNaissance,{ 'attr': {'placeholder': "dze"}}) }}
+                                {{ form_widget(form.dateNaissance) }}
                             </div>
                         </div>
                         <div class="bloc_form enfant">
@@ -78,26 +99,34 @@
                                 {{ form_widget(form.enfant) }}
                             </div>
                         </div>
-                        <div class="bloc_form paysN">
-                            {{ form_label(form.paysNaissance) }}
-                            {{ form_widget(form.paysNaissance,{ 'attr': {'placeholder': "Pays de Naissance"}}) }}
+                        <div class="bloc_form paysN margbloc">
+                            {{ form_widget(form.paysNaissance,{ 'attr': {'required':'','class': ""}}) }}
+                            <label for="{{ form.paysNaissance.vars.id }}"
+                            class="{{ form.paysNaissance.vars.required ? 'required' : '' }} custom_label ">
+                            Pays naissance
+                            </label>
+                            <span class="border"></span>
                         </div>
                         <div class="bloc_form deptNaissance disable">
-                            {{ form_label(form.deptNaissance) }}
                             {{ form_widget(form.deptNaissance,{ 'attr': {'placeholder': "Département"}}) }}
+                            {{ form_label(form.deptNaissance) }}
                         </div>
                         <div class="bloc_form villeN disable">
+                            {{ form_widget(form.villeNaissance) }}
                             {{ form_label(form.villeNaissance) }}
-                            {{ form_widget(form.villeNaissance,{ 'attr': {'placeholder': "Ville de naissance"}}) }}
                         </div>
 
                         <div class="bloc_form titreSejour disable">
                             {{ form_label(form.titreSejour) }}
-                            {{ form_widget(form.titreSejour,{ 'attr': {'placeholder': "Nationalité"}}) }}
+                            {{ form_widget(form.titreSejour) }}
                         </div>
-                        <div class="bloc_form nationalite">
-                            {{ form_label(form.nationalite) }}
-                            {{ form_widget(form.nationalite,{ 'attr': {'placeholder': "Nationalité"}}) }}
+                        <div class="bloc_form nationalite margbloc">
+                            {{ form_widget(form.nationalite,{ 'attr': {}}) }}
+                            <label for="{{ form.nationalite.vars.id }}"
+                            class="{{ form.nationalite.vars.required ? 'required' : '' }} custom_label ">
+                            Nationalité
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                 </div>
@@ -108,13 +137,16 @@
                             <div class="inner_header_adresse">
                                 <div class="bloc_form qpv">
                                     <div class="indice_qpv">
-                                        {{ form_label(form.QPV) }}
+                                        <label for="{{ form.QPV.vars.id }}"
+                                        class="{{ form.QPV.vars.required ? 'required' : '' }}">
+                                        Quatier prioritaire de la ville?
+                                    </label>
                                     </div>
                                     <div class="detail_qpv">
-                                        {{ form_widget(form.QPV,{'attr':{'class': 'red'}}) }}
+                                        {{ form_widget(form.QPV,{'attr':{'class': 'inputQPV'}}) }}
                                     </div>
                                 </div>
-                                <div class="bloc_form qpvnom" >
+                                <div class="bloc_form qpvnom child" >
                                     <div class="indice_qpvnom">
                                         {{ form_label(form.QPVNom) }}
                                     </div>
@@ -124,25 +156,45 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bloc_form adresse">
-                            {{ form_label(form.adresse) }}
-                            {{ form_widget(form.adresse,{'attr':{'placeholder': "Adresse"}}) }}
+                        <div class="bloc_form adresse margbloc">
+                            {{ form_widget(form.adresse,{'attr':{}}) }}
+                            <label for="{{ form.adresse.vars.id }}"
+                            class="{{ form.adresse.vars.required ? 'required' : '' }} custom_label ">
+                            Adresse
+                        </label>
+                        <span class="border"></span>
                         </div>
-                        <div class="bloc_form codePostal">
-                            {{ form_label(form.codePostal) }}
+                        <div class="bloc_form codePostal margbloc">
                             {{ form_widget(form.codePostal,{'attr':{}}) }}
+                            <label for="{{ form.codePostal.vars.id }}"
+                            class="{{ form.codePostal.vars.required ? 'required' : '' }} custom_label ">
+                            Code postal
+                            </label>
+                            <span class="border"></span>
                         </div>
-                        <div class="bloc_form ville">
-                            {{ form_label(form.ville) }}
-                            {{ form_widget(form.ville,{'attr':{'placeholder': "Adresse"}}) }}
+                        <div class="bloc_form ville margbloc">
+                            {{ form_widget(form.ville,{'attr':{}}) }}
+                            <label for="{{ form.ville.vars.id }}"
+                            class="{{ form.ville.vars.required ? 'required' : '' }} custom_label ">
+                            Ville
+                            </label>
+                            <span class="border"></span>
                         </div>
-                        <div class="bloc_form telFixe">
-                            {{ form_label(form.telFixe) }}
-                            {{ form_widget(form.telFixe,{'attr':{'placeholder': "Numéro du fixe"}}) }}
+                        <div class="bloc_form telFixe margbloc">
+                            {{ form_widget(form.telFixe,{'attr':{}}) }}
+                            <label for="{{ form.telFixe.vars.id }}"
+                            class="{{ form.telFixe.vars.required ? 'required' : '' }} custom_label ">
+                            Téléphone fixe
+                            </label>
+                            <span class="border"></span>
                         </div>
-                        <div class="bloc_form telPortable">
-                            {{ form_label(form.telPortable) }}
-                            {{ form_widget(form.telPortable,{'attr':{'placeholder': "Numéro du portable"}}) }}
+                        <div class="bloc_form telPortable margbloc">
+                            {{ form_widget(form.telPortable,{'attr':{}}) }}
+                            <label for="{{ form.telPortable.vars.id }}"
+                            class="{{ form.telPortable.vars.required ? 'required' : '' }} custom_label ">
+                            Numéro du portable
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                 </div>
@@ -160,36 +212,60 @@
                                 {{ form_widget(form.permisConduire) }}
                             </div>
                         </div>
-                        <div class="type bloc_form typePermis">
-                            {{ form_label(form.typePermisConduire) }}
+                        <div class="type bloc_form typePermis margbloc">
                             {{ form_widget(form.typePermisConduire) }}
+                            <label for="{{ form.typePermisConduire.vars.id }}"
+                            class="{{ form.typePermisConduire.vars.required ? 'required' : '' }} custom_label ">
+                            Type de permis?
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                     <div class="box_locomotion">
                         <div class="type bloc_form moyenL">
                             <div class="indice_moyenL">
-                                {{ form_label(form.moyenLocomotion) }}
+                                <label for="{{ form.moyenLocomotion.vars.id }}"
+                                class="{{ form.moyenLocomotion.vars.required ? 'required' : '' }} ">
+                                Moy. de transport:
+                                </label>
                             </div>
                             <div class="detail_moyenL">
-                                {{ form_widget(form.moyenLocomotion,{'attr':{'class':'custom_select'}}) }}
+                                <select name="moyenLocomotion"data-width="100%" class="custom_select">
+                                    {% for key,val in form.moyenLocomotion.vars.choices %}
+                                        <option value="{{ val.value }}" {{  form.moyenLocomotion.vars.value == '' and key == 0 ? ' selected ' :(val.value == form.moyenLocomotion.vars.value ? ' selected ' : '') }}>{{ val.label | trans }}</option>
+                                    {% endfor %}
+                                </select>
+                                {#{ form_widget(form.moyenLocomotion,{'attr':{'class':'custom_select'}}) }#}
                             </div>
                         </div>
-                        <div class="type bloc_form autreM">
-                            {{ form_label(form.moyenLocomotionAutre) }}
+                        <div class="type bloc_form autreM margbloc">
                             {{ form_widget(form.moyenLocomotionAutre) }}
+                            <label for="{{ form.moyenLocomotionAutre.vars.id }}"
+                            class="{{ form.moyenLocomotionAutre.vars.required ? 'required' : '' }} custom_label ">
+                            Autre
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                 </div>
                 <h4>Ressource :</h4>
                 <div class="block_sub ressource">
-                    <div class="bloc_form box_ressource">
+                    <div class="bloc_form box_ressource margbloc">
                         <div class="id">
-                            {{ form_label(form.idPoleEmploi) }}
-                            {{ form_widget(form.idPoleEmploi, {'attr':{'placeholder':'id'}}) }}
+                            {{ form_widget(form.idPoleEmploi, {'attr':{}}) }}
+                            <label for="{{ form.idPoleEmploi.vars.id }}"
+                            class="{{ form.idPoleEmploi.vars.required ? 'required' : '' }} custom_label ">
+                            Id. Pôle Emploi
+                            </label>
+                            <span class="border"></span>
                         </div>
                         <div class="referent">
-                            {{ form_label(form.referent) }}
-                            {{ form_widget(form.referent, {'attr':{'placeholder':'id'}}) }}
+                            {{ form_widget(form.referent, {'attr':{}}) }}
+                            <label for="{{ form.referent.vars.id }}"
+                            class="{{ form.referent.vars.required ? 'required' : '' }} custom_label ">
+                            Référent Pôle Emploi
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                     <div class="bloc_form box_ressource">
@@ -213,50 +289,92 @@
                     <div class="bloc_form box_ressource">
                         <div class="alloc">
                             <div class="incide_allo">
-                                {{ form_label(form.allocation) }}
+                                <label for="{{ form.allocation.vars.id }}"
+                                class="{{ form.allocation.vars.required ? 'required' : '' }} ">
+                                Allocation:
+                                </label>
                             </div>
                             <div class="detail_allo">
-                                {{ form_widget(form.allocation,{'attr': {'class':'custom_select'}}) }}
+                                <select name="allocation"data-width="100%" class="custom_select">
+                                    {% for key,val in form.allocation.vars.choices %}
+                                        <option value="{{ val.value }}" {{  form.allocation.vars.value == '' and key == 0 ? ' selected ' :(val.value == form.allocation.vars.value ? ' selected ' : '') }}>{{ val.label | trans }}</option>
+                                    {% endfor %}
+                                </select>
+                                {#{ form_widget(form.allocation,{'attr': {'class':'custom_select'}}) }#}
                             </div>
                         </div>
-                        <div class="allocAutre">
-                            {{ form_label(form.allocationAutre) }}
-                            {{ form_widget(form.allocationAutre, {'attr':{'placeholder':'id'}}) }}
+                        <div class="allocAutre margbloc">
+                            {{ form_widget(form.allocationAutre, {'attr':{}}) }}
+                            <label for="{{ form.allocationAutre.vars.id }}"
+                            class="{{ form.allocationAutre.vars.required ? 'required' : '' }} custom_label ">
+                            Autre allocation
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                     <div class="bloc_form box_ressource">
-                        <div class="structure">
-                            {{ form_label(form.structure) }}
-                            {{ form_widget(form.structure, {'attr':{'placeholder':'id'}}) }}
+                        <div class="structure margbloc">
+                            {{ form_widget(form.structure, {'attr':{}}) }}
+                            <label for="{{ form.structure.vars.id }}"
+                            class="{{ form.structure.vars.required ? 'required' : '' }} custom_label ">
+                            Structure
+                            </label>
+                            <span class="border"></span>
                         </div>
-                        <div class="metier">
-                            {{ form_label(form.metier) }}
-                            {{ form_widget(form.metier, {'attr':{'placeholder':'id'}}) }}
+                        <div class="metier margbloc">
+                            {{ form_widget(form.metier, {'attr':{}}) }}
+                            <label for="{{ form.metier.vars.id }}"
+                            class="{{ form.metier.vars.required ? 'required' : '' }} custom_label ">
+                            Métier
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                 </div>
                 <h4>Formations :</h4>
                 <div class="block formation">
                     <div class="block_sub">
-                        <div class="niveau bloc_form">
-                            <div class="indice_niv">
-                                <span class="custom_label">Niveau d’étude :</span>
+                        <div class="niveau bloc_form ">
+                            <div class="indice_niv font-size: 14px">
+                                <label for="{{ form.niveauEtude.vars.id }}"
+                                class="{{ form.niveauEtude.vars.required ? 'required' : '' }} nivEtlabel">
+                                Niv. d’étude:
+                                </label>
                             </div>
                             <div class="detail_niv">
-                                {{ form_widget(form.niveauEtude,{'attr': {'class':'custom_select'}})}}
+                                <select name="niveauEtude"data-width="100%" class="custom_select">
+                                    {% for key,val in form.niveauEtude.vars.choices %}
+                                        <option value="{{ val.value }}" {{  form.niveauEtude.vars.value == '' and key == 0 ? ' selected ' :(val.value == form.niveauEtude.vars.value ? ' selected ' : '') }}>{{ val.label | trans }}</option>
+                                    {% endfor %}
+                                </select>
+                                {#{ form_widget(form.niveauEtude,{'attr': {'class':'custom_select'}})}#}
                             </div>
                         </div>
-                        <div class="diplome bloc_form">
-                            {{ form_label(form.diplomePro)}}
-                            {{ form_widget(form.diplomePro)}}
-                        </div>
+
                         <div class="cat_socio bloc_form">
                             <div class="indice_cat_socio">
-                                <span class="custom_label">Catégorie socioprofessionnelle :</span>
+                                <label for="{{ form.categorieSocioPro.vars.id }}"
+                                class="{{ form.categorieSocioPro.vars.required ? 'required' : '' }} cpslabel">
+                                CSP:
+                                </label>
                             </div>
                             <div class="detail_cat_socio">
-                                {{ form_widget(form.categorieSocioPro,{'attr': {'class':'custom_select'}})}}
+                                <select name="categorieSocioPro"data-width="100%" class="custom_select">
+                                    {% for key,val in form.categorieSocioPro.vars.choices %}
+                                        <option value="{{ val.value }}" {{  form.categorieSocioPro.vars.value == '' and key == 0 ? ' selected ' :(val.value == form.categorieSocioPro.vars.value ? ' selected ' : '') }}>{{ val.label | trans }}</option>
+                                    {% endfor %}
+                                </select>
+                                {#{ form_widget(form.categorieSocioPro,{'attr': {'class':'custom_select'}})}#}
                             </div>
+                        </div>
+
+                        <div class="diplome bloc_form margbloc">
+                            {{ form_widget(form.diplomePro)}}
+                            <label for="{{ form.diplomePro.vars.id }}"
+                            class="{{ form.diplomePro.vars.required ? 'required' : '' }} custom_label ">
+                            Diplôme professionel
+                            </label>
+                            <span class="border"></span>
                         </div>
                     </div>
                 </div>
@@ -266,9 +384,6 @@
             </a>
         </section>
         <section id="step_two">
-            <a href="#step_one" class="btnFormBack">
-                <span>Étape précédent</span>
-            </a>
             <div class="inner_section">
                 <div class="content">
                     <div class="block_doc bloc_form">
@@ -292,6 +407,11 @@
                                 <input type="submit" value="Create"/>
                             </div>
                         </div>
+                    </div>
+                    <div class="link_back">
+                        <a href="#step_one" class="btnFormBack">
+                            <span>Étape précédent</span>
+                        </a>
                     </div>
                 </div>
             </div>

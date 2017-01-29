@@ -4,44 +4,100 @@ $(document).ready(function(){
     $('.profil_submenu').toggleClass("show");
   });
   $('.menu_item').click(function(){
-    $('.menu_option li').find('.show_submenu').removeClass('show_submenu',1000);
-    $(this).find("div").addClass('show_submenu',1000);
+    $('.menu_option li').find('.show_submenu').removeClass('show_submenu');
+    $(this).find("div").addClass('show_submenu');
   });
+/**
+* Toggle fermer filtre
+**/
 
-  $('.btnFormBack').click(function(){
-      $('html, body').animate();
-      console.log('click');
-  });
-    /*input interactive*/
-/*  $("input").change(function(){
-    console.log('essaie !');*/
-    /*je cherche le parent de cette input et je la stock dans un variable*/
-  /*  var this_parent = $(this).parent('div');
-    console.log(this_parent);*/
-    /*Ensuite je cherche ma valeur label pour l'afficher*/
-/*
-    $(this_parent).find('label').animate({visibility:"visible"}, 1000);
-  });*/
+$('.option_filter i').click(function(){
+    $('.filter_group').show();
+});
+$('.filter_group i').click(function(){
+    $('.filter_group').hide();
+});
 
-function checkedInput(Input){
-    console.log(Input)
-    var checked = "$('"+ Input +"')";
+/**
+*   CHECKBOX
+**/
+var statusCheckBoxPermisC = $("#appbundle_demandeur_permisConduire");
+var statusCheckBoxQpv = $("input[id = appbundle_demandeur_QPV]");
+var statusSelectAllo = $('select[id=appbundle_demandeur_allocation]');
+var statusMoyenLoco = $('select[id=appbundle_demandeur_moyenLocomotion]');
 
-    var tr = checked.attr('id');
+    if(statusCheckBoxPermisC.is(':checked') != true){
+        $('.typePermis').css('visibility','hidden');
+    }
 
-    console.info(tr);
+    if(statusCheckBoxQpv.is(':checked') != true){
+        $('.qpvnom').css('visibility','hidden');
+    }
 
-    if ($checked){
-        console.log("actif");
+    if(statusSelectAllo.val() !== "Au"){
+        $('.allocAutre').css('visibility','hidden');
+    }
+
+    if(statusMoyenLoco.val() !== "Au"){
+        $('.autreM').css('visibility','hidden');
+    }
+
+statusCheckBoxPermisC.change(function(){
+    statusCheckBoxPermisC.is(':checked') == true ? $('.typePermis').css('visibility','visible') : $('.typePermis').css('visibility','hidden');
+});
+
+statusCheckBoxQpv.change(function(){
+    statusCheckBoxQpv.is(':checked') == true ? $('.qpvnom').css('visibility','visible') : $('.qpvnom').css('visibility','hidden');
+});
+
+statusSelectAllo.change(function(){
+    statusSelectAllo.val() == "Au" ? $('.allocAutre').css('visibility','visible') : $('.allocAutre').css('visibility','hidden');
+});
+
+statusMoyenLoco.change(function(){
+    statusMoyenLoco.val() == "Au" ? $('.autreM').css('visibility','visible') : $('.autreM').css('visibility','hidden');
+});
+
+/**
+*   END CHECKBOX
+**/
+var $input = $('input[type=text]');
+
+$input
+
+    .each(function(){
+        let valeur = $(this).val();
+    if( valeur.length > 0 ){
+        console.log('charged');
+        $(this).addClass('input_touched');
     }
     else{
-
-        console.log('inactif');
+        console.log('decharged');
+        $(this).removeClass('input_touched');
     }
-}
-  $('input[type=checkbox]').click(function(){
-      checkedInput('input[type=checkbox]');
-  });
+    })
+    .focus(function(){
+        $(this).addClass('input_touched');
+    })
+    .blur(function(){
+        let valeurOut = $(this).val()
+        console.log(valeurOut)
+        if(valeurOut === ''){
+            $(this).removeClass('input_touched');
+        }
+
+    })
+
+// $input.on('ready keydown keyup focus blur', function() {
+//     if($(this).val() != '') {
+//         $(this).addClass('input_touched');
+//     } else{
+//         $(this).removeClass('input_touched');
+//     }
+// });
+// $input.on('ready keyup blur', function() {
+//    $(this).addClass('input_touched');
+// });
 
 /* Effect select block search item */
 

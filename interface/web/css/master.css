@@ -64,9 +64,12 @@ h5{
 }
 [type="text"], #login_session [type="password"]{
   width: 100%;
-  height: 41.54px;
-  border: 2px solid #FFF;
+  height: 43px;
+    padding: 5px 10px 5px 5px;
+  border: none;
+  border-bottom: 1px solid #d9D9D9;
   background-color: transparent;
+  font-size: 13px;
 }
 #login_session [type="submit"]{
   width: 100%;
@@ -136,7 +139,7 @@ h5{
 }
 .status span{
   color: #ED9767;
-  font-size: 14px;
+  font-size: 13px;
   font-family: inherit;
 }
 .profil_submenu{
@@ -144,7 +147,7 @@ h5{
   justify-content: start;
   height: 0px;
   margin-top: 13px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 300;
   background-color: #15696F;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25) inset;
@@ -235,10 +238,9 @@ h5{
   display: flex;
   flex-wrap: wrap;
   background-color: #FFF;
-  color: #BDBDBD;
+/*   color: #BDBDBD; */
   width: 100%;
   box-shadow: 0px 1px 2px #c4c4c4;
-  font: 14px 'Roboto', sans-serif;
   margin-bottom: 4px;
   padding: 5px 15px;
   background: #FFF;
@@ -253,25 +255,24 @@ h5{
   display: none;
 }*/
 .bloc_form{
-  height: 46px;
+/*   height: 46px; */
 }
-.nom{
-  width: 40%;
-}
-.prenom{
-  width: 60%;
+/* MARGIN_BLOCK_FORM*/
+
+.margbloc{
+    margin-top: 19px;
 }
 
+.paysN,.nationalite,.nom,.prenom{
+  width: 45%;
+}
 .adress_email{
-  width: 69.30%;
-  min-width: 350px;
+    width: 66%;
+}
+.paysN,.prenom{
+  margin-right: 30px;
 }
 
-.genre{
-  width: 29%;
-  font-size: 0;
-  padding-top: 20px;
-}
 
 .detail_genre{
   width: 60%;
@@ -287,16 +288,36 @@ h5{
   text-align: center;
   font-style: oblique;
 }
+
+.custom_select, .genre select{
+    padding: 5px;
+    font-size: 13px;
+}
+
 .autorisationTravail, .rqth{
     width: 100%;
 }
+
 .detail_cat_socio,.indice_cat_socio,.indice_niv, .detail_niv,.incide_allo, .detail_allo, .detail_autorisationTr,.indice_autorisationTr,.detail_rqth, .indice_rqth, .detail_permisC,.indice_permisC,.detail_moyenL ,.indice_moyenL,.indice_genre,.detail_genre{
   display: inline-block;
 }
-.cat_socio, .niveau,.incide_allo,.indice_autorisationTr, .indice_rqth,.indice_permisC,.detail_moyenL,.indice_moyenL{
+.cat_socio, .niveau,.indice_autorisationTr, .indice_rqth{
     padding-top: 22px;
 }
 
+.moyenL{
+    padding-top: 6px;
+    margin-top: 19px;
+}
+
+.indice_permisC{
+    padding-top: 9px;
+    margin-top: 19px;
+}
+
+.niveau{
+    margin-right: 18px;
+}
 .indice_permisC label:after{
     content: '?';
     font-size: 13px;
@@ -305,15 +326,14 @@ h5{
     width: 80%;
     font-size: 0;
 }
-.incide_allo label,.indice_autorisationTr label, .indice_rqth label, .indice_moyenL label,.indice_permisC label,.indice_genre label{
+.cpslabel, .nivEtlabel,.incide_allo label,.indice_autorisationTr label, .indice_rqth label, .indice_moyenL label,.indice_permisC label{
   font-size: 13px!important;
   font-weight: 400;
   color: #828282!important;
 }
 
-.naissance{
-  font-size: 0;
-  padding-top: 22px;
+.enfant, .naissance{
+  padding-top: 5px;
 }
 
 .indice_date{
@@ -334,21 +354,21 @@ h5{
 }
 
 .naissance select{
-  border: none;
-  background-color: transparent;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  text-align: center;
+    font-size: 13px;
+    border: none;
+    background-color: #F2F2F2;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    text-align: center;
 }
 .deptNaissance{
 
 }
 .ville{
-  display: inline-block;
-  width: 165px;
-  margin-left: 8px;
-  width: 165px;
+    display: inline-block;
+    width: 205px;
+    margin-left: 8px;
 }
 
 .codePostal{
@@ -356,12 +376,7 @@ h5{
   margin-left: 8px;
 }
 
-.paysN{
-
-}
 .enfant{
-  font-size: 0;
-  padding-top: 22px;
   margin-left: 20px;
 }
 
@@ -377,7 +392,7 @@ h5{
 }
 
 .enfant label{
-  font-size: 14px !important;
+  font-size: 13px !important;
   font-weight: 400;
   color: #828282!important;
 }
@@ -386,8 +401,48 @@ h5{
   content:':';
 }
 
-.custom_label, .custom_select{
-  font-size: 13px !important;
+.bloc_form{
+    position: relative;
+}
+.custom_label{
+    position: absolute;
+    top: 8px;
+    left: 5px;
+    pointer-events:none;
+    font-size: 13px;
+    transition: 0.2s ease all;
+}
+.border{
+    display: block;
+    width: 0%;
+}
+
+.border::before,.border::after{
+    content:'';
+    position: absolute;
+    height: 3px;
+    width: 0%;
+    background-color: #ED9767;
+    transition:0.2s ease all;
+    bottom: -1px;
+}
+
+.border:before{
+    left: 50%;
+}
+.border:after{
+    right: 50%;
+}
+
+input:focus ~ .border:before, input:focus ~ .border:after {
+  width:50%;
+}
+
+.input_touched ~ label {
+    top: -19px;
+    font-size: 11px;
+    color: #ED9767;
+    transition: 0.2s ease all;
 }
 
 .custom_select{
@@ -401,14 +456,10 @@ h5{
 }
 
 .inner_header_adresse{
-  display: flex;
-  justify-content: space-around;
-  width: 70%;
-  margin: 0 auto;
-}
-
-.indice_qpv, .detail_qpv{
-  display: inline-block;
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .inline{
@@ -429,28 +480,22 @@ h5{
   color: #828282 !important;
 }
 
-.nationalite{
-  padding-left: 14px;
-}
 .content_dashboard label{
   display: block;
-  color: #24888F;
-  font-size: 10px;
-  /*padding-left: 15px;*/
-  height: calc(100% - 58.70%);
+/*  color: #24888F;
+ padding-left: 15px;
+ height: calc(100% - 58.70%); */
   line-height: 20px;
 }
 .content_dashboard [type='text']{
-  height: 58.70%;
+ /*  height: 58.70%; */
 /*  padding-left: 13px;*/
   color: #828282;
 }
 
 .mobilite{
-  color: #BDBDBD;
   width: 100%;
   box-shadow: 0px 1px 2px #c4c4c4;
-  font: 14px 'Roboto', sans-serif;
   margin-bottom: 4px;
   background: #FFF;
   padding: 5px 15px;
@@ -516,52 +561,47 @@ h5{
 .bloc_description{
   width: 100%;
 }
-.register_flux label{
-  visibility: visible;
-}
+
 
 .qpv{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .qpvnom{
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  visibility: visible;
-  transition: 0.25s;
+
 }
 
-.detail_qpv, .detail_qpvnom{
-  padding-top: 22px;
+.visibility{
+visibility: visible;
 }
+
 
 .indice_qpv, .indice_qpvnom{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 12px;
 }
 .indice_qpv label, .indice_qpvnom label{
-  margin-top: 20px;
-  font-size: 13px !important;
-  color: #828282 !important;
+  font-size: 13px;
+  color: #828282;
 }
 
 .indice_qpvnom label:after{
   content: ':';
 }
 
-.qpvnom select{
-
+/* .qpvnom select{
+    text-align: center;
   border: none;
   border-bottom: 1px solid #c4c4c4;
   background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
+} */
 
 .ShowBox{
   visibility: visible;
@@ -575,15 +615,18 @@ h5{
   margin-top: 10%;
 }
 
+.inner_block_search{
+    position: relative;
+}
+
 .search{
   flex-direction: column;
   justify-content: center;
-  display: flex;
+  display: inline-block;
   width: 405px;
   height: 46px;
   background-color: #E0E0E0;
   padding-left: 10px;
-  margin: 0 auto;
 }
 .search form{
   display: flex;
@@ -610,6 +653,16 @@ h5{
   background-color: transparent;
   border: none;
 }
+
+.custom_select_filter{
+    padding: 5px 5px 0 5px;
+    border: 0;
+    border-bottom: 1px dashed #C0C0C0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 .filter_by{
   height: 100%;
   background: #FFF;
@@ -646,24 +699,86 @@ h5{
 }
 
 /* filter_ */
+.box_search{
+    display: table;
+    margin: 0 auto;
+    position: relative;
+    height: 46px;
+    font-size: 0px;
+}
+.option_filter{
+    height: 46px;
+    display: inline-block;
+    font-size: 13px;
+    vertical-align: top;
+    text-align: center;
+    line-height: 46px;
+    margin-left: 30px;
+}
+
+.option_filter i{
+    font-size: 30px;
+    line-height: inherit;
+    color: #828282;
+    cursor: pointer;
+}
 
 .filter_group{
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;/* À enléver*/
-  height: 44.5px;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 60%;
+    position: absolute;
+    right: 20%;
+    background-color: #FFF;
+    box-shadow: 0 1px 10px 0 #c0c0c0;
+    padding: 15px;
+}
+
+.filter_group i{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.filter_group:after{
+    content: '';
+    border-bottom: 14px solid #FFF;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    position: absolute;
+    top: -14px;
+    right: 56px;
 }
 
 .blfilter{
-    width: 160px;
+    display: table;
+    position: relative;
+    margin: 5px;
+    /* width: 160px;
     height: 100%;
     background-color: #FFFFFF;
     display: flex;
     align-content: center;
     padding: 0 10px;
     padding-top: 20px;
-    position: relative;
+    position: relative; */
+}
+
+.blfilter label{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 12px;
+    margin-right: 0px;
+    padding-right: 10px;
+}
+
+.blfilter select{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    min-width: 58px;
 }
 
 /* ROW SEARCH */
@@ -688,9 +803,10 @@ h5{
 }
 
 .filter_block{
-    padding-top: 60px;
+    /* padding-top: 60px;
     margin-bottom: 70px;
-    display: none;
+    display: block; */
+    /* position: absolute; */
 }
 
 .box{
@@ -734,7 +850,7 @@ h5{
   color: #BDBDBD;
   min-height: 36px;
   height: 100%;
-  font-size: 14px;
+  font-size: 13px;
   border-bottom: 1px solid #c0c0c0;
   transition: 0.25s;
 }
@@ -792,8 +908,14 @@ div.group_detail:last-of-type{
 }
 
 .genre{
-  margin-top: 1px;
-  font-weight: bolder;
+    width: 29%;
+    font-size: 13px;
+    padding-top: 6px;
+}
+
+.container_select{
+    font-size: 13px;
+    padding-top: 1px;
 }
 
 .mail{
@@ -803,7 +925,9 @@ div.group_detail:last-of-type{
 .group_detail > span{
   line-height: 41px;
 }
-
+.spanMarginRight{
+    margin-right: 10px;
+}
 .option_items{
   display: flex;
   flex-direction: row;
@@ -855,13 +979,8 @@ div.group_detail:last-of-type{
   margin: 0 auto;
 }
 
-.blfilter > label{
-    display: inline-block;
-    width: 50px;
-    font-size: 12px;
-    color: #828282;
-}
-.blfilter > select{
+
+/* .blfilter > select{
     display: inline-block;
     width: 64%;
     border: 0;
@@ -880,24 +999,24 @@ div.group_detail:last-of-type{
     background-color: #ffffff;
     border:0px;
     outline:0px;
-}
+} */
 
 .blfilter:after{
     content: '\f0dd';
     position: absolute;
     font-size: 10px;
     font-family: "FontAwesome";
-    bottom: 13px;
-    right: 12px;
+    bottom: 4px;
+    right: 3px;
     z-index: 1;
     color: #C4C4C4;
 }
 
-.form_filter{
+/* .form_filter{
     overflow: hidden;
     height: 0px;
     transition: 0.25s;
-}
+} */
 .show_filter{
     /*height: 60px;*/
     height: 100px;
@@ -937,16 +1056,18 @@ div.group_detail:last-of-type{
 
 
 .container_registerUser{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
 }
 
 .container_registerUser .inner_container{
-  width: 55%;
-  margin: 0 auto;
-  padding: 25px 60px;
-  background: white;
+    width: 55%;
+    margin: 0 auto;
+    padding: 25px 60px;
+    background: white;
+    max-width: 560px;
 }
 
 .box_user_form:first-child{
@@ -1124,7 +1245,7 @@ div.group_detail:last-of-type{
 .box_email input, .box_password input  {
     height: 35px;
     width: 40%;
-    font-size: 14px;
+    font-size: 13px;
     border: none;
     margin-left: 10px;
     color: #BDBDBD;
@@ -1137,7 +1258,7 @@ div.group_detail:last-of-type{
 
 .box_email p{
     color: ;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .box_email p span{
@@ -1277,7 +1398,7 @@ div.group_detail:last-of-type{
     text-transform: capitalize;
 }
 .section p {
-    font-size: 14px;
+    font-size: 13px;
 }
 .disable{
     display: none;
@@ -1314,28 +1435,20 @@ div.group_detail:last-of-type{
 }
 
 .inner_header_form{
-  background-color: #FFF;
-  width: 30%;
-  padding: 15px 15px;
-  margin-bottom: 15px;
-  min-width: 285px;
+    background-color: #FFF;
+    width: 100%;
+    padding: 15px 15px;
+    margin-bottom: 15px;
+    min-width: 285px;
+    display: flex;
+    justify-content: space-around;
 }
 
 .block_action,.bloc_form_facien{
-  display: block;
-  font-size: 0px;
-}
-
-.block_action{
-  margin-bottom: 15px;
-}
-
-.indice_status,.indice_facien{
-  display: inline-block;
-  font-size: 13px;
-}
-.indice_status,.indice_facien{
-  width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    /* height: 43px; */
 }
 
 .indice_facien label, .indice_status label{
@@ -1343,28 +1456,27 @@ div.group_detail:last-of-type{
   color: #828282;
 }
 
-.detail_status,.detail_facien{
-  display: inline-block;
+.detail_facien{
+    width: 180px;
 }
-
-.detail_status,.detail_facien{
-  width: 65%;
-  text-align: center;
-}
-
 .detail_facien input{
-  width: 100%;
-text-align: center;
+    width: 100%;
+    text-align: center;
+    background-color: #F2f2f2;
+    border-bottom-style: dashed;
 }
 
-.detail_status select{
-  border: none;
-  border-bottom: 1px solid #000;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  font-style: oblique;
+.qpvnom select{
+    font-size: 13px;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid #000;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    font-style: oblique;
+    text-align: center;
 }
 
 /* Pagination Liste */
@@ -1409,7 +1521,7 @@ height: 100%;
 #step_one h4{
     margin-bottom: 10px;
     color: #828282;
-    font-size: 14px;
+    font-size: 13px;
     padding-left: 20px;
     font-weight: normal;
     text-transform: uppercase;
@@ -1418,6 +1530,13 @@ height: 100%;
 #step_two{
     padding-top: 2px;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.link_back{
+    width: 100%;
 }
 
 .inner_section{
@@ -1461,6 +1580,7 @@ height: 100%;
 
 .block_doc{
     width: 40%;
+    max-height: 145px;
 }
 
 .block_compte_rendu{
@@ -1536,9 +1656,10 @@ height: 56px; */
 }
 
 .btnFormNext:after{
-    content: '\f107';
+    content: '\f105';
     position: absolute;
-    right: calc(50% - 10.25px);
+    top: 16px;
+    right: -17px;
     font-family: FontAwesome;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -1548,10 +1669,10 @@ height: 56px; */
     font-size: 32px;
 }
 .btnFormBack:before{
-    content: '\f106';
+    content: '\f104';
     position: absolute;
-    right: calc(50% - 10.25px);
-    bottom: 13px;
+    left: -17px;
+    top: 16px;
     font-family: FontAwesome;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
@@ -1594,31 +1715,31 @@ height: 56px; */
 
 @keyframes bounceEffectUp {
     0% {
-        -webkit-transform: translateY(0px);
-        transform: translateY(0px);
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
     }
     50% {
-        -webkit-transform: translateY(-6px);
-        transform: translateY(-6px);
+        -webkit-transform: translateX(-6px);
+        transform: translateX(-6px);
     }
     100% {
-        -webkit-transform: translateY(0px);
-        transform: translateY(0px);
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
     }
 }
 
 @keyframes bounceEffectDown {
     0% {
-        -webkit-transform: translateY(0px);
-        transform: translateY(0px);
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
     }
     50% {
-        -webkit-transform: translateY(6px);
-        transform: translateY(6px);
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
     }
     100% {
-        -webkit-transform: translateY(0px);
-        transform: translateY(0px);
+        -webkit-transform: translateX(0px);
+        transform: translateX(0px);
     }
 }
 
@@ -1641,7 +1762,7 @@ height: 56px; */
     background-color: #ED9767;
     height: 35px;
     width: 170px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 32px;
     text-align: center;
     /* font-weight: 700; */
@@ -1667,7 +1788,7 @@ height: 56px; */
     width: 100%;
     margin: 0 auto;
     display: flex;
-    padding: 40px 50px;
+    padding: 4px 50px;
     background-color: #FFF;
     position: relative;
 }
@@ -1694,9 +1815,6 @@ height: 56px; */
     width: 50%;
     height: 100%;
 }
-.identity{
-
-}
 
 .identity_demandeur{
     display: block;
@@ -1706,7 +1824,7 @@ height: 56px; */
 
 .info_demandeur{
     text-align: center;
-    font-size: 13px;
+    font-size: 11px;
 }
 
 .info_demandeur span{
@@ -1730,7 +1848,7 @@ height: 56px; */
 }
 
 .show_etat_civile, .show_formation, .show_coordonnee{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border-bottom: 1px dashed #c6c6c6;
     padding-bottom: 10px;
 }
@@ -1763,16 +1881,21 @@ h5{
 
 .container_data{
     display: flex;
-    margin: 5px 10px;
+    margin: 3px 10px;
     justify-content: space-between;
 }
 .sized{
-    width: 136px;
+    width: 105px;
 }
 .colored{
     color: #ED9767;
     font-weight: 400;
 }
+
+.inputQPV{
+    margin-top: 8px;
+}
+
 .text_right{
     text-align: right;
     font-weight: 300;
@@ -1801,12 +1924,12 @@ h5{
 .demandeur_status{
     margin: 0 auto;
     /* height: 45%; */
-    height: 42.5%;
+    height: 37.5%;
 }
 
 .demandeur_status h1{
     text-align: center;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 200;
     color: #828282;
     margin-bottom: 5px;
@@ -1846,8 +1969,30 @@ h5{
     padding: 15px;
     height: 200px;
     overflow-y: scroll;
-    font-size: 14px;
+    font-size: 13px;
     text-align: justify;
+}
+.metier,.structure,.allocAutre,.id, .referent{
+    position: relative;
+}
+
+.structure{
+    margin-right: 30px;
+}
+
+.alloc{
+    padding-top: 9px;
+    margin-top: 15px;
+    margin-right: 30px
+}
+
+.allocAutre{
+    width: 163px;
+}
+
+.id{
+    max-width: 135px;
+    margin-right: 30px;
 }
 
 .show_compte_rendu_detail p{
@@ -1927,4 +2072,25 @@ h5{
 }
 .show_coordonnee_detail li:last-child{
     padding-left: 21px;
+}
+/* Input */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+    background-color: #F2F2F2;
+    font-size: 13px;
+}
+
+.detail_allo select{
+    padding-bottom: 6px;
+}
+
+.vich-file input{
+    cursor: pointer;
 }

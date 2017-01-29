@@ -22,12 +22,12 @@ class DemandeurType extends AbstractType
 					'label' => 'Nom*',))
 				->add('status', null, array(
 					'translation_domain' => false,
-					'label' => 'Type de profil:',))
+					'label' => 'Profil',))
 				->add('genre', null, array(
 					'translation_domain' => false,
 					'label' => 'Genre',))
 				->add('dateNaissance', 'birthday', array(
-					'format' => 'dd MMMM yyyy',
+					'format' => 'dd.MMMM.yyyy',
 					'widget' => 'choice',
 					'years' => range(date('Y'), date('Y')-100),
 					'translation_domain' => false,

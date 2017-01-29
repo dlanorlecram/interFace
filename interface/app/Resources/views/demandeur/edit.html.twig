@@ -2,410 +2,401 @@
 
 {% block job_hunter %}
 
-            <div class="form_newflux">
+{{ form_start(edit_form, {'attr': { 'class':'form_flux','ng-controller':'effect' }}) }}
+    <section id="step_one" class= "register_flux">
 
-                <h1 class="titrePage">Ajouter un demandeur d'emploi</h1>
 
-                {{ form_start(edit_form) }}                
-                <div class="NewFlux">
+        <div class="column_1 ">
 
-                <!-- Colonne Gauche du Formulaire -->
-
-                <div class="formLeft">
-                
-                    <!--photo-->
-                    <div class="photo_edit fallback">
-                        {{ form_widget(edit_form.imageFile) }}
-                    </div>
-                    <!-- Titre Etat Civil-->
-                    <h3 class="titreForm">Etat Civil</h3>
-
-                    <!--nom-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.nom) }}
+            <h1 style='display: none'>Demandeur creation</h1>
+            <div class="header_form">
+                <h4>Action :</h4>
+                <div class="inner_header_form shadow">
+                    <div class="block_action">
+                        <div class="indice_status">
+                            <label for="{{ edit_form.status.vars.id }}"
+                            class="{{ edit_form.status.vars.required ? 'required' : '' }} spanMarginRight">
+                            Profil:
+                            </label>
                         </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.nom) }}
+                        <div class="detail_status container_select">
+                            {{ form_widget(edit_form.status, {'attr':{'class':'custom_select'}})}}
                         </div>
                     </div>
-
-                    <!--prénom-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.prenom) }}
+                    <div class="bloc_form_facien">
+                        <div class="indice_facien">
+                            <label for="{{ edit_form.facien.vars.id }}"
+                            class="{{ edit_form.facien.vars.required ? 'required' : '' }} spanMarginRight">
+                            Facien(ne):
+                            </label>
                         </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.prenom) }}
+                        <div class="detail_facien">
+                            {{ form_widget(edit_form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>État civile :</h4>
+            <div class="block etat_civil">
+                <div class="block_sub">
+
+                    <div class="bloc_form prenom margbloc">
+                        {{ form_widget(edit_form.prenom,{ 'attr': {'class': ""}}) }}
+                        <label for="{{ edit_form.prenom.vars.id }}"
+                        class="{{ edit_form.prenom.vars.required ? 'required' : '' }} custom_label ">
+                        Prénom
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                    <div class="bloc_form nom margbloc">
+                        {{ form_widget(edit_form.nom,{ 'attr': {'class': ""}}) }}
+                        <label for="{{ edit_form.nom.vars.id }}"
+                        class="{{ edit_form.nom.vars.required ? 'required' : '' }} custom_label ">
+                        Nom
+                        </label>
+                        <span class="border"></span>
+                    </div>
+
+                    <div class="bloc_form genre margbloc">
+                        <div class="indice_genre">
+                            <label for="{{ edit_form.nom.vars.id }}"
+                            class="{{ edit_form.nom.vars.required ? 'required' : '' }}">
+                            Genre:
+                            </label>
+                        </div>
+                        <div class="detail_genre">
+                            {{ form_widget(edit_form.genre, {'attr':{'class':'custom_select'}}) }}
                         </div>
                     </div>
 
-                    <!--genre-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.genre) }}
+                    <div class="bloc_form adress_email margbloc">
+                        {{ form_widget(edit_form.email,{ 'attr': {'class': ""}}) }}
+                        <label for="{{ edit_form.email.vars.id }}"
+                        class="{{ edit_form.email.vars.required ? 'required' : '' }} custom_label ">
+                        Adresse email
+                        </label>
+                        <span class="border"></span>
+                    </div>
+
+                </div>
+                <div class="block_sub">
+                    <div class="bloc_form naissance">
+                        <div class="indice_date">
+                            {{ form_label(edit_form.dateNaissance) }}
                         </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.genre) }}
+                        <div class="entry_date">
+                            {{ form_widget(edit_form.dateNaissance) }}
                         </div>
-                    </div> 
-
-                     <!--status-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.status) }}
-                        {{ form_widget(edit_form.status) }}
-                    </div> 
-
-                    <!--Référent FACE-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.facien) }}
-		                {{ form_widget(edit_form.facien, { 'attr': {'disabled':true, 'value':user, class:'' }}) }}
                     </div>
-                
-                    <!--Tranche d'age-->
-                    {#<div class="form-group">
-                        <select class="form-control selectpicker" title="Tranche d'âge">
-                            <option>Moins de 25 ans</option>
-                            <option>Entre 25 et 49 ans</option>
-                            <option>50 ans et plus</option>
-                        </select>
-                    </div>#}
-
-                    <!--Date de naissance-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.dateNaissance) }}
-                        {{ form_widget(edit_form.dateNaissance) }}
+                    <div class="bloc_form enfant">
+                        <div class="indice_enfant">
+                            {{ form_label(edit_form.enfant) }}
+                        </div>
+                        <div class="entry_enfant">
+                            {{ form_widget(edit_form.enfant) }}
+                        </div>
                     </div>
-
-                    <!--Ville de naissance-->
-                    <div class="form-group disable">
-                        {{ form_label(edit_form.villeNaissance) }}
-                        {{ form_widget(edit_form.villeNaissance) }}
+                    <div class="bloc_form paysN margbloc">
+                        {{ form_widget(edit_form.paysNaissance,{ 'attr': {'required':'','class': ""}}) }}
+                        <label for="{{ edit_form.paysNaissance.vars.id }}"
+                        class="{{ edit_form.paysNaissance.vars.required ? 'required' : '' }} custom_label ">
+                        Pays naissance
+                        </label>
+                        <span class="border"></span>
                     </div>
-
-                    <!--Dépt. de naissance-->
-                    <div class="form-group disable">
+                    <div class="bloc_form deptNaissance disable">
+                        {{ form_widget(edit_form.deptNaissance,{ 'attr': {'placeholder': "Département"}}) }}
                         {{ form_label(edit_form.deptNaissance) }}
-                        {{ form_widget(edit_form.deptNaissance) }}
+                    </div>
+                    <div class="bloc_form villeN disable">
+                        {{ form_widget(edit_form.villeNaissance) }}
+                        {{ form_label(edit_form.villeNaissance) }}
                     </div>
 
-                    <!--Pays de naissance-->
-                    <div class="form-group disable">
-                        {{ form_label(edit_form.paysNaissance) }}
-                        {{ form_widget(edit_form.paysNaissance) }}
-                    </div>
-
-                    <!--Nationalité-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.nationalite) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.nationalite) }}
-                        </div>
-                    </div>
-
-                    <!--Titre de séjour-->
-                    <div class="form-group disable">
+                    <div class="bloc_form titreSejour disable">
                         {{ form_label(edit_form.titreSejour) }}
                         {{ form_widget(edit_form.titreSejour) }}
                     </div>
-
-                    <!--Autorisation de travailler-->
-                    <div class="form-group disable">
-                        {{ form_label(edit_form.autorisationTravail) }}
-                        {{ form_widget(edit_form.autorisationTravail) }}
+                    <div class="bloc_form nationalite margbloc">
+                        {{ form_widget(edit_form.nationalite,{ 'attr': {}}) }}
+                        <label for="{{ edit_form.nationalite.vars.id }}"
+                        class="{{ edit_form.nationalite.vars.required ? 'required' : '' }} custom_label ">
+                        Nationalité
+                        </label>
+                        <span class="border"></span>
                     </div>
+                </div>
+            </div>
 
-                    <!--Nombre d'enfants-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.enfant) }}
-                        {{ form_widget(edit_form.enfant) }}
-                    </div>
-
-                </div> <!-- End Colonne Gauche du Formulaire -->
-
-
-
-                <!-- Colonne de milieu du Formulaire -->
-                <div class="formLeft">
-
-                    <!-- Titre Coordonnées-->
-                    <h3 class="titreForm col-lg-12 col-md-12">Coordonnées</h3>
-
-                    <!--Adresse-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.adresse) }}
-                        {{ form_widget(edit_form.adresse) }}
-                    </div>
-
-
-                    <!--Code postale-->
-                    <div class="form-group disable">
-                        {{ form_label(edit_form.codePostal) }}
-                        {{ form_widget(edit_form.codePostal) }}
-                    </div>
-
-
-                    <!--Ville-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.ville) }}
-                        {{ form_widget(edit_form.ville) }}
-                    </div>
-
-
-                    <!--Tél mobile-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.telPortable) }}
-                        {{ form_widget(edit_form.telPortable) }}
-                    </div>
-
-
-                    <!--Tél fixe-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.telFixe) }}
-                        {{ form_widget(edit_form.telFixe) }}
-                    </div>
-
-
-                    <!--Email-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.email) }}
-                        {{ form_widget(edit_form.email) }}
-                    </div>
-
-
-                    <!-- Telecharger un document-->
-                   <!-- <div class="form-group">
-                        <label for="uploadFile">Télécharger un document</label>
-                        <input type="file" id="uploadFile">
-                    </div>-->
-
-
-                    <!-- Titre Ressources-->
-                    <h3 class="titreForm">Ressources</h3>
-
-                    <!--ID poleEmploi-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.idPoleEmploi) }}
-                        {{ form_widget(edit_form.idPoleEmploi) }}
-                    </div>
-
-
-                    <!--Référent P-E-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.referent) }}
-                        {{ form_widget(edit_form.referent) }}
-                    </div>
-
-                    <!--Structure-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.structure) }}
-                        {{ form_widget(edit_form.structure) }}
-                    </div>
-
-
-
-                    <!--Allocations-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.allocation) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.allocation) }}
+            <div class="block coordonne">
+                <div class="block_sub">
+                    <div class="header_adresse">
+                        <div class="inner_header_adresse">
+                            <div class="bloc_form qpv">
+                                <div class="indice_qpv">
+                                    <label for="{{ edit_form.QPV.vars.id }}"
+                                    class="{{ edit_form.QPV.vars.required ? 'required' : '' }}">
+                                    Quatier prioritaire de la ville?
+                                </label>
+                                </div>
+                                <div class="detail_qpv">
+                                    {{ form_widget(edit_form.QPV,{'attr':{'class': 'inputQPV'}}) }}
+                                </div>
+                            </div>
+                            <div class="bloc_form qpvnom child" >
+                                <div class="indice_qpvnom">
+                                    {{ form_label(edit_form.QPVNom) }}
+                                </div>
+                                <div class="detail_qpvnom">
+                                    {{ form_widget(edit_form.QPVNom,{'attr':{'placeholder': "Quatier"}}) }}
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-
-                    <!--si autre allocation-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.allocationAutre) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.allocationAutre) }}
-                        </div>
+                    <div class="bloc_form adresse margbloc">
+                        {{ form_widget(edit_form.adresse,{'attr':{}}) }}
+                        <label for="{{ edit_form.adresse.vars.id }}"
+                        class="{{ edit_form.adresse.vars.required ? 'required' : '' }} custom_label ">
+                        Adresse
+                    </label>
+                    <span class="border"></span>
                     </div>
-
-
-                    <!--RQTH-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.rqth) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.rqth) }}
-                        </div>
+                    <div class="bloc_form codePostal margbloc">
+                        {{ form_widget(edit_form.codePostal,{'attr':{}}) }}
+                        <label for="{{ edit_form.codePostal.vars.id }}"
+                        class="{{ edit_form.codePostal.vars.required ? 'required' : '' }} custom_label ">
+                        Code postal
+                        </label>
+                        <span class="border"></span>
                     </div>
-
-
-                    <!--QPV-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.QPV) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.QPV) }}
-                        </div>
+                    <div class="bloc_form ville margbloc">
+                        {{ form_widget(edit_form.ville,{'attr':{}}) }}
+                        <label for="{{ edit_form.ville.vars.id }}"
+                        class="{{ edit_form.ville.vars.required ? 'required' : '' }} custom_label ">
+                        Ville
+                        </label>
+                        <span class="border"></span>
                     </div>
-
-                    <!--Nom QPV-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.QPVNom) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.QPVNom) }}
-                        </div>
+                    <div class="bloc_form telFixe margbloc">
+                        {{ form_widget(edit_form.telFixe,{'attr':{}}) }}
+                        <label for="{{ edit_form.telFixe.vars.id }}"
+                        class="{{ edit_form.telFixe.vars.required ? 'required' : '' }} custom_label ">
+                        Téléphone fixe
+                        </label>
+                        <span class="border"></span>
                     </div>
-
-                </div><!-- End Colonne milieu du Formulaire -->
-
-                <!-- Colonne de droite du Formulaire -->               
-                <div class="formLeft">
-                    <!-- Titre Formation et Métier-->
-                    <h3 class="titreForm">Formation et Métier</h3>
-
-                    <!--Niveau d'études-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.niveauEtude) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.niveauEtude) }}
-                        </div>
+                    <div class="bloc_form telPortable margbloc">
+                        {{ form_widget(edit_form.telPortable,{'attr':{}}) }}
+                        <label for="{{ edit_form.telPortable.vars.id }}"
+                        class="{{ edit_form.telPortable.vars.required ? 'required' : '' }} custom_label ">
+                        Numéro du portable
+                        </label>
+                        <span class="border"></span>
                     </div>
+                </div>
+            </div>
+        </div>
 
-
-                    <!--Catégorie sociopro-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.categorieSocioPro) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.categorieSocioPro) }}
-                        </div>
-                    </div>
-
-
-                    <!--Diplôme professionnel-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.diplomePro) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.diplomePro) }}
-                        </div>
-                    </div>
-
-
-                    <!--Métier-->
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.metier) }}
-                        </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.metier) }}
-                        </div>
-                    </div>
-
-
-                    <!-- Expérience-->
-                    <h3 class="titreForm">Expérience</h3>
-
-                    <!--Durée-->
-                    {#<select class="selectpicker" multiple title="Expérience..">
-                        <option>0</option>
-                        <option>Moins de 1 ans</option>
-                        <option>1 à 3 ans</option>
-                        <option>3 à 5 ans</option>
-                        <option>5 ans et plus</option>
-                    </select>#}
-
-                    <!--Dernier poste : entreprise-->
-                    {#<div class="form-group">
-                        <label for="dPoste"></label>
-                        <input type="text" class="form-control" id="dPoste" placeholder="Dernier poste occupé ..">
-                    </div>#}
-
-
-                    <!--Permis-->
-                    <div class="form-group inline">
-                        <div class="left">
+        <div class ="column_2">
+            <h4>Mobilité :</h4>
+            <div class="block_sub_ mobilite">
+                <div class="box_locomotion">
+                    <div class="permis bloc_form">
+                        <div class="indice_permisC">
                             {{ form_label(edit_form.permisConduire) }}
                         </div>
-                        <div class="right">
+                        <div class="detail_permisC">
                             {{ form_widget(edit_form.permisConduire) }}
                         </div>
                     </div>
-
-                    <div class="form-group inline">
-                        <div class="left">
-                            {{ form_label(edit_form.typePermisConduire) }}
+                    <div class="type bloc_form typePermis margbloc">
+                        {{ form_widget(edit_form.typePermisConduire) }}
+                        <label for="{{ edit_form.typePermisConduire.vars.id }}"
+                        class="{{ edit_form.typePermisConduire.vars.required ? 'required' : '' }} custom_label ">
+                        Type de permis?
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                </div>
+                <div class="box_locomotion">
+                    <div class="type bloc_form moyenL">
+                        <div class="indice_moyenL">
+                            <label for="{{ edit_form.moyenLocomotion.vars.id }}"
+                            class="{{ edit_form.moyenLocomotion.vars.required ? 'required' : '' }} ">
+                            Moy. de transport:
+                            </label>
                         </div>
-                        <div class="right">
-                            {{ form_widget(edit_form.typePermisConduire) }}
+                        <div class="detail_moyenL">
+                            {{ form_widget(edit_form.moyenLocomotion,{'attr':{'class':'custom_select'}}) }}
                         </div>
                     </div>
-
-
-                    <!--Moyen de locomation-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.moyenLocomotion) }}
-                        {{ form_widget(edit_form.moyenLocomotion) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(edit_form.moyenLocomotionAutre) }}
+                    <div class="type bloc_form autreM margbloc">
                         {{ form_widget(edit_form.moyenLocomotionAutre) }}
+                        <label for="{{ edit_form.moyenLocomotionAutre.vars.id }}"
+                        class="{{ edit_form.moyenLocomotionAutre.vars.required ? 'required' : '' }} custom_label ">
+                        Autre
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                </div>
+            </div>
+            <h4>Ressource :</h4>
+            <div class="block_sub ressource">
+                <div class="bloc_form box_ressource margbloc">
+                    <div class="id">
+                        {{ form_widget(edit_form.idPoleEmploi, {'attr':{}}) }}
+                        <label for="{{ edit_form.idPoleEmploi.vars.id }}"
+                        class="{{ edit_form.idPoleEmploi.vars.required ? 'required' : '' }} custom_label ">
+                        Id. Pôle Emploi
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                    <div class="referent">
+                        {{ form_widget(edit_form.referent, {'attr':{}}) }}
+                        <label for="{{ edit_form.referent.vars.id }}"
+                        class="{{ edit_form.referent.vars.required ? 'required' : '' }} custom_label ">
+                        Référent Pôle Emploi
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                </div>
+                <div class="bloc_form box_ressource">
+                    <div class="autorisationTravail inline">
+                        <div class="indice_autorisationTr">
+                            {{ form_label(edit_form.autorisationTravail) }}
+                        </div>
+                        <div class="detail_autorisationTr">
+                            {{ form_widget(edit_form.autorisationTravail) }}
+                        </div>
+                    </div>
+                    <div class="rqth">
+                        <div class="indice_rqth">
+                            {{ form_label(edit_form.rqth) }}
+                        </div>
+                        <div class="detail_rqth">
+                            {{ form_widget(edit_form.rqth) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="bloc_form box_ressource">
+                    <div class="alloc">
+                        <div class="incide_allo">
+                            <label for="{{ edit_form.allocation.vars.id }}"
+                            class="{{ edit_form.allocation.vars.required ? 'required' : '' }} ">
+                            Allocation:
+                            </label>
+                        </div>
+                        <div class="detail_allo">
+                            {{ form_widget(edit_form.allocation,{'attr': {'class':'custom_select'}}) }}
+                        </div>
+                    </div>
+                    <div class="allocAutre margbloc">
+                        {{ form_widget(edit_form.allocationAutre, {'attr':{}}) }}
+                        <label for="{{ edit_form.allocationAutre.vars.id }}"
+                        class="{{ edit_form.allocationAutre.vars.required ? 'required' : '' }} custom_label ">
+                        Autre allocation
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                </div>
+                <div class="bloc_form box_ressource">
+                    <div class="structure margbloc">
+                        {{ form_widget(edit_form.structure, {'attr':{}}) }}
+                        <label for="{{ edit_form.structure.vars.id }}"
+                        class="{{ edit_form.structure.vars.required ? 'required' : '' }} custom_label ">
+                        Structure
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                    <div class="metier margbloc">
+                        {{ form_widget(edit_form.metier, {'attr':{}}) }}
+                        <label for="{{ edit_form.metier.vars.id }}"
+                        class="{{ edit_form.metier.vars.required ? 'required' : '' }} custom_label ">
+                        Métier
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                </div>
+            </div>
+            <h4>Formations :</h4>
+            <div class="block formation">
+                <div class="block_sub">
+                    <div class="niveau bloc_form ">
+                        <div class="indice_niv font-size: 14px">
+                            <label for="{{ edit_form.niveauEtude.vars.id }}"
+                            class="{{ edit_form.niveauEtude.vars.required ? 'required' : '' }} nivEtlabel">
+                            Niv. d’étude:
+                            </label>
+                        </div>
+                        <div class="detail_niv">
+                            {{ form_widget(edit_form.niveauEtude,{'attr': {'class':'custom_select'}})}}
+                        </div>
                     </div>
 
+                    <div class="cat_socio bloc_form">
+                        <div class="indice_cat_socio">
+                            <label for="{{ edit_form.categorieSocioPro.vars.id }}"
+                            class="{{ edit_form.categorieSocioPro.vars.required ? 'required' : '' }} cpslabel">
+                            CSP:
+                            </label>
+                        </div>
+                        <div class="detail_cat_socio">
+                            {{ form_widget(edit_form.categorieSocioPro,{'attr': {'class':'custom_select'}})}}
+                        </div>
+                    </div>
 
-                    <!--Commentaire-->
-                    <div class="form-group">
-                        {{ form_label(edit_form.description) }}
+                    <div class="diplome bloc_form margbloc">
+                        {{ form_widget(edit_form.diplomePro)}}
+                        <label for="{{ edit_form.diplomePro.vars.id }}"
+                        class="{{ edit_form.diplomePro.vars.required ? 'required' : '' }} custom_label ">
+                        Diplôme professionel
+                        </label>
+                        <span class="border"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#step_two" class="btnFormNext">
+            <span>Étape suivante</span>
+        </a>
+    </section>
+    <section id="step_two">
+        <div class="inner_section">
+            <div class="content">
+                <div class="block_doc bloc_form">
+
+                    {{ form_widget(edit_form.imageFile, {'attr':{'class': 'inputfile'}})}}
+                    {{ form_label(edit_form.imageFile)}}
+                    <a href="{{ edit_form.diplomePro.vars.id }}">Diplôme professionel</a>
+                </div>
+                <div class="block_compte_rendu shadow">
+                    <div class="bloc1">
+                        <span>Compte Rendu:</span>
+                    </div>
+                    <div class="bloc2">
                         {{ form_widget(edit_form.description) }}
                     </div>
-
-                    
-                </div><!-- End Colonne Droite du Formulaire -->
-
-                  <!-- VALIDER / ANNULER le formulaire -->
-                  <div class="formLeft">
-                        <!--Annuler-->
-                        {#<div class="">
-                            <a href=""><div type="button" class="btn-edit">Annuler</div></a>
-                        </div>#}
-
-                        <!--Valider-->
-                        <div class="">
-                            {{ form_widget(edit_form) }}
-                                <input type="submit" value="Éditer" class="btn-edit"/>
-                            {{ form_end(edit_form) }}
-                        </div>
-                        <ul>
-                            <li>
-                                <a href="{{ path('demandeur_index') }}"><div type="submit" value="Retour à la liste" class="btn-edit">Retour à la liste</div></a>
-                            </li>
-                            <li>
-                                {{ form_start(delete_form) }}
-                                    <div type="submit" value="Supprimer" class="btn-edit">Supprimer</div>
-                                {{ form_end(delete_form) }}
-                            </li>
-                        </ul>
-                  </div>
-                
                 </div>
-                {{ form_end(edit_form) }}
-                
+                <div class="block_btn">
+                    <div class="inner_block_btn">
+                        <a href="{{ path('demandeur_index') }}" class="btn_back">
+                            <span>Retour à la liste</span>
+                        </a>
+                        <div class='btn_create'>
+                            <input type="submit" value="Valider"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="link_back">
+                    <a href="#step_one" class="btnFormBack">
+                        <span>Étape précédent</span>
+                    </a>
+                </div>
             </div>
+        </div>
+    </section>
 
-    {#{{ form_start(edit_form) }}
-     <div class="bloc_form facien">
-		{{ form_label(form.facien) }}
-		{{ form_widget(form.facien,{ 'attr': {'disabled':true, 'value':user, class:'' }}) }}
-	</div>
-	{{ form_widget(edit_form) }}
-        <input type="submit" value="Éditer" />
-    {{ form_end(edit_form) }}#}
+{{ form_end(edit_form) }}
 
 {% endblock %}

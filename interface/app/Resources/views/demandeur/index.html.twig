@@ -5,73 +5,80 @@
 {% block job_hunter %}
     <div class="block_search" ng-controller="searchCtrl">
       <div class="inner_block_search">
-        <div class="search shadow">
-          <form class="">
-            <button type="submit" name="button"></button>
-            <input ng-model="query" type="search" name="" value="" placeholder="Recherche...">
-            <div class="filter_by">
+          <div class="box_search">
+            <div class="search shadow">
+              <form class="">
+                <button type="submit" name="button"></button>
+                <input ng-model="query" type="search" name="" value="" placeholder="Recherche...">
+                <div class="filter_by">
 
-              <select class="" name="" ng-init = "selected = sltOptsSort[0]" ng-options = " select_opt.name for select_opt in sltOptsSort" ng-model = "selected">
+                  <select class="" name="" ng-init = "selected = sltOptsSort[0]" ng-options = " select_opt.name for select_opt in sltOptsSort" ng-model = "selected">
 
-              </select>
+                  </select>
+                </div>
+              </form>
             </div>
-          </form>
-        </div>
+            <div class="option_filter">
+                <i class="fa fa-cog"></i>
+            </div>
+
+          </div>
           <div class="filter_block">
             <div class="form_filter">
                 <form>
                     <div class="filter_group">
+                        <i class="fa fa-times"></i>
                         <div class="blfilter">
-                            <label for="">Permis</label>
-                            <select ng-init = "permisSelect = trueFalse[0]" ng-model="permisSelect" ng-options = "answer.name for answer in trueFalse">
+                            <label for="">Permis:</label>
+                            <select ng-init = "permisSelect = trueFalse[0]" ng-model="permisSelect" ng-options = "answer.name for answer in trueFalse" class="custom_select_filter">
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">Type de permis</label>
-                            <select  ng-init = "tpermisSelect = typePermisDb[0]" ng-model = "tpermisSelect" ng-options = "itemPermis for itemPermis in typePermisDb">
+                            <label for="">Type de permis:</label>
+                            <select  ng-init = "tpermisSelect = typePermisDb[0]" ng-model = "tpermisSelect" ng-options = "itemPermis for itemPermis in typePermisDb" class="custom_select_filter">
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">QPV</label>
-                            <select ng-init = "qpvSelect = qpvSort[0]" ng-model = "qpvSelect" ng-options = "quatier.name for quatier in qpvSort">
+                            <label for="">QPV:</label>
+                            <select ng-init = "qpvSelect = qpvSort[0]" ng-model = "qpvSelect" ng-options = "quatier.name for quatier in qpvSort" class="custom_select_filter">
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">RQTH</label>
-                            <select ng-init = "rqthSelect = trueFalse[0]" ng-model = "rqthSelect" ng-options = " rqth.name for rqth in trueFalse">
+                            <label for="">RQTH:</label>
+                            <select ng-init = "rqthSelect = trueFalse[0]" ng-model = "rqthSelect" ng-options = " rqth.name for rqth in trueFalse" class="custom_select_filter">
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">Genre</label>
-                            <select class="" name="" ng-init = "genreSelect = genreSort[0]" ng-model = "genreSelect" ng-options = "genre.name for genre in genreSort">
+                            <label for="">Genre:</label>
+                            <select name="" ng-init = "genreSelect = genreSort[0]" ng-model = "genreSelect" ng-options = "genre.name for genre in genreSort" class="custom_select_filter">
 
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">Métier</label>
-                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb">
+                            <label for="">Métier:</label>
+                            <select  ng-init = "metierSelect = metierDb[0]" ng-model = "metierSelect" ng-options = "metier for metier in metierDb" class="custom_select_filter">
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">Niveau d'étude</label>
-                            <select  ng-model = "diplome">
+                            <label for="">Niv. d'étude:</label>
+                            <select  ng-model = "diplome" class="custom_select_filter">
                               <option value = "">Tous</option>
                               <option value = "! + SD">Avec</option>
                               <option value = "SD">Sans</option>
                             </select>
                         </div>
                         <div class="blfilter">
-                            <label for="">Référent</label>
-                            <select  ng-init = "referentSelect = referentDb[0]" ng-model = "referentSelect" ng-options = "referent for referent in referentDb">
+                            <label for="">Référent:</label>
+                            <select  ng-init = "referentSelect = referentDb[0]" ng-model = "referentSelect" ng-options = "referent for referent in referentDb" class="custom_select_filter">
                             </select>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="spacer_filter"></div>
+            <!--<div class="spacer_filter"></div>
             <div class="toggle_filter">
               <span>Fermer le filtre de recherche</span>
-            </div>
+            </div> -->
           </div>
         <div class="container_search">
           <div class="row_search shadow">
