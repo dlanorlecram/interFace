@@ -12,10 +12,11 @@ $(document).ready(function(){
 **/
 
 $('.option_filter i').click(function(){
-    $('.filter_group').show();
+    $('.filter_group').css('visibility','visible');
 });
 $('.filter_group i').click(function(){
-    $('.filter_group').hide();
+
+    $('.filter_group').css('visibility','hidden');
 });
 
 /**

@@ -733,6 +733,7 @@ visibility: visible;
     background-color: #FFF;
     box-shadow: 0 1px 10px 0 #c0c0c0;
     padding: 15px;
+    visibility: hidden;
 }
 
 .filter_group i{
@@ -772,6 +773,7 @@ visibility: visible;
     font-size: 12px;
     margin-right: 0px;
     padding-right: 10px;
+    color: #828282;
 }
 
 .blfilter select{
