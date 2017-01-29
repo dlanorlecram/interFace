@@ -8,7 +8,7 @@ final class DemandeurMoyenLocomotion extends AbstractEnumType
     const VOITURE      = 'V';
     const MOTOCYCLETTE = 'M';
     const SCOOTER      = 'S';
-    const VELO         = 'V';
+    const VELO         = 'VE';
     const BUS          = 'B';
     const AUTRE        = 'Au';
     const AUCUN        = 'Ac';
