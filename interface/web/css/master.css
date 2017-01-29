@@ -2094,3 +2094,38 @@ input[type=number] {
 .vich-file input{
     cursor: pointer;
 }
+
+/* ICON MENU*/
+.menu_item{
+    position: relative;
+}
+
+.menu_item:first-child:before{
+    content:'\f015';
+    font-family: 'Fontawesome';
+    font-size: 18px;
+    position: absolute;
+    left: 26px;
+    top: -2px;
+    color: #15696F;
+}
+
+.menu_item:nth-child(2):before{
+    content:'\f2bd';
+    font-family: 'Fontawesome';
+    font-size: 18px;
+    position: absolute;
+    left: 26px;
+    top: -1px;
+    color: #15696F;
+}
+
+.menu_item:nth-child(3):before{
+    content:'\f006';
+    font-family: 'Fontawesome';
+    font-size: 18px;
+    position: absolute;
+    left: 26px;
+    top: -1px;
+    color: #15696F;
+}
