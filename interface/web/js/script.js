@@ -7,25 +7,27 @@ $(document).ready(function(){
     $('.menu_option li').find('.show_submenu').removeClass('show_submenu');
     $(this).find("div").addClass('show_submenu');
   });
+
+
 /**
 * Toggle fermer filtre
 **/
 
-$('.option_filter i').click(function(){
-    $('.filter_group').css('visibility','visible');
-});
-$('.filter_group i').click(function(){
+    $('.option_filter i').click(function(){
+        $('.filter_group').css('visibility','visible');
+    });
 
-    $('.filter_group').css('visibility','hidden');
-});
+    $('.filter_group i').click(function(){
+        $('.filter_group').css('visibility','hidden');
+    });
 
 /**
 *   CHECKBOX
 **/
-var statusCheckBoxPermisC = $("#appbundle_demandeur_permisConduire");
-var statusCheckBoxQpv = $("input[id = appbundle_demandeur_QPV]");
-var statusSelectAllo = $('select[id=appbundle_demandeur_allocation]');
-var statusMoyenLoco = $('select[id=appbundle_demandeur_moyenLocomotion]');
+    var statusCheckBoxPermisC = $("#appbundle_demandeur_permisConduire");
+    var statusCheckBoxQpv = $("input[id = appbundle_demandeur_QPV]");
+    var statusSelectAllo = $('select[id=appbundle_demandeur_allocation]');
+    var statusMoyenLoco = $('select[id=appbundle_demandeur_moyenLocomotion]');
 
     if(statusCheckBoxPermisC.is(':checked') != true){
         $('.typePermis').css('visibility','hidden');
@@ -43,51 +45,64 @@ var statusMoyenLoco = $('select[id=appbundle_demandeur_moyenLocomotion]');
         $('.autreM').css('visibility','hidden');
     }
 
-statusCheckBoxPermisC.change(function(){
-    statusCheckBoxPermisC.is(':checked') == true ? $('.typePermis').css('visibility','visible') : $('.typePermis').css('visibility','hidden');
-});
+    statusCheckBoxPermisC.change(function(){
+        statusCheckBoxPermisC.is(':checked') == true ? $('.typePermis').css('visibility','visible') : $('.typePermis').css('visibility','hidden');
+    });
 
-statusCheckBoxQpv.change(function(){
-    statusCheckBoxQpv.is(':checked') == true ? $('.qpvnom').css('visibility','visible') : $('.qpvnom').css('visibility','hidden');
-});
+    statusCheckBoxQpv.change(function(){
+        statusCheckBoxQpv.is(':checked') == true ? $('.qpvnom').css('visibility','visible') : $('.qpvnom').css('visibility','hidden');
+    });
 
-statusSelectAllo.change(function(){
-    statusSelectAllo.val() == "Au" ? $('.allocAutre').css('visibility','visible') : $('.allocAutre').css('visibility','hidden');
-});
+    statusSelectAllo.change(function(){
+        statusSelectAllo.val() == "Au" ? $('.allocAutre').css('visibility','visible') : $('.allocAutre').css('visibility','hidden');
+    });
 
-statusMoyenLoco.change(function(){
-    statusMoyenLoco.val() == "Au" ? $('.autreM').css('visibility','visible') : $('.autreM').css('visibility','hidden');
-});
+    statusMoyenLoco.change(function(){
+        statusMoyenLoco.val() == "Au" ? $('.autreM').css('visibility','visible') : $('.autreM').css('visibility','hidden');
+    });
 
 /**
 *   END CHECKBOX
 **/
-var $input = $('input[type=text]');
 
-$input
-
-    .each(function(){
-        let valeur = $(this).val();
-    if( valeur.length > 0 ){
-        console.log('charged');
-        $(this).addClass('input_touched');
+    var input = $('.content_dashboard input[type=text]');
+    var input_login = $('#login_session input[type=text],#login_session input[type=password]');
+    var element = false;
+    var classAdd = false;
+    if($("div.content_dashboard").length){
+        console.log("trouvé!")
+        element = input;
+        classAdd = "input_touched";
+        console.log(element);
     }
-    else{
-        console.log('decharged');
-        $(this).removeClass('input_touched');
+    if($("div #login_session").length){
+        element = input_login;
+        console.log("frfer");
+        classAdd = "input_login_touched";
     }
-    })
-    .focus(function(){
-        $(this).addClass('input_touched');
-    })
-    .blur(function(){
-        let valeurOut = $(this).val()
-        console.log(valeurOut)
-        if(valeurOut === ''){
-            $(this).removeClass('input_touched');
+    element
+        .each(function(){
+            let valeur = $(this).val();
+        if( valeur.length > 0 ){
+            console.log('charged');
+            $(this).addClass(classAdd);
         }
+        else{
+            console.log('decharged');
+            $(this).removeClass(classAdd);
+        }
+        })
+        .focus(function(){
+            $(this).addClass(classAdd);
+        })
+        .blur(function(){
+            let valeurOut = $(this).val()
+            console.log(valeurOut)
+            if(valeurOut === ''){
+                $(this).removeClass(classAdd);
+            }
 
-    })
+        })
 
 // $input.on('ready keydown keyup focus blur', function() {
 //     if($(this).val() != '') {
