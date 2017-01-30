@@ -1,10 +1,59 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
 {% block users_list %}
-{{ form_start(form, { 'attr': { 'class': 'app_users_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="Enregistrer" />
+<div class="container_user_useredit">
+    <div class="fos_user_useredit shadow">
+      {{ form_start(form,{ 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+        <div class="box_profil_user">
+            <div class="PEdit margbloc">
+                {{ form_widget(form.prenom) }}
+                <label for="{{ form.prenom.vars.id }}"
+                class="{{ form.prenom.vars.required ? 'required' : '' }} custom_label">
+                Prénom
+                </label>
+                <span class="border"></span>
+            </div>
+      		<div class="NEdit">
+                {{ form_widget(form.nom) }}
+                <label for="{{ form.nom.vars.id }}"
+                class="{{ form.nom.vars.required ? 'required' : '' }} custom_label">
+                Nom
+                </label>
+                <span class="border"></span>
+            </div>
+            <div class="box_role" >
+                <label for="{{ form.roles.vars.id }}"
+                class="{{ form.roles.vars.required ? 'required' : '' }}">
+                Roles:
+                </label>
+                {{ form_widget(form.roles, {'attr':{'class':'selectRole' }}) }}
+            </div>
+            <div class="box_enabled margbloc" >
+                <label for="{{ form.enabled.vars.id }}"
+                class="{{ form.roles.vars.required ? 'required' : '' }}">
+                Activation du compte:
+            </label>
+                {{ form_widget(form.enabled) }}</>
+            </div>
+            <div class="box_btn">
+                <div class="btn_edit">
+                    <input type="submit" value="Enregistrer" />
+                </div>
+            </div>
+        </div>
+      {{ form_end(form) }}
     </div>
-{{ form_end(form) }}
+</div>
+
+
+
+
+
+
+{#{ form_start(form, { 'attr': { 'class': 'app_users_edit' } }) }#}
+    {#{ form_widget(form) }#}
+<!--     <div>
+    <input type="submit" value="Enregeistrer" />
+</div> -->
+{#{ form_end(form) }#}
 {% endblock users_list %}
