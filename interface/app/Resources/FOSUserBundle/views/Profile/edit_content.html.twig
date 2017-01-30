@@ -3,24 +3,49 @@
 <div class="container_user_user_show">
     <div class="fos_user_user_show">
       {{ form_start(form,{ 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-      	<div class="user_status">
-      		<div class="PNEdit">{{ form_widget(form.prenom) }} {{ form_widget(form.nom) }}</div>
-      		<div class="untitle_status">
-                  <p>Rôle:
+      	<!-- <div class="user_status">
+      	    <div class="untitle_status">
+      	                  <p>Rôle:
 
-      					<div class="">
-      					   form_widget(form) }
-      					</div>
+      	                <div class="user_role">
+      	                  {#{form_widget(form)}#}
+      	                </div>
 
-                  </p>
-      		</div>
-      	</div>
+      	                  </p>
+      	    </div>
+      	</div> -->
         <div class="box_profil_user">
-            <div class="box_email">
-                <p>Adresse email: {{ form_widget(form.email) }}</p>
+            <div class="PEdit margbloc">
+                {{ form_widget(form.prenom) }}
+                <label for="{{ form.prenom.vars.id }}"
+                class="{{ form.prenom.vars.required ? 'required' : '' }} custom_label">
+                Prénom
+                </label>
+                <span class="border"></span>
+            </div>
+      		<div class="NEdit">
+                {{ form_widget(form.nom) }}
+                <label for="{{ form.nom.vars.id }}"
+                class="{{ form.nom.vars.required ? 'required' : '' }} custom_label">
+                Nom
+                </label>
+                <span class="border"></span>
+            </div>
+            <div class="box_email margbloc" >
+                {{ form_widget(form.email) }}</>
+                <label for="{{ form.email.vars.id }}"
+                class="{{ form.email.vars.required ? 'required' : '' }} custom_label">
+                Adresse e-mail
+                </label>
+                <span class="border"></span>
             </div>
             <div class="box_password">
-                <p>Mot de passe: {{ form_widget( form.current_password ) }}</p>
+                {{ form_widget( form.current_password ) }}
+                <label for="{{ form.current_password.vars.id }}"
+                class="{{ form.current_password.vars.required ? 'required' : '' }} custom_label">
+                Mot de passe
+                </label>
+                <span class="border"></span>
             </div>
             <div class="box_btn">
                 <div class="btn_Mdepasse">
@@ -36,14 +61,9 @@
 </div>
 
 
-
-
-
-
-
-<!--{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-     {{ form_widget(form) }}
+<!--{#{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }#}
+     {#{ form_widget(form) }#}
     <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+        <input type="submit" value="{#{ 'profile.edit.submit'|trans }#}" />
     </div>
 {{ form_end(form) }}-->
