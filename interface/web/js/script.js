@@ -65,7 +65,7 @@ $(document).ready(function(){
 *   END CHECKBOX
 **/
 
-    var input = $('.content_dashboard input[type=text]');
+    var input = $('.content_dashboard input[type=text], .content_dashboard input[type=email], .content_dashboard input[type=password]');
     var input_login = $('#login_session input[type=text],#login_session input[type=password]');
     var element = false;
     var classAdd = false;
