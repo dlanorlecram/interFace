@@ -18,12 +18,17 @@
           {% if csrf_token %}
               <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
           {% endif %}
+          <div class="box_form_input_login margbloc">
+              <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+              <label for="username" class="custom_label">Adresse E-mail</label>
+              <span class="border_login"></span>
+          </div>
 
-          <label for="username">Adresse E-mail</label>
-          <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-
-          <label for="password">{{ 'security.login.password'|trans }}</label>
-          <input type="password" id="password" name="_password" required="required" />
+          <div class="box_form_input_login">
+              <input type="password" id="password" name="_password" required="required" />
+              <label for="password" class="custom_label">{{ 'security.login.password'|trans }}</label>
+              <span class="border_login"></span>
+          </div>
 
           <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
 
