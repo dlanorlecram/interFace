@@ -3,7 +3,8 @@
 {% block users_list %}
 <div class="container_user_useredit">
     <div class="fos_user_useredit shadow">
-      {{ form_start(form,{ 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
+      {{ form_start(form, { 'attr': { 'class': 'app_users_edit' } }) }}
+      {#{ form_start(form,{ 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }#}
         <div class="box_profil_user">
             <div class="PEdit margbloc">
                 {{ form_widget(form.prenom) }}
